@@ -1,0 +1,56 @@
+23:49:12.040 [main] INFO  com.lew.jlight.web.Application - Starting Application on Joe-PC with PID 4024 (E:\lnshjyh\rd\devEnv\workspace_keep\Jlight\jlight-web\target\classes started by Administrator in E:\lnshjyh\rd\devEnv\workspace_keep\Jlight\jlight-web)
+23:49:12.082 [main] INFO  com.lew.jlight.web.Application - The following profiles are active: dev
+23:49:21.204 [main] INFO  com.lew.jlight.web.Application - Started Application in 9.846 seconds (JVM running for 11.644)
+23:50:15.299 [http-nio-8089-exec-9] INFO  com.lew.jlight.web.aop.LoginAop - URL : http://localhost:8089/login
+23:50:15.303 [http-nio-8089-exec-9] INFO  com.lew.jlight.web.aop.LoginAop - HTTP_METHOD : POST
+23:50:15.304 [http-nio-8089-exec-9] INFO  com.lew.jlight.web.aop.LoginAop - IP : 0:0:0:0:0:0:0:1
+23:50:15.304 [http-nio-8089-exec-9] INFO  com.lew.jlight.web.aop.LoginAop - CLASS_METHOD : com.lew.jlight.web.controller.LoginController.doLogin
+23:50:15.304 [http-nio-8089-exec-9] INFO  com.lew.jlight.web.aop.LoginAop - ARGS : [admin, 123456, {}]
+23:51:53.815 [http-nio-8089-exec-8] INFO  com.lew.jlight.web.entity.WebLog - URL : http://localhost:8089/user/list
+23:51:53.816 [http-nio-8089-exec-8] INFO  com.lew.jlight.web.entity.WebLog - HTTP_METHOD : POST
+23:51:53.816 [http-nio-8089-exec-8] INFO  com.lew.jlight.web.entity.WebLog - IP : 0:0:0:0:0:0:0:1
+23:51:53.816 [http-nio-8089-exec-8] INFO  com.lew.jlight.web.entity.WebLog - CLASS_METHOD : com.lew.jlight.web.controller.UserController.list
+23:51:54.108 [http-nio-8089-exec-8] INFO  com.lew.jlight.web.entity.WebLog - ARGS : [{"page":{"resultCount":0,"pageSize":10,"pageCount":1,"pageNo":1,"firstIndex":0,"lastIndex":10,"firstPage":true,"lastPage":true},"param":null}]
+23:51:54.378 [http-nio-8089-exec-8] INFO  com.lew.jlight.web.entity.WebLog - RESPONSE DATA : {"data":[{"trueName":"admin","isLock":0,"loginTime":1488124216000,"createTime":1460719418000,"loginIp":"0:0:0:0:0:0:0:1","mobile":"13428281893","updateTime":1463074084000,"remark":null,"userId":"1","account":"admin","email":"123456@qq.com"},{"trueName":"测试员","isLock":0,"loginTime":1481359228000,"createTime":1481359170000,"loginIp":"0:0:0:0:0:0:0:1","mobile":"13428281876","updateTime":1481359170000,"remark":null,"userId":"526508814813591700456","account":"test","email":"1234562@qq.com"}],"page":{"resultCount":2,"pageSize":10,"pageCount":1,"pageNo":1,"firstIndex":0,"lastIndex":10,"firstPage":true,"lastPage":true},"code":0,"msg":null}
+23:52:57.883 [http-nio-8089-exec-2] INFO  com.lew.jlight.web.entity.WebLog - URL : http://localhost:8089/role/list
+23:52:57.883 [http-nio-8089-exec-2] INFO  com.lew.jlight.web.entity.WebLog - HTTP_METHOD : POST
+23:52:57.884 [http-nio-8089-exec-2] INFO  com.lew.jlight.web.entity.WebLog - IP : 0:0:0:0:0:0:0:1
+23:52:57.884 [http-nio-8089-exec-2] INFO  com.lew.jlight.web.entity.WebLog - CLASS_METHOD : com.lew.jlight.web.controller.RoleController.list
+23:52:57.885 [http-nio-8089-exec-2] INFO  com.lew.jlight.web.entity.WebLog - ARGS : [{"page":{"resultCount":0,"pageSize":10,"pageCount":1,"pageNo":1,"firstIndex":0,"lastIndex":10,"firstPage":true,"lastPage":true},"param":null}]
+23:52:58.005 [http-nio-8089-exec-2] INFO  com.lew.jlight.web.entity.WebLog - RESPONSE DATA : {"data":[{"isDelete":0,"createBy":"0","createTime":1460719260000,"updateBy":"0","updateTime":1478615633000,"remark":"超级管理员","roleId":"1","name":"超级管理员","sign":"admin"},{"isDelete":0,"createBy":null,"createTime":1478535331000,"updateBy":null,"updateTime":1481037081000,"remark":null,"roleId":"1478540596277","name":"测试","sign":"test"}],"page":{"resultCount":2,"pageSize":10,"pageCount":1,"pageNo":1,"firstIndex":0,"lastIndex":10,"firstPage":true,"lastPage":true},"code":0,"msg":null}
+23:54:50.823 [http-nio-8089-exec-21] INFO  com.lew.jlight.web.entity.WebLog - URL : http://localhost:8089/user/list
+23:54:50.824 [http-nio-8089-exec-21] INFO  com.lew.jlight.web.entity.WebLog - HTTP_METHOD : POST
+23:54:50.824 [http-nio-8089-exec-21] INFO  com.lew.jlight.web.entity.WebLog - IP : 0:0:0:0:0:0:0:1
+23:54:50.824 [http-nio-8089-exec-21] INFO  com.lew.jlight.web.entity.WebLog - CLASS_METHOD : com.lew.jlight.web.controller.UserController.list
+23:54:50.824 [http-nio-8089-exec-21] INFO  com.lew.jlight.web.entity.WebLog - ARGS : [{"page":{"resultCount":0,"pageSize":10,"pageCount":1,"pageNo":1,"firstIndex":0,"lastIndex":10,"firstPage":true,"lastPage":true},"param":null}]
+23:54:50.912 [http-nio-8089-exec-21] INFO  com.lew.jlight.web.entity.WebLog - RESPONSE DATA : {"data":[{"trueName":"admin","isLock":0,"loginTime":1488124216000,"createTime":1460719418000,"loginIp":"0:0:0:0:0:0:0:1","mobile":"13428281893","updateTime":1463074084000,"remark":null,"userId":"1","account":"admin","email":"123456@qq.com"},{"trueName":"测试员","isLock":0,"loginTime":1481359228000,"createTime":1481359170000,"loginIp":"0:0:0:0:0:0:0:1","mobile":"13428281876","updateTime":1481359170000,"remark":null,"userId":"526508814813591700456","account":"test","email":"1234562@qq.com"}],"page":{"resultCount":2,"pageSize":10,"pageCount":1,"pageNo":1,"firstIndex":0,"lastIndex":10,"firstPage":true,"lastPage":true},"code":0,"msg":null}
+23:54:53.710 [http-nio-8089-exec-3] INFO  com.lew.jlight.web.entity.WebLog - URL : http://localhost:8089/role/list
+23:54:53.710 [http-nio-8089-exec-3] INFO  com.lew.jlight.web.entity.WebLog - HTTP_METHOD : POST
+23:54:53.710 [http-nio-8089-exec-3] INFO  com.lew.jlight.web.entity.WebLog - IP : 0:0:0:0:0:0:0:1
+23:54:53.710 [http-nio-8089-exec-3] INFO  com.lew.jlight.web.entity.WebLog - CLASS_METHOD : com.lew.jlight.web.controller.RoleController.list
+23:54:53.711 [http-nio-8089-exec-3] INFO  com.lew.jlight.web.entity.WebLog - ARGS : [{"page":{"resultCount":0,"pageSize":10,"pageCount":1,"pageNo":1,"firstIndex":0,"lastIndex":10,"firstPage":true,"lastPage":true},"param":null}]
+23:54:53.852 [http-nio-8089-exec-3] INFO  com.lew.jlight.web.entity.WebLog - RESPONSE DATA : {"data":[{"isDelete":0,"createBy":"0","createTime":1460719260000,"updateBy":"0","updateTime":1478615633000,"remark":"超级管理员","roleId":"1","name":"超级管理员","sign":"admin"},{"isDelete":0,"createBy":null,"createTime":1478535331000,"updateBy":null,"updateTime":1481037081000,"remark":null,"roleId":"1478540596277","name":"测试","sign":"test"}],"page":{"resultCount":2,"pageSize":10,"pageCount":1,"pageNo":1,"firstIndex":0,"lastIndex":10,"firstPage":true,"lastPage":true},"code":0,"msg":null}
+23:54:59.843 [http-nio-8089-exec-16] INFO  com.lew.jlight.web.entity.WebLog - URL : http://localhost:8089/role/detail
+23:54:59.844 [http-nio-8089-exec-16] INFO  com.lew.jlight.web.entity.WebLog - HTTP_METHOD : POST
+23:54:59.844 [http-nio-8089-exec-16] INFO  com.lew.jlight.web.entity.WebLog - IP : 0:0:0:0:0:0:0:1
+23:54:59.844 [http-nio-8089-exec-16] INFO  com.lew.jlight.web.entity.WebLog - CLASS_METHOD : com.lew.jlight.web.controller.RoleController.detail
+23:54:59.847 [http-nio-8089-exec-16] INFO  com.lew.jlight.web.entity.WebLog - ARGS : ["1"]
+23:54:59.989 [http-nio-8089-exec-16] INFO  com.lew.jlight.web.entity.WebLog - RESPONSE DATA : {"data":{"isDelete":0,"createBy":"0","createTime":1460719260000,"updateBy":"0","updateTime":1478615633000,"remark":"超级管理员","roleId":"1","name":"超级管理员","sign":"admin"},"page":null,"code":0,"msg":null}
+23:55:06.387 [http-nio-8089-exec-12] INFO  com.lew.jlight.web.entity.WebLog - URL : http://localhost:8089/role/list
+23:55:06.387 [http-nio-8089-exec-12] INFO  com.lew.jlight.web.entity.WebLog - HTTP_METHOD : POST
+23:55:06.387 [http-nio-8089-exec-12] INFO  com.lew.jlight.web.entity.WebLog - IP : 0:0:0:0:0:0:0:1
+23:55:06.387 [http-nio-8089-exec-12] INFO  com.lew.jlight.web.entity.WebLog - CLASS_METHOD : com.lew.jlight.web.controller.RoleController.list
+23:55:06.388 [http-nio-8089-exec-12] INFO  com.lew.jlight.web.entity.WebLog - ARGS : [{"page":{"resultCount":0,"pageSize":10,"pageCount":1,"pageNo":1,"firstIndex":0,"lastIndex":10,"firstPage":true,"lastPage":true},"param":null}]
+23:55:06.739 [http-nio-8089-exec-12] INFO  com.lew.jlight.web.entity.WebLog - RESPONSE DATA : {"data":[{"isDelete":0,"createBy":"0","createTime":1460719260000,"updateBy":"0","updateTime":1478615633000,"remark":"超级管理员","roleId":"1","name":"超级管理员","sign":"admin"},{"isDelete":0,"createBy":null,"createTime":1478535331000,"updateBy":null,"updateTime":1481037081000,"remark":null,"roleId":"1478540596277","name":"测试","sign":"test"}],"page":{"resultCount":2,"pageSize":10,"pageCount":1,"pageNo":1,"firstIndex":0,"lastIndex":10,"firstPage":true,"lastPage":true},"code":0,"msg":null}
+23:55:12.215 [http-nio-8089-exec-18] INFO  com.lew.jlight.web.entity.WebLog - URL : http://localhost:8089/role/detail
+23:55:12.221 [http-nio-8089-exec-18] INFO  com.lew.jlight.web.entity.WebLog - HTTP_METHOD : POST
+23:55:12.222 [http-nio-8089-exec-18] INFO  com.lew.jlight.web.entity.WebLog - IP : 0:0:0:0:0:0:0:1
+23:55:12.223 [http-nio-8089-exec-18] INFO  com.lew.jlight.web.entity.WebLog - CLASS_METHOD : com.lew.jlight.web.controller.RoleController.detail
+23:55:12.223 [http-nio-8089-exec-18] INFO  com.lew.jlight.web.entity.WebLog - ARGS : ["1"]
+23:55:12.337 [http-nio-8089-exec-18] INFO  com.lew.jlight.web.entity.WebLog - RESPONSE DATA : {"data":{"isDelete":0,"createBy":"0","createTime":1460719260000,"updateBy":"0","updateTime":1478615633000,"remark":"超级管理员","roleId":"1","name":"超级管理员","sign":"admin"},"page":null,"code":0,"msg":null}
+23:55:38.021 [http-nio-8089-exec-28] INFO  com.lew.jlight.web.entity.WebLog - URL : http://localhost:8089/role/list
+23:55:38.021 [http-nio-8089-exec-28] INFO  com.lew.jlight.web.entity.WebLog - HTTP_METHOD : POST
+23:55:38.021 [http-nio-8089-exec-28] INFO  com.lew.jlight.web.entity.WebLog - IP : 0:0:0:0:0:0:0:1
+23:55:38.021 [http-nio-8089-exec-28] INFO  com.lew.jlight.web.entity.WebLog - CLASS_METHOD : com.lew.jlight.web.controller.RoleController.list
+23:55:38.023 [http-nio-8089-exec-28] INFO  com.lew.jlight.web.entity.WebLog - ARGS : [{"page":{"resultCount":0,"pageSize":10,"pageCount":1,"pageNo":1,"firstIndex":0,"lastIndex":10,"firstPage":true,"lastPage":true},"param":null}]
+23:55:38.233 [http-nio-8089-exec-28] INFO  com.lew.jlight.web.entity.WebLog - RESPONSE DATA : {"data":[{"isDelete":0,"createBy":"0","createTime":1460719260000,"updateBy":"0","updateTime":1478615633000,"remark":"超级管理员","roleId":"1","name":"超级管理员","sign":"admin"},{"isDelete":0,"createBy":null,"createTime":1478535331000,"updateBy":null,"updateTime":1481037081000,"remark":null,"roleId":"1478540596277","name":"测试","sign":"test"}],"page":{"resultCount":2,"pageSize":10,"pageCount":1,"pageNo":1,"firstIndex":0,"lastIndex":10,"firstPage":true,"lastPage":true},"code":0,"msg":null}
