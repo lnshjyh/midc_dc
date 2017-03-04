@@ -19,6 +19,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.filter.DelegatingFilterProxy;
 
 import com.google.common.collect.Maps;
+
+import org.cw.midc.shiro.DBSessionManageDao;
 import org.cw.midc.shiro.UserRealm;
 import org.cw.midc.shiro.credentials.RetryLimitHashedCredentialsMatcher;
 import org.cw.midc.shiro.filter.FormLoginFilter;
@@ -109,7 +111,14 @@ public class ShiroConfig{
         sessionManager.setDeleteInvalidSessions(true);
         sessionManager.setSessionValidationSchedulerEnabled(true);
         sessionManager.setDeleteInvalidSessions(true);
+        sessionManager.setSessionDAO(dbSessionManage());
         return sessionManager;
+    }
+    
+    @Bean
+    public DBSessionManageDao dbSessionManage() {
+    	DBSessionManageDao dbm = new DBSessionManageDao();
+        return dbm;
     }
 
     @Bean

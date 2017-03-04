@@ -20,7 +20,7 @@ $(function () {
         $(".submenu,#nav_list").find(".active").removeClass("active");
         $(this).parent().addClass("active");
         $("#iframe").attr("src", cid).ready();
-        $("#Bcrumbs").attr("href", cid).ready();
+        $("#breadcrumbs").attr("href", cid).ready();
         $(".Current_page a").attr('href', cid).ready();
         $(".Current_page").html(cname).ready();
         $("#parentIframe").html("").css("display", "none").ready();

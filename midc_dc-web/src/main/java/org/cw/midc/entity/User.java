@@ -2,9 +2,10 @@ package org.cw.midc.entity;
 
 import org.cw.midc.BaseEntity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class User extends BaseEntity {
+public class User extends BaseEntity implements Serializable {
 	
 	private static final long serialVersionUID = 3428451338994126059L;
 

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.cw.midc.entity.DBSession">
+    <resultMap type="org.cw.midc.entity.DBSession" id="DBSession">
+        <result column="sessionid" property="sessionid"/>
+        <result column="session" property="session" jdbcType="BLOB"/>
+    </resultMap>
+
+    <insert id="add" parameterType="org.cw.midc.entity.DBSession">
+        insert into sys_session
+        (sessionid,session)
+        values(#{sessionid}, #{session, jdbcType=BLOB})
+    </insert>
+
+    <update id="update" parameterType="org.cw.midc.entity.DBSession">
+        update sys_session set
+        session=#{session, jdbcType=BLOB}
+        where sessionid = #{sessionid}
+    </update>
+
+    <select id="getDBSessionList"  resultMap="DBSession">
+        select * from sys_session
+    </select>
+
+    <select id="getDBSessionById" parameterType="java.lang.String" resultMap="DBSession">
+        select * from sys_session where sessionid = #{sessionid}
+    </select>
+
+
+    <delete id="deleteBySessionid" parameterType="java.lang.String">
+        delete from sys_session where sessionid = #{sessionid}
+    </delete>
+   
+</mapper>

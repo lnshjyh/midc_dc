@@ -79,16 +79,16 @@ start() {
 
    if [ x"$PID" != x ];then
       echo "==================== Failed! ====================="
-      isJLight=`ps -ef | grep $PID | grep -v grep | grep jlight-web`
+      ismidc_dc=`ps -ef | grep $PID | grep -v grep | grep midc_dc-web`
 
-      if [ x"$isJLight" != x ]; then
-         isThisJLight=`ps -ef | grep $PID | grep -v grep | grep jlight-web | grep "$APP_HOME"`
-         if [ x"$isJLight" != x ]; then
-            echo "========   JLight  is already started!   ========"
+      if [ x"$ismidc_dc" != x ]; then
+         isThismidc_dc=`ps -ef | grep $PID | grep -v grep | grep midc_dc-web | grep "$APP_HOME"`
+         if [ x"$ismidc_dc" != x ]; then
+            echo "========   midc_dc  is already started!   ========"
             echo "========             (pid=$PID)          ========"
 
          else
-            echo "========  Port is used by other JLight!  ========"
+            echo "========  Port is used by other midc_dc!  ========"
             echo "========             (pid=$PID)          ========"
 
          fi
@@ -129,7 +129,7 @@ start() {
             echo -e ".\c"
             PID=$(GET_PID_BY_HTTP_PORT)
          else
-            echo "JLight Server failed to start"
+            echo "midc_dc Server failed to start"
             echo "The port HTTP_PORT doesn't open in ${START_WAIT_TIMEOUT} seconds!"
             echo "check logs/out.log to see the details"
             status
@@ -138,7 +138,7 @@ start() {
       done
 
       echo
-      echo "The process of JLight Server is started: pid=$PID"
+      echo "The process of midc_dc Server is started: pid=$PID"
       echo "Warning! ** It's not equal to success! **"
       echo "Please check logs/out.log to see the final result."
       status
@@ -158,7 +158,7 @@ checkJavaDebugPort() {
       lsof -i :$JAVA_DEBUG_PORT
       echo "===================================================================="
       echo
-      echo "failed to start, try to fix it before starting JLight server:"
+      echo "failed to start, try to fix it before starting midc_dc server:"
       echo "    |-- close the process $PID to free this port $JAVA_DEBUG_PORT."
       echo "    |-- Or change the JAVA_DEBUG_PORT (in this script) to another one."
 
@@ -176,15 +176,15 @@ stop() {
 
    if [ x"$PID" == x ];then
       echo "==================== Failed! ====================="
-      echo "========    Can't find JLight Server!    ========"
+      echo "========    Can't find midc_dc Server!    ========"
       echo "========           (by port=$HTTP_PORT)         ========"
       echo "=================================================="
       status
       return
    fi
 
-   isThisJLight=`ps -ef | grep $PID | grep -v grep | grep jlight-web | grep "$APP_HOME"`
-   if [ x"$isThisJLight" == x ]; then
+   isThismidc_dc=`ps -ef | grep $PID | grep -v grep | grep midc_dc-web | grep "$APP_HOME"`
+   if [ x"$isThismidc_dc" == x ]; then
       echo "==================== Failed! ====================="
       echo "=====   Another Program is using the port!   ====="
       echo "=====               (pid=$PID)              ====="
@@ -194,8 +194,8 @@ stop() {
       return
    fi
 
-   echo "JLight Server is running with port $HTTP_PORT: pid=$PID"
-   echo "trying to stop JLight Server (pid=$PID) ..."
+   echo "midc_dc Server is running with port $HTTP_PORT: pid=$PID"
+   echo "trying to stop midc_dc Server (pid=$PID) ..."
    kill -15 $PID
    sleep 3
    PID=$(GET_PID_BY_HTTP_PORT)
@@ -208,7 +208,7 @@ stop() {
 
    echo
    echo "====================== OK ========================="
-   echo "=====         JLight Server stopped         ====="
+   echo "=====         midc_dc Server stopped         ====="
    echo "==================================================="
    status
 }
@@ -223,11 +223,11 @@ status() {
    echo ""------------------- status -----------------------""
 
    if [ x"$PID" != x ]; then
-      isJLight=`ps -ef | grep $PID | grep -v grep | grep jlight-web`
-      if [ x"$isJLight" != x ]; then
-         isThisJLight=`ps -ef | grep $PID | grep -v grep | grep jlight-web | grep "$APP_HOME"`
-         if [ x"$isThisJLight" != x ]; then
-            echo "      JLight server (pid=$PID) is running and using ports:"
+      ismidc_dc=`ps -ef | grep $PID | grep -v grep | grep midc_dc-web`
+      if [ x"$ismidc_dc" != x ]; then
+         isThismidc_dc=`ps -ef | grep $PID | grep -v grep | grep midc_dc-web | grep "$APP_HOME"`
+         if [ x"$isThismidc_dc" != x ]; then
+            echo "      midc_dc server (pid=$PID) is running and using ports:"
          else
             echo "       Another  server (pid=$PID) is running and using ports:"
          fi
