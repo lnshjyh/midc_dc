@@ -89,6 +89,9 @@ public class ShiroConfig{
         chains.put("/404.html", "anon");
         chains.put("/error", "anon");
         
+        //对外接口过滤
+        chains.put("/out/*", "anon");
+        
         chains.put("/**", "formLoginFilter,resourceCheckFilter");
 
         bean.setFilterChainDefinitionMap(chains);
