@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.cw.midc.model.ris.Patient">
+    <resultMap id="Patient" type="org.cw.midc.model.ris.Patient" >
+	    <id column="series_uid" property="seriesUid" jdbcType="VARCHAR" />
+	    <result column="body_part" property="bodyPart" jdbcType="VARCHAR" />
+	    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+	    <result column="image_count" property="imageCount" jdbcType="INTEGER" />
+	    <result column="series_desc" property="seriesDesc" jdbcType="VARCHAR" />
+	    <result column="series_iuid" property="seriesIuid" jdbcType="VARCHAR" />
+	    <result column="series_no" property="seriesNo" jdbcType="VARCHAR" />
+	    <result column="study_uid" property="studyUid" jdbcType="VARCHAR" />
+	  </resultMap>
+
+    <insert id="insert" parameterType="org.cw.midc.model.ris.Patient">
+         insert into patient (pat_id, address, birthday, 
+      create_time, id_number, nationality, 
+      oper_id, pat_card_id, pat_name, 
+      pat_spell_name, patient_type, phone_number, 
+      sex, update_time)
+    values (#{patId,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{birthday,jdbcType=TIMESTAMP}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{idNumber,jdbcType=VARCHAR}, #{nationality,jdbcType=VARCHAR}, 
+      #{operId,jdbcType=VARCHAR}, #{patCardId,jdbcType=VARCHAR}, #{patName,jdbcType=VARCHAR}, 
+      #{patSpellName,jdbcType=VARCHAR}, #{patientType,jdbcType=VARCHAR}, #{phoneNumber,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP})
+    </insert>
+    
+    <update id="update" parameterType="org.cw.midc.model.ris.Patient">
+          update patient
+    set address = #{address,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      id_number = #{idNumber,jdbcType=VARCHAR},
+      nationality = #{nationality,jdbcType=VARCHAR},
+      oper_id = #{operId,jdbcType=VARCHAR},
+      pat_card_id = #{patCardId,jdbcType=VARCHAR},
+      pat_name = #{patName,jdbcType=VARCHAR},
+      pat_spell_name = #{patSpellName,jdbcType=VARCHAR},
+      patient_type = #{patientType,jdbcType=VARCHAR},
+      phone_number = #{phoneNumber,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where pat_id = #{patId,jdbcType=VARCHAR}
+    </update>
+    
+    <select id="getList" parameterType="java.util.Map" resultMap="Patient">
+    	select * from patient
+        order by create_time desc
+    </select>
+
+    <select id="getListByPatId" parameterType="java.lang.String" resultMap="Patient">
+        select * from patient where pat_id = #{patId,jdbcType=VARCHAR}
+    </select>
+    
+    <select id="getCount" parameterType="java.util.Map" resultType="Integer">
+        select count(*) from patient
+    </select>
+    
+    <select id="getById" parameterType="java.lang.String" resultMap="Patient">
+        select * from patient where pat_id = #{patId,jdbcType=VARCHAR}
+    </select>
+    
+     <delete id="delete" parameterType="java.lang.String">
+        delete from patient where pat_id = #{patId,jdbcType=VARCHAR}
+    </delete>
+
+</mapper>

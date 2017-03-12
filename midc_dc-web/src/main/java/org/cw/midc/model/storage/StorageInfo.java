@@ -2,32 +2,21 @@ package org.cw.midc.model.storage;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.cw.midc.BaseEntity;
 
-@Entity
-@Table(name="storage_info")
-public class StorageInfo {
 
-	@Id
-	@Column(name = "storage_id", length = 128)
+public class StorageInfo extends BaseEntity  {
+
 	private String id;
 	
-	@Column(name = "name", length = 128)
 	private String name;
 	
-	@Column(name = "path", length = 128)
 	private String path;
 	
-	@Column(name = "status", length = 4)
 	private String status;
 	
-	@Column(name = "create_time")
 	private Date createTime;
 	
-	@Column(name = "update_time")
 	private Date updateTime;
 
 	public String getName() {

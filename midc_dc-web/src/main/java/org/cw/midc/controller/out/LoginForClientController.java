@@ -8,7 +8,6 @@ import org.cw.midc.entity.User;
 import org.cw.midc.entity.UserRole;
 import org.cw.midc.service.RoleService;
 import org.cw.midc.service.UserRoleService;
-import org.cw.midc.util.JsonUtil;
 import org.cw.midc.util.ServletUtil;
 import org.cw.midc.util.UserContextUtil;
 
@@ -23,13 +22,10 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -64,8 +60,6 @@ public class LoginForClientController {
             subject.login(token);
             User user = (User) UserContextUtil.getAttribute("currentUser");
             map.put("user", user);
-            String userId = user.getUserId();
-            Map<String,String> roleMap = Maps.newHashMap();
             List<UserRole> userRoleList = userRoleService.getListByUserId(user.getUserId());
             if(userRoleList==null || userRoleList.size()==0){
             	msg = "用户未授权任何角色";

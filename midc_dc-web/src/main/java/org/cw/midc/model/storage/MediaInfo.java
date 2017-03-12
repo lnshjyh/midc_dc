@@ -2,34 +2,23 @@ package org.cw.midc.model.storage;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.cw.midc.BaseEntity;
 
-@Entity
-@Table(name="media_info")
-public class MediaInfo {
-	@Id
-	@Column(name = "media_id", length = 128)
+
+public class MediaInfo extends BaseEntity  {
 	private String id;
 	
-	@Column(name = "media_name", length = 128)
 	private String name;
 	
-	@Column(name = "path", length = 128)
 	private String path;
 	
 	/**
 	 * 0:offline; 1: online
 	 */
-	@Column(name = "status", length = 4)
 	private String status;
 	
-	@Column(name = "create_time")
 	private Date createTime;
 	
-	@Column(name = "update_time")
 	private Date updateTime;
 
 	public MediaInfo()

@@ -2,35 +2,23 @@ package org.cw.midc.model.pacs;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.cw.midc.BaseEntity;
 
-@Entity
-@Table(name = "instance")
-public class Instance {
 
-	@Id
-	@Column(name = "instance_uid", length = 128)
+public class Instance extends BaseEntity  {
+
 	private String instanceUId;
 
-	@Column(name = "sop_iuid", length = 128)
 	private String sopInstanceUId;
 
-	@Column(name = "series_uid", length = 128)
 	private String seriesUniqueId;
 
-	@Column(name = "inst_no", length = 128)
 	private String instanceNumber;
 
-	@Column(name = "file_id", length = 128)
 	private String fileId;
 	
-	@Column(name = "acq_date_time")
 	private Date acquisitionDateTime;
 
-	@Column(name = "create_time")
 	private Date createTime;
 	
 	public Instance()

@@ -2,44 +2,27 @@ package org.cw.midc.model.pacs;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import org.cw.midc.BaseEntity;
 
-@Entity
-@Table(name="series")
-public class Series {
 
-	@Id
-	@Column(name = "series_uid", length = 128)
+public class Series extends BaseEntity  {
+
 	private String seriesUniqueId;
 
-//	@ManyToOne(cascade = CascadeType.ALL,optional = false,fetch = FetchType.LAZY)
-//	@JoinColumn(name="study_uid")
-	@Transient
 	private Study study;
 	
-	@Column(name = "study_uid", length = 128)
 	private String studyUniqueId;
 	
-	@Column(name = "series_iuid", length = 128)
 	private String seriesInstanceUId;
 	
-	@Column(name = "series_no", length = 128)
 	private String seriesNo;
 	
-	@Column(name = "series_desc", length = 128)
 	private String seriesDescription;
 	
-	@Column(name = "body_part", length = 128)
 	private String bodyPart;
 	
-	@Column(name = "image_count")
 	private Integer imageCount;
 	
-	@Column(name = "create_time")
 	private Date createTime;
 	
 	public Series()

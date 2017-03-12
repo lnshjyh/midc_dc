@@ -4,79 +4,48 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import org.cw.midc.BaseEntity;
 
-@Entity
-@Table(name="study")
-public class Study {
+
+public class Study extends BaseEntity {
 	
-	@Id
-	@Column(name = "study_uid", length = 128)
 	private String studyUniqueId;
 		
-	@Column(name = "study_iuid", length = 128)
 	private String studyInstanceUId;
 	
-	@Column(name = "user_id", length = 128)
 	private String userId;
 	
-	@Column(name = "pat_id", length = 128)
 	private String patientId;
 	
-	@Column(name = "pat_sex", length = 128)
 	private String patientSex;
 	
-	@Column(name = "pat_name", length = 128)
 	private String patientName;
 	
-	@Column(name = "pat_birth")
 	private Date patientBirthday;
 	
-	@Column(name = "pat_weight")
 	private Float patientWeight;
 	
-	@Column(name = "pat_size")
 	private Float patientSize;
 	
-	@Column(name = "pat_age")
 	private String patientAge;
 	
-	@Column(name = "access_no", length = 128)
 	private String accessNo;
 	
-	@Column(name = "study_desc", length = 128)
 	private String studyDescription;
 	
-	@Column(name = "study_time")
 	private Date studyTime;
 	
-	@Column(name = "modality", length = 128)
 	private String modality;
 	
-//	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER, mappedBy ="study")
-//	@JoinColumn(name="study_uid")
-	@Transient
 	private Set<Series> serieses = new HashSet<Series>();
 	
-	@Column(name = "study_id", length = 128)
 	private String studyId;
 	
-	@Column(name = "status", length = 8)
 	private String status;
 
-	@Column(name = "inst_cnt")
 	private Integer instanceCout;
 
 	
-	@Column(name = "create_time")
 	private Date createTime;
 	
 	public Study()

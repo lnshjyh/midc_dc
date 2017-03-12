@@ -2,44 +2,29 @@ package org.cw.midc.model.ris;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.cw.midc.BaseEntity;
 
-@Entity
-@Table(name = "report")
-public class Report {
 
-	@Id
-	@Column(name = "rpt_id", length = 64)
+public class Report extends BaseEntity  {
+
 	private String id;
 	
-	@Column(name = "descritpion", length = 4000)
 	private String descritpion;
 	
-	@Column(name = "diagnosis", length = 4000)
 	private String diagnosis;
 	
-	@Column(name = "advice", length = 4000)
 	private String advice;
 	
-	@Column(name = "j_doc_id", length = 64)
 	private String juniorDoctorId;
 	
-	@Column(name = "s_doc_id", length = 64)
 	private String seniorDoctorId;
 	
-	@Column(name = "d_doc_id", length = 64)
 	private String directoDoctorId;
 	
-	@Column(name = "status", length = 4)
 	private String status;
 	
-	@Column(name = "create_time")
 	private Date createTime;
 	
-	@Column(name = "update_time")
 	private Date updateTime;
 
 	public String getId() {

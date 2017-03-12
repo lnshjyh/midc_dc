@@ -4,11 +4,11 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.cw.midc.dao.MediaInfoDao;
+import org.cw.midc.dao.StorageInfoDao;
 import org.cw.midc.model.FileInfo;
 import org.cw.midc.model.storage.MediaInfo;
 import org.cw.midc.model.storage.StorageInfo;
-import org.cw.midc.repository.storage.MediaRepository;
-import org.cw.midc.repository.storage.StorageRepository;
 import org.cw.midc.util.CommonUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,14 +21,15 @@ public class StorageService
 	private static final Logger log = LoggerFactory.getLogger(StorageService.class);
 	
 	@Autowired
-	private StorageRepository storageRepository;
+	private StorageInfoDao storageInfoDao;
 	
 	@Autowired
-	private MediaRepository mediaRepository;
+	private MediaInfoDao mediaInfoDao;
+	
 	
 	public String getCurrentBaseStoragePath()
 	{
-		StorageInfo storageInfo = storageRepository.findByStatus("1");
+		StorageInfo storageInfo = storageInfoDao.findUnique("getListByStatus","1");
 		if(storageInfo == null)
 		{
 			log.error("No storageInfo effective!");
@@ -39,7 +40,7 @@ public class StorageService
 	public MediaInfo getCurrentMedia()
 	{
 		String mediaName = new SimpleDateFormat("YYYYMMDD").format(new Date());
-		MediaInfo mediaInfo = mediaRepository.findByName(mediaName);
+		MediaInfo mediaInfo = mediaInfoDao.findUnique("getListByName", mediaName);
 		if(mediaInfo == null)
 		{
 			String mediaRelativePath = "/" + mediaName;
@@ -54,7 +55,7 @@ public class StorageService
 			//创建数据
 			String mediaId = CommonUtils.generateId();
 			MediaInfo mediaInfoNew = new MediaInfo(mediaId, mediaName, mediaRelativePath);
-			mediaRepository.save(mediaInfoNew);
+			mediaInfoDao.save(mediaInfoNew);
 			
 			//返回mediainfo
 			return mediaInfoNew;
@@ -65,7 +66,7 @@ public class StorageService
 	
 	public String getMediaPath(String mediaId)
 	{
-		MediaInfo mi = mediaRepository.findOne(mediaId);
+		MediaInfo mi = mediaInfoDao.findUnique("getById",mediaId);
 		return mi.getPath();
 	}
 }

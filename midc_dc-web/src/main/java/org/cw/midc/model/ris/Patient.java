@@ -3,66 +3,43 @@ package org.cw.midc.model.ris;
 import java.util.Date;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import org.cw.midc.BaseEntity;
 
-@Entity
-@Table(name="patient")
-public class Patient {
-	@Id
-	@Column(name = "pat_id", length = 64)
+public class Patient extends BaseEntity  {
 	private String id;
 	
-	@Column(name = "pat_name", length = 64, nullable = false)
 	private String patientName;
 	
-	@Column(name = "pat_spell_name", length = 128)
 	private String patientSpellName;
 	
-	@Column(name = "birthday")
 	private Date birthday;
 	
 	/**
 	 * M, F, O
 	 */
-	@Column(name = "sex", length = 4)
 	private String sex;
 	
 	/**
 	 * 1: 平诊， 2：急诊
 	 */
-	@Column(name = "patientType", length = 4)
 	private String patientType;
 	
-	@Column(name = "id_number", length = 32)
 	private String idNumber;
 	
-	@Column(name = "phone_number", length = 32)
 	private String phoneNumber;
 	
-	@Column(name = "nationality", length = 128)
 	private String nationality;
 	
-	@Column(name = "address", length = 512)
 	private String address;
 	
-	@Column(name = "pat_card_id", length = 128)
 	private String patientCardId;
 	
-	@OneToMany(mappedBy="patient",cascade=CascadeType.ALL)
 	private Set<StudyInfo> StudyInfos;
 	
-	@Column(name = "oper_id", length = 64)
 	private String operatorId;
 	
-	@Column(name = "create_time")
 	private Date createTime;
 	
-	@Column(name = "update_time")
 	private Date updateTime;
 	
 	public Patient()

@@ -7,36 +7,27 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="file_info")
-public class FileInfo {
+import org.cw.midc.BaseEntity;
 
-	@Id
-	@Column(name = "file_id", length = 128)
+public class FileInfo extends BaseEntity  {
+
 	private String id;
 	
-	@Column(name = "file_path", length = 128)
 	private String filePath;
 	
-	@Column(name = "orig_file_name", length = 128)
 	private String origFileName;
 	
-	@Column(name = "study_info_id", length = 128)
 	private String studyInfoId;
 	
-	@Column(name = "user_id", length = 128)
 	private String userId;
 	
-	@Column(name = "media_id", length = 128)
 	private String mediaId;
 	
 	/**
 	 * 0:initial, 1:parse success，2:parse failed
 	 */
-	@Column(name = "status", length = 4)
 	private String status;
 	
-	@Column(name = "failed_reason", length = 256)
 	private String failedReason;
 	
 
@@ -48,10 +39,8 @@ public class FileInfo {
 		this.status = status;
 	}
 
-	@Column(name = "create_time")
 	private Date createTime;
 	
-	@Column(name = "update_time")
 	private Date updateTime;
 	
 	public String getMediaId() {

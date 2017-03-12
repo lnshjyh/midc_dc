@@ -3,74 +3,44 @@ package org.cw.midc.model.ris;
 import java.util.Date;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
-@Entity
-@Table(name="study_info")
-public class StudyInfo {
+import org.cw.midc.BaseEntity;
 
-	@Id
-	@Column(name = "studyinfo_id", length = 128)
+public class StudyInfo extends BaseEntity  {
+
 	private String id;
 
-	@Column(name = "age")
 	private int age;
 	
 	/**
 	 * 岁, 月，天
 	 */
-	@Column(name = "age_unit", length = 8)
 	private String ageUnit;
 	
-	@Column(name = "device_id", length = 64)
 	private String deviceId;
 	
-	@Column(name = "pre_diagnose", length = 512)
 	private String preDiagnose;
 	
-	@Column(name = "abs_history", length = 512)
 	private String abstractHistory;
 	
-	@Column(name = "study_desc", length = 512)
 	private String studyDescription;
 	
-	@Column(name = "status", length = 4)
 	private String status;
 	
-	@Column(name = "is_available", length = 4)
 	private String isAvailable;
 	
-	@Column(name = "photo_maker_id", length = 128)
 	private String photoMakerId;
 	
-	@Column(name = "branch_id", length = 128)
 	private String branchId;
 	
-	@OneToOne
-	@JoinColumn(name = "rpt_id")
 	private Report report;
 	
-	@ManyToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
-	@JoinColumn(name="pat_id")
 	private Patient patient;
 	
-	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name="studyinfo_id")
-	private Set<StudyCheckItemPosition> studyCheckItemPositions;
+	private Set<StudyCheckPos> studyCheckItemPositions;
 	
-	@Column(name = "create_time")
 	private Date createTime;
 	
-	@Column(name = "update_time")
 	private Date updateTime;
 	
 	public StudyInfo()
@@ -226,11 +196,11 @@ public class StudyInfo {
 		this.patient = patient;
 	}
 
-	public Set<StudyCheckItemPosition> getStudyCheckItemPositions() {
+	public Set<StudyCheckPos> getStudyCheckItemPositions() {
 		return studyCheckItemPositions;
 	}
 
-	public void setStudyCheckItemPositions(Set<StudyCheckItemPosition> studyCheckItemPositions) {
+	public void setStudyCheckItemPositions(Set<StudyCheckPos> studyCheckItemPositions) {
 		this.studyCheckItemPositions = studyCheckItemPositions;
 	}
 	

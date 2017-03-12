@@ -4,13 +4,13 @@ import java.io.File;
 import java.io.IOException;
 
 import org.apache.commons.lang.StringUtils;
+import org.cw.midc.dao.InstanceDao;
+import org.cw.midc.dao.SeriesDao;
+import org.cw.midc.dao.StudyDao;
 import org.cw.midc.model.FileInfo;
 import org.cw.midc.model.pacs.Instance;
 import org.cw.midc.model.pacs.Series;
 import org.cw.midc.model.pacs.Study;
-import org.cw.midc.repository.pacs.InstanceRepository;
-import org.cw.midc.repository.pacs.SeriesRepository;
-import org.cw.midc.repository.pacs.StudyRepository;
 import org.cw.midc.service.factory.PacsFactory;
 import org.cw.midc.util.CommonUtils;
 import org.cw.midc.util.FileService;
@@ -42,13 +42,14 @@ public class LoadDicomFileService {
 	private StorageService storageService;
 	
 	@Autowired
-	private StudyRepository studyRepository;
+	private StudyDao studyDao;
 	
 	@Autowired
-	private SeriesRepository seriesRepository;
+	private SeriesDao seriesDao;
 	
 	@Autowired
-	private InstanceRepository instanceRepository;
+	private InstanceDao instanceDao;
+	
 	
 	@Autowired
 	private RequestResponseBus eventBus;
@@ -129,44 +130,44 @@ public class LoadDicomFileService {
 		String studyUID = CommonUtils.MD5(fileInfo.getUserId() + studyInstanceUId);
 		String seriesUID = CommonUtils.MD5(fileInfo.getUserId() + seriesInstanceUId);
 		String instanceUID = CommonUtils.MD5(fileInfo.getUserId() + sopInstanceUId);
-		Study study = studyRepository.findOne(studyUID);
+		Study study = studyDao.findUnique("getById", studyUID);
 		Series series = null;
 		Instance instance = null;
 		if(study == null)//如果study不存在
 		{
 			//创建study
 			study = pacsFactory.createStudyFrom(dicom, fileInfo, studyUID);
-			studyRepository.save(study);
+			studyDao.save(study);
 			
 			//创建series
 			series = pacsFactory.createSeriesFrom(dicom, fileInfo, seriesUID, studyUID);
-			seriesRepository.save(series);
+			seriesDao.save(series);
 			
 			//创建instance
 			instance = pacsFactory.createInstanceFrom(dicom, fileInfo, instanceUID, seriesUID);
-			instanceRepository.save(instance);
+			instanceDao.save(instance);
 		}
 		else
 		{
-			series = seriesRepository.findOne(seriesUID);
+			series = seriesDao.findUnique("getById",seriesUID);
 			if(series == null)//序列不存在
 			{
 				//创建序列
 				series = pacsFactory.createSeriesFrom(dicom, fileInfo, seriesUID, studyUID);
-				seriesRepository.save(series);
+				seriesDao.save(series);
 				
 				//创建instance
 				instance = pacsFactory.createInstanceFrom(dicom, fileInfo, instanceUID, seriesUID);
-				instanceRepository.save(instance);
+				instanceDao.save(instance);
 			}
 			else
 			{
-				instance = instanceRepository.findOne(instanceUID);
+				instance = instanceDao.findUnique("getById",instanceUID);
 				if(instance == null)
 				{
 					//仅创建instance
 					instance = pacsFactory.createInstanceFrom(dicom, fileInfo, instanceUID, seriesUID);
-					instanceRepository.save(instance);
+					instanceDao.save(instance);
 				}
 				else
 				{

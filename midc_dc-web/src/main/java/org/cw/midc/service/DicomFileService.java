@@ -2,14 +2,18 @@ package org.cw.midc.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.transaction.Transactional;
 
+import org.cw.midc.ParamFilter;
+import org.cw.midc.dao.FileInfoDao;
+import org.cw.midc.dao.MediaInfoDao;
 import org.cw.midc.model.FileInfo;
 import org.cw.midc.model.storage.MediaInfo;
-import org.cw.midc.repository.FileInfoRepository;
-import org.cw.midc.repository.storage.MediaRepository;
+import org.cw.midc.page.Page;
 import org.cw.midc.util.CommonUtils;
 import org.rribbit.Listener;
 import org.rribbit.RequestResponseBus;
@@ -31,14 +35,15 @@ public class DicomFileService {
 	@Autowired
 	private StorageService storageService;
 	
-	@Autowired
-	private FileInfoRepository fileInfoRepository;
-	
-	@Autowired
-	private MediaRepository mediaRepository;
 	
 	@Autowired
 	private RequestResponseBus eventBus;
+	
+	@Autowired
+	private FileInfoDao fileInfoDao;
+	
+	@Autowired
+	private MediaInfoDao mediaInfoDao;
 	
 	/**
 	 * 存储文件到文件系统，并且存文件信息
@@ -86,15 +91,15 @@ public class DicomFileService {
 		//存储文件信息
 		String fileId = CommonUtils.generateId();
 		FileInfo fileInfo = new FileInfo(fileId, fileRelativePath, file.getOriginalFilename(), studyInfoId, mediaInfo.getId(), userId);		
-		fileInfoRepository.save(fileInfo);
+		fileInfoDao.save(fileInfo);
 		eventBus.send("dicomFileUploaded", fileInfo);
 	}
 	
 	public File getFile(String fileId)
 	{
 		String storageBasePath = storageService.getCurrentBaseStoragePath();
-		FileInfo fileInfo = fileInfoRepository.findOne(fileId);
-		MediaInfo mediaInfo = mediaRepository.findOne(fileInfo.getMediaId());
+		FileInfo fileInfo = fileInfoDao.findUnique("getById", fileId);
+		MediaInfo mediaInfo = mediaInfoDao.findUnique("getById", fileInfo.getMediaId());
 		String fileAbsolutePathStr = storageBasePath + mediaInfo.getPath() + fileInfo.getFilePath();
 		File file = new File(fileAbsolutePathStr);
 		return file;
@@ -107,8 +112,15 @@ public class DicomFileService {
 	 */
 	public List<FileInfo> getUnHandledFileInfoByBatch(int batchCount)
 	{
-		PageRequest pageRequest = new PageRequest(0, batchCount, new Sort(Sort.Direction.ASC, "createTime"));
-		List<FileInfo> result = fileInfoRepository.findByStatus("0", pageRequest);
+		ParamFilter queryFilter = new ParamFilter();
+		Map<String,Object> para = new HashMap();
+		para.put("state", "0");
+		queryFilter.setParam(para);
+		Page page = new Page();
+		page.setPageNo(0);
+		page.setPageSize(batchCount);
+		queryFilter.setPage(page);
+		List<FileInfo> result = fileInfoDao.find("getListByState", queryFilter.getParam(), queryFilter.getPage());
 		return result;
 	}
 	
@@ -120,7 +132,8 @@ public class DicomFileService {
 	@Listener(hint = "parseFileSucceeded")
 	public void onParseFileSucceeded(FileInfo fileInfo)
 	{
-		fileInfoRepository.updateStatusByID("1", fileInfo.getId(), "");
+		fileInfo.setStatus("1");
+		fileInfoDao.update(fileInfo);
 	}
 	
 	/**
@@ -131,7 +144,8 @@ public class DicomFileService {
 	@Listener(hint = "parseFileFailed")
 	public void onParseFileFailed(FileInfo fileInfo)
 	{
-		fileInfoRepository.updateStatusByID("2", fileInfo.getId(), fileInfo.getFailedReason());
+		fileInfo.setStatus("2");
+		fileInfoDao.update(fileInfo);
 	}
 	
 }

@@ -78,6 +78,7 @@ public class LoginController {
             UserContextUtil.setAttribute("roleMap",roleMap);
             UserContextUtil.setAttribute("userId",userId);
             UserContextUtil.setAttribute("account",account);
+
             return "redirect:/index";
         } catch (IncorrectCredentialsException | UnknownAccountException e) {
             msg = "帐号或者密码错误";
@@ -104,4 +105,5 @@ public class LoginController {
         ServletUtil.getRequest().setAttribute("msg",msg);
         return "login";
     }
+  
 }

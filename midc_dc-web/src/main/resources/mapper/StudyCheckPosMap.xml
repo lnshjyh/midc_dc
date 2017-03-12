@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.cw.midc.model.ris.StudyCheckPos">
+    <resultMap id="StudyCheckPos" type="org.cw.midc.model.ris.StudyCheckPos" >
+	   <id column="study_cp_id" property="studyCpId" jdbcType="INTEGER" />
+	    <result column="check_item" property="checkItem" jdbcType="VARCHAR" />
+	    <result column="position" property="position" jdbcType="VARCHAR" />
+	    <result column="sub_position" property="subPosition" jdbcType="VARCHAR" />
+	    <result column="studyinfo_id" property="studyinfoId" jdbcType="VARCHAR" />
+	  </resultMap>
+
+    <insert id="insert" parameterType="org.cw.midc.model.ris.StudyCheckPos">
+        insert into study_check_pos (study_cp_id, check_item, position, 
+      sub_position, studyinfo_id)
+    values (#{studyCpId,jdbcType=INTEGER}, #{checkItem,jdbcType=VARCHAR}, #{position,jdbcType=VARCHAR}, 
+      #{subPosition,jdbcType=VARCHAR}, #{studyinfoId,jdbcType=VARCHAR})
+    </insert>
+    
+    <update id="update" parameterType="org.cw.midc.model.ris.StudyCheckPos">
+         update study_check_pos
+    set check_item = #{checkItem,jdbcType=VARCHAR},
+      position = #{position,jdbcType=VARCHAR},
+      sub_position = #{subPosition,jdbcType=VARCHAR},
+      studyinfo_id = #{studyinfoId,jdbcType=VARCHAR}
+    where study_cp_id = #{studyCpId,jdbcType=INTEGER}
+    </update>
+    
+    <select id="getList" parameterType="java.util.Map" resultMap="StudyCheckPos">
+    	select * from study_check_pos
+        order by create_time desc
+    </select>
+
+    <select id="getListByStudyCpId" parameterType="java.lang.String" resultMap="StudyCheckPos">
+        select * from study_check_pos where study_cp_id = #{studyCpId,jdbcType=INTEGER}
+    </select>
+    
+    <select id="getCount" parameterType="java.util.Map" resultType="Integer">
+        select count(*) from study_check_pos
+    </select>
+    
+    <select id="getById" parameterType="java.lang.String" resultMap="StudyCheckPos">
+        select * from study_check_pos where study_cp_id = #{studyCpId,jdbcType=INTEGER}
+    </select>
+    
+     <delete id="delete" parameterType="java.lang.String">
+        delete from study_check_pos where study_cp_id = #{studyCpId,jdbcType=INTEGER}
+    </delete>
+
+</mapper>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.cw.midc.model.pacs.Instance">
+    <resultMap id="Instance" type="org.cw.midc.model.pacs.Instance" >
+	    <id column="instance_uid" property="instanceUid" jdbcType="VARCHAR" />
+	    <result column="acq_date_time" property="acqDateTime" jdbcType="TIMESTAMP" />
+	    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+	    <result column="file_id" property="fileId" jdbcType="VARCHAR" />
+	    <result column="inst_no" property="instNo" jdbcType="VARCHAR" />
+	    <result column="series_uid" property="seriesUid" jdbcType="VARCHAR" />
+	    <result column="sop_iuid" property="sopIuid" jdbcType="VARCHAR" />
+	  </resultMap>
+
+    <insert id="insert" parameterType="org.cw.midc.model.pacs.Instance">
+        insert into instance (instance_uid, acq_date_time, create_time, 
+      file_id, inst_no, series_uid, 
+      sop_iuid)
+    values (#{instanceUid,jdbcType=VARCHAR}, #{acqDateTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{fileId,jdbcType=VARCHAR}, #{instNo,jdbcType=VARCHAR}, #{seriesUid,jdbcType=VARCHAR}, 
+      #{sopIuid,jdbcType=VARCHAR})
+    </insert>
+    
+    <update id="update" parameterType="org.cw.midc.model.pacs.Instance">
+         update instance
+    set acq_date_time = #{acqDateTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      file_id = #{fileId,jdbcType=VARCHAR},
+      inst_no = #{instNo,jdbcType=VARCHAR},
+      series_uid = #{seriesUid,jdbcType=VARCHAR},
+      sop_iuid = #{sopIuid,jdbcType=VARCHAR}
+    where instance_uid = #{instanceUid,jdbcType=VARCHAR}
+    </update>
+    
+    <select id="getList" parameterType="java.util.Map" resultMap="Instance">
+    	select * from instance
+        order by create_time desc
+    </select>
+
+    <select id="getListBySeriesUid" parameterType="java.lang.String" resultMap="Instance">
+        select * from instance where series_uid = #{seriesUid,jdbcType=VARCHAR}
+    </select>
+    
+    <select id="getCount" parameterType="java.util.Map" resultType="Integer">
+        select count(*) from instance
+    </select>
+    
+    <select id="getById" parameterType="java.lang.String" resultMap="Instance">
+        select * from instance where instance_uid = #{instanceUid,jdbcType=VARCHAR}
+    </select>
+    
+     <delete id="delete" parameterType="java.lang.String">
+        delete from instance where instance_uid = #{instanceUid,jdbcType=VARCHAR}
+    </delete>
+
+</mapper>

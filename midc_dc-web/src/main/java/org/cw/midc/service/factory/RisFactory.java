@@ -5,7 +5,7 @@ import java.util.Set;
 
 import org.cw.midc.dto.RisInfoDto;
 import org.cw.midc.model.ris.Patient;
-import org.cw.midc.model.ris.StudyCheckItemPosition;
+import org.cw.midc.model.ris.StudyCheckPos;
 import org.cw.midc.model.ris.StudyInfo;
 import org.cw.midc.util.CommonUtils;
 import org.springframework.stereotype.Service;
@@ -30,9 +30,9 @@ public class RisFactory {
 		//create checkitem and positon set
 		if(risInfoDto.getPositionChecks() != null && !risInfoDto.getPositionChecks().isEmpty())
 		{
-			Set<StudyCheckItemPosition> studyCheckItemPositions = new HashSet<StudyCheckItemPosition>();
+			Set<StudyCheckPos> studyCheckItemPositions = new HashSet<StudyCheckPos>();
 			risInfoDto.getPositionChecks().forEach(positionCheckDto -> {
-				StudyCheckItemPosition studyCheckItemPosition = new StudyCheckItemPosition();
+				StudyCheckPos studyCheckItemPosition = new StudyCheckPos();
 				studyCheckItemPosition.setCheckItem(positionCheckDto.getCheckItem());
 				studyCheckItemPosition.setPosition(positionCheckDto.getPosition());
 				studyCheckItemPosition.setSubPosition(positionCheckDto.getSubPosition());

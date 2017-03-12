@@ -1,28 +1,15 @@
 package org.cw.midc.model.ris;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.cw.midc.BaseEntity;
 
-@Entity
-@Table(name = "study_check_pos")
-public class StudyCheckItemPosition {
+public class StudyCheckPos extends BaseEntity  {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "study_cp_id", length = 256)
 	private int id;
 	
-	@Column(name = "check_item", length = 256)
 	private String checkItem;
 	
-	@Column(name = "position", length = 256)
 	private String position;
 	
-	@Column(name = "sub_position", length = 256)
 	private String subPosition;
 
 	
