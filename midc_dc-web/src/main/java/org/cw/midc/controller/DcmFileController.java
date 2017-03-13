@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 /**
  * 
  * Dicom文件上传及下载
@@ -39,6 +42,8 @@ public class DcmFileController {
 	 * @param studyInfoId
 	 * @param file
 	 */
+	 @ApiOperation(value="上传DICOM文件接口", notes="注意需要携带RIS信息StudyinfoId")
+//	@ApiImplicitParam(name = "userId", value = "", required = true, dataType = "String")
 	@RequestMapping(value="/dicomfile", consumes = "multipart/form-data", method = RequestMethod.POST)
 	public void saveFile(@RequestParam(value="userId") String userId,
 			@RequestParam(value="studyInfoId") String studyInfoId,
@@ -56,6 +61,7 @@ public class DcmFileController {
 	 * @param response
 	 * @throws Exception
 	 */
+	 @ApiOperation(value="下载文件接口", notes="通过文件ID下载文件")
 	@RequestMapping(value = "/dicomfile/{fileId}", method = RequestMethod.GET)
 	public void getFile(@PathVariable("fileId")String fileId, HttpServletResponse response) throws Exception
 	{
