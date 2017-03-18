@@ -19,8 +19,11 @@ import javax.persistence.Table;
 public class StudyInfo {
 
 	@Id
-	@Column(name = "studyinfo_id", length = 128)
+	@Column(name = "studyinfo_id", length = 64)
 	private String id;
+	
+	@Column(name = "org_studyinfo_id", length = 64)
+	private String orginalStudyInfoId;
 
 	@Column(name = "age")
 	private int age;
@@ -313,6 +316,14 @@ public class StudyInfo {
 
 	public void setApplyTime(Date applyTime) {
 		this.applyTime = applyTime;
+	}
+
+	public String getOrginalStudyInfoId() {
+		return orginalStudyInfoId;
+	}
+
+	public void setOrginalStudyInfoId(String orginalStudyInfoId) {
+		this.orginalStudyInfoId = orginalStudyInfoId;
 	}
 	
  

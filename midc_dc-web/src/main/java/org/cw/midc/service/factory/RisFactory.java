@@ -15,7 +15,7 @@ public class RisFactory {
 
 	public StudyInfo createStudyInfoFromDTO(RisInfoDto risInfoDto)
 	{
-		String key = CommonUtils.generateId();
+		String key = risInfoDto.getHospitalId() + risInfoDto.getStudyInfoId();
 		StudyInfo studyInfo = new StudyInfo(key,
 				risInfoDto.getAge(), 
 				risInfoDto.getAgeUnit(), 
@@ -23,7 +23,13 @@ public class RisFactory {
 				risInfoDto.getPrediagnose(),
 				risInfoDto.getAbstractHistory(),
 				risInfoDto.getStudyDescription(),
-				risInfoDto.getBranchId());
+				risInfoDto.getHospitalId());
+		studyInfo.setOrginalStudyInfoId(risInfoDto.getStudyInfoId());
+		studyInfo.setClinicalManifest(risInfoDto.getClinicalManifest());
+		studyInfo.setStudyDemand(risInfoDto.getStudyDemand());
+		studyInfo.setApplyDoctorName(risInfoDto.getApplyDoctorName());
+		studyInfo.setApplyDepartmentName(risInfoDto.getApplyDepartmentName());
+		studyInfo.setApplyTime(risInfoDto.getApplyTime());
 		Patient patient = createPatientFromDTO(risInfoDto);
 		studyInfo.setPatient(patient);
 		
