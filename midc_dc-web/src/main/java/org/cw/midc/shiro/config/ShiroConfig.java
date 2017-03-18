@@ -16,14 +16,18 @@ import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreato
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.web.filter.DelegatingFilterProxy;
 
 import com.google.common.collect.Maps;
 
+import org.cw.midc.repository.oauth.OauthAccessJdbc;
+import org.cw.midc.repository.oauth.OauthAccessTokenRepository;
 import org.cw.midc.shiro.DBSessionManageDao;
 import org.cw.midc.shiro.UserRealm;
 import org.cw.midc.shiro.credentials.RetryLimitHashedCredentialsMatcher;
 import org.cw.midc.shiro.filter.FormLoginFilter;
+import org.cw.midc.shiro.filter.Oauth2Filter;
 import org.cw.midc.shiro.filter.ResourceCheckFilter;
 import org.cw.midc.shiro.permission.UrlPermissionResolver;
 import org.cw.midc.util.Constants;
@@ -65,7 +69,13 @@ public class ShiroConfig{
         resourceCheckFilter.setErrorUrl("/403.html");
         FormLoginFilter formLoginFilter = new FormLoginFilter();
         filters.put("formLoginFilter", formLoginFilter);
+        
+        Oauth2Filter oauth2Filter = new Oauth2Filter();
+        OauthAccessJdbc oauthAccessJdbc = new OauthAccessJdbc();
+        oauth2Filter.setOauthAccessJdbc(oauthAccessJdbc);
+        
         filters.put("resourceCheckFilter", resourceCheckFilter);
+        filters.put("oauth2Filter", oauth2Filter);
 
         bean.setFilters(filters);
 
@@ -90,7 +100,9 @@ public class ShiroConfig{
         chains.put("/error", "anon");
         
         //对外接口过滤
+        chains.put("/oauth/**", "anon");
         chains.put("/out/*", "anon");
+        chains.put("/out/basic/**", "anon,oauth2Filter");
         chains.put("/report", "anon");
         
         chains.put("/**", "formLoginFilter,resourceCheckFilter");
