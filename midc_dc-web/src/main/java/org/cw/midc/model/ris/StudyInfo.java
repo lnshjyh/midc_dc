@@ -26,7 +26,7 @@ public class StudyInfo {
 	private int age;
 	
 	/**
-	 * 岁, 月，天
+	 * 宀�, 鏈堬紝澶�
 	 */
 	@Column(name = "age_unit", length = 8)
 	private String ageUnit;
@@ -40,8 +40,22 @@ public class StudyInfo {
 	@Column(name = "abs_history", length = 512)
 	private String abstractHistory;
 	
-	@Column(name = "study_desc", length = 512)
+	@Column(name = "study_desc", length = 3600)
 	private String studyDescription;
+	
+	@Column(name = "clinical_manifest", length = 3600)
+	private String clinicalManifest;
+	
+	@Column(name = "study_demand", length = 3600)
+	private String studyDemand;
+	
+	//报告状态: 0：未写，1：初诊，2：审核完毕',
+	@Column(name = "rpt_status", length = 4)
+	private String reportStatus;
+	
+	//传输状态：1：基层到中心 2：中心到基层',
+	@Column(name = "trans_status", length = 4)
+	private String transportStatus;
 	
 	@Column(name = "status", length = 4)
 	private String status;
@@ -49,11 +63,20 @@ public class StudyInfo {
 	@Column(name = "is_available", length = 4)
 	private String isAvailable;
 	
+	@Column(name = "apply_doc_name", length = 64)
+	private String applyDoctorName;
+	
+	@Column(name = "apply_dep_name", length = 64)
+	private String applyDepartmentName;
+	
+	@Column(name = "apply_time")
+	private Date applyTime;
+	
 	@Column(name = "photo_maker_id", length = 128)
 	private String photoMakerId;
 	
-	@Column(name = "branch_id", length = 128)
-	private String branchId;
+	@Column(name = "hosp_id", length = 128)
+	private String hospitalId;
 	
 	@OneToOne
 	@JoinColumn(name = "rpt_id")
@@ -66,6 +89,8 @@ public class StudyInfo {
 	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name="studyinfo_id")
 	private Set<StudyCheckItemPosition> studyCheckItemPositions;
+	
+	
 	
 	@Column(name = "create_time")
 	private Date createTime;
@@ -88,7 +113,7 @@ public class StudyInfo {
 			String preDiagnose, 
 			String abstractHistory, 
 			String studyDescription,
-			String branchId)
+			String hospitalId)
 	{
 		this.id = key;
 		this.age = age;
@@ -97,19 +122,19 @@ public class StudyInfo {
 		this.preDiagnose = preDiagnose;
 		this.abstractHistory = abstractHistory;
 		this.studyDescription = studyDescription;
-		this.branchId = branchId;
+		this.hospitalId = hospitalId;
 		this.isAvailable = "1";
 		this.createTime = new Date();
 		this.updateTime = this.createTime;
 		this.status = "0";
 	}
 
-	public String getBranchId() {
-		return branchId;
+	public String getHospitalId() {
+		return hospitalId;
 	}
 
-	public void setBranchId(String branchId) {
-		this.branchId = branchId;
+	public void setHospitalId(String hospitalId) {
+		this.hospitalId = hospitalId;
 	}
 
 	public String getId() {
@@ -232,6 +257,62 @@ public class StudyInfo {
 
 	public void setStudyCheckItemPositions(Set<StudyCheckItemPosition> studyCheckItemPositions) {
 		this.studyCheckItemPositions = studyCheckItemPositions;
+	}
+
+	public String getClinicalManifest() {
+		return clinicalManifest;
+	}
+
+	public void setClinicalManifest(String clinicalManifest) {
+		this.clinicalManifest = clinicalManifest;
+	}
+
+	public String getStudyDemand() {
+		return studyDemand;
+	}
+
+	public void setStudyDemand(String studyDemand) {
+		this.studyDemand = studyDemand;
+	}
+
+	public String getReportStatus() {
+		return reportStatus;
+	}
+
+	public void setReportStatus(String reportStatus) {
+		this.reportStatus = reportStatus;
+	}
+
+	public String getTransportStatus() {
+		return transportStatus;
+	}
+
+	public void setTransportStatus(String transportStatus) {
+		this.transportStatus = transportStatus;
+	}
+
+	public String getApplyDoctorName() {
+		return applyDoctorName;
+	}
+
+	public void setApplyDoctorName(String applyDoctorName) {
+		this.applyDoctorName = applyDoctorName;
+	}
+
+	public String getApplyDepartmentName() {
+		return applyDepartmentName;
+	}
+
+	public void setApplyDepartmentName(String applyDepartmentName) {
+		this.applyDepartmentName = applyDepartmentName;
+	}
+
+	public Date getApplyTime() {
+		return applyTime;
+	}
+
+	public void setApplyTime(Date applyTime) {
+		this.applyTime = applyTime;
 	}
 	
  

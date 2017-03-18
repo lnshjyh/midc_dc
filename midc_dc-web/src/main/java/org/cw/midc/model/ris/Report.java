@@ -15,6 +15,9 @@ public class Report {
 	@Column(name = "rpt_id", length = 64)
 	private String id;
 	
+	@Column(name = "studyinfo_id", length = 32)
+	private String studyInfoId;
+	
 	@Column(name = "descritpion", length = 4000)
 	private String descritpion;
 	
@@ -41,6 +44,13 @@ public class Report {
 	
 	@Column(name = "update_time")
 	private Date updateTime;
+	
+	public Report()
+	{
+		this.createTime = new Date();
+		this.updateTime = this.createTime;
+		this.status = "0";
+	}
 
 	public String getId() {
 		return id;
@@ -120,6 +130,14 @@ public class Report {
 
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
+	}
+
+	public String getStudyInfoId() {
+		return studyInfoId;
+	}
+
+	public void setStudyInfoId(String studyInfoId) {
+		this.studyInfoId = studyInfoId;
 	}
 	
 	
