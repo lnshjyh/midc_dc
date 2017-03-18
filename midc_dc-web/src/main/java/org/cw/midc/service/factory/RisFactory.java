@@ -29,7 +29,7 @@ public class RisFactory {
 		studyInfo.setStudyDemand(risInfoDto.getStudyDemand());
 		studyInfo.setApplyDoctorName(risInfoDto.getApplyDoctorName());
 		studyInfo.setApplyDepartmentName(risInfoDto.getApplyDepartmentName());
-		studyInfo.setApplyTime(risInfoDto.getApplyTime());
+		studyInfo.setTransportStatus("1");
 		Patient patient = createPatientFromDTO(risInfoDto);
 		studyInfo.setPatient(patient);
 		

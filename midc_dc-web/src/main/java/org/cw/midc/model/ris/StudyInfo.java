@@ -81,7 +81,7 @@ public class StudyInfo {
 	@Column(name = "hosp_id", length = 128)
 	private String hospitalId;
 	
-	@OneToOne
+	@OneToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
 	@JoinColumn(name = "rpt_id")
 	private Report report;
 	
@@ -106,6 +106,7 @@ public class StudyInfo {
 		this.createTime = new Date();
 		this.updateTime = this.createTime;
 		this.status = "0";
+		this.transportStatus = "1";
 	}
 	
 	public StudyInfo(String key, 
@@ -130,6 +131,7 @@ public class StudyInfo {
 		this.createTime = new Date();
 		this.updateTime = this.createTime;
 		this.status = "0";
+		this.transportStatus = "1";
 	}
 
 	public String getHospitalId() {
