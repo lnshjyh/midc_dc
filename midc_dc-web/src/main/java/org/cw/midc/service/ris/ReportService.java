@@ -57,7 +57,7 @@ public class ReportService {
 			return;
 		}
 		report.setId(CommonUtils.generateId());
-		studyInfo.setReport(null);
+		studyInfo.setReport(report);
 		studyInfoRepository.save(studyInfo);
 //		reportRepository.save(report);
 		
