@@ -69,8 +69,8 @@ public class StudyInfo {
 	@Column(name = "apply_dep_name", length = 64)
 	private String applyDepartmentName;
 	
-	@Column(name = "create_time")
-	private Date apply_time;
+	@Column(name = "apply_time")
+	private Date applyTime;
 	
 	@Column(name = "photo_maker_id", length = 128)
 	private String photoMakerId;
@@ -113,7 +113,7 @@ public class StudyInfo {
 			String preDiagnose, 
 			String abstractHistory, 
 			String studyDescription,
-			String branchId)
+			String hospitalId)
 	{
 		this.id = key;
 		this.age = age;
@@ -307,12 +307,12 @@ public class StudyInfo {
 		this.applyDepartmentName = applyDepartmentName;
 	}
 
-	public Date getApply_time() {
-		return apply_time;
+	public Date getApplyTime() {
+		return applyTime;
 	}
 
-	public void setApply_time(Date apply_time) {
-		this.apply_time = apply_time;
+	public void setApplyTime(Date applyTime) {
+		this.applyTime = applyTime;
 	}
 	
  

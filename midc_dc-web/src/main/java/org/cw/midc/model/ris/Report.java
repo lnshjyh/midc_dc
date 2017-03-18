@@ -44,6 +44,13 @@ public class Report {
 	
 	@Column(name = "update_time")
 	private Date updateTime;
+	
+	public Report()
+	{
+		this.createTime = new Date();
+		this.updateTime = this.createTime;
+		this.status = "0";
+	}
 
 	public String getId() {
 		return id;
