@@ -98,11 +98,14 @@ public class ShiroConfig{
         chains.put("/error", "anon");
         
         //对外接口过滤
+        chains.put("/oauth/**", "anon");
         chains.put("/out/*", "anon");
+        chains.put("/out/basic/**", "anon,oauth2Filter");
+        
         
         chains.put("/**", "formLoginFilter,resourceCheckFilter");
         
-        chains.put("/out/basic/**", "anon,oauth2Filter");
+       
 
         bean.setFilterChainDefinitionMap(chains);
         return bean;

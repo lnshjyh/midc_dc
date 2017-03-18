@@ -102,7 +102,7 @@ public class Oauth2Handler {
                 .setAccessToken(tokenObj.getAccessToken())
                 .setExpiresIn(String.valueOf(tokenObj.getRefreshTokenExpiredSeconds()))
                 .setRefreshToken(tokenObj.getRefreshToken())
-                .setTokenType(tokenObj.getAccessToken());
+                .setTokenType(tokenObj.getTokenType());
 
         return builder.buildJSONMessage();
     }
