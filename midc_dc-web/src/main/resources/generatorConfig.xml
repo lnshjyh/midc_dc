@@ -72,6 +72,14 @@
         <table schema="midc_dc" tableName="sys_org" domainObjectName="SysOrg" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
             <property name="useActualColumnNames" value="false"/>
         </table>
+        
+        <table schema="midc_dc" tableName="hospital" domainObjectName="Hospital" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        
+        <table schema="midc_dc" tableName="oauth_access_token" domainObjectName="OauthAccessToken" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
 
     </context>
 

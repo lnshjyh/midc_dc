@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.cw.midc.model.OauthAccessToken">
+    <resultMap id="OauthAccessToken" type="org.cw.midc.model.OauthAccessToken" >
+	    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+	    <result column="access_token" property="accessToken" jdbcType="VARCHAR" />
+	    <result column="token_expired_seconds" property="tokenExpiredSeconds" jdbcType="INTEGER" />
+	    <result column="client_id" property="clientId" jdbcType="VARCHAR" />
+	    <result column="token_type" property="tokenType" jdbcType="VARCHAR" />
+	    <result column="refresh_token_expired_seconds" property="refreshTokenExpiredSeconds" jdbcType="INTEGER" />
+	    <result column="refresh_token" property="refreshToken" jdbcType="VARCHAR" />
+	  </resultMap>
+
+    <insert id="insert" parameterType="org.cw.midc.model.OauthAccessToken">
+		   insert into oauth_access_token (create_time, access_token, token_expired_seconds, 
+	      client_id, token_type, refresh_token_expired_seconds, 
+	      refresh_token)
+	    values (now(), #{accessToken,jdbcType=VARCHAR}, #{tokenExpiredSeconds,jdbcType=INTEGER}, 
+	      #{clientId,jdbcType=VARCHAR}, #{tokenType,jdbcType=VARCHAR}, #{refreshTokenExpiredSeconds,jdbcType=INTEGER}, 
+	      #{refreshToken,jdbcType=VARCHAR})
+    </insert>
+    
+    <update id="update" parameterType="org.cw.midc.model.OauthAccessToken">
+	        update oauth_access_token
+	    <set>
+	      <if test="createTime != null">
+	        create_time = #{createTime,jdbcType=TIMESTAMP},
+	      </if>
+	      <if test="tokenExpiredSeconds != null">
+	        token_expired_seconds = #{tokenExpiredSeconds,jdbcType=INTEGER},
+	      </if>
+	      <if test="clientId != null">
+	        client_id = #{clientId,jdbcType=VARCHAR},
+	      </if>
+	      <if test="tokenType != null">
+	        token_type = #{tokenType,jdbcType=VARCHAR},
+	      </if>
+	      <if test="refreshTokenExpiredSeconds != null">
+	        refresh_token_expired_seconds = #{refreshTokenExpiredSeconds,jdbcType=INTEGER},
+	      </if>
+	      <if test="refreshToken != null">
+	        refresh_token = #{refreshToken,jdbcType=VARCHAR},
+	      </if>
+	    </set>
+	    where access_token = #{accessToken,jdbcType=VARCHAR}
+    </update>
+    
+    <select id="getList" parameterType="java.util.Map" resultMap="OauthAccessToken">
+    	select * from oauth_access_token
+        order by create_time desc
+    </select>
+
+    <select id="getByClientId" parameterType="java.lang.String" resultMap="OauthAccessToken">
+        select * from oauth_access_token where client_id = #{clientId,jdbcType=VARCHAR}
+    </select>
+    
+    <select id="getByAccessToken" parameterType="java.lang.String" resultMap="OauthAccessToken">
+        select * from oauth_access_token where access_token = #{accessToken,jdbcType=VARCHAR}
+    </select>
+    
+    <select id="getByRefreshToken" parameterType="java.lang.String" resultMap="OauthAccessToken">
+        select * from oauth_access_token where refresh_token = #{refreshToken,jdbcType=VARCHAR}
+    </select>
+    
+    <select id="getCount" parameterType="java.util.Map" resultType="Integer">
+        select count(*) from oauth_access_token
+    </select>
+    
+    <select id="getById" parameterType="java.lang.String" resultMap="OauthAccessToken">
+        select * from oauth_access_token where access_token = #{accessToken,jdbcType=VARCHAR}
+    </select>
+    
+     <delete id="deleteByClientId" parameterType="java.lang.String">
+        delete from oauth_access_token where client_id = #{clientId,jdbcType=VARCHAR}
+    </delete>
+
+</mapper>
