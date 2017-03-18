@@ -81,7 +81,7 @@ public class StudyInfo {
 	@Column(name = "hosp_id", length = 128)
 	private String hospitalId;
 	
-	@OneToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
 	@JoinColumn(name = "rpt_id")
 	private Report report;
 	

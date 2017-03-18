@@ -1,12 +1,16 @@
 package org.cw.midc.service.ris;
 
+import org.cw.midc.dto.ReportModifyDto;
+import org.cw.midc.dto.ReportQueryDto;
 import org.cw.midc.entity.User;
 import org.cw.midc.model.ris.Report;
 import org.cw.midc.model.ris.StudyInfo;
 import org.cw.midc.repository.ris.ReportRepository;
 import org.cw.midc.repository.ris.StudyInfoRepository;
+import org.cw.midc.service.factory.DozerBeanMapperFactory;
 import org.cw.midc.util.CommonUtils;
 import org.cw.midc.util.UserContextUtil;
+import org.dozer.DozerBeanMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +43,7 @@ public class ReportService {
 		
 		if("SENIOR_DOCTOR".equals(getHighestRole()))
 		{
+			report.setJuniorDoctorId(userId);
 			report.setSeniorDoctorId(userId);
 			studyInfo.setReportStatus("2");
 		}
@@ -52,13 +57,48 @@ public class ReportService {
 			return;
 		}
 		report.setId(CommonUtils.generateId());
-		studyInfo.setReport(report);
+		studyInfo.setReport(null);
 		studyInfoRepository.save(studyInfo);
 //		reportRepository.save(report);
 		
 	}
 	
-	public Report getReportByStudyInfoId(String studyInfoId)
+	public void modifyReport(ReportModifyDto reportModifyDto)
+	{
+		StudyInfo studyInfo = studyInfoRepository.findOne(reportModifyDto.getStudyInfoId());
+		if(studyInfo == null || studyInfo.getReport() == null)
+		{
+			return;
+		}
+		
+		String userId = "1234567";
+		Report report = studyInfo.getReport();
+		String reportId = report.getId();
+		Report resultNew = DozerBeanMapperFactory.getMapper().map(reportModifyDto, Report.class);
+		resultNew.setId(reportId);
+		
+		if("SENIOR_DOCTOR".equals(getHighestRole()))
+		{
+			resultNew.setJuniorDoctorId(userId);
+			studyInfo.setReportStatus("2");
+		}
+		else if("JUNIOR_DOCTOR".equals(getHighestRole()))
+		{
+			resultNew.setJuniorDoctorId(userId);
+			studyInfo.setReportStatus("1");
+		}
+		else
+		{
+			return;
+		}
+		
+		studyInfo.setReport(resultNew);
+		studyInfoRepository.save(studyInfo);
+		
+		
+	}
+	
+	public ReportQueryDto getReportByStudyInfoId(String studyInfoId)
 	{
 		StudyInfo studyInfo = studyInfoRepository.findOne(studyInfoId);
 		if(studyInfo == null || studyInfo.getReport() == null)
@@ -66,7 +106,9 @@ public class ReportService {
 			return null;
 		}
 		
-		return studyInfo.getReport();		
+		ReportQueryDto result = DozerBeanMapperFactory.getMapper().map(studyInfo.getReport(), ReportQueryDto.class);
+		
+		return result;		
 	}
 	
 	private String getHighestRole()
