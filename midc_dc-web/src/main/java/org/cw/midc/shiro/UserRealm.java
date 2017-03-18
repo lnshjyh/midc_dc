@@ -5,6 +5,7 @@ import com.google.common.collect.Sets;
 import org.cw.midc.util.DigestUtil;
 import org.cw.midc.entity.User;
 import org.cw.midc.service.LoginService;
+import org.cw.midc.service.UserRoleService;
 import org.cw.midc.service.UserService;
 import org.cw.midc.util.ServletUtil;
 import org.cw.midc.util.UserContextUtil;
@@ -24,6 +25,8 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 @Component
@@ -34,6 +37,9 @@ public class UserRealm extends AuthorizingRealm {
     
     @Resource
     private LoginService loginService;
+    
+    @Resource
+    private UserRoleService userRoleService;
     
 
     public UserRealm() {
@@ -67,6 +73,7 @@ public class UserRealm extends AuthorizingRealm {
         String account = upt.getUsername();
         String password = String.valueOf(upt.getPassword());
         User user = loginService.doLogin(account, ServletUtil.getIpAddr()); // 登录日志
+        List<String> roles = userRoleService.getRolesByUserId(user.getUserId());
 
         if(user == null){
             throw new UnknownAccountException("账号不存在");
@@ -78,6 +85,7 @@ public class UserRealm extends AuthorizingRealm {
         // 用info 中的password 比较  token 中的password  密码比较
         SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(account, user.getPassword(), ByteSource.Util.bytes(account), getName());
         UserContextUtil.setAttribute("currentUser", user);
+        UserContextUtil.setAttribute("roles", roles);
         return info;
     }
 }

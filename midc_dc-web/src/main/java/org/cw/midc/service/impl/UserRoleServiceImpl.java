@@ -46,4 +46,9 @@ public class UserRoleServiceImpl  implements UserRoleService {
             userRoleDao.delete("deleteByUserId",userId);
         }
     }
+
+	@Override
+	public List<String> getRolesByUserId(String userId) {
+		return userRoleDao.findColumn("getRolesByUserId", String.class, userId);
+	}
 }
