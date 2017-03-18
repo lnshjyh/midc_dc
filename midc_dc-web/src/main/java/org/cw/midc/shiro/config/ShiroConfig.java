@@ -20,10 +20,13 @@ import org.springframework.web.filter.DelegatingFilterProxy;
 
 import com.google.common.collect.Maps;
 
+import org.cw.midc.dao.OauthAccessTokenDao;
+import org.cw.midc.service.AccessTokenService;
 import org.cw.midc.shiro.DBSessionManageDao;
 import org.cw.midc.shiro.UserRealm;
 import org.cw.midc.shiro.credentials.RetryLimitHashedCredentialsMatcher;
 import org.cw.midc.shiro.filter.FormLoginFilter;
+import org.cw.midc.shiro.filter.Oauth2Filter;
 import org.cw.midc.shiro.filter.ResourceCheckFilter;
 import org.cw.midc.shiro.permission.UrlPermissionResolver;
 import org.cw.midc.util.Constants;
@@ -64,9 +67,14 @@ public class ShiroConfig{
         ResourceCheckFilter resourceCheckFilter = new ResourceCheckFilter();
         resourceCheckFilter.setErrorUrl("/403.html");
         FormLoginFilter formLoginFilter = new FormLoginFilter();
+        Oauth2Filter oauth2Filter = new Oauth2Filter();
+        AccessTokenService accessTokenService = new AccessTokenService();
+        accessTokenService.setOauthAccessTokenDao(new OauthAccessTokenDao());
+        oauth2Filter.setAccessTokenService(accessTokenService);
         filters.put("formLoginFilter", formLoginFilter);
         filters.put("resourceCheckFilter", resourceCheckFilter);
-
+        filters.put("oauth2Filter", oauth2Filter);
+        
         bean.setFilters(filters);
 
         Map<String, String> chains = Maps.newLinkedHashMap();
@@ -93,6 +101,8 @@ public class ShiroConfig{
         chains.put("/out/*", "anon");
         
         chains.put("/**", "formLoginFilter,resourceCheckFilter");
+        
+        chains.put("/out/basic/**", "anon,oauth2Filter");
 
         bean.setFilterChainDefinitionMap(chains);
         return bean;
