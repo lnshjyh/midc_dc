@@ -25,7 +25,7 @@ public class RisController {
 	@Autowired
 	private RisService risService;
 	
-	@PostMapping("/out/risInfo")
+/*	@PostMapping("/out/risInfo")
 	@ResponseBody
 	public Response createRisInfo(@RequestBody RisInfoDto risInfoDto)
 	{
@@ -35,7 +35,7 @@ public class RisController {
 		risService.createRisInfo(risInfoDto);
 		response.setMsg("创建成功");
 		return response;
-	}
+	}*/
 	
 	public void modifyRisInfo()
 	{
