@@ -24,15 +24,12 @@ import org.springframework.web.filter.DelegatingFilterProxy;
 import com.google.common.collect.Maps;
 
 import org.cw.midc.repository.oauth.OauthAccessJdbc;
-import org.cw.midc.repository.oauth.OauthAccessTokenRepository;
 import org.cw.midc.shiro.DBSessionManageDao;
 import org.cw.midc.shiro.UserRealm;
-import org.cw.midc.shiro.credentials.RetryLimitHashedCredentialsMatcher;
 import org.cw.midc.shiro.filter.FormLoginFilter;
 import org.cw.midc.shiro.filter.Oauth2Filter;
 import org.cw.midc.shiro.filter.ResourceCheckFilter;
 import org.cw.midc.shiro.permission.UrlPermissionResolver;
-import org.cw.midc.util.Constants;
 
 import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 

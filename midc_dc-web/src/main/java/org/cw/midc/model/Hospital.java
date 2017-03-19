@@ -51,6 +51,8 @@ public class Hospital {
 	public Hospital(){
 		this.createTime = new Date();
 		this.updateTime = new Date();
+		this.isAvailable = "1";
+		this.isConnected = "0";
 	}
 
     public String getHospId() {

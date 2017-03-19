@@ -15,6 +15,14 @@ import org.springframework.stereotype.Repository;
 public interface HospitalRepository extends PagingAndSortingRepository<Hospital, String> {
 	
 	List<Hospital> findByClientId(String clientId);
+	
+	List<Hospital> findByHospNameLike(String hospName, Pageable pageable);
+	
+	@Modifying
+	@Query("update Hospital h set h.clientId = :clientId, h.hospName = :hospName,h.address = :address,h.longitude = :longitude,h.latitude = :latitude where h.hospId = :hospId")
+	int updateByID(@Param("clientId")String clientId, @Param("hospName")String hospName, 
+			@Param("address")String address,@Param("longitude")Float longitude,@Param("latitude")Float latitude,
+			@Param("hospId")String hospId);
 
 	
 }
