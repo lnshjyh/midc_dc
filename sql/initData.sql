@@ -46,6 +46,8 @@ INSERT INTO `sys_menu` VALUES ('56', '1480254855433', '删除', '/dic/delete', '
 -- Records of sys_role
 -- ----------------------------
 INSERT INTO `sys_role` VALUES ('1', 'ROLE_ADMIN', '超级管理员');
+INSERT INTO `sys_role` VALUES ('2', 'ROLE_JUNIOR_DOC', '一线医生');
+INSERT INTO `sys_role` VALUES ('3', 'ROLE_SENIOR_DOC', '二线医生');
 
 -- ----------------------------
 -- Records of sys_role_menu
