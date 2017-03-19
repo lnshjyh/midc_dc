@@ -94,16 +94,8 @@ DROP TABLE IF EXISTS `sys_role`;
 CREATE TABLE `sys_role` (
   `id` int(20) NOT NULL AUTO_INCREMENT COMMENT '角色id',
   `role_id` varchar(64) NOT NULL COMMENT '角色编号',
-  `name` varchar(32) NOT NULL COMMENT '角色名称',
-  `sign` varchar(30) NOT NULL COMMENT '角色标识,程序中判断使用,如"admin"',
-  `is_delete` int(1) NOT NULL DEFAULT '0' COMMENT '删除标识',
-  `create_time` datetime NOT NULL COMMENT '创建时间',
-  `create_by` varchar(64) DEFAULT '0' COMMENT '创建人',
-  `update_time` datetime NOT NULL COMMENT '更新时间',
-  `update_by` varchar(64) DEFAULT '0' COMMENT '更新人',
-  `remark` varchar(256) DEFAULT NULL COMMENT '角色描述',
+  `name` varchar(32) NOT NULL COMMENT '角色名称'
   PRIMARY KEY (`id`),
-  UNIQUE KEY `idx_sign` (`sign`),
   KEY `idx_role_id` (`role_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COMMENT='角色表';
 

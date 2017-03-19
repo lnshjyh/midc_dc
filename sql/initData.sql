@@ -45,47 +45,41 @@ INSERT INTO `sys_menu` VALUES ('56', '1480254855433', '删除', '/dic/delete', '
 -- ----------------------------
 -- Records of sys_role
 -- ----------------------------
-INSERT INTO `sys_role` VALUES ('1', '1', '超级管理员', 'admin', '0', '2016-04-15 11:21:00', '0', '2016-11-08 14:33:53', '0', '超级管理员');
-INSERT INTO `sys_role` VALUES ('30', '1478540596277', '测试', 'test', '0', '2016-11-07 16:15:31', null, '2016-12-06 15:11:21', null, null);
+INSERT INTO `sys_role` VALUES ('1', 'ROLE_ADMIN', '超级管理员');
 
 -- ----------------------------
 -- Records of sys_role_menu
 -- ----------------------------
-INSERT INTO `sys_role_menu` VALUES ('961', '1', '22', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
-INSERT INTO `sys_role_menu` VALUES ('962', '1', '12', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
-INSERT INTO `sys_role_menu` VALUES ('963', '1', '23', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
-INSERT INTO `sys_role_menu` VALUES ('964', '1', '1479220072000', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
-INSERT INTO `sys_role_menu` VALUES ('965', '1', '13', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
-INSERT INTO `sys_role_menu` VALUES ('966', '1', '24', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
-INSERT INTO `sys_role_menu` VALUES ('967', '1', '14', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
-INSERT INTO `sys_role_menu` VALUES ('968', '1', '16', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
-INSERT INTO `sys_role_menu` VALUES ('969', '1', '1480224173523', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
-INSERT INTO `sys_role_menu` VALUES ('970', '1', '1479220122402', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
-INSERT INTO `sys_role_menu` VALUES ('971', '1', '1479219411962', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
-INSERT INTO `sys_role_menu` VALUES ('972', '1', '1478700606660', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
-INSERT INTO `sys_role_menu` VALUES ('973', '1', '1', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
-INSERT INTO `sys_role_menu` VALUES ('974', '1', '2', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
-INSERT INTO `sys_role_menu` VALUES ('975', '1', '3', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
-INSERT INTO `sys_role_menu` VALUES ('976', '1', '4', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
-INSERT INTO `sys_role_menu` VALUES ('977', '1', '5', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
-INSERT INTO `sys_role_menu` VALUES ('978', '1', '1480254855433', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
-INSERT INTO `sys_role_menu` VALUES ('979', '1', '1480978838674', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
-INSERT INTO `sys_role_menu` VALUES ('980', '1', '20', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
-INSERT INTO `sys_role_menu` VALUES ('981', '1', '1479219651971', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
-INSERT INTO `sys_role_menu` VALUES ('982', '1', '1479219802326', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
-INSERT INTO `sys_role_menu` VALUES ('983', '1', '21', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
-INSERT INTO `sys_role_menu` VALUES ('1001', '1478540596277', '1', '0', '2016-12-10 08:40:16', null, '2016-12-10 08:40:16', null, null);
-INSERT INTO `sys_role_menu` VALUES ('1002', '1478540596277', '12', '0', '2016-12-10 08:40:16', null, '2016-12-10 08:40:16', null, null);
-INSERT INTO `sys_role_menu` VALUES ('1003', '1478540596277', '2', '0', '2016-12-10 08:40:16', null, '2016-12-10 08:40:16', null, null);
+INSERT INTO `sys_role_menu` VALUES ('961', 'ROLE_ADMIN', '22', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
+INSERT INTO `sys_role_menu` VALUES ('962', 'ROLE_ADMIN', '12', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
+INSERT INTO `sys_role_menu` VALUES ('963', 'ROLE_ADMIN', '23', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
+INSERT INTO `sys_role_menu` VALUES ('964', 'ROLE_ADMIN', '1479220072000', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
+INSERT INTO `sys_role_menu` VALUES ('965', 'ROLE_ADMIN', '13', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
+INSERT INTO `sys_role_menu` VALUES ('966', 'ROLE_ADMIN', '24', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
+INSERT INTO `sys_role_menu` VALUES ('967', 'ROLE_ADMIN', '14', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
+INSERT INTO `sys_role_menu` VALUES ('968', 'ROLE_ADMIN', '16', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
+INSERT INTO `sys_role_menu` VALUES ('969', 'ROLE_ADMIN', '1480224173523', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
+INSERT INTO `sys_role_menu` VALUES ('970', 'ROLE_ADMIN', '1479220122402', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
+INSERT INTO `sys_role_menu` VALUES ('971', 'ROLE_ADMIN', '1479219411962', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
+INSERT INTO `sys_role_menu` VALUES ('972', 'ROLE_ADMIN', '1478700606660', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
+INSERT INTO `sys_role_menu` VALUES ('973', 'ROLE_ADMIN', '1', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
+INSERT INTO `sys_role_menu` VALUES ('974', 'ROLE_ADMIN', '2', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
+INSERT INTO `sys_role_menu` VALUES ('975', 'ROLE_ADMIN', '3', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
+INSERT INTO `sys_role_menu` VALUES ('976', 'ROLE_ADMIN', '4', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
+INSERT INTO `sys_role_menu` VALUES ('977', 'ROLE_ADMIN', '5', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
+INSERT INTO `sys_role_menu` VALUES ('978', 'ROLE_ADMIN', '1480254855433', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
+INSERT INTO `sys_role_menu` VALUES ('979', 'ROLE_ADMIN', '1480978838674', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
+INSERT INTO `sys_role_menu` VALUES ('980', 'ROLE_ADMIN', '20', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
+INSERT INTO `sys_role_menu` VALUES ('981', 'ROLE_ADMIN', '1479219651971', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
+INSERT INTO `sys_role_menu` VALUES ('982', 'ROLE_ADMIN', '1479219802326', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
+INSERT INTO `sys_role_menu` VALUES ('983', 'ROLE_ADMIN', '21', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
 
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
 INSERT INTO `sys_user` VALUES ('1', '1', 'admin', 'admin', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '2016-04-15 11:23:23', null, '123456@qq.com', '13428281893', '0', '0', '2017-02-27 15:37:31', '0:0:0:0:0:0:0:1', '0', '2016-04-15 11:23:38', null, '2016-05-12 17:28:04', null, null);
-INSERT INTO `sys_user` VALUES ('65', '526508814813591700456', 'test', '测试员', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', null, null, '1234562@qq.com', '13428281876', '0', '0', '2016-12-10 08:40:28', '0:0:0:0:0:0:0:1', '0', '2016-12-10 08:39:30', null, '2016-12-10 08:39:30', null, null);
 
 -- ----------------------------
 -- Records of sys_user_role
 -- ----------------------------
-INSERT INTO `sys_user_role` VALUES ('1', '1', '1', '0', '2016-04-15 14:48:11', '0', '2016-04-15 14:48:13', '0', null);
-INSERT INTO `sys_user_role` VALUES ('81', '526508814813591700456', '1478540596277', '0', '2016-12-10 08:40:02', null, '2016-12-10 08:40:02', null, null);
+INSERT INTO `sys_user_role` VALUES ('1', '1', 'ROLE_ADMIN', '0', '2016-04-15 14:48:11', '0', '2016-04-15 14:48:13', '0', null);
