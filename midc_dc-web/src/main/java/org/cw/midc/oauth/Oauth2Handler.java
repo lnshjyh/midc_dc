@@ -1,6 +1,7 @@
 package org.cw.midc.oauth;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
@@ -43,24 +44,23 @@ public class Oauth2Handler {
 	public OAuthResponse processOauthRq(OAuthTokenxRequest tokenRequest, HttpServletResponse response) throws OAuthSystemException{
 		 String grantType = tokenRequest.getGrantType();
 //		 Hospital clientHos = hospitalDao.findUnique("getByClientId", tokenRequest.getClientId());
-		 Hospital hospital = new Hospital();
-		 hospital.setClientId(tokenRequest.getClientId());
-		 Hospital clientHos = hospitalRepository.findOne(hospital.getClientId());
-		 if(clientHos == null){
+		 List<Hospital> clientHosList = hospitalRepository.findByClientId(tokenRequest.getClientId());
+		 if(clientHosList == null || clientHosList.isEmpty()){
 			 return invalidClientErrorResponse(tokenRequest);
 		 }
+		 Hospital clientHos = clientHosList.get(0);
 		 String secret = clientHos.getClientSecret();
 		 if(!secret.equals(tokenRequest.getClientSecret())){
 			 return invalidClientSecretResponse(tokenRequest);
 		 }
 //		 OauthAccessToken tokenObj = oauthAccessTokenDao.findUnique("getByClientId", tokenRequest.getClientId());
-		 OauthAccessToken oauthAccessToken = new OauthAccessToken();
-		 oauthAccessToken.setClientId(tokenRequest.getClientId());
-		 OauthAccessToken tokenObj = oauthAccessTokenRepository.findOne(oauthAccessToken.getClientId());
+		 List<OauthAccessToken> tokenObjList = oauthAccessTokenRepository.findByClientId(tokenRequest.getClientId());
+		 OauthAccessToken tokenObj = null;
 		 boolean isNeedCreate = false;
 		 
          if(GrantType.CLIENT_CREDENTIALS.toString().equalsIgnoreCase(grantType)){
-        	 if(tokenObj != null){
+        	 if(tokenObjList != null && !tokenObjList.isEmpty()){
+        		 tokenObj = tokenObjList.get(0);
         		 if(isExpire(tokenObj,ACCESS_TOKEN_VALIDITY_SECONDS)){
 //        			 oauthAccessTokenDao.delete("deleteByClientId", tokenRequest.getClientId());
         			 oauthAccessTokenRepository.delete(tokenObj);

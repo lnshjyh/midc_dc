@@ -12,5 +12,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface OauthAccessTokenRepository extends PagingAndSortingRepository<OauthAccessToken, String> {
 
-	
+	List<OauthAccessToken> findByClientId(String clientId);
 }

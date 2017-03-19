@@ -13,6 +13,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface HospitalRepository extends PagingAndSortingRepository<Hospital, String> {
+	
+	List<Hospital> findByClientId(String clientId);
 
 	
 }
