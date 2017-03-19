@@ -6,6 +6,9 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.oltu.oauth2.common.OAuth;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -110,7 +113,15 @@ public class CommonUtils {
         } catch (Exception e) {  
             return null;  
         }  
-    }  
+    }
+    
+    public final static String getAccessToken(HttpServletRequest httpRequest) {
+        final String authorization = httpRequest.getHeader("Authorization");
+        if (authorization != null) {
+            return authorization.substring(6).trim();
+        }
+        return httpRequest.getParameter(OAuth.OAUTH_ACCESS_TOKEN);
+    }
     /*public static void main(String[] args)
     {
     	long begin = System.currentTimeMillis();
