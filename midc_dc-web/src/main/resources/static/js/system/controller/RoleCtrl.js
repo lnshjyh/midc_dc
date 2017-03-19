@@ -6,6 +6,7 @@ roleApp.controller('roleCtrl', ['$rootScope', '$scope','baseService','roleServic
 	$scope.updateRole = function(sign){
 		var titleName = "添加角色";
 		$scope.role = {};
+		$scope.id = 'add';
 		if(!sign){
 			// 编辑
 			titleName = "编辑角色";

@@ -34,12 +34,8 @@ public class RoleServiceImpl implements RoleService {
     public void add(Role role) {
         checkNotNull(role,"角色信息不能为空");
         checkArgument(!Strings.isNullOrEmpty(role.getName()),"角色名称不能为空");
-        checkArgument(!Strings.isNullOrEmpty(role.getSign()),"角色标识不能为空");
-        String sign = role.getSign();
-        Role model = roleDao.findUnique("getRoleBySign", sign);
-        checkArgument(model==null,"角色编号已经存在");
-        String roleId = IdGenerator.getInstance().nextId();
-        role.setRoleId(roleId);
+        Role model = roleDao.findUnique("getRoleByRoleId", role.getRoleId());
+        checkArgument(model==null,"角色编码已经存在");
         roleDao.save("addRole", role);
     }
 
@@ -59,22 +55,17 @@ public class RoleServiceImpl implements RoleService {
     public void update(Role role) {
         checkNotNull(role,"角色信息不能为空");
         checkArgument(!Strings.isNullOrEmpty(role.getName()),"角色名称不能为空");
-        checkArgument(!Strings.isNullOrEmpty(role.getSign()),"角色标识不能为空");
 
         Role model = roleDao.findUnique("getRoleByRoleId", role.getRoleId());
         checkNotNull(model,"角色对象不存在");
 
         Map<String, Object> param = Maps.newHashMap();
-        param.put("sign", role.getSign());
         param.put("roleId", role.getRoleId());
-        model = roleDao.findUnique("getRoleBySignAndNoRoleId", param);
+        model = roleDao.findUnique("getRoleByRoleId", param);
         checkArgument(model==null,"角色标识已存在");
 
         param = Maps.newHashMap();
-        param.put("sign", role.getSign());
         param.put("name", role.getName());
-        param.put("remark", role.getRemark());
-        param.put("updateTime", new Date());
         param.put("roleId", role.getRoleId());
         roleDao.update("updateRole", param);
     }

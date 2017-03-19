@@ -43,13 +43,6 @@ public class Oauth2Filter extends AccessControlFilter {
 		return true;
 	}
 	
-	private String getAccessToken(HttpServletRequest httpRequest) {
-        final String authorization = httpRequest.getHeader("Authorization");
-        if (authorization != null) {
-            return authorization.substring(6).trim();
-        }
-        return httpRequest.getParameter(OAuth.OAUTH_ACCESS_TOKEN);
-    }
 
 	@Override
 	protected boolean onAccessDenied(ServletRequest request,

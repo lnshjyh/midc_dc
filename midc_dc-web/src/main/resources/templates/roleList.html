@@ -23,12 +23,6 @@
         <div class="Role_Manager_style">
             <div class="Manager_style search_style">
                 <ul class="search_content clearfix" shiro:hasPermission="/role/list">
-                    <li><label class="lf">角色标识</label>
-                        <label>
-                            <input name="sign" ng-model="requestParam.param.sign" type="text"
-                                   class="text_add"/>
-                        </label>
-                    </li>
                     <li><label class="lf">角色名称</label>
                         <label>
                             <input name="name" ng-model="requestParam.param.name" type="text"
@@ -59,9 +53,6 @@
                             </th>
                             <th>标识</th>
                             <th>名称</th>
-                            <th>创建日期</th>
-                            <th>更新日期</th>
-                            <th>备注 </th>
                         </tr>
                         </thead>
                         <tbody>
@@ -70,11 +61,8 @@
                                 <input name="subRoleChkbox" value="{{role.roleId}}" ng-model="selectedRoleIds" type="checkbox" ht-checked="selectAll"   class="ace subRoleChkbox"/>
                                 <span class="lbl" style="cursor:pointer;"></span>
                             </td>
-                            <td ng-bind="role.sign"></td>
+                            <td ng-bind="role.roleId"></td>
                             <td ng-bind="role.name"></td>
-                            <td ng-bind="role.createTime | date:'yyyy-MM-dd HH:mm:ss'"></td>
-                            <td ng-bind="role.updateTime | date:'yyyy-MM-dd HH:mm:ss'"></td>
-                            <td ng-bind="role.remark"></td>
                         </tr>
                         </tbody>
                     </table>
@@ -92,7 +80,7 @@
                                 <li>
                                     <label class="label_name">标识</label>
                                     <label>
-                                        <input name="key" type="text" ng-model="role.sign" value=""
+                                        <input name="key" type="text" ng-model="role.roleId" value=""
                                                class="text_add" ht-validate="{required:true}" />
                                     </label>
                                 </li>
@@ -104,13 +92,6 @@
                                     </label>
                                 </li>
                             </ul>
-                            <div class="Remark" style="padding-top: 20px;">
-                                <label class="label_name">备注</label>
-                                <label>
-                                    <textarea name="remark" ng-model="role.remark" cols="" rows=""
-                                              style="width: 456px; height: 100px; padding: 5px;"></textarea>
-                                </label>
-                            </div>
                         </div>
                     </div>
                     <div class="layui-layer-btn"><a class="layui-layer-btn0" ht-save="/role/save" ng-model="role">保存</a><a class="layui-layer-btn1">取消</a></div>

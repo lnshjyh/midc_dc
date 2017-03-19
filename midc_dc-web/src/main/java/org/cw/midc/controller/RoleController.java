@@ -57,7 +57,7 @@ public class RoleController {
     public Object save(@RequestBody Role role) {
         checkNotNull(role, "角色信息不能为空");
         Response response = new Response();
-        if (Strings.isNullOrEmpty(role.getRoleId())) {
+        if (!Strings.isNullOrEmpty(role.getRoleId())) {
             roleService.add(role);
         } else {
             roleService.update(role);

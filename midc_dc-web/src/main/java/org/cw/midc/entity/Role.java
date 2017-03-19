@@ -7,7 +7,6 @@ public class Role extends BaseEntity {
 
 	private String name;
 
-	private String sign;
 
 	public String getRoleId( ) {
 		return roleId;
@@ -24,13 +23,4 @@ public class Role extends BaseEntity {
 	public void setName( String name ) {
 		this.name = name;
 	}
-
-	public String getSign( ) {
-		return sign;
-	}
-
-	public void setSign( String sign ) {
-		this.sign = sign;
-	}
-
 }
