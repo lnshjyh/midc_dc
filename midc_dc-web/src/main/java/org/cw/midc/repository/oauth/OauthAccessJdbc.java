@@ -2,6 +2,7 @@ package org.cw.midc.repository.oauth;
 
 import org.cw.midc.model.oauth.OauthAccessToken;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -19,7 +20,13 @@ public class OauthAccessJdbc {
 	}
 	
 	public OauthAccessToken get(String token) {
-        return jdbcTemplate.queryForObject("select * from oauth_access_token where access_token = ?",createMapper(),token);
+		OauthAccessToken result = null;
+		try {
+			result = jdbcTemplate.queryForObject("select * from oauth_access_token where access_token = ?",createMapper(),token);
+		} catch (Exception e) {
+			return null;
+		}
+		return result;
     }
 	
 

@@ -39,6 +39,7 @@ public class Oauth2Filter extends AccessControlFilter {
 		if(tokenObj == null){
 			return false;
 		}
+		httpRequest.setAttribute("oauthToken", tokenObj);
 		
 		return true;
 	}
