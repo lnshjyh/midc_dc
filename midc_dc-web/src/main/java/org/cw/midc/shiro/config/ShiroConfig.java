@@ -2,6 +2,7 @@ package org.cw.midc.shiro.config;
 
 import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.servlet.DispatcherType;
 import javax.servlet.Filter;
 
@@ -17,6 +18,7 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.filter.DelegatingFilterProxy;
 
 import com.google.common.collect.Maps;
@@ -37,6 +39,14 @@ import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 
 @Configuration
 public class ShiroConfig{
+	
+	@Resource
+	private JdbcTemplate jdbcTemplate;
+	
+	@Bean
+	public OauthAccessJdbc oauthAccessJdbc(){
+		return new OauthAccessJdbc(jdbcTemplate);
+	}
 
     @Bean
     public FilterRegistrationBean filterRegistrationBean() {
@@ -71,8 +81,7 @@ public class ShiroConfig{
         filters.put("formLoginFilter", formLoginFilter);
         
         Oauth2Filter oauth2Filter = new Oauth2Filter();
-        OauthAccessJdbc oauthAccessJdbc = new OauthAccessJdbc();
-        oauth2Filter.setOauthAccessJdbc(oauthAccessJdbc);
+        oauth2Filter.setOauthAccessJdbc(oauthAccessJdbc());
         
         filters.put("resourceCheckFilter", resourceCheckFilter);
         filters.put("oauth2Filter", oauth2Filter);
