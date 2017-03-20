@@ -1,4 +1,4 @@
-package org.cw.midc.controller;
+package org.cw.midc.controller.out;
 
 import org.cw.midc.Response;
 import org.cw.midc.dto.ReportModifyDto;
@@ -19,7 +19,7 @@ import com.google.common.base.Preconditions;
 
 @Controller
 @RequestMapping("out")
-public class ReportController {
+public class ReportForClientController {
 	
 	@Autowired
 	private ReportService reportService;

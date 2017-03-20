@@ -1,4 +1,4 @@
-package org.cw.midc.controller.out;
+package org.cw.midc.controller.out.oauth;
 
 import java.util.HashMap;
 import java.util.Map;
