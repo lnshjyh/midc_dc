@@ -39,15 +39,15 @@ public class ReportService {
 			return;
 		}
 		
-		String userId = "1234567";
+		String userId = user.getUserId();
 		
-		if("SENIOR_DOCTOR".equals(getHighestRole()))
+		if("ROLE_SENIOR_DOC".equals(getHighestRole()))
 		{
 			report.setJuniorDoctorId(userId);
 			report.setSeniorDoctorId(userId);
 			studyInfo.setReportStatus("2");
 		}
-		else if("JUNIOR_DOCTOR".equals(getHighestRole()))
+		else if("ROLE_JUNIOR_DOC".equals(getHighestRole()))
 		{
 			report.setJuniorDoctorId(userId);
 			studyInfo.setReportStatus("1");
@@ -77,12 +77,12 @@ public class ReportService {
 		Report resultNew = DozerBeanMapperFactory.getMapper().map(reportModifyDto, Report.class);
 		resultNew.setId(reportId);
 		
-		if("SENIOR_DOCTOR".equals(getHighestRole()))
+		if("ROLE_SENIOR_DOC".equals(getHighestRole()))
 		{
 			resultNew.setJuniorDoctorId(userId);
 			studyInfo.setReportStatus("2");
 		}
-		else if("JUNIOR_DOCTOR".equals(getHighestRole()))
+		else if("ROLE_JUNIOR_DOC".equals(getHighestRole()))
 		{
 			resultNew.setJuniorDoctorId(userId);
 			studyInfo.setReportStatus("1");
