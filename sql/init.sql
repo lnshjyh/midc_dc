@@ -94,7 +94,7 @@ DROP TABLE IF EXISTS `sys_role`;
 CREATE TABLE `sys_role` (
   `id` int(20) NOT NULL AUTO_INCREMENT COMMENT '角色id',
   `role_id` varchar(64) NOT NULL COMMENT '角色编号',
-  `name` varchar(32) NOT NULL COMMENT '角色名称'
+  `name` varchar(32) NOT NULL COMMENT '角色名称',
   PRIMARY KEY (`id`),
   KEY `idx_role_id` (`role_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COMMENT='角色表';
