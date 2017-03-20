@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html ng-app="userApp" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" th:href="@{/assets/select-mutiple/css/select-multiple.css}"/>
+    <header th:replace="importCommon"></header>
+    <script th:src="@{/js/system/controller/HospitalCtrl.js}"></script>
+    <script th:src="@{/js/system/service/HospitalService.js}"></script>
+    <script th:src="@{/assets/select-mutiple/js/multiselect.min.js}"></script>
+    <script th:src="@{/assets/select-mutiple/js/prettify.min.js}"></script>
+    <title>基层医疗机构管理</title>
+</head>
+<body ng-controller="userCtrl">
+<div class="page-content">
+    <div class="commonManager">
+        <form id="form1" name="form1" method="post" action="">
+            <div class="Manager_style add_user_info search_style">
+                <ul class="search_content clearfix" shiro:hasPermission="/user/list">
+                    <li><label class="lf">姓名</label>
+                        <label>
+                            <input name="trueName" ng-model="queryFilter.param.hospName"
+                                   type="text"
+                                   class="text_add"/>
+                        </label>
+                    </li>
+                    <button id="btn_search" ng-click="hospitalSearch = !hospitalSearch" type="button"
+                            class="btn btn-primary queryBtn">查询
+                    </button>
+                </ul>
+                <ul class="search_content clearfix">
+                    <button class="btn btn-primary addBtn" type="button" ng-click="updateUser(1)"
+                            id="Add_user_btn" shiro:hasPermission="/hospital/add">添加
+                    </button>
+                    <button type="button" class="btn btn-primary updateBtn" ng-click="updateHospital(0)"  shiro:hasPermission="/hospital/edit">修改
+                    </button>
+                    <button type="button" class="btn btn-primary deleteBtn" ng-click="deleteHospital()"  shiro:hasPermission="/hospital/delete">删除</button>
+                </ul>
+                <div id="Add_hospital_style" style="display: none">
+                    <div class="addCommon clearfix">
+                        <ul class="clearfix">
+                            <li>
+                                <label class="label_name">医院名称</label>
+                                <label for="hosp_name"></label>
+                                <input name="hospName" ng-model="hospital.hospName" type="text"  id="hospName"/>
+                                <i style="color: #F60;">*</i>
+                            </li>
+                            <li>
+                                <label class="label_name">地址</label>
+                                <label for="address"></label>
+                                <input name="address" ng-model="hospital.address" type="text"
+                                       id="address"/>
+                                <i style="color: #F60;">*</i>
+                            </li>
+                            <li>
+                                <label class="label_name">客户端标识</label>
+                                <label for="client_id"></label>
+                                <input name="clientId" ng-model="hospital.clientId" type="text" id="clientId"/>
+                            </li>
+                            <li>
+                                <label class="label_name">经度</label>
+                                <label for="longitude"></label>
+                                <input name="longitude" ng-model="hospital.longitude" type="text" id="longitude"/>
+                            </li>
+                            <li>
+                                <label class="label_name">纬度</label>
+                                <label for="latitude"></label>
+                                <input name="latitude" ng-model="hospital.latitude" type="text"
+                                       id="latitude"/>
+                            </li>
+                            <li>
+                                <label class="label_name">状态</label>
+                                <label>
+                                    <select name="isAvailable" size="1" ng-model="hospital.isAvailable"
+                                            ng-init="hospital.isAvailable=0">
+                                        <option ng-repeat="map in isAvailableMap"
+                                                ng-selected="map.isAvailable == hospital.isAvailable"
+                                                value="{{map.isAvailable}}" ng-bind="map.name"></option>
+                                    </select>
+                                </label>
+                                <i style="color: #F60;">*</i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+        </form>
+        <div class="Manager_style">
+            <div class="User_list">
+                <table id="Hospital_list" cellpadding="0" cellspacing="0"
+                       class="table table-striped table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>
+                            <input name="userCheckBox_All" id="userCheckBox_All" type="checkbox" ng-click="selectAll($event)" class="ace"/>
+                            <span class="lbl" style="cursor:pointer;"></span>
+                        </th>
+                        <th>医院名称</th>
+                        <th>地址</th>
+                        <th>状态</th>
+                        <th>客户端标识</th>
+                        <th>经度</th>
+                        <th>纬度</th>
+                        <th>创建时间</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="model in data">
+                        <td>
+                            <input name="subHospChkBox_{{$index}}" value="{{model.hospId}}" type="checkbox" class="ace subUserChkbox"/>
+                            <span class="lbl" style="cursor:pointer;"></span>
+                        </td>
+                        <td ng-bind="model.hospName"></td>
+                        <td ng-bind="model.address"></td>
+                        <td ng-bind="model.isAvailable?'停用':'启用'"></td>
+                        <td ng-bind="model.clientId"></td>
+                        <td ng-bind="model.longitude"></td>
+                        <td ng-bind="model.latitude"></td>
+                        <td ng-bind="model.createTime | date:'yyyy-MM-dd'"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="hupan_more eg-page"  url="/hospital/list" request-page-params="queryFilter"
+                 click-search="hospitalSearch" return-page-rows="data"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
