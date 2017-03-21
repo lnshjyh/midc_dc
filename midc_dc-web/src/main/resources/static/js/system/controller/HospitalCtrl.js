@@ -1,10 +1,10 @@
-var userApp = angular.module('userApp', ['base']);
-userApp.controller('hospitalCtrl', ['$rootScope', '$scope','hospitalService',function ($rootScope,$scope,hospitalService) {
+var hospitalApp = angular.module('hospitalApp', ['base']);
+hospitalApp.controller('hospitalCtrl', ['$rootScope', '$scope','hospitalService',function ($rootScope,$scope,hospitalService) {
 	$('#multiselect').multiselect({});
 	//搜索参数
 	$scope.queryFilter = {};
 	$scope.isAvailableMap = [{isAvailableMap:0, name: "不可用"}, {isAvailableMap: 1, name: "可用"}];
-	//添加用户,1为添加，0为修改
+	//添加医疗机构,1为添加，0为修改
 	$scope.updateHospital = function(sign){
 		var selectArray = $("#Hospital_list tbody input:checked");
 		if(!selectArray || (selectArray.length!=1 && sign==0)){
@@ -80,7 +80,7 @@ userApp.controller('hospitalCtrl', ['$rootScope', '$scope','hospitalService',fun
 		});
 	}
 	
-	//删除用户
+	//删除医疗机构
 	$scope.deleteHospital = function(){
 		var selectArray = $("#Hospital_list tbody input:checked");
 		if(!selectArray || selectArray.length==0){

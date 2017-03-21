@@ -35,7 +35,7 @@ public class HospitalService {
     	int pageNo = page.getPageNo();
     	int pageSize = page.getPageSize();
     	Map<String,Object> para = param.getParam();
-    	String hospName = (String)para.get("hospName");
+    	String hospName = para == null?"":(String)para.get("hospName");
     	PageRequest pageRequest = new PageRequest(pageNo-1, pageSize, new Sort(Sort.Direction.ASC, "createTime"));
         return hospitalRepository.findByHospNameLike(hospName, pageRequest);
     }
