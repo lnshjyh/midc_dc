@@ -15,7 +15,6 @@
     <div class="commonManager">
         <form id="form1" name="form1" method="post" action="">
             <div class="Manager_style add_hospital_info search_style">
-                <!-- <ul class="search_content clearfix" shiro:hasPermission="/hospital/list"> -->
                 <ul class="search_content clearfix" >
                     <li><label class="lf">医疗名称</label>
                         <label>
@@ -30,11 +29,11 @@
                 </ul>
                 <ul class="search_content clearfix">
                     <button class="btn btn-primary addBtn" type="button" ng-click="updateHospital(1)"
-                            id="Add_user_btn" shiro:hasPermission="/hospital/add">添加
+                            id="Add_user_btn" >添加
                     </button>
-                    <button type="button" class="btn btn-primary updateBtn" ng-click="updateHospital(0)"  shiro:hasPermission="/hospital/edit">修改
+                    <button type="button" class="btn btn-primary updateBtn" ng-click="updateHospital(0)"  >修改
                     </button>
-                    <button type="button" class="btn btn-primary deleteBtn" ng-click="deleteHospital()"  shiro:hasPermission="/hospital/delete">删除</button>
+                    <button type="button" class="btn btn-primary deleteBtn" ng-click="deleteHospital()"  >删除</button>
                 </ul>
                 <div id="Add_hospital_style" style="display: none">
                     <div class="addCommon clearfix">
@@ -109,12 +108,12 @@
                     <tbody>
                     <tr ng-repeat="model in data">
                         <td>
-                            <input name="subHospChkBox_{{$index}}" value="{{model.hospId}}" type="checkbox" class="ace subUserChkbox"/>
+                            <input name="subHospChkBox_{{$index}}" value="{{model.hospId}}" type="checkbox" class="ace subHospChkbox"/>
                             <span class="lbl" style="cursor:pointer;"></span>
                         </td>
                         <td ng-bind="model.hospName"></td>
                         <td ng-bind="model.address"></td>
-                        <td ng-bind="model.isAvailable?'停用':'启用'"></td>
+                        <td ng-bind="model.isAvailable == 0?'停用':'启用'"></td>
                         <td ng-bind="model.clientId"></td>
                         <td ng-bind="model.longitude"></td>
                         <td ng-bind="model.latitude"></td>

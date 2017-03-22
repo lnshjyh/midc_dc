@@ -3,7 +3,7 @@ hospitalApp.controller('hospitalCtrl', ['$rootScope', '$scope','hospitalService'
 	$('#multiselect').multiselect({});
 	//搜索参数
 	$scope.queryFilter = {};
-	$scope.isAvailableMap = [{isAvailableMap:0, name: "不可用"}, {isAvailableMap: 1, name: "可用"}];
+	$scope.isAvailableMap = [{isAvailable:0, name: "不可用"}, {isAvailable: 1, name: "可用"}];
 	//添加医疗机构,1为添加，0为修改
 	$scope.updateHospital = function(sign){
 		var selectArray = $("#Hospital_list tbody input:checked");
@@ -15,8 +15,9 @@ hospitalApp.controller('hospitalCtrl', ['$rootScope', '$scope','hospitalService'
 		var hospId = $(selectArray[0]).val();
 		if(hospId){
 			hospitalService.detail(hospId).then(function(response){
-				var isLock = response.isAvailable;
-				$scope.hospital = response;
+				console.debug('para',response);
+				var isAvailable = response.data.isAvailable;
+				$scope.hospital = response.data;
 				$scope.hospital.isAvailable = isAvailable.toString();
 			});
 		}else{
@@ -30,7 +31,7 @@ hospitalApp.controller('hospitalCtrl', ['$rootScope', '$scope','hospitalService'
 			maxmin : true,
 			shadeClose : true, //点击遮罩关闭层
 			area : [ '576px', '468px' ],
-			content : $('#Add_user_style'),
+			content : $('#Add_hospital_style'),
 			btn : [ '保存', '取消' ],
 			yes : function(index, layero) {
 				if ($("#hospName").val() == "") {

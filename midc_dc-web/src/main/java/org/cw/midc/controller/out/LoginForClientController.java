@@ -10,7 +10,8 @@ import org.cw.midc.service.RoleService;
 import org.cw.midc.service.UserRoleService;
 import org.cw.midc.util.ServletUtil;
 import org.cw.midc.util.UserContextUtil;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.DisabledAccountException;
 import org.apache.shiro.authc.ExcessiveAttemptsException;
@@ -34,6 +35,8 @@ import javax.annotation.Resource;
 @Controller
 @RequestMapping("/out")
 public class LoginForClientController {
+	
+	private static final Logger log = LoggerFactory.getLogger(LoginForClientController.class);
 
     @Resource
     private RoleService roleService;
@@ -45,6 +48,7 @@ public class LoginForClientController {
     @ResponseBody
     public Map<String,Object> doLoginForClient(String account, String password)  {
         String msg = "",resultCode="";
+        log.info("************LoginForClientController.doLoginForClient begin*****************");
         Map<String,Object> map = Maps.newHashMap();
         resultCode = "SUCCESS";
         if(Strings.isNullOrEmpty(account) || Strings.isNullOrEmpty(password) ){
