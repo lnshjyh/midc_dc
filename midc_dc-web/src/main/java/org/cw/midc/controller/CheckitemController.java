@@ -7,7 +7,9 @@ import org.cw.midc.page.Page;
 import org.cw.midc.ParamFilter;
 import org.cw.midc.aop.annotaion.WebLogger;
 import org.cw.midc.entity.User;
+import org.cw.midc.model.Checkitem;
 import org.cw.midc.model.Hospital;
+import org.cw.midc.service.CheckitemService;
 import org.cw.midc.service.HospitalService;
 import org.cw.midc.service.UserService;
 
@@ -24,60 +26,60 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 @Controller
-@RequestMapping("hospital")
-public class HospitalController {
+@RequestMapping("checkitem")
+public class CheckitemController {
 
     @Resource
-    private HospitalService hospitalService;
+    private CheckitemService checkitemService;
 
     @GetMapping("listPage")
     public String list() {
-        return "hospitalList";
+        return "checkitemList";
     }
 
 
     @ResponseBody
     @PostMapping("list")
-    @WebLogger("查询医疗机构列表")
+    @WebLogger("查询检查项列表")
     public Response list(@RequestBody  ParamFilter queryFilter) {
-        List hosList = hospitalService.getList(queryFilter);
+        List checkitemList = checkitemService.getList(queryFilter);
         Page page = queryFilter.getPage();
-        return new Response(hosList,page);
+        return new Response(checkitemList,page);
     }
 
     @ResponseBody
     @PostMapping("add")
-    @WebLogger("添加医疗机构")
-    public Response add(@RequestBody Hospital hospital) {
-        checkNotNull(hospital, "医疗机构不能为空");
-        hospitalService.add(hospital);
+    @WebLogger("添加检查项")
+    public Response add(@RequestBody Checkitem checkitem) {
+        checkNotNull(checkitem, "检查项不能为空");
+        checkitemService.add(checkitem);
         return new Response("添加成功");
     }
 
 
     @ResponseBody
     @PostMapping("edit")
-    @WebLogger("编辑医疗机构")
-    public Response edit(@RequestBody Hospital hospital) {
-    	hospitalService.update(hospital);
+    @WebLogger("编辑检查项")
+    public Response edit(@RequestBody Checkitem checkitem) {
+    	checkitemService.update(checkitem);
         return new Response("修改成功");
     }
 
     @ResponseBody
     @PostMapping("delete")
-    @WebLogger("删除医疗机构")
-    public Response delete(@RequestBody List<String> hospIds) {
-        checkArgument((hospIds != null && hospIds.size() > 0), "医疗机构编号不能为空");
-        hospitalService.delete(hospIds);
+    @WebLogger("删除检查项")
+    public Response delete(@RequestBody List<Integer> checkitemIds) {
+        checkArgument((checkitemIds != null && checkitemIds.size() > 0), "检查项ID不能为空");
+        checkitemService.delete(checkitemIds);
         return new Response("删除成功");
     }
 
 
     @ResponseBody
     @PostMapping("detail")
-    @WebLogger("查询医疗机构详细")
-    public Response detail(@RequestBody String hospId) {
-    	Hospital hospital = hospitalService.getDetail(hospId);
-        return new Response(hospital);
+    @WebLogger("查询检查项详细")
+    public Response detail(@RequestBody Integer checkitemId) {
+    	Checkitem checkitem = checkitemService.getDetail(checkitemId);
+        return new Response(checkitem);
     }
 }

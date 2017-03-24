@@ -18,7 +18,7 @@ public interface DeviceTypeRepository extends PagingAndSortingRepository<DeviceT
 	List<DeviceType> findByDeviceTypeNameLike(String deviceTypeName, Pageable pageable);
 	
 	@Modifying
-	@Query("update DeviceType h set h.deviceTypeName = :deviceTypeName,h.deviceTypeId = :deviceTypeId, h.isAvailable = :isAvailable,h.operId = :operId,h.updateTime = :updateTime where h.deviceTypeId = :deviceTypeId")
+	@Query("update DeviceType h set h.deviceTypeName = :deviceTypeName, h.isAvailable = :isAvailable,h.operId = :operId,h.updateTime = :updateTime where h.deviceTypeId = :deviceTypeId")
 	int updateByID( @Param("deviceTypeName")String deviceTypeName, @Param("isAvailable")String isAvailable,@Param("operId")String operId,@Param("updateTime")Date updateTime
 			,@Param("deviceTypeId")String deviceTypeId);
 

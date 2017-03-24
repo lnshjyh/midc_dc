@@ -8,7 +8,9 @@ import org.cw.midc.ParamFilter;
 import org.cw.midc.aop.annotaion.WebLogger;
 import org.cw.midc.entity.User;
 import org.cw.midc.model.Hospital;
+import org.cw.midc.model.PositionType;
 import org.cw.midc.service.HospitalService;
+import org.cw.midc.service.PositionTypeService;
 import org.cw.midc.service.UserService;
 
 import org.springframework.stereotype.Controller;
@@ -24,60 +26,60 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 @Controller
-@RequestMapping("hospital")
-public class HospitalController {
+@RequestMapping("positionType")
+public class PositionTypeController {
 
     @Resource
-    private HospitalService hospitalService;
+    private PositionTypeService positionTypeService;
 
     @GetMapping("listPage")
     public String list() {
-        return "hospitalList";
+        return "positionTypeList";
     }
 
 
     @ResponseBody
     @PostMapping("list")
-    @WebLogger("查询医疗机构列表")
+    @WebLogger("查询部位列表")
     public Response list(@RequestBody  ParamFilter queryFilter) {
-        List hosList = hospitalService.getList(queryFilter);
+        List positionTypeList = positionTypeService.getList(queryFilter);
         Page page = queryFilter.getPage();
-        return new Response(hosList,page);
+        return new Response(positionTypeList,page);
     }
 
     @ResponseBody
     @PostMapping("add")
-    @WebLogger("添加医疗机构")
-    public Response add(@RequestBody Hospital hospital) {
-        checkNotNull(hospital, "医疗机构不能为空");
-        hospitalService.add(hospital);
+    @WebLogger("添加检查部位")
+    public Response add(@RequestBody PositionType positionType) {
+        checkNotNull(positionType, "检查部位不能为空");
+        positionTypeService.add(positionType);
         return new Response("添加成功");
     }
 
 
     @ResponseBody
     @PostMapping("edit")
-    @WebLogger("编辑医疗机构")
-    public Response edit(@RequestBody Hospital hospital) {
-    	hospitalService.update(hospital);
+    @WebLogger("编辑检查部位")
+    public Response edit(@RequestBody PositionType positionType) {
+    	positionTypeService.update(positionType);
         return new Response("修改成功");
     }
 
     @ResponseBody
     @PostMapping("delete")
-    @WebLogger("删除医疗机构")
-    public Response delete(@RequestBody List<String> hospIds) {
-        checkArgument((hospIds != null && hospIds.size() > 0), "医疗机构编号不能为空");
-        hospitalService.delete(hospIds);
+    @WebLogger("删除检查部位")
+    public Response delete(@RequestBody List<Integer> positiontypeIds) {
+        checkArgument((positiontypeIds != null && positiontypeIds.size() > 0), "部位ID不能为空");
+        positionTypeService.delete(positiontypeIds);
         return new Response("删除成功");
     }
 
 
     @ResponseBody
     @PostMapping("detail")
-    @WebLogger("查询医疗机构详细")
-    public Response detail(@RequestBody String hospId) {
-    	Hospital hospital = hospitalService.getDetail(hospId);
-        return new Response(hospital);
+    @WebLogger("查询检查部位详细")
+    public Response detail(@RequestBody Integer positiontypeId) {
+    	PositionType positionType = positionTypeService.getDetail(positiontypeId);
+        return new Response(positionType);
     }
 }
