@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html ng-app="checkitemApp" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" th:href="@{/assets/select-mutiple/css/select-multiple.css}"/>
+    <header th:replace="importCommon"></header>
+    <script th:src="@{/js/system/controller/CheckitemCtrl.js}"></script>
+    <script th:src="@{/js/system/service/CheckitemService.js}"></script>
+    <script th:src="@{/assets/select-mutiple/js/multiselect.min.js}"></script>
+    <script th:src="@{/assets/select-mutiple/js/prettify.min.js}"></script>
+    <title>检查项管理</title>
+</head>
+<body ng-controller="checkitemCtrl">
+<div class="page-content">
+    <div class="commonManager">
+        <form id="form1" name="form1" method="post" action="">
+            <div class="Manager_style add_checkitem_info search_style">
+                <ul class="search_content clearfix" >
+                    <li><label class="lf">检查项名称</label>
+                        <label>
+                            <input name="checkitemName" ng-model="queryFilter.param.checkitemName"
+                                   type="text"
+                                   class="text_add"/>
+                        </label>
+                    </li>
+                    <button id="btn_search" ng-click="checkitemSearch = !checkitemSearch" type="button"
+                            class="btn btn-primary queryBtn">查询
+                    </button>
+                </ul>
+                <ul class="search_content clearfix">
+                    <button class="btn btn-primary addBtn" type="button" ng-click="updateCheckitem(1)"
+                            id="Add_checkitem_btn" >添加
+                    </button>
+                    <button type="button" class="btn btn-primary updateBtn" ng-click="updateCheckitem(0)"  >修改
+                    </button>
+                    <button type="button" class="btn btn-primary deleteBtn" ng-click="deleteCheckitem()"  >删除</button>
+                </ul>
+                <div id="Add_checkitem_style" style="display: none">
+                    <div class="addCommon clearfix">
+                        <ul class="clearfix">
+                            <li>
+                                <label class="label_name">检查项名称</label>
+                                <label for="checkitem_name"></label>
+                                <input name="checkitemName" ng-model="checkitem.checkitemName" type="text"  id="checkitemName"/>
+                                <i style="color: #F60;">*</i>
+                            </li>
+                            <li>
+                                <label class="label_name">状态</label>
+                                <label>
+                                    <select name="isAvailable" size="1" ng-model="checkitem.isAvailable"
+                                            ng-init="checkitem.isAvailable=0">
+                                        <option ng-repeat="map in isAvailableMap"
+                                                ng-selected="map.isAvailable == checkitem.isAvailable"
+                                                value="{{map.isAvailable}}" ng-bind="map.name"></option>
+                                    </select>
+                                </label>
+                                <i style="color: #F60;">*</i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+        </form>
+        <div class="Manager_style">
+            <div class="Checkitem_list">
+                <table id="Checkitem_list" cellpadding="0" cellspacing="0"
+                       class="table table-striped table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>
+                            <input name="checkitemCheckBox_All" id="checkitemCheckBox_All" type="checkbox" ng-click="selectAll($event)" class="ace"/>
+                            <span class="lbl" style="cursor:pointer;"></span>
+                        </th>
+                        <th>检查项名称</th>
+                        <th>状态</th>
+                        <th>创建时间</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="model in data">
+                        <td>
+                            <input name="subCheckitemChkBox_{{$index}}" value="{{model.checkitemId}}" type="checkbox" class="ace subCheckitemChkbox"/>
+                            <span class="lbl" style="cursor:pointer;"></span>
+                        </td>
+                        <td ng-bind="model.checkitemName"></td>
+                        <td ng-bind="model.isAvailable == 0?'停用':'启用'"></td>
+                        <td ng-bind="model.createTime | date:'yyyy-MM-dd'"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="hupan_more eg-page"  url="/checkitem/list" request-page-params="queryFilter"
+                 click-search="checkitemSearch" return-page-rows="data"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
