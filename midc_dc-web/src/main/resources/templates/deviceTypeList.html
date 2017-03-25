@@ -38,11 +38,15 @@
                 <div id="Add_deviceType_style" style="display: none">
                     <div class="addCommon clearfix">
                         <ul class="clearfix">
+                        	<li>
+                                <label class="label_name">设备标识</label>
+                                <label for="device_type_id"></label>
+                                <input name="deviceTypeId" ng-model="deviceType.deviceTypeId" type="text"  id="deviceTypeId"/>
+                            </li>
                             <li>
                                 <label class="label_name">设备名称</label>
                                 <label for="device_type_name"></label>
-                                <input name="deviecTypeName" ng-model="deviceType.deviecTypeName" type="text"  id="deviecTypeName"/>
-                                <i style="color: #F60;">*</i>
+                                <input name="deviceTypeName" ng-model="deviceType.deviceTypeName" type="text"  id="deviceTypeName"/>
                             </li>
                             <li>
                                 <label class="label_name">状态</label>
@@ -54,7 +58,6 @@
                                                 value="{{map.isAvailable}}" ng-bind="map.name"></option>
                                     </select>
                                 </label>
-                                <i style="color: #F60;">*</i>
                             </li>
                         </ul>
                     </div>

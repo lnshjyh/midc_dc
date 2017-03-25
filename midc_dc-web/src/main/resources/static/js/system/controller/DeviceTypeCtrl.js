@@ -20,7 +20,7 @@ deviceTypeApp.controller('deviceTypeCtrl', ['$rootScope', '$scope','deviceTypeSe
 				$scope.deviceType.isAvailable = isAvailable.toString();
 			});
 		}else{
-			$scope.deviceTypeId = {
+			$scope.deviceType = {
 					isAvailable :'0'
 			};
 		}
@@ -49,7 +49,7 @@ deviceTypeApp.controller('deviceTypeCtrl', ['$rootScope', '$scope','deviceTypeSe
 					var isAvailableStr = deviceType.isAvailable;
 					deviceType.isAvailableStr = parseInt(isAvailableStr);
 					if(!deviceTypeId){
-						deviceTypelService.addDeviceType(deviceType).then(function(response){
+						deviceTypeService.addDeviceType(deviceType).then(function(response){
 							layer.alert(response.msg, {
 								title : '提示框',
 								icon : 1,
@@ -59,7 +59,7 @@ deviceTypeApp.controller('deviceTypeCtrl', ['$rootScope', '$scope','deviceTypeSe
 							});
 						});
 					}else{
-						deviceTypelService.editDeviceType(deviceType).then(function(response){
+						deviceTypeService.editDeviceType(deviceType).then(function(response){
 							layer.alert('修改成功！', {
 								title : '提示框',
 								icon : 1,
