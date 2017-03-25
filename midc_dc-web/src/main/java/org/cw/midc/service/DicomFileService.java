@@ -7,8 +7,10 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.cw.midc.model.FileInfo;
+import org.cw.midc.model.Hospital;
 import org.cw.midc.model.storage.MediaInfo;
 import org.cw.midc.repository.FileInfoRepository;
+import org.cw.midc.repository.HospitalRepository;
 import org.cw.midc.repository.storage.MediaRepository;
 import org.cw.midc.util.CommonUtils;
 import org.rribbit.Listener;
@@ -40,13 +42,16 @@ public class DicomFileService {
 	@Autowired
 	private RequestResponseBus eventBus;
 	
+	@Autowired
+	private HospitalRepository hospitalRepository;
+	
 	/**
 	 * 存储文件到文件系统，并且存文件信息
 	 * @param file
 	 * @param userId
 	 * @param studyInfoId
 	 */
-	public void saveFileAndGenerateParserTask(MultipartFile file, String userId, String studyInfoId)
+	public void saveFileAndGenerateParserTask(MultipartFile file, String clientId, String studyInfoId)
 	{
 
 		//获取根存储路径
@@ -85,7 +90,13 @@ public class DicomFileService {
 		
 		//存储文件信息
 		String fileId = CommonUtils.generateId();
-		FileInfo fileInfo = new FileInfo(fileId, fileRelativePath, file.getOriginalFilename(), studyInfoId, mediaInfo.getId(), userId);		
+		List<Hospital> hospitalList = hospitalRepository.findByClientId(clientId);
+		if(hospitalList == null || hospitalList.size() == 0)
+		{
+			return;
+		}
+		String hospitalId = hospitalList.get(0).getHospId();
+		FileInfo fileInfo = new FileInfo(fileId, fileRelativePath, file.getOriginalFilename(), studyInfoId, mediaInfo.getId(), hospitalId);		
 		fileInfoRepository.save(fileInfo);
 		eventBus.send("dicomFileUploaded", fileInfo);
 	}

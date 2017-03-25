@@ -4,13 +4,16 @@ import java.io.File;
 import java.io.IOException;
 
 import org.apache.commons.lang.StringUtils;
+import org.cw.midc.exception.RisInfoNotFoundException;
 import org.cw.midc.model.FileInfo;
 import org.cw.midc.model.pacs.Instance;
 import org.cw.midc.model.pacs.Series;
 import org.cw.midc.model.pacs.Study;
+import org.cw.midc.model.ris.StudyInfo;
 import org.cw.midc.repository.pacs.InstanceRepository;
 import org.cw.midc.repository.pacs.SeriesRepository;
 import org.cw.midc.repository.pacs.StudyRepository;
+import org.cw.midc.repository.ris.StudyInfoRepository;
 import org.cw.midc.service.factory.PacsFactory;
 import org.cw.midc.util.CommonUtils;
 import org.cw.midc.util.FileService;
@@ -51,6 +54,9 @@ public class LoadDicomFileService {
 	private InstanceRepository instanceRepository;
 	
 	@Autowired
+	private StudyInfoRepository studyInfoRepository;
+	
+	@Autowired
 	private RequestResponseBus eventBus;
 	
 	@Listener(hint = "dicomFileUploaded")
@@ -74,9 +80,18 @@ public class LoadDicomFileService {
 	 * @param fileInfo
 	 * @throws ZipException
 	 * @throws IOException
+	 * @throws RisInfoNotFoundException 
 	 */
-	public void loadDicomFile2DB(FileInfo fileInfo) throws ZipException, IOException
+	public void loadDicomFile2DB(FileInfo fileInfo) throws ZipException, IOException, RisInfoNotFoundException
 	{
+		String newCloudStudyInfoId = fileInfo.getHospitalId() + fileInfo.getStudyInfoId();
+		StudyInfo studyInfo = studyInfoRepository.findOne(newCloudStudyInfoId);
+		if(studyInfo == null)
+		{
+			log.error("Ris Information not found for {}", newCloudStudyInfoId);
+			throw new RisInfoNotFoundException(newCloudStudyInfoId);
+		}
+		
 		String basePath = storageService.getCurrentBaseStoragePath();
 		String mediaPath = storageService.getMediaPath(fileInfo.getMediaId());
 		String src = basePath + mediaPath + fileInfo.getFilePath();
@@ -96,7 +111,7 @@ public class LoadDicomFileService {
 			log.debug("Parse dicom file successfully.");
 			
 			//加载Dicom对象信息到DB
-			loadDicomObj2DB(fileInfo, dicom);
+			loadDicomObj2DB(fileInfo, dicom, studyInfo);
 		} catch (IOException e) {
 			e.printStackTrace();
 			log.error("File:{} dicom file parse failed, cause: {}",fileInfo.getId(), e.getMessage());
@@ -121,7 +136,7 @@ public class LoadDicomFileService {
 	 * @param fileInfo
 	 * @param dicom
 	 */
-	public void loadDicomObj2DB(FileInfo fileInfo, DicomObject dicom)
+	public void loadDicomObj2DB(FileInfo fileInfo, DicomObject dicom, StudyInfo studyInfo)
 	{
 		String studyInstanceUId = dicom.getString(Tag.StudyInstanceUID);
 		String seriesInstanceUId = dicom.getString(Tag.SeriesInstanceUID);
@@ -136,7 +151,9 @@ public class LoadDicomFileService {
 		{
 			//创建study
 			study = pacsFactory.createStudyFrom(dicom, fileInfo, studyUID);
-			studyRepository.save(study);
+			studyInfo.getStudies().add(study);
+			studyInfoRepository.save(studyInfo);
+//			studyRepository.save(study);
 			
 			//创建series
 			series = pacsFactory.createSeriesFrom(dicom, fileInfo, seriesUID, studyUID);

@@ -21,13 +21,16 @@ public class FileInfo {
 	@Column(name = "orig_file_name", length = 128)
 	private String origFileName;
 	
-	@Column(name = "study_info_id", length = 128)
+	@Column(name = "study_info_id", length = 64)
 	private String studyInfoId;
 	
-	@Column(name = "user_id", length = 128)
+	@Column(name = "user_id", length = 64)
 	private String userId;
 	
-	@Column(name = "media_id", length = 128)
+	@Column(name = "hospital_id", length = 64)
+	private String hospitalId;
+	
+	@Column(name = "media_id", length = 64)
 	private String mediaId;
 	
 	/**
@@ -65,17 +68,19 @@ public class FileInfo {
 	
 	public FileInfo()
 	{
-		
+		this.status = "0";
+		this.createTime = new Date();
+		this.updateTime = this.createTime;	
 	}
 	
-	public FileInfo(String id, String filePath, String origFileName, String studyInfoId, String mediaId, String userId)
+	public FileInfo(String id, String filePath, String origFileName, String studyInfoId, String mediaId, String hospitalId)
 	{
 		this.id = id;
 		this.filePath = filePath;
 		this.origFileName = origFileName;
 		this.studyInfoId = studyInfoId;
 		this.mediaId = mediaId;
-		this.userId = userId;
+		this.hospitalId = hospitalId;
 		this.status = "0";
 		this.createTime = new Date();
 		this.updateTime = this.createTime;		
@@ -143,6 +148,14 @@ public class FileInfo {
 
 	public void setFailedReason(String failedReason) {
 		this.failedReason = failedReason;
+	}
+
+	public String getHospitalId() {
+		return hospitalId;
+	}
+
+	public void setHospitalId(String hospitalId) {
+		this.hospitalId = hospitalId;
 	}
 	
 	

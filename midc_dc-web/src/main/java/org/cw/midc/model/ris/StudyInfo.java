@@ -1,6 +1,7 @@
 package org.cw.midc.model.ris;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -13,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.cw.midc.model.pacs.Study;
 
 @Entity
 @Table(name="study_info")
@@ -92,6 +95,9 @@ public class StudyInfo {
 	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name="studyinfo_id")
 	private Set<StudyCheckItemPosition> studyCheckItemPositions;
+	
+	@OneToMany
+	private Set<Study> studies = new HashSet<Study>();
 	
 	
 	
@@ -327,6 +333,16 @@ public class StudyInfo {
 	public void setOrginalStudyInfoId(String orginalStudyInfoId) {
 		this.orginalStudyInfoId = orginalStudyInfoId;
 	}
+
+	public Set<Study> getStudies() {
+		return studies;
+	}
+
+	public void setStudies(Set<Study> studies) {
+		this.studies = studies;
+	}
+	
+	
 	
  
 }

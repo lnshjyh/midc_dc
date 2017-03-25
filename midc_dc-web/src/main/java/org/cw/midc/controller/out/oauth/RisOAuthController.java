@@ -23,9 +23,9 @@ import com.google.common.base.Preconditions;
 
 @RestController
 @RequestMapping("out/basic")
-public class RisAuthController {
+public class RisOAuthController {
 	
-	private static final Logger log = LoggerFactory.getLogger(RisAuthController.class);
+	private static final Logger log = LoggerFactory.getLogger(RisOAuthController.class);
 	
 	@Autowired
 	private RisService risService;
