@@ -1,5 +1,7 @@
 package org.cw.midc.service.ris;
 
+import java.util.List;
+
 import org.cw.midc.dto.ReportModifyDto;
 import org.cw.midc.dto.ReportQueryDto;
 import org.cw.midc.entity.User;
@@ -9,6 +11,7 @@ import org.cw.midc.repository.ris.ReportRepository;
 import org.cw.midc.repository.ris.StudyInfoRepository;
 import org.cw.midc.service.factory.DozerBeanMapperFactory;
 import org.cw.midc.util.CommonUtils;
+import org.cw.midc.util.Constants;
 import org.cw.midc.util.UserContextUtil;
 import org.dozer.DozerBeanMapper;
 import org.slf4j.Logger;
@@ -45,12 +48,12 @@ public class ReportService {
 		{
 			report.setJuniorDoctorId(userId);
 			report.setSeniorDoctorId(userId);
-			studyInfo.setReportStatus("2");
+			studyInfo.setReportStatus(Constants.REPORT_STATUS_APPROVED);
 		}
 		else if("ROLE_JUNIOR_DOC".equals(getHighestRole()))
 		{
 			report.setJuniorDoctorId(userId);
-			studyInfo.setReportStatus("1");
+			studyInfo.setReportStatus(Constants.REPORT_STATUS_PRE_DIAGNOSE);
 		}
 		else
 		{
@@ -80,12 +83,12 @@ public class ReportService {
 		if("ROLE_SENIOR_DOC".equals(getHighestRole()))
 		{
 			resultNew.setJuniorDoctorId(userId);
-			studyInfo.setReportStatus("2");
+			studyInfo.setReportStatus(Constants.REPORT_STATUS_APPROVED);
 		}
 		else if("ROLE_JUNIOR_DOC".equals(getHighestRole()))
 		{
 			resultNew.setJuniorDoctorId(userId);
-			studyInfo.setReportStatus("1");
+			studyInfo.setReportStatus(Constants.REPORT_STATUS_PRE_DIAGNOSE);
 		}
 		else
 		{
@@ -113,7 +116,18 @@ public class ReportService {
 	
 	private String getHighestRole()
 	{
-		return "SENIOR_DOCTOR";
+		List<String> roles = (List<String>)UserContextUtil.getAttribute("roles");
+		String doctorRoleHighest = null;
+		if(roles.indexOf("ROLE_SENIOR_DOC") != -1)
+		{
+			return "ROLE_SENIOR_DOC";
+		}
+		
+		if(roles.indexOf("ROLE_JUNIOR_DOC") != -1)
+		{
+			return "ROLE_JUNIOR_DOC";
+		}		
+		return null;
 	}
 
 }
