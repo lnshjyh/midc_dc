@@ -49,8 +49,10 @@ public class RisService {
 				Constants.REPORT_STATUS_APPROVED);
 		
 		List<String> result = new ArrayList<String>();;
+		
+		//返回的是原始的studyInfoId，来自于基层机构
 		studyInfos.forEach(studyinfo->{
-			result.add(studyinfo.getId());
+			result.add(studyinfo.getOrginalStudyInfoId());
 		});
 		return result;		
 	}
