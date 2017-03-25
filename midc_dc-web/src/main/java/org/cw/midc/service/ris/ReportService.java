@@ -5,8 +5,10 @@ import java.util.List;
 import org.cw.midc.dto.ReportModifyDto;
 import org.cw.midc.dto.ReportQueryDto;
 import org.cw.midc.entity.User;
+import org.cw.midc.model.Hospital;
 import org.cw.midc.model.ris.Report;
 import org.cw.midc.model.ris.StudyInfo;
+import org.cw.midc.repository.HospitalRepository;
 import org.cw.midc.repository.ris.ReportRepository;
 import org.cw.midc.repository.ris.StudyInfoRepository;
 import org.cw.midc.service.factory.DozerBeanMapperFactory;
@@ -29,6 +31,9 @@ public class ReportService {
 	
 	@Autowired
 	private StudyInfoRepository studyInfoRepository;
+	
+	@Autowired
+	private HospitalRepository hospitalRepository;
 	
 	public void createReport(Report report)
 	{
@@ -104,6 +109,25 @@ public class ReportService {
 	public ReportQueryDto getReportByStudyInfoId(String studyInfoId)
 	{
 		StudyInfo studyInfo = studyInfoRepository.findOne(studyInfoId);
+		if(studyInfo == null || studyInfo.getReport() == null)
+		{
+			return null;
+		}
+		
+		ReportQueryDto result = DozerBeanMapperFactory.getMapper().map(studyInfo.getReport(), ReportQueryDto.class);
+		
+		return result;		
+	}
+	
+	public ReportQueryDto getReportByHospital(String studyInfoId, String clientId)
+	{
+		List<Hospital> hospitalList = hospitalRepository.findByClientId(clientId);
+		if(hospitalList == null || hospitalList.size() == 0)
+		{
+			return null;
+		}
+		String hospitalId = hospitalList.get(0).getHospId();
+		StudyInfo studyInfo = studyInfoRepository.findByOrginalStudyInfoIdAndHospitalId(studyInfoId, hospitalId);
 		if(studyInfo == null || studyInfo.getReport() == null)
 		{
 			return null;

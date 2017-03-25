@@ -1,7 +1,10 @@
 package org.cw.midc.controller.out.oauth;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.cw.midc.Response;
 import org.cw.midc.dto.ReportQueryDto;
+import org.cw.midc.model.oauth.OauthAccessToken;
 import org.cw.midc.service.ris.ReportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,11 +24,13 @@ public class ReportOAuthController {
 	
 	@ResponseBody
 	@GetMapping("report")
-	public Response getReport(@RequestParam String studyInfoId)
+	public Response getReport(@RequestParam String studyInfoId, HttpServletRequest httpRequest)
 	{
 		Preconditions.checkNotNull(studyInfoId, "不能为空");
 		Response response = new Response();
-		ReportQueryDto report = reportService.getReportByStudyInfoId(studyInfoId);
+		OauthAccessToken obj = (OauthAccessToken)httpRequest.getAttribute("oauthToken");
+		String clientId = obj.getClientId();
+		ReportQueryDto report = reportService.getReportByHospital(studyInfoId, clientId);
 		response.setData(report);
 		response.setMsg("");
 		return response;

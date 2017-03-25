@@ -10,5 +10,6 @@ import org.springframework.stereotype.Repository;
 public interface StudyInfoRepository extends PagingAndSortingRepository<StudyInfo, String> {
 	
 	public List<StudyInfo> findByHospitalIdAndReportStatus(String hospitalId, String reportStatus);
-
+		
+	public StudyInfo findByOrginalStudyInfoIdAndHospitalId(String orginalStudyInfoId, String hospitalId);
 }
