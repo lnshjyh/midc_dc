@@ -16,7 +16,7 @@
         <form id="form1" name="form1" method="post" action="">
             <div class="Manager_style add_positionType_info search_style">
                 <ul class="search_content clearfix" >
-                    <li><label class="lf">检查部位名称</label>
+                    <li><label class="lf">部位名称</label>
                         <label>
                             <input name="positiontypeName" ng-model="queryFilter.param.positiontypeName"
                                    type="text"
@@ -28,18 +28,18 @@
                     </button>
                 </ul>
                 <ul class="search_content clearfix">
-                    <button class="btn btn-primary addBtn" type="button" ng-click="updatePostionType(1)"
+                    <button class="btn btn-primary addBtn" type="button" ng-click="updatePositionType(1)"
                             id="Add_positionType_btn" >添加
                     </button>
-                    <button type="button" class="btn btn-primary updateBtn" ng-click="updatePostionType(0)"  >修改
+                    <button type="button" class="btn btn-primary updateBtn" ng-click="updatePositionType(0)"  >修改
                     </button>
-                    <button type="button" class="btn btn-primary deleteBtn" ng-click="deletePostionType()"  >删除</button>
+                    <button type="button" class="btn btn-primary deleteBtn" ng-click="deletePositionType()"  >删除</button>
                 </ul>
                 <div id="Add_positionType_style" style="display: none">
                     <div class="addCommon clearfix">
                         <ul class="clearfix">
                             <li>
-                                <label class="label_name">检查部位名称</label>
+                                <label class="label_name">部位名称</label>
                                 <label for="positiontype_name"></label>
                                 <input name="positiontypeName" ng-model="positionType.positiontypeName" type="text"  id="hospName"/>
                                 <i style="color: #F60;">*</i>
