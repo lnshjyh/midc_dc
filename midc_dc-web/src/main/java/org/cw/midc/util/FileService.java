@@ -18,6 +18,9 @@ public class FileService {
 
 	@Value("${midc.zip.tempdir}")
 	private String zipTempDir;
+	
+	@Value("${midc.signature.dir}")
+	private String signatureDir;
 
 	public File unzipOneFile(String src, String dest) throws ZipException {
 		ZipFile zipFile = new ZipFile(src);
@@ -30,6 +33,10 @@ public class FileService {
 
 	public File unzipOneFile(String src) throws ZipException {
 		return unzipOneFile(src, zipTempDir);
+	}
+	
+	public String getSignDir(){
+		return signatureDir;
 	}
 
 	// public static File unzipOneFileToStream(String src) throws ZipException
