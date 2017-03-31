@@ -76,5 +76,11 @@ public class HospitalService {
     	Hospital hospital = hospitalRepository.findOne(hospId);
         return hospital;
     }
+    
+    public List<Hospital> getAllHospitals()
+    {
+    	List<Hospital> result = (List<Hospital>)hospitalRepository.findAll();
+    	return result;
+    }
 
 }
