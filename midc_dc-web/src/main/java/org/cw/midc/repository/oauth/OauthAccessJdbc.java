@@ -1,13 +1,9 @@
 package org.cw.midc.repository.oauth;
 
 import org.cw.midc.model.oauth.OauthAccessToken;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.stereotype.Repository;
 
 public class OauthAccessJdbc {
 

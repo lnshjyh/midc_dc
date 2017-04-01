@@ -1,13 +1,21 @@
 package org.cw.midc.model;
 
 import java.util.Date;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.cw.midc.model.ris.StudyCheckItemPosition;
 
 @Entity
 @Table(name = "devicetype_position_checkitem")
@@ -35,7 +43,44 @@ public class DevicetypePositionCheckitem {
 	
 	@Column(name = "update_time")
 	private Date updateTime;
+	
+	@OneToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name="checkitem_id")
+	private Checkitem checkitem;
+	
+	@OneToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name="device_type_id")
+	private DeviceType device;
+	
+	@OneToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name="positiontype_id")
+	private PositionType positionType;
 
+	
+
+	public Checkitem getCheckitem() {
+		return checkitem;
+	}
+
+	public void setCheckitem(Checkitem checkitem) {
+		this.checkitem = checkitem;
+	}
+
+	public DeviceType getDevice() {
+		return device;
+	}
+
+	public void setDevice(DeviceType device) {
+		this.device = device;
+	}
+
+	public PositionType getPositionType() {
+		return positionType;
+	}
+
+	public void setPositionType(PositionType positionType) {
+		this.positionType = positionType;
+	}
 
 	public int getId() {
 		return id;
