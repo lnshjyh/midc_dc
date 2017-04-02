@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping("studyinfo")
+@RequestMapping("out")
 public class StudyInfoController {
 	
     @Resource
@@ -22,7 +22,7 @@ public class StudyInfoController {
 
 
 	@ResponseBody
-    @PostMapping("list")
+    @PostMapping("studyinfos")
     public Map<String,Object> list(@RequestBody  HashMap<String,Object> paras) {
 		Map<String,Object> map = new HashMap<String,Object>();
         List list = studyInfoService.getList(paras);

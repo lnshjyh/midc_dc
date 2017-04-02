@@ -141,9 +141,9 @@ public class LoadDicomFileService {
 		String studyInstanceUId = dicom.getString(Tag.StudyInstanceUID);
 		String seriesInstanceUId = dicom.getString(Tag.SeriesInstanceUID);
 		String sopInstanceUId = dicom.getString(Tag.SOPInstanceUID);
-		String studyUID = CommonUtils.MD5(fileInfo.getUserId() + studyInstanceUId);
-		String seriesUID = CommonUtils.MD5(fileInfo.getUserId() + seriesInstanceUId);
-		String instanceUID = CommonUtils.MD5(fileInfo.getUserId() + sopInstanceUId);
+		String studyUID = CommonUtils.MD5(fileInfo.getHospitalId() + studyInstanceUId);
+		String seriesUID = CommonUtils.MD5(fileInfo.getHospitalId() + seriesInstanceUId);
+		String instanceUID = CommonUtils.MD5(fileInfo.getHospitalId() + sopInstanceUId);
 		Study study = studyRepository.findOne(studyUID);
 		Series series = null;
 		Instance instance = null;

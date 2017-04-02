@@ -32,7 +32,7 @@ public class StudyInfo {
 	private int age;
 	
 	/**
-	 * 宀�, 鏈堬紝澶�
+	 * Y,M,D
 	 */
 	@Column(name = "age_unit", length = 8)
 	private String ageUnit;
@@ -96,7 +96,7 @@ public class StudyInfo {
 	@JoinColumn(name="studyinfo_id")
 	private Set<StudyCheckItemPosition> studyCheckItemPositions;
 	
-	@OneToMany
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private Set<Study> studies = new HashSet<Study>();
 	
 	
