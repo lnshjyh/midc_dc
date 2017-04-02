@@ -47,6 +47,7 @@ INSERT INTO `sys_menu` VALUES ('58', '58', '医疗机构管理', '/hospital/list
 INSERT INTO `sys_menu` VALUES ('59', '59', '检查项管理', '/checkitem/listPage', '0', 'icon-beer', '1', null, '1', '系统管理', '0', null, '2017-03-25 11:07:50', null, '2017-03-25 11:07:50', null);
 INSERT INTO `sys_menu` VALUES ('60', '60', '检查部位管理', '/positionType/listPage', '0', 'icon-book', '1', null, '1', '系统管理', '0', null, '2017-03-25 11:09:06', null, '2017-03-25 11:09:06', null);
 INSERT INTO `sys_menu` VALUES ('61', '61', '设备类型管理', '/deviceType/listPage', '0', 'icon-book', '1', null, '1', '系统管理', '0', null, '2017-03-25 11:09:31', null, '2017-03-25 11:09:31', null);
+INSERT INTO `sys_menu` VALUES ('62', '62', '设备类型部位方法匹配', '/devicetypePositionCheckitem/listPage', '0', 'icon-book', '1', null, '1', '系统管理', '0', null, '2017-03-25 11:09:31', null, '2017-03-25 11:09:31', null);
 
 
 
@@ -91,7 +92,7 @@ INSERT INTO `sys_role_menu` VALUES ('1034', 'ROLE_ADMIN', '60', '0', '2017-03-25
 INSERT INTO `sys_role_menu` VALUES ('1011', 'ROLE_ADMIN', '58', '0', '2017-03-25 11:09:57', null, '2017-03-25 11:09:57', null, null);
 INSERT INTO `sys_role_menu` VALUES ('1012', 'ROLE_ADMIN', '59', '0', '2017-03-25 11:09:57', null, '2017-03-25 11:09:57', null, null);
 INSERT INTO `sys_role_menu` VALUES ('1022', 'ROLE_ADMIN', '61', '0', '2017-03-25 11:09:57', null, '2017-03-25 11:09:57', null, null);
-
+INSERT INTO `sys_role_menu` VALUES ('1023', 'ROLE_ADMIN', '62', '0', '2017-03-25 11:09:57', null, '2017-03-25 11:09:57', null, null);
 
 -- ----------------------------
 -- Records of sys_user
