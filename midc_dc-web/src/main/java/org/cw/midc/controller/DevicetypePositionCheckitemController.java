@@ -9,8 +9,10 @@ import org.cw.midc.ParamFilter;
 import org.cw.midc.aop.annotaion.WebLogger;
 import org.cw.midc.entity.User;
 import org.cw.midc.model.Checkitem;
+import org.cw.midc.model.DeviceType;
 import org.cw.midc.model.DevicetypePositionCheckitem;
 import org.cw.midc.model.Hospital;
+import org.cw.midc.model.PositionType;
 import org.cw.midc.service.CheckitemService;
 import org.cw.midc.service.DevicetypePositionCheckitemService;
 import org.cw.midc.service.HospitalService;
@@ -22,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -68,6 +71,19 @@ public class DevicetypePositionCheckitemController {
         checkArgument((Ids != null && Ids.size() > 0), "ID不能为空");
         devicetypePositionCheckitemService.delete(Ids);
         return new Response("删除成功");
+    }
+    
+    @ResponseBody
+    @PostMapping("basicdata")
+    public Map<String,Object> basicdata() {
+    	List<Checkitem>  clist = devicetypePositionCheckitemService.getCheckitemList();
+    	List<DeviceType> dlist =  devicetypePositionCheckitemService.getDeviceTypeList();
+    	List<PositionType> plist = devicetypePositionCheckitemService.getPositionTypeList();
+    	Map<String,Object> map = new HashMap<String,Object>();
+    	map.put("c", clist);
+    	map.put("d", dlist);
+    	map.put("p", plist);
+        return map;
     }
 
 

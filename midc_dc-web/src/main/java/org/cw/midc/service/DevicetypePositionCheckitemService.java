@@ -9,10 +9,14 @@ import org.cw.midc.util.UserContextUtil;
 import org.cw.midc.ParamFilter;
 import org.cw.midc.entity.User;
 import org.cw.midc.model.Checkitem;
+import org.cw.midc.model.DeviceType;
 import org.cw.midc.model.DevicetypePositionCheckitem;
+import org.cw.midc.model.PositionType;
 import org.cw.midc.page.Page;
 import org.cw.midc.repository.CheckitemRepository;
+import org.cw.midc.repository.DeviceTypeRepository;
 import org.cw.midc.repository.DevicetypePositionCheckitemRepository;
+import org.cw.midc.repository.PositionTypeRepository;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -33,6 +37,17 @@ public class DevicetypePositionCheckitemService {
 
     @Resource
     private DevicetypePositionCheckitemRepository devicetypePositionCheckitemRepository;
+    
+    @Resource
+    private CheckitemRepository checkitemRepository;
+    
+    @Resource
+    private DeviceTypeRepository deviceTypeRepository;
+    
+    @Resource
+    private PositionTypeRepository positionTypeRepository;
+    
+    
 
     
     public org.springframework.data.domain.Page<DevicetypePositionCheckitem> getList(ParamFilter param) {
@@ -60,6 +75,18 @@ public class DevicetypePositionCheckitemService {
     public void delete(List<Integer> Ids) {
     	List<DevicetypePositionCheckitem> list = (List<DevicetypePositionCheckitem>)devicetypePositionCheckitemRepository.findAll(Ids);
     	devicetypePositionCheckitemRepository.delete(list);
+    }
+    
+    public List<Checkitem> getCheckitemList(){
+    	return (List<Checkitem>)checkitemRepository.findAll();
+    }
+    
+    public List<DeviceType> getDeviceTypeList(){
+    	return (List<DeviceType>)deviceTypeRepository.findAll();
+    }
+    
+    public List<PositionType> getPositionTypeList(){
+    	return (List<PositionType>)positionTypeRepository.findAll();
     }
 
 
