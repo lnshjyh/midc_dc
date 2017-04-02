@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
+import org.cw.midc.Response;
 import org.cw.midc.model.oauth.OauthAccessToken;
 import org.cw.midc.service.DicomFileService;
 import org.slf4j.Logger;
@@ -43,15 +44,18 @@ public class DcmFileOAuthController {
 	 * @param file
 	 */
 	@RequestMapping(value="/dicomfile", consumes = "multipart/form-data", method = RequestMethod.POST)
-	public void saveFile(@RequestParam(value="studyInfoId") String studyInfoId,
+	public Response saveFile(@RequestParam(value="studyInfoId") String studyInfoId,
 			@RequestParam("file") MultipartFile file,
 			HttpServletRequest httpRequest)
 	{
 		log.debug("file name is {}", file.getOriginalFilename());
 		log.debug("studyInfoIdis {}", studyInfoId);
+		Response response = new Response();
 		OauthAccessToken obj = (OauthAccessToken)httpRequest.getAttribute("oauthToken");
 		String clientId = obj.getClientId();
 		dicomFileService.saveFileAndGenerateParserTask(file, clientId, studyInfoId);
+		response.setMsg("upload successfully.");
+		return response;
 	}
 	
 	/**

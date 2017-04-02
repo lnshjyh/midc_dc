@@ -25,7 +25,7 @@ public class BatchLoadDicomFileScheduledService {
 		List<FileInfo> unHandledFileInfoList = dicomFileService.getUnHandledFileInfoByBatch(100);
 		
 		//按个解析存入数据库
-		unHandledFileInfoList.forEach(loadDicomFileService::loadDicomFile);
+//		unHandledFileInfoList.forEach(loadDicomFileService::loadDicomFile);
 	}
 	
 	
