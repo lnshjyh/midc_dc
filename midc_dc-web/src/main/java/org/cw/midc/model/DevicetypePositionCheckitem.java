@@ -26,14 +26,14 @@ public class DevicetypePositionCheckitem {
 	@Column(name = "id", length = 32)
 	private int id;
 	
-	@Column(name = "device_type", length = 64)
-	private String deviceType;
-	
-	@Column(name = "position_id", length = 32)
-	private String positionId;
-	
-	@Column(name = "checkitem_id", length = 32)
-	private String checkitemId;
+//	@Column(name = "device_type", length = 64)
+//	private String deviceType;
+//	
+//	@Column(name = "position_id", length = 32)
+//	private String positionId;
+//	
+//	@Column(name = "checkitem_id", length = 32)
+//	private String checkitemId;
 	
 	@Column(name = "oper_id", length = 32)
 	private String operId;
@@ -49,11 +49,11 @@ public class DevicetypePositionCheckitem {
 	private Checkitem checkitem;
 	
 	@OneToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name="device_type_id")
+	@JoinColumn(name="device_type")
 	private DeviceType device;
 	
 	@OneToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name="positiontype_id")
+	@JoinColumn(name="position_id")
 	private PositionType positionType;
 
 	
@@ -90,29 +90,29 @@ public class DevicetypePositionCheckitem {
 		this.id = id;
 	}
 
-	public String getDeviceType() {
-		return deviceType;
-	}
-
-	public void setDeviceType(String deviceType) {
-		this.deviceType = deviceType;
-	}
-
-	public String getPositionId() {
-		return positionId;
-	}
-
-	public void setPositionId(String positionId) {
-		this.positionId = positionId;
-	}
-
-	public String getCheckitemId() {
-		return checkitemId;
-	}
-
-	public void setCheckitemId(String checkitemId) {
-		this.checkitemId = checkitemId;
-	}
+//	public String getDeviceType() {
+//		return deviceType;
+//	}
+//
+//	public void setDeviceType(String deviceType) {
+//		this.deviceType = deviceType;
+//	}
+//
+//	public String getPositionId() {
+//		return positionId;
+//	}
+//
+//	public void setPositionId(String positionId) {
+//		this.positionId = positionId;
+//	}
+//
+//	public String getCheckitemId() {
+//		return checkitemId;
+//	}
+//
+//	public void setCheckitemId(String checkitemId) {
+//		this.checkitemId = checkitemId;
+//	}
 
 	public String getOperId() {
 		return operId;

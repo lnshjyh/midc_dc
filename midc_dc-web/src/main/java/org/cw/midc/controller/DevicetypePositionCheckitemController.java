@@ -63,7 +63,7 @@ public class DevicetypePositionCheckitemController {
 
     @ResponseBody
     @PostMapping("delete")
-    @WebLogger("删除检查项")
+    @WebLogger("删除设备关联")
     public Response delete(@RequestBody List<Integer> Ids) {
         checkArgument((Ids != null && Ids.size() > 0), "ID不能为空");
         devicetypePositionCheckitemService.delete(Ids);
