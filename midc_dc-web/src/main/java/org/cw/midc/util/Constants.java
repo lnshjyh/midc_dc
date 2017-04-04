@@ -12,5 +12,10 @@ public class Constants {
     
     public static final String REPORT_STATUS_PRE_DIAGNOSE = "1";
     public static final String REPORT_STATUS_APPROVED = "2";
+    
+    //基层到中心
+    public static final String STUDYINFO_TRANS_STATUS_B2C = "1";
+    //中心到基层
+    public static final String STUDYINFO_TRANS_STATUS_C2B = "2";
    
 }

@@ -38,15 +38,16 @@ public class RisService {
 		studyInfoRepository.save(studyInfo);
 	}
 
-	public List<String> getStudyInfoIdsFinishedReport(String clientId) {
+	public List<String> getStudyInfoIdsFinishedAndUnDownloadedReport(String clientId) {
 		List<Hospital> hospitalList = hospitalRepository.findByClientId(clientId);
 		if(hospitalList == null || hospitalList.size() == 0)
 		{
 			return null;
 		}
 		String hospitalId = hospitalList.get(0).getHospId();
-		List<StudyInfo> studyInfos = studyInfoRepository.findByHospitalIdAndReportStatus(hospitalId,
-				Constants.REPORT_STATUS_APPROVED);
+		List<StudyInfo> studyInfos = studyInfoRepository.findByHospitalIdAndReportStatusAndTransportStatus(hospitalId,
+				Constants.REPORT_STATUS_APPROVED,
+				Constants.STUDYINFO_TRANS_STATUS_B2C);
 		
 		List<String> result = new ArrayList<String>();;
 		

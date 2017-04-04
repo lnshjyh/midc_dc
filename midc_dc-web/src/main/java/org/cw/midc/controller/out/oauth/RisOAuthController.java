@@ -30,13 +30,13 @@ public class RisOAuthController {
 	@Autowired
 	private RisService risService;
 	
-	@RequestMapping("studyInfoIds")
+	@RequestMapping("reportfinishedStudyInfoIds")
 	public Response getStudyInfoIdsFinishedReport(HttpServletRequest httpRequest)
 	{
 		Response response = new Response();	
 		OauthAccessToken obj = (OauthAccessToken)httpRequest.getAttribute("oauthToken");
 		String clientId = obj.getClientId();
-		List<String> studyInfoIds = risService.getStudyInfoIdsFinishedReport(clientId);
+		List<String> studyInfoIds = risService.getStudyInfoIdsFinishedAndUnDownloadedReport(clientId);
 		response.setData(studyInfoIds);
 		return response;
 		
