@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 import org.apache.commons.lang.StringUtils;
+import org.cw.midc.exception.DicomFileDuplicatedException;
 import org.cw.midc.exception.RisInfoNotFoundException;
 import org.cw.midc.model.FileInfo;
 import org.cw.midc.model.pacs.Instance;
@@ -60,7 +61,7 @@ public class LoadDicomFileService {
 	private RequestResponseBus eventBus;
 	
 	@Listener(hint = "dicomFileUploaded")
-	public void loadDicomFile(FileInfo fileInfo)
+	public void loadDicomFile(FileInfo fileInfo) throws Exception
 	{
 		try
 		{
@@ -81,8 +82,9 @@ public class LoadDicomFileService {
 	 * @throws ZipException
 	 * @throws IOException
 	 * @throws RisInfoNotFoundException 
+	 * @throws DicomFileDuplicatedException 
 	 */
-	public void loadDicomFile2DB(FileInfo fileInfo) throws ZipException, IOException, RisInfoNotFoundException
+	public void loadDicomFile2DB(FileInfo fileInfo) throws ZipException, IOException, RisInfoNotFoundException, DicomFileDuplicatedException
 	{
 		String newCloudStudyInfoId = fileInfo.getHospitalId() + fileInfo.getStudyInfoId();
 		StudyInfo studyInfo = studyInfoRepository.findOne(newCloudStudyInfoId);
@@ -116,7 +118,10 @@ public class LoadDicomFileService {
 			e.printStackTrace();
 			log.error("File:{} dicom file parse failed, cause: {}",fileInfo.getId(), e.getMessage());
 			throw e;
-		} finally {
+		} catch (DicomFileDuplicatedException de) {
+			throw de;
+		}
+		finally {
 			if(dis != null)
 			{
 				try {
@@ -135,15 +140,16 @@ public class LoadDicomFileService {
 	 * 将Dicom对象加载到study, series, instance三级表中
 	 * @param fileInfo
 	 * @param dicom
+	 * @throws DicomFileDuplicatedException 
 	 */
-	public void loadDicomObj2DB(FileInfo fileInfo, DicomObject dicom, StudyInfo studyInfo)
+	public void loadDicomObj2DB(FileInfo fileInfo, DicomObject dicom, StudyInfo studyInfo) throws DicomFileDuplicatedException
 	{
 		String studyInstanceUId = dicom.getString(Tag.StudyInstanceUID);
 		String seriesInstanceUId = dicom.getString(Tag.SeriesInstanceUID);
 		String sopInstanceUId = dicom.getString(Tag.SOPInstanceUID);
-		String studyUID = CommonUtils.MD5(fileInfo.getUserId() + studyInstanceUId);
-		String seriesUID = CommonUtils.MD5(fileInfo.getUserId() + seriesInstanceUId);
-		String instanceUID = CommonUtils.MD5(fileInfo.getUserId() + sopInstanceUId);
+		String studyUID = CommonUtils.MD5(fileInfo.getHospitalId() + studyInstanceUId);
+		String seriesUID = CommonUtils.MD5(fileInfo.getHospitalId() + seriesInstanceUId);
+		String instanceUID = CommonUtils.MD5(fileInfo.getHospitalId() + sopInstanceUId);
 		Study study = studyRepository.findOne(studyUID);
 		Series series = null;
 		Instance instance = null;
@@ -187,7 +193,8 @@ public class LoadDicomFileService {
 				}
 				else
 				{
-					log.info("File:{} exist, ignore it", fileInfo.getId());
+					log.error("File:{} exist, ignore it", fileInfo.getId());
+					throw new DicomFileDuplicatedException();
 				}
 			}
 		}

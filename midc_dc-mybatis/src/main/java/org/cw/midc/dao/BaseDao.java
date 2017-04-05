@@ -187,7 +187,7 @@ public abstract class BaseDao<T extends BaseEntity> implements GenericDao<T> {
     }
 
 
-    private int getCount(Map<String, Object> param) {
+    public int getCount(Map<String, Object> param) {
         String statement = this.getEntityClass()+".getCount";
         return this.sqlSessionTemplate.selectOne(statement, param);
     }

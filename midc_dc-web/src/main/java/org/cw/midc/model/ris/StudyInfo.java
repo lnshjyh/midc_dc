@@ -32,13 +32,16 @@ public class StudyInfo {
 	private int age;
 	
 	/**
-	 * 宀�, 鏈堬紝澶�
+	 * Y,M,D
 	 */
 	@Column(name = "age_unit", length = 8)
 	private String ageUnit;
 	
 	@Column(name = "device_id", length = 64)
 	private String deviceId;
+	
+	@Column(name = "position_checkitem", length = 128)
+	private String positionCheckItem;
 	
 	@Column(name = "pre_diagnose", length = 512)
 	private String preDiagnose;
@@ -96,7 +99,7 @@ public class StudyInfo {
 	@JoinColumn(name="studyinfo_id")
 	private Set<StudyCheckItemPosition> studyCheckItemPositions;
 	
-	@OneToMany
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private Set<Study> studies = new HashSet<Study>();
 	
 	
@@ -340,6 +343,14 @@ public class StudyInfo {
 
 	public void setStudies(Set<Study> studies) {
 		this.studies = studies;
+	}
+
+	public String getPositionCheckItem() {
+		return positionCheckItem;
+	}
+
+	public void setPositionCheckItem(String positionCheckItem) {
+		this.positionCheckItem = positionCheckItem;
 	}
 	
 	

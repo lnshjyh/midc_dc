@@ -1,5 +1,6 @@
 package org.cw.midc.service.ris;
 
+import java.util.Date;
 import java.util.List;
 
 import org.cw.midc.dto.ReportModifyDto;
@@ -132,6 +133,11 @@ public class ReportService {
 		{
 			return null;
 		}
+		
+		//更新传输状态
+		studyInfo.setTransportStatus(Constants.STUDYINFO_TRANS_STATUS_C2B);
+		studyInfo.setUpdateTime(new Date());
+		studyInfoRepository.save(studyInfo);
 		
 		ReportQueryDto result = DozerBeanMapperFactory.getMapper().map(studyInfo.getReport(), ReportQueryDto.class);
 		

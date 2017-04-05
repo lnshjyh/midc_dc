@@ -79,5 +79,11 @@ public class DeviceTypeService {
     	DeviceType deviceType = deviceTypeRepository.findOne(deviceTypeId);
         return deviceType;
     }
+    
+    public List<DeviceType> getAllDeviceTypes()
+    {
+    	List<DeviceType> deviceTypes = (List<DeviceType>)deviceTypeRepository.findAll();
+        return deviceTypes;
+    }
 
 }

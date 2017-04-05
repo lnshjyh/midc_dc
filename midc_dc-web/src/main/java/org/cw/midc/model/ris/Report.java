@@ -15,7 +15,7 @@ public class Report {
 	@Column(name = "rpt_id", length = 64)
 	private String id;
 	
-	@Column(name = "studyinfo_id", length = 32)
+	@Column(name = "studyinfo_id", length = 128)
 	private String studyInfoId;
 	
 	@Column(name = "descritpion", length = 4000)
