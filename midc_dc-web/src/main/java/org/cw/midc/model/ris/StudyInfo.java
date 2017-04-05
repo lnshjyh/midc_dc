@@ -40,6 +40,9 @@ public class StudyInfo {
 	@Column(name = "device_id", length = 64)
 	private String deviceId;
 	
+	@Column(name = "position_checkitem", length = 128)
+	private String positionCheckItem;
+	
 	@Column(name = "pre_diagnose", length = 512)
 	private String preDiagnose;
 	
@@ -340,6 +343,14 @@ public class StudyInfo {
 
 	public void setStudies(Set<Study> studies) {
 		this.studies = studies;
+	}
+
+	public String getPositionCheckItem() {
+		return positionCheckItem;
+	}
+
+	public void setPositionCheckItem(String positionCheckItem) {
+		this.positionCheckItem = positionCheckItem;
 	}
 	
 	
