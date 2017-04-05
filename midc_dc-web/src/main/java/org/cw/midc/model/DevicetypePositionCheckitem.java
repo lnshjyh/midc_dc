@@ -27,13 +27,13 @@ public class DevicetypePositionCheckitem {
 	private int id;
 	
 //	@Column(name = "device_type", length = 64)
-//	private String deviceType;
+	private String deviceTypePk;
 //	
 //	@Column(name = "position_id", length = 32)
-//	private String positionId;
+	private Integer positionIdPk;
 //	
 //	@Column(name = "checkitem_id", length = 32)
-//	private String checkitemId;
+	private Integer checkitemIdPk;
 	
 	@Column(name = "oper_id", length = 32)
 	private String operId;
@@ -113,6 +113,31 @@ public class DevicetypePositionCheckitem {
 //	public void setCheckitemId(String checkitemId) {
 //		this.checkitemId = checkitemId;
 //	}
+
+	public String getDeviceTypePk() {
+		return deviceTypePk;
+	}
+
+	public void setDeviceTypePk(String deviceTypePk) {
+		this.deviceTypePk = deviceTypePk;
+	}
+
+
+	public Integer getPositionIdPk() {
+		return positionIdPk;
+	}
+
+	public void setPositionIdPk(Integer positionIdPk) {
+		this.positionIdPk = positionIdPk;
+	}
+
+	public Integer getCheckitemIdPk() {
+		return checkitemIdPk;
+	}
+
+	public void setCheckitemIdPk(Integer checkitemIdPk) {
+		this.checkitemIdPk = checkitemIdPk;
+	}
 
 	public String getOperId() {
 		return operId;

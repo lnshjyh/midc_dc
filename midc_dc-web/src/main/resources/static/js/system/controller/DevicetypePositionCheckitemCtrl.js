@@ -5,9 +5,13 @@ devicetypePositionCheckitemApp.controller('devicetypePositionCheckitemCtrl', ['$
 	$scope.queryFilter = {};
 	$scope.isAvailableMap = [{isAvailable:0, name: "不可用"}, {isAvailable: 1, name: "可用"}];
 	devicetypePositionCheckitemService.basicdata().then(function(response){
-		$scope.cList = response.c;
-		$scope.dList = response.d;
-		$scope.pList = response.p;
+		if(response){
+			$scope.cList = response.c;
+			$scope.dList = response.d;
+			$scope.pList = response.p;
+			console.log($scope.pList);
+		}
+		
 	});
 	//添加
 	$scope.updateDevicetypePositionCheckitem = function(sign){
@@ -67,7 +71,7 @@ devicetypePositionCheckitemApp.controller('devicetypePositionCheckitemCtrl', ['$
 			var val = $(this).val();
 			devicetypePositionCheckitemIds.push(val);
 		});
-		if(checkitemIds.lenght==0){
+		if(devicetypePositionCheckitemIds.lenght==0){
 			return;
 		}
 		layer.confirm('是否删除？', {

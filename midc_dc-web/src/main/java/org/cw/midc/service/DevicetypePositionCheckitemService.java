@@ -88,6 +88,19 @@ public class DevicetypePositionCheckitemService {
     public List<PositionType> getPositionTypeList(){
     	return (List<PositionType>)positionTypeRepository.findAll();
     }
+    
+    public Checkitem getCheckitem(Integer id){
+    	return (Checkitem)checkitemRepository.findOne(id);
+    }
+    
+    public DeviceType getDeviceType(String id){
+    	return (DeviceType)deviceTypeRepository.findOne(id);
+    }
+    
+    public PositionType getPositionType(Integer id){
+    	return (PositionType)positionTypeRepository.findOne(id);
+    }
+
 
 
 }

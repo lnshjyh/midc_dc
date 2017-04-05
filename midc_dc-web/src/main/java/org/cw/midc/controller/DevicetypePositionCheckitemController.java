@@ -31,7 +31,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 @Controller
-@RequestMapping("devicetypePositionCheckitem")
+@RequestMapping("devicetypePC")
 public class DevicetypePositionCheckitemController {
 
     @Resource
@@ -58,6 +58,12 @@ public class DevicetypePositionCheckitemController {
     @WebLogger("添加设备关联")
     public Response add(@RequestBody DevicetypePositionCheckitem devicetypePositionCheckitem) {
         checkNotNull(devicetypePositionCheckitem, "不能为空");
+        Integer cpk = devicetypePositionCheckitem.getCheckitemIdPk();
+        Integer ppk = devicetypePositionCheckitem.getPositionIdPk();
+        String dpk = devicetypePositionCheckitem.getDeviceTypePk();
+        devicetypePositionCheckitem.setCheckitem(devicetypePositionCheckitemService.getCheckitem(cpk));
+        devicetypePositionCheckitem.setPositionType(devicetypePositionCheckitemService.getPositionType(ppk));
+        devicetypePositionCheckitem.setDevice(devicetypePositionCheckitemService.getDeviceType(dpk));
         devicetypePositionCheckitemService.add(devicetypePositionCheckitem);
         return new Response("添加成功");
     }
@@ -74,8 +80,8 @@ public class DevicetypePositionCheckitemController {
     }
     
     @ResponseBody
-    @PostMapping("basicdata")
-    public Map<String,Object> basicdata() {
+    @GetMapping("basicdata")
+    public Response basicdata() {
     	List<Checkitem>  clist = devicetypePositionCheckitemService.getCheckitemList();
     	List<DeviceType> dlist =  devicetypePositionCheckitemService.getDeviceTypeList();
     	List<PositionType> plist = devicetypePositionCheckitemService.getPositionTypeList();
@@ -83,7 +89,7 @@ public class DevicetypePositionCheckitemController {
     	map.put("c", clist);
     	map.put("d", dlist);
     	map.put("p", plist);
-        return map;
+        return new Response(map);
     }
 
 
