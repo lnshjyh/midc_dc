@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -44,15 +45,15 @@ public class DevicetypePositionCheckitem {
 	@Column(name = "update_time")
 	private Date updateTime;
 	
-	@OneToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToOne(cascade=CascadeType.REFRESH, fetch = FetchType.EAGER)
 	@JoinColumn(name="checkitem_id")
 	private Checkitem checkitem;
 	
-	@OneToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToOne(cascade=CascadeType.REFRESH, fetch = FetchType.EAGER)
 	@JoinColumn(name="device_type")
 	private DeviceType device;
 	
-	@OneToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToOne(cascade=CascadeType.REFRESH, fetch = FetchType.EAGER)
 	@JoinColumn(name="position_id")
 	private PositionType positionType;
 
