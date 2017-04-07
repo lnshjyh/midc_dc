@@ -3,6 +3,7 @@ package org.cw.midc.service.factory;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.commons.lang.StringUtils;
 import org.cw.midc.dto.RisInfoDto;
 import org.cw.midc.model.Checkitem;
 import org.cw.midc.model.PositionType;
@@ -53,22 +54,31 @@ public class RisFactory {
 			risInfoDto.getPositionChecks().forEach(positionCheckDto -> {
 				positonCheckItemStr.append("");
 				StudyCheckItemPosition studyCheckItemPosition = new StudyCheckItemPosition();
-				PositionType position = positionTypeRepository.findOne(Integer.parseInt(positionCheckDto.getPosition()));
-				studyCheckItemPosition.setPosition(positionCheckDto.getPosition());
-				if(position != null)
+				if(!StringUtils.isEmpty(positionCheckDto.getPosition()))
 				{
-				    positonCheckItemStr.append(position.getPositiontypeName());
+					PositionType position = positionTypeRepository.findOne(Integer.parseInt(positionCheckDto.getPosition()));
+					
+					studyCheckItemPosition.setPosition(positionCheckDto.getPosition());
+					if(position != null)
+					{
+					    positonCheckItemStr.append(position.getPositiontypeName());
+					}
+					positonCheckItemStr.append(",");
 				}
-				positonCheckItemStr.append(",");
-				studyCheckItemPosition.setCheckItem(positionCheckDto.getCheckItem());
-				Checkitem checkItem = checkitemRepository.findOne(Integer.parseInt(positionCheckDto.getCheckItem()));
-				studyCheckItemPosition.setSubPosition(positionCheckDto.getSubPosition());
-				if(checkItem != null)
+
+				if(!StringUtils.isEmpty(positionCheckDto.getCheckItem()))
 				{
-				    positonCheckItemStr.append(checkItem.getCheckitemName());
+					studyCheckItemPosition.setCheckItem(positionCheckDto.getCheckItem());
+					Checkitem checkItem = checkitemRepository.findOne(Integer.parseInt(positionCheckDto.getCheckItem()));
+					studyCheckItemPosition.setSubPosition(positionCheckDto.getSubPosition());
+					if(checkItem != null)
+					{
+					    positonCheckItemStr.append(checkItem.getCheckitemName());
+					}
+					studyCheckItemPositions.add(studyCheckItemPosition);
+					positonCheckItemStr.append(";");
 				}
-				studyCheckItemPositions.add(studyCheckItemPosition);
-				positonCheckItemStr.append(";");
+
 			});
 			positonCheckItemStr.append("]");
 			studyInfo.setPositionCheckItem(positonCheckItemStr.toString());
