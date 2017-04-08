@@ -31,11 +31,32 @@
             <if test="@Ognl@isNotEmpty(deviceType)">
                 and a.device_id = #{deviceType}
             </if>
+            <if test="@Ognl@isNotEmpty(studyids)">
+             	and a.studyinfo_id in 
+                <foreach item="item" index="index" collection="studyids" open="(" separator="," close=")">  
+				  #{item}  
+				 </foreach>  
+            </if>
         </where>
         <if test="@Ognl@isNotEmpty(page)">
             limit #{page.firstIndex}, #{page.pageSize}
         </if>
     </select>
+    
+    <select id="getStudyInfoIdList" resultType="String" parameterType="java.util.Map">
+        select a.study_cp_id as studyid
+         from study_info a 
+        <where>
+        	1=1
+            <if test="@Ognl@isNotEmpty(checkItem)">
+                and a.check_item = #{checkItem}
+            </if>
+            <if test="@Ognl@isNotEmpty(position)">
+                and (a.position = #{position}  or  a.sub_position =  #{position}   )
+            </if>
+        </where>
+    </select>
+    
     
     <select id="getCount" parameterType="java.util.Map" resultType="java.lang.Integer">
         select count(*) from study_info a ,patient b ,hospital c
@@ -58,6 +79,13 @@
             </if>
             <if test="@Ognl@isNotEmpty(deviceType)">
                 and a.device_id = #{deviceType}
+            </if>
+            
+             <if test="@Ognl@isNotEmpty(studyids)">
+             	and a.studyinfo_id in 
+                <foreach item="item" index="index" collection="studyids" open="(" separator="," close=")">  
+				  #{item}  
+				 </foreach>  
             </if>
         </where>
     </select>

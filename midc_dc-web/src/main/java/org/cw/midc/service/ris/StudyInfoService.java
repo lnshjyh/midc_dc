@@ -19,10 +19,14 @@ public class StudyInfoService {
     	Page page = new Page();
     	page.setPageNo((int)param.get("pageNum"));
     	page.setPageSize((int)param.get("pageSize"));
+    	List<String> studyids = studyInfoDao.findColumn("getStudyInfoIdList", String.class, param);
+    	param.put("studyids", studyids);
         return studyInfoDao.findMap("getList", param, page);
     }
     
     public int getCount(HashMap<String,Object> param){
+    	List<String> studyids = studyInfoDao.findColumn("getStudyInfoIdList", String.class, param);
+    	param.put("studyids", studyids);
     	return studyInfoDao.getCount(param);
     }
 

@@ -5,6 +5,8 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -122,6 +124,15 @@ public class CommonUtils {
         }
         return httpRequest.getParameter(OAuth.OAUTH_ACCESS_TOKEN);
     }
+    
+    public static boolean isNumeric(String str){ 
+	   Pattern pattern = Pattern.compile("[0-9]*"); 
+	   Matcher isNum = pattern.matcher(str);
+	   if( !isNum.matches() ){
+	       return false; 
+	   } 
+	   return true; 
+	}
     /*public static void main(String[] args)
     {
     	long begin = System.currentTimeMillis();
