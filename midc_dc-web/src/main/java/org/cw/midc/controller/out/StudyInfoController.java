@@ -26,10 +26,10 @@ public class StudyInfoController {
     @PostMapping("studyinfos")
     public Map<String,Object> list(@RequestBody  HashMap<String,Object> param) {
 		Map<String,Object> map = new HashMap<String,Object>();
-		if(param.get("pageNum") == null || !CommonUtils.isNumeric((String)param.get("pageNum")) ){
+		if(param.get("pageNum") == null  ){
 			return map;
 		}
-		if(param.get("pageSize") == null || !CommonUtils.isNumeric((String)param.get("pageSize")) ){
+		if(param.get("pageSize") == null ){
 			return map;
 		}
 

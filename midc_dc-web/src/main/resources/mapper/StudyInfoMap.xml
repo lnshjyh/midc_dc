@@ -9,7 +9,7 @@
         a.abs_history as  absHistory,a.study_desc as studyDesc,a.create_time as createTime , a.update_time as updateTime ,a.clinical_manifest as clinicalManifest
         ,a.study_demand as studyDemand,a.rpt_status as rptStatus,a.trans_status as transStatus,a.status as status,a.is_available as isAvailable,a.apply_doc_name as applyDocName
         ,a.apply_dep_name as applyDepName,a.apply_time as applyTime,a.hosp_id as hospitalId,a.rpt_id as rptId,a.pat_id as patientId,b.pat_name as patientName,b.birthday as birthday,b.sex as patientSex
-        ,b.patientType as patientType,c.hosp_name as hospName
+        ,b.patient_type as patientType,c.hosp_name as hospName
          from study_info a ,patient b ,hospital c
         <where>
         	1=1
@@ -45,7 +45,7 @@
     
     <select id="getStudyInfoIdList" resultType="String" parameterType="java.util.Map">
         select a.study_cp_id as studyid
-         from study_info a 
+         from study_check_pos a 
         <where>
         	1=1
             <if test="@Ognl@isNotEmpty(checkItem)">

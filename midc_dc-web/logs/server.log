@@ -414,3 +414,1138 @@ Verify the connector's configuration, identify and stop any process that's liste
 10:48:47.245 [main] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
 10:48:47.295 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
 10:48:47.305 [main] INFO  org.cw.midc.Application - Started Application in 38.459 seconds (JVM running for 39.788)
+14:17:56.785 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+14:17:57.081 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1 START TIME        =08-四月-2017 14:17:57
+14:17:57.081 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1         requestURI=/out/studyinfos
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1           authType=null
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1  characterEncoding=UTF-8
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1      contentLength=244
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1        contentType=multipart/form-data; boundary=----WebKitFormBoundaryPmmLpMtAzo7UxkZa
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1        contextPath=
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=host=localhost:8080
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=connection=keep-alive
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=content-length=244
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=postman-token=6e102612-ce4b-53ac-472b-5d427d602a05
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=cache-control=no-cache
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=origin=chrome-extension://oaocphggeeeegohgaehdlabehaklnpai
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.2141.400 QQBrowser/9.5.10219.400
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=content-type=multipart/form-data; boundary=----WebKitFormBoundaryPmmLpMtAzo7UxkZa
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=accept=*/*
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=accept-encoding=gzip, deflate
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=accept-language=zh-CN,zh;q=0.8
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             locale=zh_CN
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             method=POST
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1          parameter=account=admin
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1          parameter=password=123456
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1           pathInfo=null
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1           protocol=HTTP/1.1
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1        queryString=null
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1         remoteAddr=0:0:0:0:0:0:0:1
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1         remoteHost=0:0:0:0:0:0:0:1
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1         remoteUser=null
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1 requestedSessionId=null
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             scheme=http
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1         serverName=localhost
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1         serverPort=8080
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1        servletPath=/out/studyinfos
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1           isSecure=false
+14:17:57.091 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1 ------------------=--------------------------------------------
+14:17:57.291 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1 ------------------=--------------------------------------------
+14:17:57.291 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1           authType=null
+14:17:57.291 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1        contentType=null
+14:17:57.291 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1         remoteUser=null
+14:17:57.291 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             status=415
+14:17:57.291 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1 END TIME          =08-四月-2017 14:17:57
+14:17:57.291 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1 ===============================================================
+14:19:02.137 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3 START TIME        =08-四月-2017 14:19:02
+14:19:02.137 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3         requestURI=/out/studyinfos
+14:19:02.137 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3           authType=null
+14:19:02.138 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3  characterEncoding=UTF-8
+14:19:02.138 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3      contentLength=0
+14:19:02.138 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3        contentType=application/json
+14:19:02.138 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3        contextPath=
+14:19:02.138 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=host=localhost:8080
+14:19:02.138 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=connection=keep-alive
+14:19:02.139 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=content-length=0
+14:19:02.139 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=postman-token=790eec74-ebcd-8633-d365-05e49c91d568
+14:19:02.139 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=cache-control=no-cache
+14:19:02.140 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=origin=chrome-extension://oaocphggeeeegohgaehdlabehaklnpai
+14:19:02.140 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.2141.400 QQBrowser/9.5.10219.400
+14:19:02.140 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=content-type=application/json
+14:19:02.140 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=accept=*/*
+14:19:02.140 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=accept-encoding=gzip, deflate
+14:19:02.141 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=accept-language=zh-CN,zh;q=0.8
+14:19:02.141 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             locale=zh_CN
+14:19:02.141 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             method=POST
+14:19:02.141 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3           pathInfo=null
+14:19:02.141 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3           protocol=HTTP/1.1
+14:19:02.141 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3        queryString=null
+14:19:02.141 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3         remoteAddr=0:0:0:0:0:0:0:1
+14:19:02.141 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3         remoteHost=0:0:0:0:0:0:0:1
+14:19:02.142 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3         remoteUser=null
+14:19:02.142 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3 requestedSessionId=null
+14:19:02.142 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             scheme=http
+14:19:02.142 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3         serverName=localhost
+14:19:02.142 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3         serverPort=8080
+14:19:02.142 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3        servletPath=/out/studyinfos
+14:19:02.148 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3           isSecure=false
+14:19:02.149 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3 ------------------=--------------------------------------------
+14:19:02.194 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3 ------------------=--------------------------------------------
+14:19:02.195 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3           authType=null
+14:19:02.196 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3        contentType=application/json;charset=UTF-8
+14:19:02.232 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=Content-Type=application/json;charset=UTF-8
+14:19:02.233 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=Transfer-Encoding=chunked
+14:19:02.233 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=Date=Sat, 08 Apr 2017 06:19:02 GMT
+14:19:02.234 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3         remoteUser=null
+14:19:02.234 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             status=200
+14:19:02.235 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3 END TIME          =08-四月-2017 14:19:02
+14:19:02.235 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3 ===============================================================
+14:21:29.102 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5 START TIME        =08-四月-2017 14:21:29
+14:21:29.102 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5         requestURI=/out/studyinfos
+14:21:29.102 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5           authType=null
+14:21:29.102 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5  characterEncoding=UTF-8
+14:21:29.103 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5      contentLength=0
+14:21:29.103 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5        contentType=application/json
+14:21:29.103 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5        contextPath=
+14:21:29.103 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=host=localhost:8080
+14:21:29.103 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=connection=keep-alive
+14:21:29.103 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=content-length=0
+14:21:29.104 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=postman-token=13cf68c0-65a9-ac3c-7538-db6bd44c3091
+14:21:29.104 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=cache-control=no-cache
+14:21:29.104 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=origin=chrome-extension://oaocphggeeeegohgaehdlabehaklnpai
+14:21:29.104 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.2141.400 QQBrowser/9.5.10219.400
+14:21:29.104 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=content-type=application/json
+14:21:29.104 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=accept=*/*
+14:21:29.105 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=accept-encoding=gzip, deflate
+14:21:29.105 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=accept-language=zh-CN,zh;q=0.8
+14:21:29.105 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             locale=zh_CN
+14:21:29.105 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             method=POST
+14:21:29.105 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5           pathInfo=null
+14:21:29.105 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5           protocol=HTTP/1.1
+14:21:29.105 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5        queryString=null
+14:21:29.105 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5         remoteAddr=0:0:0:0:0:0:0:1
+14:21:29.106 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5         remoteHost=0:0:0:0:0:0:0:1
+14:21:29.106 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5         remoteUser=null
+14:21:29.106 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5 requestedSessionId=null
+14:21:29.106 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             scheme=http
+14:21:29.106 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5         serverName=localhost
+14:21:29.106 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5         serverPort=8080
+14:21:29.106 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5        servletPath=/out/studyinfos
+14:21:29.123 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5           isSecure=false
+14:21:29.123 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5 ------------------=--------------------------------------------
+14:21:29.143 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5 ------------------=--------------------------------------------
+14:21:29.143 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5           authType=null
+14:21:29.144 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5        contentType=application/json;charset=UTF-8
+14:21:29.144 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=Content-Type=application/json;charset=UTF-8
+14:21:29.144 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=Transfer-Encoding=chunked
+14:21:29.145 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=Date=Sat, 08 Apr 2017 06:21:29 GMT
+14:21:29.145 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5         remoteUser=null
+14:21:29.145 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             status=200
+14:21:29.145 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5 END TIME          =08-四月-2017 14:21:29
+14:21:29.146 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5 ===============================================================
+14:23:39.732 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7 START TIME        =08-四月-2017 14:23:39
+14:23:39.733 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7         requestURI=/out/studyinfos
+14:23:39.733 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7           authType=null
+14:23:39.736 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7  characterEncoding=UTF-8
+14:23:39.737 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7      contentLength=0
+14:23:39.737 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7        contentType=application/json
+14:23:39.737 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7        contextPath=
+14:23:39.738 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=host=localhost:8080
+14:23:39.738 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=connection=keep-alive
+14:23:39.738 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=content-length=0
+14:23:39.738 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=postman-token=1cf54a66-8857-0543-b717-09e1ff08b173
+14:23:39.738 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=cache-control=no-cache
+14:23:39.738 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=origin=chrome-extension://oaocphggeeeegohgaehdlabehaklnpai
+14:23:39.738 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.2141.400 QQBrowser/9.5.10219.400
+14:23:39.738 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=content-type=application/json
+14:23:39.739 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=accept=*/*
+14:23:39.740 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=accept-encoding=gzip, deflate
+14:23:39.740 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=accept-language=zh-CN,zh;q=0.8
+14:23:39.740 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             locale=zh_CN
+14:23:39.740 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             method=POST
+14:23:39.740 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7           pathInfo=null
+14:23:39.740 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7           protocol=HTTP/1.1
+14:23:39.740 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7        queryString=null
+14:23:39.741 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7         remoteAddr=0:0:0:0:0:0:0:1
+14:23:39.741 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7         remoteHost=0:0:0:0:0:0:0:1
+14:23:39.741 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7         remoteUser=null
+14:23:39.741 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7 requestedSessionId=null
+14:23:39.741 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             scheme=http
+14:23:39.741 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7         serverName=localhost
+14:23:39.741 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7         serverPort=8080
+14:23:39.741 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7        servletPath=/out/studyinfos
+14:23:39.742 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7           isSecure=false
+14:23:39.742 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7 ------------------=--------------------------------------------
+14:23:39.746 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7 ------------------=--------------------------------------------
+14:23:39.747 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7           authType=null
+14:23:39.747 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7        contentType=application/json;charset=UTF-8
+14:23:39.747 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=Content-Type=application/json;charset=UTF-8
+14:23:39.747 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=Transfer-Encoding=chunked
+14:23:39.748 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=Date=Sat, 08 Apr 2017 06:23:39 GMT
+14:23:39.748 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7         remoteUser=null
+14:23:39.748 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             status=200
+14:23:39.748 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7 END TIME          =08-四月-2017 14:23:39
+14:23:39.748 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7 ===============================================================
+14:25:09.719 [main] INFO  org.cw.midc.Application - Starting Application on Joe-PC with PID 7468 (E:\lnshjyh\rd\devEnv\workspace_midc_jpa\midc_dc\midc_dc-web\target\classes started by Administrator in E:\lnshjyh\rd\devEnv\workspace_midc_jpa\midc_dc\midc_dc-web)
+14:25:09.739 [main] INFO  org.cw.midc.Application - The following profiles are active: dev
+14:25:09.966 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 5.2.4.Final
+14:25:10.285 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@58359ebd: startup date [Sat Apr 08 14:25:10 CST 2017]; root of context hierarchy
+14:25:11.847 [main] INFO  o.s.b.f.s.DefaultListableBeanFactory - Overriding bean definition for bean 'userRealm' with a different definition: replacing [Generic bean: class [org.cw.midc.shiro.UserRealm]; scope=singleton; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [E:\lnshjyh\rd\devEnv\workspace_midc_jpa\midc_dc\midc_dc-web\target\classes\org\cw\midc\shiro\UserRealm.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=shiroConfig; factoryMethodName=userRealm; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/cw/midc/shiro/config/ShiroConfig.class]]
+14:25:13.428 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Generic' of type [class org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Generic] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:25:13.688 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [class org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:25:13.787 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dataSource' of type [class com.alibaba.druid.pool.DruidDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:25:13.797 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration' of type [class org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration$$EnhancerBySpringCGLIB$$3482a878] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:25:13.850 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'jdbcTemplate' of type [class org.springframework.jdbc.core.JdbcTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:25:13.850 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'shiroConfig' of type [class org.cw.midc.shiro.config.ShiroConfig$$EnhancerBySpringCGLIB$$3c7ea0f4] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:25:14.554 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'urlPermissionResolver' of type [class org.cw.midc.shiro.permission.UrlPermissionResolver] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:25:14.612 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'myBatisConfig' of type [class org.cw.midc.config.MyBatisConfig$$EnhancerBySpringCGLIB$$c4bdac39] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:25:15.296 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'sqlSessionFactory' of type [class org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:25:15.317 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'sqlSessionTemplate' of type [class org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:25:15.318 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'userDao' of type [class org.cw.midc.dao.UserDao] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:25:15.326 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'userRoleDao' of type [class org.cw.midc.dao.UserRoleDao] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:25:15.328 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'userServiceImpl' of type [class org.cw.midc.service.impl.UserServiceImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:25:15.333 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'loginServiceImpl' of type [class org.cw.midc.service.impl.LoginServiceImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:25:15.338 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'userRoleServiceImpl' of type [class org.cw.midc.service.impl.UserRoleServiceImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:25:15.338 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'userRealm' of type [class org.cw.midc.shiro.UserRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:25:15.358 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'DBSessionDao' of type [class org.cw.midc.dao.DBSessionDao] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:25:15.368 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dbSessionManage' of type [class org.cw.midc.shiro.DBSessionManageDao] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:25:15.393 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'sessionManager' of type [class org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:25:15.407 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cacheManager' of type [class org.apache.shiro.cache.ehcache.EhCacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:25:15.669 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'securityManager' of type [class org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:25:15.701 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'oauthAccessJdbc' of type [class org.cw.midc.repository.oauth.OauthAccessJdbc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:25:15.889 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$149e7388] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:25:16.840 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+14:25:16.860 [main] INFO  o.a.catalina.core.StandardService - Starting service Tomcat
+14:25:16.860 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.6
+14:25:17.050 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+14:25:17.452 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+14:25:17.452 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+14:25:17.452 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+14:25:17.452 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+14:25:17.452 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Filter delegatingFilterProxy was not registered (disabled)
+14:25:17.452 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'preparedFilter' to urls: [/*]
+14:25:17.452 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestDumperFilter' to: [/*]
+14:25:17.452 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'shiroFilter' to: [/*]
+14:25:17.452 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+14:25:17.796 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+14:25:17.834 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+14:25:18.035 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.11.Final}
+14:25:18.039 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+14:25:18.042 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+14:25:18.166 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+14:25:18.547 [main] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+14:25:18.748 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+14:25:19.838 [main] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+14:25:40.065 [main] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+14:25:40.166 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+14:25:40.958 [main] INFO  o.h.h.i.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+14:25:45.667 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14:25:45.677 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+14:25:45.687 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+14:25:45.758 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+14:25:45.778 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-8080]
+14:25:45.798 [main] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+14:25:45.848 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+14:25:45.858 [main] INFO  org.cw.midc.Application - Started Application in 36.732 seconds (JVM running for 38.116)
+14:25:57.671 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+14:25:57.742 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1 START TIME        =08-四月-2017 14:25:57
+14:25:57.742 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1         requestURI=/out/studyinfos
+14:25:57.742 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1           authType=null
+14:25:57.742 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1  characterEncoding=UTF-8
+14:25:57.742 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1      contentLength=0
+14:25:57.742 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1        contentType=application/json
+14:25:57.742 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1        contextPath=
+14:25:57.742 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=host=localhost:8080
+14:25:57.742 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=connection=keep-alive
+14:25:57.742 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=content-length=0
+14:25:57.742 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=postman-token=3f6e5e3e-8de2-2035-f533-31c800b09c5e
+14:25:57.742 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=cache-control=no-cache
+14:25:57.742 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=origin=chrome-extension://oaocphggeeeegohgaehdlabehaklnpai
+14:25:57.742 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.2141.400 QQBrowser/9.5.10219.400
+14:25:57.742 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=content-type=application/json
+14:25:57.742 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=accept=*/*
+14:25:57.742 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=accept-encoding=gzip, deflate
+14:25:57.742 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=accept-language=zh-CN,zh;q=0.8
+14:25:57.742 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             locale=zh_CN
+14:25:57.752 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             method=POST
+14:25:57.752 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1           pathInfo=null
+14:25:57.752 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1           protocol=HTTP/1.1
+14:25:57.752 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1        queryString=null
+14:25:57.752 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1         remoteAddr=0:0:0:0:0:0:0:1
+14:25:57.752 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1         remoteHost=0:0:0:0:0:0:0:1
+14:25:57.752 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1         remoteUser=null
+14:25:57.752 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1 requestedSessionId=null
+14:25:57.752 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             scheme=http
+14:25:57.752 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1         serverName=localhost
+14:25:57.752 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1         serverPort=8080
+14:25:57.752 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1        servletPath=/out/studyinfos
+14:25:57.752 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1           isSecure=false
+14:25:57.752 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1 ------------------=--------------------------------------------
+14:25:57.979 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1 ------------------=--------------------------------------------
+14:25:57.979 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1           authType=null
+14:25:57.979 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1        contentType=application/json;charset=UTF-8
+14:25:57.980 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=Content-Type=application/json;charset=UTF-8
+14:25:57.981 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=Transfer-Encoding=chunked
+14:25:57.981 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=Date=Sat, 08 Apr 2017 06:25:57 GMT
+14:25:57.981 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1         remoteUser=null
+14:25:57.981 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             status=200
+14:25:57.981 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1 END TIME          =08-四月-2017 14:25:57
+14:25:57.982 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1 ===============================================================
+14:26:28.186 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2 START TIME        =08-四月-2017 14:26:28
+14:26:28.186 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2         requestURI=/
+14:26:28.186 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2           authType=null
+14:26:28.186 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2  characterEncoding=UTF-8
+14:26:28.186 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2      contentLength=-1
+14:26:28.186 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2        contentType=null
+14:26:28.196 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2        contextPath=
+14:26:28.196 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2             header=host=localhost:8080
+14:26:28.196 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2             header=connection=keep-alive
+14:26:28.196 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2             header=upgrade-insecure-requests=1
+14:26:28.196 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2             header=user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.2141.400 QQBrowser/9.5.10219.400
+14:26:28.196 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2             header=accept=text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+14:26:28.196 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2             header=accept-encoding=gzip, deflate, sdch
+14:26:28.196 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2             header=accept-language=zh-CN,zh;q=0.8
+14:26:28.196 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2             locale=zh_CN
+14:26:28.196 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2             method=GET
+14:26:28.196 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2           pathInfo=null
+14:26:28.196 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2           protocol=HTTP/1.1
+14:26:28.196 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2        queryString=null
+14:26:28.196 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2         remoteAddr=0:0:0:0:0:0:0:1
+14:26:28.196 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2         remoteHost=0:0:0:0:0:0:0:1
+14:26:28.196 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2         remoteUser=null
+14:26:28.196 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2 requestedSessionId=null
+14:26:28.196 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2             scheme=http
+14:26:28.196 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2         serverName=localhost
+14:26:28.196 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2         serverPort=8080
+14:26:28.196 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2        servletPath=/
+14:26:28.196 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2           isSecure=false
+14:26:28.196 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2 ------------------=--------------------------------------------
+14:26:28.381 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2 ------------------=--------------------------------------------
+14:26:28.381 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2           authType=null
+14:26:28.381 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2        contentType=null
+14:26:28.381 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2             header=Set-Cookie=JSESSIONID=88978d6e-92c7-4966-a208-f6ac762b8844; Path=/; HttpOnly
+14:26:28.381 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2             header=Location=http://localhost:8080/login;JSESSIONID=88978d6e-92c7-4966-a208-f6ac762b8844
+14:26:28.381 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2         remoteUser=null
+14:26:28.381 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2             status=302
+14:26:28.381 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2 END TIME          =08-四月-2017 14:26:28
+14:26:28.381 [http-nio-8080-exec-2] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-2 ===============================================================
+14:26:28.411 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3 START TIME        =08-四月-2017 14:26:28
+14:26:28.411 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3         requestURI=/login;JSESSIONID=88978d6e-92c7-4966-a208-f6ac762b8844
+14:26:28.411 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3           authType=null
+14:26:28.411 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3  characterEncoding=UTF-8
+14:26:28.411 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3      contentLength=-1
+14:26:28.411 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3        contentType=null
+14:26:28.411 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3        contextPath=
+14:26:28.411 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             cookie=JSESSIONID=88978d6e-92c7-4966-a208-f6ac762b8844
+14:26:28.411 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=host=localhost:8080
+14:26:28.411 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=connection=keep-alive
+14:26:28.411 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=upgrade-insecure-requests=1
+14:26:28.411 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.2141.400 QQBrowser/9.5.10219.400
+14:26:28.411 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=accept=text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+14:26:28.411 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=accept-encoding=gzip, deflate, sdch
+14:26:28.411 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=accept-language=zh-CN,zh;q=0.8
+14:26:28.411 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=cookie=JSESSIONID=88978d6e-92c7-4966-a208-f6ac762b8844
+14:26:28.411 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             locale=zh_CN
+14:26:28.411 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             method=GET
+14:26:28.411 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3           pathInfo=null
+14:26:28.411 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3           protocol=HTTP/1.1
+14:26:28.411 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3        queryString=null
+14:26:28.411 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3         remoteAddr=0:0:0:0:0:0:0:1
+14:26:28.411 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3         remoteHost=0:0:0:0:0:0:0:1
+14:26:28.411 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3         remoteUser=null
+14:26:28.411 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3 requestedSessionId=88978d6e-92c7-4966-a208-f6ac762b8844
+14:26:28.411 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             scheme=http
+14:26:28.411 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3         serverName=localhost
+14:26:28.411 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3         serverPort=8080
+14:26:28.411 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3        servletPath=/login
+14:26:28.411 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3           isSecure=false
+14:26:28.411 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3 ------------------=--------------------------------------------
+14:26:28.675 [http-nio-8080-exec-3] INFO  org.thymeleaf.TemplateEngine - [THYMELEAF] INITIALIZING TEMPLATE ENGINE
+14:26:28.793 [http-nio-8080-exec-3] INFO  o.t.t.AbstractTemplateResolver - [THYMELEAF] INITIALIZING TEMPLATE RESOLVER: org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver
+14:26:28.793 [http-nio-8080-exec-3] INFO  o.t.t.AbstractTemplateResolver - [THYMELEAF] TEMPLATE RESOLVER INITIALIZED OK
+14:26:28.793 [http-nio-8080-exec-3] INFO  o.t.m.AbstractMessageResolver - [THYMELEAF] INITIALIZING MESSAGE RESOLVER: org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+14:26:28.793 [http-nio-8080-exec-3] INFO  o.t.m.AbstractMessageResolver - [THYMELEAF] MESSAGE RESOLVER INITIALIZED OK
+14:26:28.803 [http-nio-8080-exec-3] INFO  org.thymeleaf.TemplateEngine.CONFIG - [THYMELEAF] TEMPLATE ENGINE CONFIGURATION:
+[THYMELEAF] * Cache Factory implementation: org.thymeleaf.cache.StandardCacheManager
+[THYMELEAF] * Template modes:
+[THYMELEAF]     * XHTML
+[THYMELEAF]     * XML
+[THYMELEAF]     * LEGACYHTML5
+[THYMELEAF]     * VALIDXHTML
+[THYMELEAF]     * HTML5
+[THYMELEAF]     * VALIDXML
+[THYMELEAF] * Template resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver
+[THYMELEAF] * Message resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+[THYMELEAF] * Dialect [1 of 3]: org.thymeleaf.spring4.dialect.SpringStandardDialect
+[THYMELEAF]     * Prefix: "th"
+[THYMELEAF] * Dialect [2 of 3]: at.pollux.thymeleaf.shiro.dialect.ShiroDialect
+[THYMELEAF]     * Prefix: "shiro"
+[THYMELEAF] * Dialect [3 of 3]: nz.net.ultraq.thymeleaf.LayoutDialect
+[THYMELEAF]     * Prefix: "layout"
+[THYMELEAF] TEMPLATE ENGINE CONFIGURED OK
+14:26:28.803 [http-nio-8080-exec-3] INFO  org.thymeleaf.TemplateEngine - [THYMELEAF] TEMPLATE ENGINE INITIALIZED
+14:26:29.149 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3 ------------------=--------------------------------------------
+14:26:29.149 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3           authType=null
+14:26:29.149 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3        contentType=text/html;charset=UTF-8
+14:26:29.149 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=Content-Type=text/html;charset=UTF-8
+14:26:29.149 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=Content-Language=zh-CN
+14:26:29.149 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=Transfer-Encoding=chunked
+14:26:29.149 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=Date=Sat, 08 Apr 2017 06:26:28 GMT
+14:26:29.149 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3         remoteUser=null
+14:26:29.149 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             status=200
+14:26:29.149 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3 END TIME          =08-四月-2017 14:26:29
+14:26:29.149 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3 ===============================================================
+14:26:29.219 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4 START TIME        =08-四月-2017 14:26:29
+14:26:29.219 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4         requestURI=/css/login.css
+14:26:29.219 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4           authType=null
+14:26:29.219 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4  characterEncoding=UTF-8
+14:26:29.219 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4      contentLength=-1
+14:26:29.219 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4        contentType=null
+14:26:29.219 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4        contextPath=
+14:26:29.219 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             cookie=JSESSIONID=88978d6e-92c7-4966-a208-f6ac762b8844
+14:26:29.229 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=host=localhost:8080
+14:26:29.229 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=connection=keep-alive
+14:26:29.229 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.2141.400 QQBrowser/9.5.10219.400
+14:26:29.229 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=accept=text/css,*/*;q=0.1
+14:26:29.229 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=referer=http://localhost:8080/login;JSESSIONID=88978d6e-92c7-4966-a208-f6ac762b8844
+14:26:29.229 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=accept-encoding=gzip, deflate, sdch
+14:26:29.229 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=accept-language=zh-CN,zh;q=0.8
+14:26:29.229 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=cookie=JSESSIONID=88978d6e-92c7-4966-a208-f6ac762b8844
+14:26:29.229 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=if-modified-since=Wed, 05 Apr 2017 12:41:06 GMT
+14:26:29.229 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             locale=zh_CN
+14:26:29.229 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             method=GET
+14:26:29.229 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4           pathInfo=null
+14:26:29.229 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4           protocol=HTTP/1.1
+14:26:29.229 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4        queryString=null
+14:26:29.229 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4         remoteAddr=0:0:0:0:0:0:0:1
+14:26:29.229 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4         remoteHost=0:0:0:0:0:0:0:1
+14:26:29.229 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4         remoteUser=null
+14:26:29.229 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4 requestedSessionId=88978d6e-92c7-4966-a208-f6ac762b8844
+14:26:29.229 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             scheme=http
+14:26:29.229 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4         serverName=localhost
+14:26:29.229 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4         serverPort=8080
+14:26:29.229 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4        servletPath=/css/login.css
+14:26:29.229 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4           isSecure=false
+14:26:29.229 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4 ------------------=--------------------------------------------
+14:26:29.284 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5 START TIME        =08-四月-2017 14:26:29
+14:26:29.285 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5         requestURI=/favicon.ico
+14:26:29.285 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5           authType=null
+14:26:29.285 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5  characterEncoding=UTF-8
+14:26:29.286 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5      contentLength=-1
+14:26:29.286 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5        contentType=null
+14:26:29.286 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5        contextPath=
+14:26:29.286 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             cookie=JSESSIONID=88978d6e-92c7-4966-a208-f6ac762b8844
+14:26:29.287 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=host=localhost:8080
+14:26:29.287 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=connection=keep-alive
+14:26:29.288 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.2141.400 QQBrowser/9.5.10219.400
+14:26:29.288 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=accept=text/css,*/*;q=0.1
+14:26:29.289 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=referer=http://localhost:8080/login;JSESSIONID=88978d6e-92c7-4966-a208-f6ac762b8844
+14:26:29.289 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=accept-encoding=gzip, deflate, sdch
+14:26:29.290 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=accept-language=zh-CN,zh;q=0.8
+14:26:29.290 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=cookie=JSESSIONID=88978d6e-92c7-4966-a208-f6ac762b8844
+14:26:29.291 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=if-modified-since=Wed, 05 Apr 2017 12:41:06 GMT
+14:26:29.291 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             locale=zh_CN
+14:26:29.291 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             method=GET
+14:26:29.291 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5           pathInfo=null
+14:26:29.291 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5           protocol=HTTP/1.1
+14:26:29.292 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5        queryString=null
+14:26:29.292 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5         remoteAddr=0:0:0:0:0:0:0:1
+14:26:29.292 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5         remoteHost=0:0:0:0:0:0:0:1
+14:26:29.292 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5         remoteUser=null
+14:26:29.292 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5 requestedSessionId=88978d6e-92c7-4966-a208-f6ac762b8844
+14:26:29.293 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             scheme=http
+14:26:29.293 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5         serverName=localhost
+14:26:29.293 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5         serverPort=8080
+14:26:29.293 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5        servletPath=/favicon.ico
+14:26:29.294 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5           isSecure=false
+14:26:29.294 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5 ------------------=--------------------------------------------
+14:26:29.401 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4 ------------------=--------------------------------------------
+14:26:29.401 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4           authType=null
+14:26:29.401 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4        contentType=null
+14:26:29.402 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=Last-Modified=Wed, 05 Apr 2017 12:41:06 GMT
+14:26:29.402 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4         remoteUser=null
+14:26:29.402 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             status=304
+14:26:29.402 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4 END TIME          =08-四月-2017 14:26:29
+14:26:29.402 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4 ===============================================================
+14:26:29.424 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5 ------------------=--------------------------------------------
+14:26:29.425 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5           authType=null
+14:26:29.425 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5        contentType=null
+14:26:29.425 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=Last-Modified=Wed, 05 Apr 2017 12:41:06 GMT
+14:26:29.426 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5         remoteUser=null
+14:26:29.426 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             status=304
+14:26:29.427 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5 END TIME          =08-四月-2017 14:26:29
+14:26:29.428 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5 ===============================================================
+14:26:29.472 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8 START TIME        =08-四月-2017 14:26:29
+14:26:29.475 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8         requestURI=/images/site_bg.png
+14:26:29.475 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8           authType=null
+14:26:29.476 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8  characterEncoding=UTF-8
+14:26:29.477 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8      contentLength=-1
+14:26:29.477 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6 START TIME        =08-四月-2017 14:26:29
+14:26:29.477 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8        contentType=null
+14:26:29.477 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6         requestURI=/images/login.jpg
+14:26:29.477 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8        contextPath=
+14:26:29.477 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6           authType=null
+14:26:29.477 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             cookie=JSESSIONID=88978d6e-92c7-4966-a208-f6ac762b8844
+14:26:29.478 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6  characterEncoding=UTF-8
+14:26:29.478 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             header=host=localhost:8080
+14:26:29.478 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6      contentLength=-1
+14:26:29.478 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             header=connection=keep-alive
+14:26:29.478 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6        contentType=null
+14:26:29.478 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             header=user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.2141.400 QQBrowser/9.5.10219.400
+14:26:29.478 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6        contextPath=
+14:26:29.478 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             header=accept=image/webp,image/*,*/*;q=0.8
+14:26:29.479 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6             cookie=JSESSIONID=88978d6e-92c7-4966-a208-f6ac762b8844
+14:26:29.479 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             header=referer=http://localhost:8080/css/login.css
+14:26:29.479 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6             header=host=localhost:8080
+14:26:29.479 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             header=accept-encoding=gzip, deflate, sdch
+14:26:29.479 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6             header=connection=keep-alive
+14:26:29.479 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6             header=user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.2141.400 QQBrowser/9.5.10219.400
+14:26:29.480 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6             header=accept=image/webp,image/*,*/*;q=0.8
+14:26:29.480 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6             header=referer=http://localhost:8080/css/login.css
+14:26:29.480 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6             header=accept-encoding=gzip, deflate, sdch
+14:26:29.481 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6             header=accept-language=zh-CN,zh;q=0.8
+14:26:29.481 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6             header=cookie=JSESSIONID=88978d6e-92c7-4966-a208-f6ac762b8844
+14:26:29.481 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6             header=if-modified-since=Wed, 05 Apr 2017 12:41:06 GMT
+14:26:29.482 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6             locale=zh_CN
+14:26:29.482 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6             method=GET
+14:26:29.482 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6           pathInfo=null
+14:26:29.483 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6           protocol=HTTP/1.1
+14:26:29.483 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6        queryString=null
+14:26:29.483 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6         remoteAddr=0:0:0:0:0:0:0:1
+14:26:29.483 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6         remoteHost=0:0:0:0:0:0:0:1
+14:26:29.483 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6         remoteUser=null
+14:26:29.484 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6 requestedSessionId=88978d6e-92c7-4966-a208-f6ac762b8844
+14:26:29.484 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6             scheme=http
+14:26:29.484 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6         serverName=localhost
+14:26:29.484 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6         serverPort=8080
+14:26:29.485 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6        servletPath=/images/login.jpg
+14:26:29.485 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6           isSecure=false
+14:26:29.485 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6 ------------------=--------------------------------------------
+14:26:29.501 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             header=accept-language=zh-CN,zh;q=0.8
+14:26:29.509 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             header=cookie=JSESSIONID=88978d6e-92c7-4966-a208-f6ac762b8844
+14:26:29.514 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             header=if-modified-since=Wed, 05 Apr 2017 12:41:06 GMT
+14:26:29.523 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             locale=zh_CN
+14:26:29.524 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             method=GET
+14:26:29.524 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8           pathInfo=null
+14:26:29.526 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8           protocol=HTTP/1.1
+14:26:29.527 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8        queryString=null
+14:26:29.527 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8         remoteAddr=0:0:0:0:0:0:0:1
+14:26:29.527 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8         remoteHost=0:0:0:0:0:0:0:1
+14:26:29.528 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8         remoteUser=null
+14:26:29.528 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8 requestedSessionId=88978d6e-92c7-4966-a208-f6ac762b8844
+14:26:29.528 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             scheme=http
+14:26:29.528 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8         serverName=localhost
+14:26:29.528 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8         serverPort=8080
+14:26:29.529 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8        servletPath=/images/site_bg.png
+14:26:29.529 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8           isSecure=false
+14:26:29.529 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8 ------------------=--------------------------------------------
+14:26:29.587 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7 START TIME        =08-四月-2017 14:26:29
+14:26:29.587 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7         requestURI=/images/login_m_bg.png
+14:26:29.587 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7           authType=null
+14:26:29.587 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7  characterEncoding=UTF-8
+14:26:29.587 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7      contentLength=-1
+14:26:29.588 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7        contentType=null
+14:26:29.588 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7        contextPath=
+14:26:29.588 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             cookie=JSESSIONID=88978d6e-92c7-4966-a208-f6ac762b8844
+14:26:29.588 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=host=localhost:8080
+14:26:29.588 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=connection=keep-alive
+14:26:29.589 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.2141.400 QQBrowser/9.5.10219.400
+14:26:29.589 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=accept=image/webp,image/*,*/*;q=0.8
+14:26:29.589 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=referer=http://localhost:8080/css/login.css
+14:26:29.589 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=accept-encoding=gzip, deflate, sdch
+14:26:29.589 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=accept-language=zh-CN,zh;q=0.8
+14:26:29.590 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=cookie=JSESSIONID=88978d6e-92c7-4966-a208-f6ac762b8844
+14:26:29.590 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=if-modified-since=Wed, 05 Apr 2017 12:41:06 GMT
+14:26:29.591 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             locale=zh_CN
+14:26:29.591 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             method=GET
+14:26:29.591 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7           pathInfo=null
+14:26:29.592 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7           protocol=HTTP/1.1
+14:26:29.592 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7        queryString=null
+14:26:29.592 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7         remoteAddr=0:0:0:0:0:0:0:1
+14:26:29.592 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7         remoteHost=0:0:0:0:0:0:0:1
+14:26:29.593 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7         remoteUser=null
+14:26:29.593 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7 requestedSessionId=88978d6e-92c7-4966-a208-f6ac762b8844
+14:26:29.593 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             scheme=http
+14:26:29.593 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7         serverName=localhost
+14:26:29.594 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7         serverPort=8080
+14:26:29.594 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7        servletPath=/images/login_m_bg.png
+14:26:29.594 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7           isSecure=false
+14:26:29.594 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7 ------------------=--------------------------------------------
+14:26:29.704 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7 ------------------=--------------------------------------------
+14:26:29.704 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7           authType=null
+14:26:29.704 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7        contentType=null
+14:26:29.705 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=Last-Modified=Wed, 05 Apr 2017 12:41:06 GMT
+14:26:29.705 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7         remoteUser=null
+14:26:29.705 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             status=304
+14:26:29.705 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7 END TIME          =08-四月-2017 14:26:29
+14:26:29.705 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7 ===============================================================
+14:26:29.750 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6 ------------------=--------------------------------------------
+14:26:29.750 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6           authType=null
+14:26:29.751 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6        contentType=null
+14:26:29.751 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6             header=Last-Modified=Wed, 05 Apr 2017 12:41:06 GMT
+14:26:29.751 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6         remoteUser=null
+14:26:29.752 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6             status=304
+14:26:29.752 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6 END TIME          =08-四月-2017 14:26:29
+14:26:29.752 [http-nio-8080-exec-6] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-6 ===============================================================
+14:26:29.754 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8 ------------------=--------------------------------------------
+14:26:29.755 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8           authType=null
+14:26:29.755 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8        contentType=null
+14:26:29.755 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             header=Last-Modified=Wed, 05 Apr 2017 12:41:06 GMT
+14:26:29.755 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8         remoteUser=null
+14:26:29.755 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             status=304
+14:26:29.756 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8 END TIME          =08-四月-2017 14:26:29
+14:26:29.756 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8 ===============================================================
+14:29:12.620 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3 START TIME        =08-四月-2017 14:29:12
+14:29:12.621 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3         requestURI=/out/studyinfos
+14:29:12.621 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3           authType=null
+14:29:12.631 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3  characterEncoding=UTF-8
+14:29:12.632 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3      contentLength=27
+14:29:12.632 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3        contentType=application/json
+14:29:12.633 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3        contextPath=
+14:29:12.633 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=host=localhost:8080
+14:29:12.633 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=connection=keep-alive
+14:29:12.633 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=content-length=27
+14:29:12.634 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=postman-token=c2ecfe29-c83f-1dc0-5cb4-86ccd27f87a6
+14:29:12.646 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=cache-control=no-cache
+14:29:12.647 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=origin=chrome-extension://oaocphggeeeegohgaehdlabehaklnpai
+14:29:12.647 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.2141.400 QQBrowser/9.5.10219.400
+14:29:12.648 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=content-type=application/json
+14:29:12.648 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=accept=*/*
+14:29:12.648 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=accept-encoding=gzip, deflate
+14:29:12.648 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=accept-language=zh-CN,zh;q=0.8
+14:29:12.648 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             locale=zh_CN
+14:29:12.649 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             method=POST
+14:29:12.649 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3           pathInfo=null
+14:29:12.649 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3           protocol=HTTP/1.1
+14:29:12.649 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3        queryString=null
+14:29:12.649 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3         remoteAddr=0:0:0:0:0:0:0:1
+14:29:12.650 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3         remoteHost=0:0:0:0:0:0:0:1
+14:29:12.650 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3         remoteUser=null
+14:29:12.650 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3 requestedSessionId=null
+14:29:12.650 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             scheme=http
+14:29:12.650 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3         serverName=localhost
+14:29:12.651 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3         serverPort=8080
+14:29:12.651 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3        servletPath=/out/studyinfos
+14:29:12.651 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3           isSecure=false
+14:29:12.652 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3 ------------------=--------------------------------------------
+14:29:26.413 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3 ------------------=--------------------------------------------
+14:29:26.423 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3           authType=null
+14:29:26.423 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3        contentType=application/json;charset=UTF-8
+14:29:26.423 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=Content-Type=application/json;charset=UTF-8
+14:29:26.423 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=Transfer-Encoding=chunked
+14:29:26.423 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             header=Date=Sat, 08 Apr 2017 06:29:26 GMT
+14:29:26.423 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3         remoteUser=null
+14:29:26.423 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3             status=200
+14:29:26.423 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3 END TIME          =08-四月-2017 14:29:26
+14:29:26.423 [http-nio-8080-exec-3] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-3 ===============================================================
+14:29:43.116 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4 START TIME        =08-四月-2017 14:29:43
+14:29:43.116 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4         requestURI=/out/studyinfos
+14:29:43.117 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4           authType=null
+14:29:43.119 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4  characterEncoding=UTF-8
+14:29:43.119 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4      contentLength=27
+14:29:43.120 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4        contentType=application/json
+14:29:43.121 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4        contextPath=
+14:29:43.121 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=host=localhost:8080
+14:29:43.121 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=connection=keep-alive
+14:29:43.121 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=content-length=27
+14:29:43.121 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=postman-token=b5211946-5757-7f29-29d6-6c95808ccbd6
+14:29:43.122 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=cache-control=no-cache
+14:29:43.122 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=origin=chrome-extension://oaocphggeeeegohgaehdlabehaklnpai
+14:29:43.122 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.2141.400 QQBrowser/9.5.10219.400
+14:29:43.122 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=content-type=application/json
+14:29:43.122 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=accept=*/*
+14:29:43.122 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=accept-encoding=gzip, deflate
+14:29:43.122 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=accept-language=zh-CN,zh;q=0.8
+14:29:43.122 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             locale=zh_CN
+14:29:43.123 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             method=POST
+14:29:43.123 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4           pathInfo=null
+14:29:43.123 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4           protocol=HTTP/1.1
+14:29:43.123 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4        queryString=null
+14:29:43.123 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4         remoteAddr=0:0:0:0:0:0:0:1
+14:29:43.123 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4         remoteHost=0:0:0:0:0:0:0:1
+14:29:43.123 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4         remoteUser=null
+14:29:43.123 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4 requestedSessionId=null
+14:29:43.123 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             scheme=http
+14:29:43.124 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4         serverName=localhost
+14:29:43.124 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4         serverPort=8080
+14:29:43.124 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4        servletPath=/out/studyinfos
+14:29:43.124 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4           isSecure=false
+14:29:43.124 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4 ------------------=--------------------------------------------
+14:30:42.660 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4 ------------------=--------------------------------------------
+14:30:42.660 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4           authType=null
+14:30:42.660 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4        contentType=application/json;charset=UTF-8
+14:30:42.660 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=Content-Type=application/json;charset=UTF-8
+14:30:42.660 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=Transfer-Encoding=chunked
+14:30:42.660 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=Date=Sat, 08 Apr 2017 06:30:42 GMT
+14:30:42.660 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4         remoteUser=null
+14:30:42.660 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             status=200
+14:30:42.660 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4 END TIME          =08-四月-2017 14:30:42
+14:30:42.660 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4 ===============================================================
+14:31:41.893 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5 START TIME        =08-四月-2017 14:31:41
+14:31:41.894 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5         requestURI=/out/studyinfos
+14:31:41.894 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5           authType=null
+14:31:41.894 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5  characterEncoding=UTF-8
+14:31:41.894 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5      contentLength=27
+14:31:41.895 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5        contentType=application/json
+14:31:41.895 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5        contextPath=
+14:31:41.895 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=host=localhost:8080
+14:31:41.895 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=connection=keep-alive
+14:31:41.895 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=content-length=27
+14:31:41.896 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=postman-token=573e5294-d7dc-9f8b-36c5-f8fc13f77547
+14:31:41.896 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=cache-control=no-cache
+14:31:41.896 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=origin=chrome-extension://oaocphggeeeegohgaehdlabehaklnpai
+14:31:41.896 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.2141.400 QQBrowser/9.5.10219.400
+14:31:41.896 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=content-type=application/json
+14:31:41.897 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=accept=*/*
+14:31:41.899 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=accept-encoding=gzip, deflate
+14:31:41.900 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=accept-language=zh-CN,zh;q=0.8
+14:31:41.901 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             locale=zh_CN
+14:31:41.901 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             method=POST
+14:31:41.902 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5           pathInfo=null
+14:31:41.902 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5           protocol=HTTP/1.1
+14:31:41.902 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5        queryString=null
+14:31:41.902 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5         remoteAddr=0:0:0:0:0:0:0:1
+14:31:41.902 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5         remoteHost=0:0:0:0:0:0:0:1
+14:31:41.902 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5         remoteUser=null
+14:31:41.902 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5 requestedSessionId=null
+14:31:41.902 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             scheme=http
+14:31:41.902 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5         serverName=localhost
+14:31:41.903 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5         serverPort=8080
+14:31:41.903 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5        servletPath=/out/studyinfos
+14:31:41.903 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5           isSecure=false
+14:31:41.903 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5 ------------------=--------------------------------------------
+14:32:40.123 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5 ------------------=--------------------------------------------
+14:32:40.133 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5           authType=null
+14:32:40.133 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5        contentType=application/json;charset=UTF-8
+14:32:40.133 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=Content-Type=application/json;charset=UTF-8
+14:32:40.133 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=Transfer-Encoding=chunked
+14:32:40.133 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             header=Date=Sat, 08 Apr 2017 06:32:40 GMT
+14:32:40.133 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5         remoteUser=null
+14:32:40.133 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5             status=200
+14:32:40.133 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5 END TIME          =08-四月-2017 14:32:40
+14:32:40.133 [http-nio-8080-exec-5] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-5 ===============================================================
+14:33:16.606 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7 START TIME        =08-四月-2017 14:33:16
+14:33:16.606 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7         requestURI=/out/studyinfos
+14:33:16.606 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7           authType=null
+14:33:16.606 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7  characterEncoding=UTF-8
+14:33:16.606 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7      contentLength=27
+14:33:16.607 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7        contentType=application/json
+14:33:16.607 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7        contextPath=
+14:33:16.607 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=host=localhost:8080
+14:33:16.607 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=connection=keep-alive
+14:33:16.607 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=content-length=27
+14:33:16.608 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=postman-token=08e62a88-203f-11ec-dc6e-4e6c580a6d78
+14:33:16.608 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=cache-control=no-cache
+14:33:16.608 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=origin=chrome-extension://oaocphggeeeegohgaehdlabehaklnpai
+14:33:16.608 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.2141.400 QQBrowser/9.5.10219.400
+14:33:16.612 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=content-type=application/json
+14:33:16.612 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=accept=*/*
+14:33:16.612 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=accept-encoding=gzip, deflate
+14:33:16.612 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=accept-language=zh-CN,zh;q=0.8
+14:33:16.612 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             locale=zh_CN
+14:33:16.612 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             method=POST
+14:33:16.612 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7           pathInfo=null
+14:33:16.613 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7           protocol=HTTP/1.1
+14:33:16.613 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7        queryString=null
+14:33:16.613 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7         remoteAddr=0:0:0:0:0:0:0:1
+14:33:16.613 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7         remoteHost=0:0:0:0:0:0:0:1
+14:33:16.613 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7         remoteUser=null
+14:33:16.613 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7 requestedSessionId=null
+14:33:16.613 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             scheme=http
+14:33:16.613 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7         serverName=localhost
+14:33:16.613 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7         serverPort=8080
+14:33:16.613 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7        servletPath=/out/studyinfos
+14:33:16.613 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7           isSecure=false
+14:33:16.613 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7 ------------------=--------------------------------------------
+14:33:19.063 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7 ------------------=--------------------------------------------
+14:33:19.063 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7           authType=null
+14:33:19.073 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7        contentType=application/json;charset=UTF-8
+14:33:19.073 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=Content-Type=application/json;charset=UTF-8
+14:33:19.073 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=Transfer-Encoding=chunked
+14:33:19.073 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=Date=Sat, 08 Apr 2017 06:33:19 GMT
+14:33:19.073 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7         remoteUser=null
+14:33:19.073 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             status=200
+14:33:19.073 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7 END TIME          =08-四月-2017 14:33:19
+14:33:19.073 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7 ===============================================================
+14:34:41.718 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8 START TIME        =08-四月-2017 14:34:41
+14:34:41.718 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8         requestURI=/out/studyinfos
+14:34:41.719 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8           authType=null
+14:34:41.719 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8  characterEncoding=UTF-8
+14:34:41.719 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8      contentLength=27
+14:34:41.719 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8        contentType=application/json
+14:34:41.719 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8        contextPath=
+14:34:41.719 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             header=host=localhost:8080
+14:34:41.719 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             header=connection=keep-alive
+14:34:41.719 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             header=content-length=27
+14:34:41.720 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             header=postman-token=888ba4cf-0a3a-1c85-7a45-dcb645a3c8f6
+14:34:41.721 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             header=cache-control=no-cache
+14:34:41.721 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             header=origin=chrome-extension://oaocphggeeeegohgaehdlabehaklnpai
+14:34:41.721 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             header=user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.2141.400 QQBrowser/9.5.10219.400
+14:34:41.723 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             header=content-type=application/json
+14:34:41.724 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             header=accept=*/*
+14:34:41.730 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             header=accept-encoding=gzip, deflate
+14:34:41.731 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             header=accept-language=zh-CN,zh;q=0.8
+14:34:41.731 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             locale=zh_CN
+14:34:41.731 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             method=POST
+14:34:41.734 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8           pathInfo=null
+14:34:41.734 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8           protocol=HTTP/1.1
+14:34:41.735 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8        queryString=null
+14:34:41.735 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8         remoteAddr=0:0:0:0:0:0:0:1
+14:34:41.735 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8         remoteHost=0:0:0:0:0:0:0:1
+14:34:41.735 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8         remoteUser=null
+14:34:41.736 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8 requestedSessionId=null
+14:34:41.736 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             scheme=http
+14:34:41.736 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8         serverName=localhost
+14:34:41.736 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8         serverPort=8080
+14:34:41.736 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8        servletPath=/out/studyinfos
+14:34:41.737 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8           isSecure=false
+14:34:41.737 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8 ------------------=--------------------------------------------
+14:35:00.479 [http-nio-8080-exec-8] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+14:35:27.823 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8 ------------------=--------------------------------------------
+14:35:27.823 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8           authType=null
+14:35:27.823 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8        contentType=application/json;charset=UTF-8
+14:35:27.833 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             header=Content-Type=application/json;charset=UTF-8
+14:35:27.833 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             header=Transfer-Encoding=chunked
+14:35:27.833 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             header=Date=Sat, 08 Apr 2017 06:35:27 GMT
+14:35:27.833 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8         remoteUser=null
+14:35:27.833 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8             status=200
+14:35:27.833 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8 END TIME          =08-四月-2017 14:35:27
+14:35:27.833 [http-nio-8080-exec-8] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-8 ===============================================================
+14:36:31.898 [main] INFO  org.cw.midc.Application - Starting Application on Joe-PC with PID 6864 (E:\lnshjyh\rd\devEnv\workspace_midc_jpa\midc_dc\midc_dc-web\target\classes started by Administrator in E:\lnshjyh\rd\devEnv\workspace_midc_jpa\midc_dc\midc_dc-web)
+14:36:31.898 [main] INFO  org.cw.midc.Application - The following profiles are active: dev
+14:36:32.132 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 5.2.4.Final
+14:36:32.422 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@58359ebd: startup date [Sat Apr 08 14:36:32 CST 2017]; root of context hierarchy
+14:36:34.021 [main] INFO  o.s.b.f.s.DefaultListableBeanFactory - Overriding bean definition for bean 'userRealm' with a different definition: replacing [Generic bean: class [org.cw.midc.shiro.UserRealm]; scope=singleton; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [E:\lnshjyh\rd\devEnv\workspace_midc_jpa\midc_dc\midc_dc-web\target\classes\org\cw\midc\shiro\UserRealm.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=shiroConfig; factoryMethodName=userRealm; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/cw/midc/shiro/config/ShiroConfig.class]]
+14:36:35.173 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Generic' of type [class org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Generic] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:36:35.451 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [class org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:36:35.571 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dataSource' of type [class com.alibaba.druid.pool.DruidDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:36:35.582 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration' of type [class org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration$$EnhancerBySpringCGLIB$$a3ea809a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:36:35.638 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'jdbcTemplate' of type [class org.springframework.jdbc.core.JdbcTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:36:35.639 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'shiroConfig' of type [class org.cw.midc.shiro.config.ShiroConfig$$EnhancerBySpringCGLIB$$abe67916] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:36:36.291 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'urlPermissionResolver' of type [class org.cw.midc.shiro.permission.UrlPermissionResolver] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:36:36.356 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'myBatisConfig' of type [class org.cw.midc.config.MyBatisConfig$$EnhancerBySpringCGLIB$$3425845b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:36:36.945 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'sqlSessionFactory' of type [class org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:36:36.965 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'sqlSessionTemplate' of type [class org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:36:36.965 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'userDao' of type [class org.cw.midc.dao.UserDao] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:36:36.975 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'userRoleDao' of type [class org.cw.midc.dao.UserRoleDao] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:36:36.975 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'userServiceImpl' of type [class org.cw.midc.service.impl.UserServiceImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:36:36.985 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'loginServiceImpl' of type [class org.cw.midc.service.impl.LoginServiceImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:36:36.995 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'userRoleServiceImpl' of type [class org.cw.midc.service.impl.UserRoleServiceImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:36:36.995 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'userRealm' of type [class org.cw.midc.shiro.UserRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:36:37.015 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'DBSessionDao' of type [class org.cw.midc.dao.DBSessionDao] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:36:37.015 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dbSessionManage' of type [class org.cw.midc.shiro.DBSessionManageDao] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:36:37.035 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'sessionManager' of type [class org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:36:37.045 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cacheManager' of type [class org.apache.shiro.cache.ehcache.EhCacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:36:37.234 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'securityManager' of type [class org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:36:37.263 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'oauthAccessJdbc' of type [class org.cw.midc.repository.oauth.OauthAccessJdbc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:36:37.404 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$84064baa] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:36:38.272 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+14:36:38.292 [main] INFO  o.a.catalina.core.StandardService - Starting service Tomcat
+14:36:38.292 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.6
+14:36:38.459 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+14:36:38.879 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+14:36:38.879 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+14:36:38.879 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+14:36:38.880 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+14:36:38.880 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Filter delegatingFilterProxy was not registered (disabled)
+14:36:38.880 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'preparedFilter' to urls: [/*]
+14:36:38.880 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestDumperFilter' to: [/*]
+14:36:38.881 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'shiroFilter' to: [/*]
+14:36:38.881 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+14:36:39.208 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+14:36:39.238 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+14:36:39.392 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.11.Final}
+14:36:39.402 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+14:36:39.402 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+14:36:39.496 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+14:36:39.852 [main] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+14:36:40.081 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+14:36:41.249 [main] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+14:36:57.864 [main] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+14:36:57.969 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+14:36:58.682 [main] INFO  o.h.h.i.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+14:37:02.635 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14:37:02.635 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+14:37:02.645 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+14:37:02.726 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+14:37:02.746 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-8080]
+14:37:02.766 [main] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+14:37:02.806 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+14:37:02.816 [main] INFO  org.cw.midc.Application - Started Application in 31.503 seconds (JVM running for 32.827)
+14:38:29.148 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+14:38:29.225 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1 START TIME        =08-四月-2017 14:38:29
+14:38:29.225 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1         requestURI=/out/studyinfos
+14:38:29.235 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1           authType=null
+14:38:29.235 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1  characterEncoding=UTF-8
+14:38:29.235 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1      contentLength=27
+14:38:29.235 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1        contentType=application/json
+14:38:29.235 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1        contextPath=
+14:38:29.235 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=host=localhost:8080
+14:38:29.235 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=connection=keep-alive
+14:38:29.235 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=content-length=27
+14:38:29.235 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=postman-token=5d850299-bda0-0013-af79-e1a56591fd8b
+14:38:29.235 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=cache-control=no-cache
+14:38:29.235 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=origin=chrome-extension://oaocphggeeeegohgaehdlabehaklnpai
+14:38:29.235 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.2141.400 QQBrowser/9.5.10219.400
+14:38:29.235 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=content-type=application/json
+14:38:29.235 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=accept=*/*
+14:38:29.235 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=accept-encoding=gzip, deflate
+14:38:29.235 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=accept-language=zh-CN,zh;q=0.8
+14:38:29.235 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             locale=zh_CN
+14:38:29.235 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             method=POST
+14:38:29.235 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1           pathInfo=null
+14:38:29.235 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1           protocol=HTTP/1.1
+14:38:29.245 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1        queryString=null
+14:38:29.245 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1         remoteAddr=0:0:0:0:0:0:0:1
+14:38:29.245 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1         remoteHost=0:0:0:0:0:0:0:1
+14:38:29.245 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1         remoteUser=null
+14:38:29.245 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1 requestedSessionId=null
+14:38:29.245 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             scheme=http
+14:38:29.245 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1         serverName=localhost
+14:38:29.245 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1         serverPort=8080
+14:38:29.245 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1        servletPath=/out/studyinfos
+14:38:29.245 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1           isSecure=false
+14:38:29.245 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1 ------------------=--------------------------------------------
+14:38:48.570 [http-nio-8080-exec-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+14:40:10.197 [main] INFO  org.cw.midc.Application - Starting Application on Joe-PC with PID 3960 (E:\lnshjyh\rd\devEnv\workspace_midc_jpa\midc_dc\midc_dc-web\target\classes started by Administrator in E:\lnshjyh\rd\devEnv\workspace_midc_jpa\midc_dc\midc_dc-web)
+14:40:10.207 [main] INFO  org.cw.midc.Application - The following profiles are active: dev
+14:40:10.435 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 5.2.4.Final
+14:40:10.769 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@58359ebd: startup date [Sat Apr 08 14:40:10 CST 2017]; root of context hierarchy
+14:40:12.373 [main] INFO  o.s.b.f.s.DefaultListableBeanFactory - Overriding bean definition for bean 'userRealm' with a different definition: replacing [Generic bean: class [org.cw.midc.shiro.UserRealm]; scope=singleton; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [E:\lnshjyh\rd\devEnv\workspace_midc_jpa\midc_dc\midc_dc-web\target\classes\org\cw\midc\shiro\UserRealm.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=shiroConfig; factoryMethodName=userRealm; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/cw/midc/shiro/config/ShiroConfig.class]]
+14:40:13.580 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Generic' of type [class org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Generic] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:40:13.831 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [class org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:40:13.921 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dataSource' of type [class com.alibaba.druid.pool.DruidDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:40:13.931 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration' of type [class org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration$$EnhancerBySpringCGLIB$$64fa59f1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:40:13.983 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'jdbcTemplate' of type [class org.springframework.jdbc.core.JdbcTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:40:13.983 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'shiroConfig' of type [class org.cw.midc.shiro.config.ShiroConfig$$EnhancerBySpringCGLIB$$6cf6526d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:40:14.623 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'urlPermissionResolver' of type [class org.cw.midc.shiro.permission.UrlPermissionResolver] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:40:14.678 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'myBatisConfig' of type [class org.cw.midc.config.MyBatisConfig$$EnhancerBySpringCGLIB$$f5355db2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:40:15.360 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'sqlSessionFactory' of type [class org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:40:15.378 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'sqlSessionTemplate' of type [class org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:40:15.379 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'userDao' of type [class org.cw.midc.dao.UserDao] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:40:15.385 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'userRoleDao' of type [class org.cw.midc.dao.UserRoleDao] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:40:15.385 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'userServiceImpl' of type [class org.cw.midc.service.impl.UserServiceImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:40:15.385 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'loginServiceImpl' of type [class org.cw.midc.service.impl.LoginServiceImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:40:15.395 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'userRoleServiceImpl' of type [class org.cw.midc.service.impl.UserRoleServiceImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:40:15.395 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'userRealm' of type [class org.cw.midc.shiro.UserRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:40:15.415 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'DBSessionDao' of type [class org.cw.midc.dao.DBSessionDao] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:40:15.415 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'dbSessionManage' of type [class org.cw.midc.shiro.DBSessionManageDao] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:40:15.435 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'sessionManager' of type [class org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:40:15.455 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'cacheManager' of type [class org.apache.shiro.cache.ehcache.EhCacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:40:15.645 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'securityManager' of type [class org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:40:15.666 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'oauthAccessJdbc' of type [class org.cw.midc.repository.oauth.OauthAccessJdbc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:40:15.776 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$45162501] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:40:16.636 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+14:40:16.656 [main] INFO  o.a.catalina.core.StandardService - Starting service Tomcat
+14:40:16.656 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.6
+14:40:16.837 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+14:40:17.319 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+14:40:17.319 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+14:40:17.319 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+14:40:17.319 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+14:40:17.319 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Filter delegatingFilterProxy was not registered (disabled)
+14:40:17.319 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'preparedFilter' to urls: [/*]
+14:40:17.319 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestDumperFilter' to: [/*]
+14:40:17.319 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'shiroFilter' to: [/*]
+14:40:17.319 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+14:40:17.609 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+14:40:17.639 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+14:40:17.789 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.11.Final}
+14:40:17.799 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+14:40:17.799 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+14:40:17.890 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+14:40:18.260 [main] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+14:40:18.470 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+14:40:19.572 [main] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+14:40:36.217 [main] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+14:40:36.318 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+14:40:37.136 [main] INFO  o.h.h.i.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+14:40:41.543 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+14:40:41.553 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+14:40:41.564 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+14:40:41.644 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+14:40:41.678 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-8080]
+14:40:41.698 [main] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+14:40:41.738 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+14:40:41.748 [main] INFO  org.cw.midc.Application - Started Application in 32.144 seconds (JVM running for 33.504)
+14:40:41.992 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+14:40:42.092 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1 START TIME        =08-四月-2017 14:40:42
+14:40:42.092 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1         requestURI=/out/studyinfos
+14:40:42.092 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1           authType=null
+14:40:42.092 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1  characterEncoding=UTF-8
+14:40:42.092 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1      contentLength=27
+14:40:42.092 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1        contentType=application/json
+14:40:42.092 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1        contextPath=
+14:40:42.092 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=host=localhost:8080
+14:40:42.092 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=connection=keep-alive
+14:40:42.092 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=content-length=27
+14:40:42.092 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=postman-token=eb80d500-c2e8-5e9f-82e1-4842ca498c08
+14:40:42.092 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=cache-control=no-cache
+14:40:42.092 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=origin=chrome-extension://oaocphggeeeegohgaehdlabehaklnpai
+14:40:42.092 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.2141.400 QQBrowser/9.5.10219.400
+14:40:42.092 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=content-type=application/json
+14:40:42.092 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=accept=*/*
+14:40:42.092 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=accept-encoding=gzip, deflate
+14:40:42.092 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=accept-language=zh-CN,zh;q=0.8
+14:40:42.092 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             locale=zh_CN
+14:40:42.092 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             method=POST
+14:40:42.092 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1           pathInfo=null
+14:40:42.092 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1           protocol=HTTP/1.1
+14:40:42.092 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1        queryString=null
+14:40:42.092 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1         remoteAddr=0:0:0:0:0:0:0:1
+14:40:42.102 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1         remoteHost=0:0:0:0:0:0:0:1
+14:40:42.102 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1         remoteUser=null
+14:40:42.102 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1 requestedSessionId=null
+14:40:42.102 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             scheme=http
+14:40:42.102 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1         serverName=localhost
+14:40:42.102 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1         serverPort=8080
+14:40:42.102 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1        servletPath=/out/studyinfos
+14:40:42.102 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1           isSecure=false
+14:40:42.102 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1 ------------------=--------------------------------------------
+14:40:56.044 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1 ------------------=--------------------------------------------
+14:40:56.044 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1           authType=null
+14:40:56.044 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1        contentType=application/json;charset=UTF-8
+14:40:56.044 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=Content-Type=application/json;charset=UTF-8
+14:40:56.044 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=Transfer-Encoding=chunked
+14:40:56.044 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             header=Date=Sat, 08 Apr 2017 06:40:56 GMT
+14:40:56.044 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1         remoteUser=null
+14:40:56.044 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1             status=200
+14:40:56.044 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1 END TIME          =08-四月-2017 14:40:56
+14:40:56.044 [http-nio-8080-exec-1] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-1 ===============================================================
+14:41:01.559 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4 START TIME        =08-四月-2017 14:41:01
+14:41:01.559 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4         requestURI=/out/studyinfos
+14:41:01.559 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4           authType=null
+14:41:01.559 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4  characterEncoding=UTF-8
+14:41:01.560 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4      contentLength=27
+14:41:01.560 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4        contentType=application/json
+14:41:01.560 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4        contextPath=
+14:41:01.560 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=host=localhost:8080
+14:41:01.561 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=connection=keep-alive
+14:41:01.576 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=content-length=27
+14:41:01.578 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=postman-token=acb3b40e-dd17-2a46-4f0c-12cbdeb91f82
+14:41:01.579 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=cache-control=no-cache
+14:41:01.579 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=origin=chrome-extension://oaocphggeeeegohgaehdlabehaklnpai
+14:41:01.580 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.2141.400 QQBrowser/9.5.10219.400
+14:41:01.580 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=content-type=application/json
+14:41:01.580 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=accept=*/*
+14:41:01.581 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=accept-encoding=gzip, deflate
+14:41:01.581 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=accept-language=zh-CN,zh;q=0.8
+14:41:01.582 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             locale=zh_CN
+14:41:01.582 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             method=POST
+14:41:01.582 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4           pathInfo=null
+14:41:01.582 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4           protocol=HTTP/1.1
+14:41:01.583 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4        queryString=null
+14:41:01.583 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4         remoteAddr=0:0:0:0:0:0:0:1
+14:41:01.583 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4         remoteHost=0:0:0:0:0:0:0:1
+14:41:01.583 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4         remoteUser=null
+14:41:01.584 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4 requestedSessionId=null
+14:41:01.584 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             scheme=http
+14:41:01.584 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4         serverName=localhost
+14:41:01.584 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4         serverPort=8080
+14:41:01.584 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4        servletPath=/out/studyinfos
+14:41:01.585 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4           isSecure=false
+14:41:01.585 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4 ------------------=--------------------------------------------
+14:41:15.560 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4 ------------------=--------------------------------------------
+14:41:15.560 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4           authType=null
+14:41:15.560 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4        contentType=application/json;charset=UTF-8
+14:41:15.560 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=Content-Type=application/json;charset=UTF-8
+14:41:15.560 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=Transfer-Encoding=chunked
+14:41:15.560 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             header=Date=Sat, 08 Apr 2017 06:41:15 GMT
+14:41:15.560 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4         remoteUser=null
+14:41:15.560 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4             status=200
+14:41:15.560 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4 END TIME          =08-四月-2017 14:41:15
+14:41:15.560 [http-nio-8080-exec-4] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-4 ===============================================================
+14:44:42.261 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7 START TIME        =08-四月-2017 14:44:42
+14:44:42.264 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7         requestURI=/out/studyinfos
+14:44:42.264 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7           authType=null
+14:44:42.264 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7  characterEncoding=UTF-8
+14:44:42.265 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7      contentLength=27
+14:44:42.265 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7        contentType=application/json
+14:44:42.265 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7        contextPath=
+14:44:42.270 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=host=localhost:8080
+14:44:42.270 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=connection=keep-alive
+14:44:42.271 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=content-length=27
+14:44:42.271 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=postman-token=5ed54af5-e297-b103-af4b-adf5e11f46df
+14:44:42.271 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=cache-control=no-cache
+14:44:42.271 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=origin=chrome-extension://oaocphggeeeegohgaehdlabehaklnpai
+14:44:42.272 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.2141.400 QQBrowser/9.5.10219.400
+14:44:42.272 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=content-type=application/json
+14:44:42.272 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=accept=*/*
+14:44:42.273 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=accept-encoding=gzip, deflate
+14:44:42.273 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=accept-language=zh-CN,zh;q=0.8
+14:44:42.273 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             locale=zh_CN
+14:44:42.274 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             method=POST
+14:44:42.274 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7           pathInfo=null
+14:44:42.275 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7           protocol=HTTP/1.1
+14:44:42.275 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7        queryString=null
+14:44:42.275 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7         remoteAddr=0:0:0:0:0:0:0:1
+14:44:42.275 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7         remoteHost=0:0:0:0:0:0:0:1
+14:44:42.275 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7         remoteUser=null
+14:44:42.276 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7 requestedSessionId=null
+14:44:42.276 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             scheme=http
+14:44:42.276 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7         serverName=localhost
+14:44:42.276 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7         serverPort=8080
+14:44:42.276 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7        servletPath=/out/studyinfos
+14:44:42.276 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7           isSecure=false
+14:44:42.277 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7 ------------------=--------------------------------------------
+14:45:23.202 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7 ------------------=--------------------------------------------
+14:45:23.202 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7           authType=null
+14:45:23.202 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7        contentType=application/json;charset=UTF-8
+14:45:23.202 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=Content-Type=application/json;charset=UTF-8
+14:45:23.202 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=Transfer-Encoding=chunked
+14:45:23.202 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             header=Date=Sat, 08 Apr 2017 06:45:23 GMT
+14:45:23.202 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7         remoteUser=null
+14:45:23.202 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7             status=200
+14:45:23.202 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7 END TIME          =08-四月-2017 14:45:23
+14:45:23.202 [http-nio-8080-exec-7] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-7 ===============================================================
+14:46:32.207 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9 START TIME        =08-四月-2017 14:46:32
+14:46:32.232 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9         requestURI=/out/studyinfos
+14:46:32.232 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9           authType=null
+14:46:32.233 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9  characterEncoding=UTF-8
+14:46:32.233 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9      contentLength=27
+14:46:32.233 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9        contentType=application/json
+14:46:32.233 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9        contextPath=
+14:46:32.236 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9             header=host=localhost:8080
+14:46:32.236 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9             header=connection=keep-alive
+14:46:32.237 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9             header=content-length=27
+14:46:32.237 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9             header=postman-token=8d3fce2a-77fe-9d49-41d7-3ef7fcef126f
+14:46:32.237 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9             header=cache-control=no-cache
+14:46:32.237 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9             header=origin=chrome-extension://oaocphggeeeegohgaehdlabehaklnpai
+14:46:32.237 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9             header=user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.104 Safari/537.36 Core/1.53.2141.400 QQBrowser/9.5.10219.400
+14:46:32.238 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9             header=content-type=application/json
+14:46:32.238 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9             header=accept=*/*
+14:46:32.238 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9             header=accept-encoding=gzip, deflate
+14:46:32.238 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9             header=accept-language=zh-CN,zh;q=0.8
+14:46:32.238 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9             locale=zh_CN
+14:46:32.238 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9             method=POST
+14:46:32.239 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9           pathInfo=null
+14:46:32.239 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9           protocol=HTTP/1.1
+14:46:32.239 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9        queryString=null
+14:46:32.239 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9         remoteAddr=0:0:0:0:0:0:0:1
+14:46:32.239 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9         remoteHost=0:0:0:0:0:0:0:1
+14:46:32.239 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9         remoteUser=null
+14:46:32.239 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9 requestedSessionId=null
+14:46:32.240 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9             scheme=http
+14:46:32.240 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9         serverName=localhost
+14:46:32.240 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9         serverPort=8080
+14:46:32.240 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9        servletPath=/out/studyinfos
+14:46:32.240 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9           isSecure=false
+14:46:32.240 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9 ------------------=--------------------------------------------
+14:46:57.222 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9 ------------------=--------------------------------------------
+14:46:57.232 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9           authType=null
+14:46:57.232 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9        contentType=application/json;charset=UTF-8
+14:46:57.232 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9             header=Content-Type=application/json;charset=UTF-8
+14:46:57.232 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9             header=Transfer-Encoding=chunked
+14:46:57.232 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9             header=Date=Sat, 08 Apr 2017 06:46:57 GMT
+14:46:57.232 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9         remoteUser=null
+14:46:57.232 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9             status=200
+14:46:57.232 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9 END TIME          =08-四月-2017 14:46:57
+14:46:57.232 [http-nio-8080-exec-9] INFO  o.a.c.filters.RequestDumperFilter - http-nio-8080-exec-9 ===============================================================
