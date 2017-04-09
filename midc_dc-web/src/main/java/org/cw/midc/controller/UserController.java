@@ -5,13 +5,17 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 import org.cw.midc.Response;
 import org.cw.midc.page.Page;
+import org.apache.commons.codec.binary.Base64;
 import org.cw.midc.ParamFilter;
 import org.cw.midc.aop.annotaion.WebLogger;
 import org.cw.midc.entity.User;
 import org.cw.midc.service.UserService;
 import org.cw.midc.util.DrawImage;
 import org.cw.midc.util.FileService;
+import org.cw.midc.util.UserContextUtil;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,6 +31,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -50,7 +55,10 @@ public class UserController {
     private FileService fileService;
 
     @GetMapping("listPage")
-    public String list() {
+    public String list(ModelMap modelMap) {
+    	User user = (User) UserContextUtil.getAttribute("currentUser");
+    	modelMap.put("account",user.getAccount());
+    	
         return "userList";
     }
 
@@ -118,21 +126,21 @@ public class UserController {
     }
     
     
-	@PostMapping("signature")
+	@RequestMapping(value = "/signature", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public boolean saveSignImg(
-			@RequestParam("sign") MultipartFile signFile)
+	public boolean saveSignImg(@RequestParam("sign") String signFile)
 			throws IllegalStateException, IOException {
 		boolean result = false;
+		User user = (User) UserContextUtil.getAttribute("currentUser");
 		try {
-			String account = "";
+			String account = user.getAccount();
+			String imageDataBytes = signFile.substring(signFile.indexOf(",")+1);
+			byte[] image = Base64.decodeBase64(imageDataBytes);
 			String finalFilePath = fileService.getSignDir() + "/"
 					+ account;
-			String bakAbsoluteName = finalFilePath + "_bak";
-			File finalFile = new File(finalFilePath);
-			signFile.transferTo(finalFile);
-			new DrawImage().resizeAndBak(bakAbsoluteName, finalFilePath,
-					200, 100);
+			OutputStream stream = new FileOutputStream(finalFilePath);
+			stream.write(image);
+			stream.close();
 			result = true;
 		} catch (Exception e) {
 			e.printStackTrace();

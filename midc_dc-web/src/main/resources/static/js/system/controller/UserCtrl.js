@@ -119,6 +119,56 @@ userApp.controller('userCtrl', ['$rootScope', '$scope','userService',function ($
 		});
 	}
 	
+	//设置签名
+	$scope.sign =function(){
+		var selectArray = $("#User_list tbody input:checked");
+		if(!selectArray || (selectArray.length!=1)){
+			alertDialog("请选择一个");
+			return;
+		}
+		
+		layer.open({
+			type: 1,
+			title:'设置签名',
+			area: ['300px','300px'],
+			shadeClose: true,
+			content: $('#Sign_user_style'),
+			btn:['关闭'],
+			yes:function(index){
+					   layer.close(index);
+				 }
+			    });
+
+	}
+//	$scope.ipt = $('#user_sign_upload');
+	$scope.dosignUpload = function(){
+		var input = $('#user_sign_upload')[0];
+		if (input.files[0]) {
+		 	var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#user_sign_image')
+                    .attr('src', e.target.result)
+                    .width(100)
+                    .height(30);
+
+                $.ajax({
+                	url:"/user/signature",
+                	type:"POST",
+                	data:{sign:e.target.result},
+                	success: function() {
+                		layer.msg('设置签名成功', {
+        					time : 1000,
+        					icon : 1
+        				});
+                	}
+                });
+            };
+            
+            reader.readAsDataURL(input.files[0]);
+		 }
+	}
+	
 	//删除用户
 	$scope.deleteUser = function(){
 		var selectArray = $("#User_list tbody input:checked");

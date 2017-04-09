@@ -48,7 +48,14 @@
                     <button type="button" class="btn btn-primary deleteBtn" ng-click="deleteUser()"  shiro:hasPermission="/user/delete">删除</button>
                     <button type="button" class="btn btn-primary resetBtn" ng-click="resetPwd()" shiro:hasPermission="/user/resetPwd">重置密码</button>
                     <button type="button" class="btn btn-primary assignBtn" ng-click="asignRole()"  shiro:hasPermission="/user/addRoles" >角色分配</button>
+                    <button type="button" class="btn btn-primary updateBtn" ng-click="sign()"   >设置签名</button>
                 </ul>
+                <div id="Sign_user_style" style="display: none">
+                	<img id="user_sign_image" th:src="'/user/sign/'+${account}" height="30" width="100" ></img>
+					  <div class="site-demo-upbar">
+					    <input type="file" name="file"  id="user_sign_upload"  onchange="angular.element(this).scope().dosignUpload()"></input>
+					  </div>
+                </div>
                 <div id="Add_user_style" style="display: none">
                     <div class="addCommon clearfix">
                         <ul class="clearfix">
