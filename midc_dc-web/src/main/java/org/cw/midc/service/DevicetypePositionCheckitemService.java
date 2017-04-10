@@ -70,6 +70,17 @@ public class DevicetypePositionCheckitemService {
 
     	devicetypePositionCheckitemRepository.save(devicetypePositionCheckitem);
     }
+    
+    public List<DevicetypePositionCheckitem> findByDeviceType(String deviceTypeId){
+    	DeviceType deviceType = (DeviceType)deviceTypeRepository.findOne(deviceTypeId);
+    	return devicetypePositionCheckitemRepository.findByDevice(deviceType);
+    }
+    
+    public List<DevicetypePositionCheckitem> findByDeviceTypeAndPositionType(String deviceTypeId,Integer positiontypeId){
+    	DeviceType deviceType = (DeviceType)deviceTypeRepository.findOne(deviceTypeId);
+    	PositionType positionType = (PositionType)positionTypeRepository.findOne(positiontypeId);
+    	return devicetypePositionCheckitemRepository.findByDeviceAndPositionType(deviceType, positionType);
+    }
 
 
     public void delete(List<Integer> Ids) {
