@@ -31,6 +31,12 @@
             <if test="@Ognl@isNotEmpty(deviceType)">
                 and a.device_id = #{deviceType}
             </if>
+            <if test="@Ognl@isNotEmpty(startTime)">
+                <![CDATA[  and DATE_FORMAT(a.update_time, '%Y-%m-%d') >= #{startTime}]]>
+            </if>
+            <if test="@Ognl@isNotEmpty(endTime)">
+                <![CDATA[  and DATE_FORMAT(a.update_time, '%Y-%m-%d') <= #{endTime}]]>
+            </if>
             <if test="@Ognl@isNotEmpty(studyids)">
              	and a.studyinfo_id in 
                 <foreach item="item" index="index" collection="studyids" open="(" separator="," close=")">  

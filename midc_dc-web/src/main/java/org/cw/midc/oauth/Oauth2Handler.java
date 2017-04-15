@@ -123,11 +123,15 @@ public class Oauth2Handler {
 		tokenObj.setTokenType(TokenType.BEARER.name());
 		tokenObj.setTokenExpiredSeconds(ACCESS_TOKEN_VALIDITY_SECONDS);
 		tokenObj.setRefreshTokenExpiredSeconds(REFRESH_TOKEN_VALIDITY_SECONDS);
+		tokenObj.setCreateTime(new Date());
 		
 		return tokenObj;
 	}
 	
 	private boolean isExpire(OauthAccessToken token,int expiretime){
+		if(token.getCreateTime() == null){
+			return false;
+		}
 		final long time = token.getCreateTime().getTime() + (expiretime * THOUSAND);
         return time < new Date().getTime();
 	}
