@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html ng-app="patientApp" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" th:href="@{/assets/select-mutiple/css/select-multiple.css}"/>
+    <header th:replace="importCommon"></header>
+    <script th:src="@{/js/system/controller/PatientCtrl.js}"></script>
+    <script th:src="@{/js/system/service/PatientService.js}"></script>
+    <script th:src="@{/assets/select-mutiple/js/multiselect.min.js}"></script>
+    <script th:src="@{/assets/select-mutiple/js/prettify.min.js}"></script>
+    <title>患者管理</title>
+</head>
+<body ng-controller="patientCtrl">
+<div class="page-content">
+    <div class="commonManager">
+        <form id="form1" name="form1" method="post" action="">
+            <div class="Manager_style add_patient_info search_style">
+                <ul class="search_content clearfix" >
+                    <li><label class="lf">患者姓名</label>
+                        <label>
+                            <input name="patientName" ng-model="queryFilter.param.patientName"
+                                   type="text"
+                                   class="text_add"/>
+                        </label>
+                    </li>
+                    <li><label class="lf">病人ID</label>
+                        <label>
+                            <input name="patientId" ng-model="queryFilter.param.patientId"
+                                   type="text"
+                                   class="text_add"/>
+                        </label>
+                    </li>
+                    <li><label class="lf">医疗机构ID</label>
+                        <label>
+                            <input name="hospitalId" ng-model="queryFilter.param.hospitalId"
+                                   type="text"
+                                   class="text_add"/>
+                        </label>
+                    </li>
+                    <li>
+                         <label class="lf">性别</label>
+                         <label>
+                             <select name="sex" size="1" ng-model="queryFilter.param.sex"
+                                     ng-init="queryFilter.param.sex= 'F' ">
+                                 <option ng-repeat="map in sexMap"
+                                         ng-selected="map.isAvailable == queryFilter.param.sex"
+                                         value="{{map.code}}" ng-bind="map.name"></option>
+                             </select>
+                         </label>
+                     </li>
+                     
+                     <li>
+                         <label class="lf">设备类型</label>
+                         <label>
+                             <select name="deviceType" size="1" ng-model="queryFilter.param.deviceTypePk"
+                                     >
+                                 <option ng-repeat="map in dList"
+                                         value="{{map.deviceTypeId}}" ng-bind="map.deviceTypeName"></option>
+                             </select>
+                         </label>
+                     </li>
+                     <li>
+                         <label class="lf">检查部位</label>
+                         <label>
+                             <select name="positionId" size="1" ng-model="queryFilter.param.positionIdPk"
+                                     >
+                                 <option ng-repeat="map in pList"
+                                         value="{{map.positiontypeId}}" ng-bind="map.positiontypeName"></option>
+                             </select>
+                         </label>
+                     </li>
+                     <li>
+                         <label class="lf">检查方法</label>
+                         <label>
+                             <select name="checkitemId" size="1" ng-model="queryFilter.param.checkitemIdPk"
+                                     >
+                                 <option ng-repeat="map in cList"
+                                         value="{{map.checkitemId}}" ng-bind="map.checkitemName"></option>
+                             </select>
+                         </label>
+                     </li>
+                    
+                    <button id="btn_search" ng-click="patientSearch = !patientSearch" type="button"
+                            class="btn btn-primary queryBtn">查询
+                    </button>
+                </ul>
+                
+
+            </div>
+        </form>
+        <div class="Manager_style">
+            <div class="Checkitem_list">
+                <table id="Checkitem_list" cellpadding="0" cellspacing="0"
+                       class="table table-striped table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>
+                            <input name="patientCheckBox_All" id="patientCheckBox_All" type="checkbox" ng-click="selectAll($event)" class="ace"/>
+                            <span class="lbl" style="cursor:pointer;"></span>
+                        </th>
+                        <th>患者姓名</th>
+                        <th>医疗机构</th>
+                        <th>病人ID</th>
+                      	 <th>性别</th>
+                      	<th> 年龄</th>
+                      	<th>检查部位及检查方法</th>
+                    	 <th>检查唯一ID</th>
+                        <th>传输状态</th>
+                        <th>检查日期</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="model in data">
+                        <td>
+                            <input name="subpatientChkBox_{{$index}}" value="{{model.checkitemId}}" type="checkbox" class="ace subpatientChkbox"/>
+                            <span class="lbl" style="cursor:pointer;"></span>
+                        </td>
+                        <td ng-bind="model.patientName"></td>
+                        <td ng-bind="model.hospName"></td>
+                        <td ng-bind="model.patientId"></td>
+                        <td ng-bind="model.patientSex"></td>
+                        <td ng-bind="model.age"></td>
+                        <td ng-bind="model.positionChk"></td>
+                        <td ng-bind="model.studyinfoId"></td>
+                        <td ng-bind="model.transStatus"></td>
+                        <td ng-bind="model.createTime | date:'yyyy-MM-dd'"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="hupan_more eg-page"  url="/patlist/list" request-page-params="queryFilter"
+                 click-search="patientSearch" return-page-rows="data"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
