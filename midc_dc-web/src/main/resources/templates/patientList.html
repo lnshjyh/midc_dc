@@ -79,6 +79,19 @@
                              </select>
                          </label>
                      </li>
+                     
+                     <li><label class="lf">日期 从:</label>
+                        <label>
+                            <input type="text" ng-model="queryFilter.param.startTime"  th:readonly="true" class="date eg-date"/>
+                            <span class="date-icon"><i class="icon-calendar"></i></span>
+                        </label>
+                    </li>
+                    <li><label class="lf">日期 到:</label>
+                        <label>
+                            <input type="text" ng-model="queryFilter.param.endTime"  th:readonly="true" class="date eg-date"/>
+                            <span class="date-icon"><i class="icon-calendar"></i></span>
+                        </label>
+                    </li>
                     
                     <button id="btn_search" ng-click="patientSearch = !patientSearch" type="button"
                             class="btn btn-primary queryBtn">查询
@@ -112,7 +125,7 @@
                     <tbody>
                     <tr ng-repeat="model in data">
                         <td>
-                            <input name="subpatientChkBox_{{$index}}" value="{{model.checkitemId}}" type="checkbox" class="ace subpatientChkbox"/>
+                            <input name="subPatientChkBox_{{$index}}" value="{{model.checkitemId}}" type="checkbox" class="ace subPatientChkbox"/>
                             <span class="lbl" style="cursor:pointer;"></span>
                         </td>
                         <td ng-bind="model.patientName"></td>
