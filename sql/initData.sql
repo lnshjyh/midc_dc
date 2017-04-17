@@ -49,6 +49,8 @@ INSERT INTO `sys_menu` VALUES ('60', '60', '检查部位管理', '/positionType/
 INSERT INTO `sys_menu` VALUES ('61', '61', '设备类型管理', '/deviceType/listPage', '0', 'icon-book', '1', null, '1', '系统管理', '0', null, '2017-03-25 11:09:31', null, '2017-03-25 11:09:31', null);
 --update @17-4-5
 INSERT INTO `sys_menu` VALUES ('62', '62', '设备关联管理', '/devicetypePC/listPage', '0', 'icon-book', '1', null, '1', '系统管理', '0', '0', '2017-04-05 20:44:42', '0', '2017-04-05 20:44:57', null);
+--update @17-4-17
+INSERT INTO `sys_menu` VALUES ('63', '63', '患者管理', '/patlist/listPage', '0', 'icon-book', '1', null, '1', '系统管理', '0', '0', '2017-04-17 22:44:42', '0', '2017-04-17 22:44:57', null);
 
 
 
@@ -95,6 +97,8 @@ INSERT INTO `sys_role_menu` VALUES ('1012', 'ROLE_ADMIN', '59', '0', '2017-03-25
 INSERT INTO `sys_role_menu` VALUES ('1022', 'ROLE_ADMIN', '61', '0', '2017-03-25 11:09:57', null, '2017-03-25 11:09:57', null, null);
 --update @17-4-5
 INSERT INTO `sys_role_menu` VALUES ('1059', 'ROLE_ADMIN', '62', '0', '2017-04-05 12:49:55', null, '2017-04-05 12:49:55', null, null);
+--update @17-4-17
+INSERT INTO `sys_role_menu` VALUES ('1063', 'ROLE_ADMIN', '63', '0', '2017-04-17 22:49:55', null, '2017-04-17 22:49:55', null, null);
 
 -- ----------------------------
 -- Records of sys_user

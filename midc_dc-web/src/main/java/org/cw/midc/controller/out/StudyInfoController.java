@@ -6,11 +6,16 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.cw.midc.Response;
+import org.cw.midc.model.Checkitem;
+import org.cw.midc.model.DeviceType;
 import org.cw.midc.model.DevicetypePositionCheckitem;
+import org.cw.midc.model.PositionType;
 import org.cw.midc.service.DevicetypePositionCheckitemService;
 import org.cw.midc.service.ris.StudyInfoService;
 import org.cw.midc.util.CommonUtils;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,17 +51,18 @@ public class StudyInfoController {
 	
 	@ResponseBody
     @PostMapping("bydevice")
-    public  List<DevicetypePositionCheckitem> list(String deviceTypeId) {
+    public  Response list(String deviceTypeId) {
 		
         List<DevicetypePositionCheckitem> list = devicetypePositionCheckitemService.findByDeviceType(deviceTypeId);
-        return list;
+        return new Response(list);
     }
 	
 	@ResponseBody
     @PostMapping("bydevicepos")
-    public  List<DevicetypePositionCheckitem> list(String deviceTypeId,Integer positiontypeId) {
+    public  Response list(String deviceTypeId,Integer positiontypeId) {
 		
         List<DevicetypePositionCheckitem> list = devicetypePositionCheckitemService.findByDeviceTypeAndPositionType(deviceTypeId, positiontypeId);
-        return list;
+        return new Response(list);
     }
+	
 }

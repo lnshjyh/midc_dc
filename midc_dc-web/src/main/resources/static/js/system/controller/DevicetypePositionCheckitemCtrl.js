@@ -9,7 +9,6 @@ devicetypePositionCheckitemApp.controller('devicetypePositionCheckitemCtrl', ['$
 			$scope.cList = response.c;
 			$scope.dList = response.d;
 			$scope.pList = response.p;
-			console.log($scope.pList);
 		}
 		
 	});

@@ -54,11 +54,11 @@
          from study_check_pos a 
         <where>
         	1=1
-            <if test="@Ognl@isNotEmpty(checkItem)">
-                and a.check_item = #{checkItem}
+            <if test="@Ognl@isNotEmpty(checkitemIdPk)">
+                and a.check_item = #{checkitemIdPk}
             </if>
-            <if test="@Ognl@isNotEmpty(position)">
-                and (a.position = #{position}  or  a.sub_position =  #{position}   )
+            <if test="@Ognl@isNotEmpty(positionIdPk)">
+                and (a.position = #{positionIdPk}  or  a.sub_position =  #{positionIdPk}   )
             </if>
         </where>
     </select>
@@ -85,6 +85,13 @@
             </if>
             <if test="@Ognl@isNotEmpty(deviceType)">
                 and a.device_id = #{deviceType}
+            </if>
+            
+            <if test="@Ognl@isNotEmpty(startTime)">
+                <![CDATA[  and DATE_FORMAT(a.update_time, '%Y-%m-%d') >= #{startTime}]]>
+            </if>
+            <if test="@Ognl@isNotEmpty(endTime)">
+                <![CDATA[  and DATE_FORMAT(a.update_time, '%Y-%m-%d') <= #{endTime}]]>
             </if>
             
              <if test="@Ognl@isNotEmpty(studyids)">
