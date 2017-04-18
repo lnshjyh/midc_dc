@@ -128,6 +128,12 @@ userApp.controller('userCtrl', ['$rootScope', '$scope','userService',function ($
 		}
 		var userId = $(selectArray[0]).val();
 		
+		$('#user_sign_image')
+        .attr('src', _ctx + '/user/sign/'+userId)
+        .width(100)
+        .height(30);
+		
+		
 		layer.open({
 			type: 1,
 			title:'设置签名',
@@ -149,6 +155,7 @@ userApp.controller('userCtrl', ['$rootScope', '$scope','userService',function ($
 			return;
 		}
 		var userId = $(selectArray[0]).val();
+		
 		var input = $('#user_sign_upload')[0];
 		if (input.files[0]) {
 		 	var reader = new FileReader();
