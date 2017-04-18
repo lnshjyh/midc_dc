@@ -57,7 +57,7 @@ public class UserController {
     @GetMapping("listPage")
     public String list(ModelMap modelMap) {
     	User user = (User) UserContextUtil.getAttribute("currentUser");
-    	modelMap.put("account",user.getAccount());
+    	modelMap.put("userid",user.getUserId());
     	
         return "userList";
     }
@@ -128,7 +128,7 @@ public class UserController {
     
 	@RequestMapping(value = "/signature", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public boolean saveSignImg(@RequestParam("sign") String signFile)
+	public boolean saveSignImg(@RequestParam("sign") String signFile,@RequestParam("userid") String userid)
 			throws IllegalStateException, IOException {
 		boolean result = false;
 		User user = (User) UserContextUtil.getAttribute("currentUser");
@@ -137,7 +137,7 @@ public class UserController {
 			String imageDataBytes = signFile.substring(signFile.indexOf(",")+1);
 			byte[] image = Base64.decodeBase64(imageDataBytes);
 			String finalFilePath = fileService.getSignDir() + "/"
-					+ account;
+					+ userid;
 			OutputStream stream = new FileOutputStream(finalFilePath);
 			stream.write(image);
 			stream.close();
@@ -149,10 +149,10 @@ public class UserController {
 	}
 
 
-	@GetMapping("/sign/{account}")
-	public void getSignImg(@PathVariable("account") String account,
+	@GetMapping("/sign/{userid}")
+	public void getSignImg(@PathVariable("userid") String userid,
 			HttpServletResponse response) throws IOException {
-		String filePath = fileService.getSignDir() + "/" + account;
+		String filePath = fileService.getSignDir() + "/" + userid;
 		File outputFile = new File(filePath);
 		if (outputFile.exists()) {
 			InputStream is = new FileInputStream(outputFile);

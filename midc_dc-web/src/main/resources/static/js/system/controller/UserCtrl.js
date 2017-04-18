@@ -143,6 +143,12 @@ userApp.controller('userCtrl', ['$rootScope', '$scope','userService',function ($
 	}
 //	$scope.ipt = $('#user_sign_upload');
 	$scope.dosignUpload = function(){
+		var selectArray = $("#User_list tbody input:checked");
+		if(!selectArray || (selectArray.length!=1)){
+			alertDialog("请选择一个");
+			return;
+		}
+		var userId = $(selectArray[0]).val();
 		var input = $('#user_sign_upload')[0];
 		if (input.files[0]) {
 		 	var reader = new FileReader();
@@ -156,7 +162,7 @@ userApp.controller('userCtrl', ['$rootScope', '$scope','userService',function ($
                 $.ajax({
                 	url:"/user/signature",
                 	type:"POST",
-                	data:{sign:e.target.result},
+                	data:{sign:e.target.result,userid:userId},
                 	success: function() {
                 		layer.msg('设置签名成功', {
         					time : 1000,
