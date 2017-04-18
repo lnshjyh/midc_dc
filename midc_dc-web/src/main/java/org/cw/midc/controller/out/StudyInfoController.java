@@ -51,7 +51,7 @@ public class StudyInfoController {
     }
 	
 	@ResponseBody
-    @PostMapping("patlist")
+    @PostMapping("patientList")
     public Response list(@RequestBody  ParamFilter queryFilter) {
 
         List list = studyInfoService.queryList(queryFilter);
