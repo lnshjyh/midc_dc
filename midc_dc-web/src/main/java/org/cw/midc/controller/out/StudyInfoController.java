@@ -6,11 +6,13 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.cw.midc.ParamFilter;
 import org.cw.midc.Response;
 import org.cw.midc.model.Checkitem;
 import org.cw.midc.model.DeviceType;
 import org.cw.midc.model.DevicetypePositionCheckitem;
 import org.cw.midc.model.PositionType;
+import org.cw.midc.page.Page;
 import org.cw.midc.service.DevicetypePositionCheckitemService;
 import org.cw.midc.service.ris.StudyInfoService;
 import org.springframework.stereotype.Controller;
@@ -46,6 +48,15 @@ public class StudyInfoController {
         map.put("patientList", list);
         map.put("totalNum", studyInfoService.getCount(param));
         return map;
+    }
+	
+	@ResponseBody
+    @PostMapping("patlist")
+    public Response list(@RequestBody  ParamFilter queryFilter) {
+
+        List list = studyInfoService.queryList(queryFilter);
+        Page page = queryFilter.getPage();
+        return new Response(list,page);
     }
 	
 	@ResponseBody

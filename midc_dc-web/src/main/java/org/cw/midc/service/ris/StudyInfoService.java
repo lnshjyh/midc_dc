@@ -52,8 +52,21 @@ public class StudyInfoService {
     }
     
     public int getCount(HashMap<String,Object> param){
-    	List<String> studyids = studyInfoDao.findColumn("getStudyInfoIdList", String.class, param);
-    	param.put("studyids", studyids);
+    	Page page = new Page();
+    	page.setPageNo((int)param.get("pageNum"));
+    	page.setPageSize((int)param.get("pageSize"));
+    	String checkitemIdPk = (String)param.get("checkItem");
+    	String positionIdPk = (String)param.get("position");
+    	List<String> studyids = null;
+    	if(StringUtils.isNotBlank(checkitemIdPk) || StringUtils.isNotBlank(positionIdPk)){
+    		param.put("checkitemIdPk", checkitemIdPk);
+    		param.put("positionIdPk", positionIdPk);
+    		studyids = studyInfoDao.findColumn("getStudyInfoIdList", String.class, param);
+    	}
+    	
+    	if(studyids != null && !studyids.isEmpty()){
+    		param.put("studyids", studyids);
+    	}
     	return studyInfoDao.getCount(param);
     }
 
