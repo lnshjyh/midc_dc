@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.lang3.StringUtils;
 import org.cw.midc.ParamFilter;
 import org.cw.midc.dao.StudyInfoDao;
 import org.cw.midc.page.Page;
@@ -21,10 +22,21 @@ public class StudyInfoService {
 
     public List getList(HashMap<String,Object> param) {
     	Page page = new Page();
-    	page.setPageNo((int)param.get("pageNo"));
+    	page.setPageNo((int)param.get("pageNum"));
     	page.setPageSize((int)param.get("pageSize"));
-    	List<String> studyids = studyInfoDao.findColumn("getStudyInfoIdList", String.class, param);
-    	param.put("studyids", studyids);
+    	String checkitemIdPk = (String)param.get("checkItem");
+    	String positionIdPk = (String)param.get("position");
+    	List<String> studyids = null;
+    	if(StringUtils.isNotBlank(checkitemIdPk) || StringUtils.isNotBlank(positionIdPk)){
+    		param.put("checkitemIdPk", checkitemIdPk);
+    		param.put("positionIdPk", positionIdPk);
+    		studyids = studyInfoDao.findColumn("getStudyInfoIdList", String.class, param);
+    	}
+    	
+    	if(studyids != null && !studyids.isEmpty()){
+    		param.put("studyids", studyids);
+    	}
+    	
         return studyInfoDao.findMap("getList", param, page);
     }
     
