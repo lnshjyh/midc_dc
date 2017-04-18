@@ -51,7 +51,7 @@
                     <button type="button" class="btn btn-primary updateBtn" ng-click="sign()"   >设置签名</button>
                 </ul>
                 <div id="Sign_user_style" style="display: none">
-                	<img id="user_sign_image" th:src="'/user/sign/'+${account}" height="30" width="100" ></img>
+                	<img id="user_sign_image" th:src="'/user/sign/'+${userid}" height="30" width="100" ></img>
 					  <div class="site-demo-upbar">
 					    <input type="file" name="file"  id="user_sign_upload"  onchange="angular.element(this).scope().dosignUpload()"></input>
 					  </div>
