@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.common.base.Preconditions;
 
 @Controller
+@RequestMapping("/out")
 public class ReportForClientController {
 	
 	@Autowired
