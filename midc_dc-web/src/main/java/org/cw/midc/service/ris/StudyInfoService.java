@@ -43,10 +43,22 @@ public class StudyInfoService {
     public List queryList(ParamFilter param) {
     	Map<String, Object> paraMap = param.getParam();
     	
-    	List<String> studyids = studyInfoDao.findColumn("getStudyInfoIdList", String.class, paraMap);
-    	if(!studyids.isEmpty() && paraMap != null){
-    		param.getParam().put("studyids", studyids);
+    	List<String> studyids = null;
+    	if(paraMap != null){
+    		String checkitemIdPk = (String)paraMap.get("checkItem");
+        	String positionIdPk = (String)paraMap.get("position");
+        	
+        	if(StringUtils.isNotBlank(checkitemIdPk) || StringUtils.isNotBlank(positionIdPk)){
+        		paraMap.put("checkitemIdPk", checkitemIdPk);
+        		paraMap.put("positionIdPk", positionIdPk);
+        		studyids = studyInfoDao.findColumn("getStudyInfoIdList", String.class, param);
+        	}
+        	if(studyids != null && !studyids.isEmpty()){
+        		paraMap.put("studyids", studyids);
+        	}
     	}
+    	
+    	
     	
         return studyInfoDao.findMap("getList", param.getParam(), param.getPage());
     }
