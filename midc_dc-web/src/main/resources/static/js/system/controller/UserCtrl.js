@@ -126,6 +126,7 @@ userApp.controller('userCtrl', ['$rootScope', '$scope','userService',function ($
 			alertDialog("请选择一个");
 			return;
 		}
+		var userId = $(selectArray[0]).val();
 		
 		layer.open({
 			type: 1,
