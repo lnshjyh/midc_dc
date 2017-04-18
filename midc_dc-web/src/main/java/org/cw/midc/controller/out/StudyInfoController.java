@@ -13,7 +13,6 @@ import org.cw.midc.model.DevicetypePositionCheckitem;
 import org.cw.midc.model.PositionType;
 import org.cw.midc.service.DevicetypePositionCheckitemService;
 import org.cw.midc.service.ris.StudyInfoService;
-import org.cw.midc.util.CommonUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
