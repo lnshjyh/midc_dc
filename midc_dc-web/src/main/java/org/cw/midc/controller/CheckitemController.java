@@ -10,8 +10,6 @@ import org.cw.midc.entity.User;
 import org.cw.midc.model.Checkitem;
 import org.cw.midc.model.Hospital;
 import org.cw.midc.service.CheckitemService;
-import org.cw.midc.service.HospitalService;
-import org.cw.midc.service.UserService;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

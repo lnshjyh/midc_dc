@@ -23,10 +23,12 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -95,6 +97,26 @@ public class LoginForClientController {
         }catch (Exception e){
         	resultCode = "ERROR";
             msg="系统发生错误，请联系管理员;";
+        }
+        map.put("msg", msg);
+        map.put("resultCode", resultCode);
+        return map;
+    }
+    
+    @GetMapping("logoutForClient")
+    @ResponseBody
+    public Map<String,Object> logout(){
+        Subject subject = SecurityUtils.getSubject();
+        Map<String,Object> map = Maps.newHashMap();
+        String msg = "",resultCode="";
+        resultCode = "SUCCESS";
+        msg = "退出登录成功;";
+        if (subject != null) {
+            subject.logout();
+        }
+        else{
+        	resultCode = "ERROR";
+            msg="退出操作失败;";
         }
         map.put("msg", msg);
         map.put("resultCode", resultCode);
