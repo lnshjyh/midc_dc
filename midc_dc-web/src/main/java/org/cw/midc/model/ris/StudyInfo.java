@@ -37,7 +37,7 @@ public class StudyInfo {
 	@Column(name = "age_unit", length = 8)
 	private String ageUnit;
 	
-	@Column(name = "device_id", length = 64)
+	@Column(name = "device_type", length = 64)
 	private String deviceType;
 	
 	@Column(name = "position_checkitem", length = 128)
