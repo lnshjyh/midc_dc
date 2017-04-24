@@ -108,7 +108,7 @@ public class ShiroConfig{
         //对外接口过滤
         chains.put("/oauth/**", "anon");
         chains.put("/out/**", "anon");
-        chains.put("/out/basic/**", "anon,oauth2Filter");
+        chains.put("/res/basic/**", "anon,oauth2Filter");
         chains.put("/report", "anon");
         
         chains.put("/**", "formLoginFilter,resourceCheckFilter");

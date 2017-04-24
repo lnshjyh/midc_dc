@@ -11,7 +11,7 @@ public class ReportModifyDto implements Serializable{
 	
 	private String studyInfoId;
 	
-	private String descritpion;
+	private String description;
 	
 	private String diagnosis;
 	
@@ -25,12 +25,14 @@ public class ReportModifyDto implements Serializable{
 		this.studyInfoId = studyInfoId;
 	}
 
-	public String getDescritpion() {
-		return descritpion;
+
+
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDescritpion(String descritpion) {
-		this.descritpion = descritpion;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getDiagnosis() {
