@@ -38,7 +38,7 @@ public class StudyInfo {
 	private String ageUnit;
 	
 	@Column(name = "device_id", length = 64)
-	private String deviceId;
+	private String deviceType;
 	
 	@Column(name = "position_checkitem", length = 128)
 	private String positionCheckItem;
@@ -122,7 +122,7 @@ public class StudyInfo {
 			int age, 
 			String 
 			ageUnit, 
-			String deviceId, 
+			String deviceType, 
 			String preDiagnose, 
 			String abstractHistory, 
 			String studyDescription,
@@ -131,7 +131,7 @@ public class StudyInfo {
 		this.id = key;
 		this.age = age;
 		this.ageUnit = ageUnit;
-		this.deviceId = deviceId;
+		this.deviceType = deviceType;
 		this.preDiagnose = preDiagnose;
 		this.abstractHistory = abstractHistory;
 		this.studyDescription = studyDescription;
@@ -185,12 +185,14 @@ public class StudyInfo {
 		this.ageUnit = ageUnit;
 	}
 
-	public String getDeviceId() {
-		return deviceId;
+
+
+	public String getDeviceType() {
+		return deviceType;
 	}
 
-	public void setDeviceId(String deviceId) {
-		this.deviceId = deviceId;
+	public void setDeviceType(String deviceType) {
+		this.deviceType = deviceType;
 	}
 
 	public String getPreDiagnose() {

@@ -41,7 +41,7 @@ public class RisInfoDto implements Serializable{
 	//study information
 	private int age;
 	private String ageUnit;
-	private String deviceId;
+	private String deviceType;
 
 	private String status;
 	private String isAvailable;
@@ -153,11 +153,14 @@ public class RisInfoDto implements Serializable{
 	public void setAgeUnit(String ageUnit) {
 		this.ageUnit = ageUnit;
 	}
-	public String getDeviceId() {
-		return deviceId;
+
+	
+	
+	public String getDeviceType() {
+		return deviceType;
 	}
-	public void setDeviceId(String deviceId) {
-		this.deviceId = deviceId;
+	public void setDeviceType(String deviceType) {
+		this.deviceType = deviceType;
 	}
 	public String getPrediagnose() {
 		return prediagnose;
