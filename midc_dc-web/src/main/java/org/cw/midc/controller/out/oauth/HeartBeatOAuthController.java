@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 @RestController
-@RequestMapping("out/basic")
+@RequestMapping("res/basic")
 public class HeartBeatOAuthController {
 	
 	@Autowired

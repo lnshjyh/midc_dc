@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/out/basic")
+@RequestMapping("/res/basic")
 public class DeviceTypeOAuthController {
 	
 	@Autowired
