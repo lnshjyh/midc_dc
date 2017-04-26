@@ -211,3 +211,87 @@ div.navbar{
     position: relative;
     right: 21px;
 }
+
+
+.lui-elem-field {
+    margin-bottom: 10px;
+    padding: 0;
+    border: 1px solid #e2e2e2
+}
+.lui-field-title {
+    margin: 10px 0 20px;
+    border: none;
+    border-top: 1px solid #e2e2e2
+}
+.lui-form-item {
+    margin-bottom: 15px;
+    clear: both;
+    *zoom:1}
+
+.lui-form-item:after {
+    content: '\20';
+    clear: both;
+    *zoom:1;display: block;
+    height: 0
+}
+
+.lui-form-label {
+    float: left;
+    display: block;
+    padding: 9px 15px;
+    width: 100px;
+    font-weight: 400;
+    text-align: right
+}
+
+.lui-form-item .lui-inline {
+    margin-bottom: 5px;
+    margin-right: 5px
+}
+.lui-input-block,.lui-input-inline {
+    position: relative
+}
+
+.lui-input-block {
+    margin-left: 110px;
+    min-height: 36px
+}
+
+.lui-input-inline {
+    display: inline-block;
+    vertical-align: middle
+}
+
+.lui-form-item .lui-input-inline {
+    float: left;
+    width: 190px;
+    margin-right: 10px
+}
+
+.lui-elem-field {
+    margin-bottom: 10px;
+    padding: 0;
+    border: 1px solid #e2e2e2
+}
+
+.lui-elem-field legend {
+    margin-left: 20px;
+    padding: 0 10px;
+    font-size: 20px;
+    font-weight: 300
+}
+
+.lui-field-title {
+    margin: 10px 0 20px;
+    border: none;
+    border-top: 1px solid #e2e2e2
+}
+
+.lui-field-box {
+    padding: 10px 15px
+}
+
+.lui-field-title .lui-field-box {
+    padding: 10px 0
+}
+

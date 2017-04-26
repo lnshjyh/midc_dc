@@ -38,6 +38,24 @@ patientApp.controller('patientCtrl', ['$rootScope', '$scope','patientService',fu
 			}
 		});
 	}
+	
+	$scope.viewReport = function(){
+		var selectArray = $("#Patient_list tbody input:checked");
+		if(!selectArray || (selectArray.length!=1)){
+			alertDialog("请选择一个");
+			return;
+		}
+		var studyinfoId = $(selectArray[0]).val();
+		layer.open({
+			type : 1,
+			title : '查看影像学报告',
+			maxmin : true,
+			shadeClose : true, //点击遮罩关闭层
+			area : [ '900px', '500px' ],
+			content : $('#report'),
+			btn : [  '关闭' ]
+		});
+	}
 
 	$scope.selectAll = function($event){
 		var target = $event.target

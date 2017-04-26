@@ -103,6 +103,100 @@
                     </button>
                 </ul>
                 
+                 <ul class="search_content clearfix">
+                    <button class="btn btn-primary addBtn" type="button" ng-click="viewReport()"
+                            id="view_report_btn" >查看报告
+                    </button>
+                    <button type="button" class="btn btn-primary updateBtn" ng-click="updatePatient()"  >修改
+                    </button>
+                </ul>
+                
+				<div id="report" style="display:none;">
+					<form class="lui-form" action="">
+					<fieldset class="lui-elem-field lui-field-title" >
+					  <legend style="text-align: center;">影像诊断报告</legend>
+					</fieldset>
+				 	<div class="lui-form-item">
+				    <div class="lui-inline">
+				      <label class="lui-form-label">姓名：</label>
+					  
+				      <div class="lui-input-inline">
+						<label style="text-align:left;display:block;padding-top:9px;padding-right:15px;padding-bottom:9px;padding-left:15px;">张三</label>
+				      </div>
+				    </div>
+				    <div class="lui-inline">
+				      <label class="lui-form-label">年龄：</label>
+				      <div class="lui-input-inline">
+						<label style="text-align:left;display:block;padding-top:9px;padding-right:5px;padding-bottom:9px;padding-left:5px;">32岁</label>
+				      </div>
+				    </div>
+					<div class="lui-inline">
+				      <label class="lui-form-label">性别：</label>
+						<label style="text-align:left;display:block;padding-top:9px;padding-right:5px;padding-bottom:9px;padding-left:5px;">女</label>
+				    </div>
+				  </div>
+				  
+				  <div class="lui-form-item">
+				    <div class="lui-inline">
+				      <label class="lui-form-label">检查号：</label>	  
+				      <div class="lui-input-inline">
+						<label style="text-align:left;display:block;padding-top:9px;padding-right:15px;padding-bottom:9px;padding-left:15px;">123</label>
+				      </div>
+				    </div>
+				    <div class="lui-inline">
+				      <label class="lui-form-label">设备类型：</label>
+				      <div class="lui-input-inline">
+						<label style="text-align:left;display:block;padding-top:9px;padding-right:5px;padding-bottom:9px;padding-left:5px;">CT</label>
+				      </div>
+				    </div>
+					<div class="lui-inline">
+				      <label class="lui-form-label">检查时间：</label>
+						<label style="text-align:left;display:block;padding-top:9px;padding-right:5px;padding-bottom:9px;padding-left:5px;">2017-04-19</label>
+				    </div>
+				  </div>
+				  
+					<fieldset class="lui-elem-field">
+					  <legend>描述：</legend>
+					  <div class="lui-field-box">
+					    你可以在这里放任何内容
+					  </div>
+					</fieldset>
+					
+					<fieldset class="lui-elem-field">
+					  <legend>诊断：</legend>
+					  <div class="lui-field-box">
+					    你可以在这里放任何内容
+					  </div>
+					</fieldset>
+					
+					<fieldset class="lui-elem-field">
+					  <legend>建议：</legend>
+					  <div class="lui-field-box">
+					    你可以在这里放任何内容
+					  </div>
+					</fieldset>
+				
+					<div class="lui-form-item">
+						<div class="lui-inline">
+								<label class="lui-form-label">报告医生：</label>
+								<div style=" float: left;width:190px;margin-right:10px">
+									<label style="text-align:left;display:block;padding-top:9px;padding-right:5px;padding-bottom:9px;padding-left:5px;">王医生 </label> 
+									<img id="user_sign_image" th:src="'/user/sign/'+${userid}" height="30" width="100" style="text-align:left;"></img>
+								</div>
+								<!-- <div class="lui-input-inline">
+									<img id="user_sign_image" th:src="'/user/sign/'+${userid}" height="30" width="100" style="text-align:left;"></img>
+								</div> -->
+						</div>
+						<div class="lui-inline">
+					      <label class="lui-form-label">报告日期：</label>
+							<div class="lui-input-inline">
+							<label style="text-align:left;display:block;padding-top:9px;padding-right:15px;padding-bottom:9px;padding-left:15px;">2017-04-19</label>
+							</div>
+						</div>
+					</div>
+				 </form>
+				</div>
+                
 
             </div>
         </form>
