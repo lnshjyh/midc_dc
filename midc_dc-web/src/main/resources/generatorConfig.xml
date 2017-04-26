@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- 驱动包路径！ -->
+    <classPathEntry location="E:\lnshjyh\rd\devEnv\commonLib\mysql-connector-java-5.1.38.jar"/>
+    <context id="MysqlTables" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+        <!-- jdbc url地址 ！ -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/midc_dc?serverTimezone=UTC&amp;characterEncoding=utf-8&amp;generateSimpleParameterMetadata=true" userId="root" password="123456">
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!-- targetPackage 生成后的路径 ，targetProject 绝对路径  该配置生成java代码  -->
+        <javaModelGenerator targetPackage="org.cw.midc.model" targetProject="E:\autocode\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+          <!-- 该配置生成 mybatis 映射文件   -->
+        <sqlMapGenerator targetPackage="org.cw.midc.map" targetProject="E:\autocode\src\main\resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!-- 生成 java 接口代码  -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="org.cw.midc.dao" targetProject="E:\autocode\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <!--  表配置    tableName 表名      domainObjectName java类名，首字母必须大写，否则报字符串越界错误 -->
+        <table schema="midc_dc" tableName="storage_info" domainObjectName="StorageInfo" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        
+        <table schema="midc_dc" tableName="file_info" domainObjectName="FileInfo" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        
+        <table schema="midc_dc" tableName="instance" domainObjectName="Instance" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        
+        <table schema="midc_dc" tableName="media_info" domainObjectName="MediaInfo" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        
+        <table schema="midc_dc" tableName="patient" domainObjectName="Patient" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        
+        <table schema="midc_dc" tableName="report" domainObjectName="Report" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        
+        <table schema="midc_dc" tableName="series" domainObjectName="Series" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        
+        
+        <table schema="midc_dc" tableName="study_info" domainObjectName="StudyInfo" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        
+        <table schema="midc_dc" tableName="study" domainObjectName="Study" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        
+        <table schema="midc_dc" tableName="study_check_pos" domainObjectName="StudyCheckPos" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        
+        <table schema="midc_dc" tableName="sys_org" domainObjectName="SysOrg" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+
+    </context>
+
+
+</generatorConfiguration> 
