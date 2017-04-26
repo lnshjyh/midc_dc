@@ -18,8 +18,8 @@ public class Report {
 	@Column(name = "studyinfo_id", length = 128)
 	private String studyInfoId;
 	
-	@Column(name = "descritpion", length = 4000)
-	private String descritpion;
+	@Column(name = "description", length = 4000)
+	private String description;
 	
 	@Column(name = "diagnosis", length = 4000)
 	private String diagnosis;
@@ -60,12 +60,14 @@ public class Report {
 		this.id = id;
 	}
 
-	public String getDescritpion() {
-		return descritpion;
+
+
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDescritpion(String descritpion) {
-		this.descritpion = descritpion;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getDiagnosis() {

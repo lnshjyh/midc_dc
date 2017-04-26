@@ -79,8 +79,9 @@ public class ReportService {
 		{
 			return;
 		}
+		User user = (User) UserContextUtil.getAttribute("currentUser");
 		
-		String userId = "1234567";
+		String userId = user.getUserId();
 		Report report = studyInfo.getReport();
 		String reportId = report.getId();
 		Report resultNew = DozerBeanMapperFactory.getMapper().map(reportModifyDto, Report.class);

@@ -28,7 +28,7 @@ import org.springframework.web.multipart.MultipartFile;
  */
 
 @RestController
-@RequestMapping("out/basic")
+@RequestMapping("res/basic")
 @Scope("prototype")
 public class DcmFileOAuthController {
 

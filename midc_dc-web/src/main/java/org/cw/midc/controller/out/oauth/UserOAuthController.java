@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/out/basic/user")
+@RequestMapping("/res/basic/user")
 public class UserOAuthController {
 	
     @Resource

@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.google.common.base.Preconditions;
 
 @RestController
-@RequestMapping("out/basic")
+@RequestMapping("res/basic")
 public class RisOAuthController {
 	
 	private static final Logger log = LoggerFactory.getLogger(RisOAuthController.class);

@@ -31,7 +31,7 @@ public class RisFactory {
 		StudyInfo studyInfo = new StudyInfo(key,
 				risInfoDto.getAge(), 
 				risInfoDto.getAgeUnit(), 
-				risInfoDto.getDeviceId(), 
+				risInfoDto.getDeviceType(), 
 				risInfoDto.getPrediagnose(),
 				risInfoDto.getAbstractHistory(),
 				risInfoDto.getStudyDescription(),
