@@ -156,7 +156,6 @@ public class LoadDicomFileService {
 		String studyUID = CommonUtils.MD5(fileInfo.getHospitalId() + studyInstanceUId);
 		String seriesUID = CommonUtils.MD5(fileInfo.getHospitalId() + seriesInstanceUId);
 		String instanceUID = CommonUtils.MD5(fileInfo.getHospitalId() + sopInstanceUId);
-//		Study study = studyRepository.findOne(studyUID);
 		Study study = studyDao.findUnique("selectByPrimaryKey", studyUID);
 		Series series = null;
 		Instance instance = null;
