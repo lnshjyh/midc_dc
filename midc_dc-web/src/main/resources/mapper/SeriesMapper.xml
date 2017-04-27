@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.cw.midc.entity.Series" >
+  <resultMap id="BaseResultMap" type="org.cw.midc.entity.Series" >
+    <id column="series_uid" property="seriesUid" jdbcType="VARCHAR" />
+    <result column="body_part" property="bodyPart" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="image_count" property="imageCount" jdbcType="INTEGER" />
+    <result column="series_desc" property="seriesDesc" jdbcType="VARCHAR" />
+    <result column="series_iuid" property="seriesIuid" jdbcType="VARCHAR" />
+    <result column="series_no" property="seriesNo" jdbcType="VARCHAR" />
+    <result column="study_uid" property="studyUid" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select * 
+    from series
+    where series_uid = #{seriesUid,jdbcType=VARCHAR}
+  </select>
+
+  <insert id="insert" parameterType="org.cw.midc.entity.Series" >
+    insert into series (series_uid, body_part, create_time, 
+      image_count, series_desc, series_iuid, 
+      series_no, study_uid)
+    values (#{seriesUid,jdbcType=VARCHAR}, #{bodyPart,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{imageCount,jdbcType=INTEGER}, #{seriesDesc,jdbcType=VARCHAR}, #{seriesIuid,jdbcType=VARCHAR}, 
+      #{seriesNo,jdbcType=VARCHAR}, #{studyUid,jdbcType=VARCHAR})
+  </insert>
+</mapper>
