@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.cw.midc.entity.ris.StudyInfo">
+    <resultMap id="StudyInfo" type="org.cw.midc.entity.ris.StudyInfo" >	    
+		<id column="studyinfo_id" property="studyinfoId" jdbcType="VARCHAR" />
+	    <result column="abs_history" property="absHistory" jdbcType="VARCHAR" />
+	    <result column="age" property="age" jdbcType="INTEGER" />
+	    <result column="age_unit" property="ageUnit" jdbcType="VARCHAR" />
+	    <result column="apply_dep_name" property="applyDepName" jdbcType="VARCHAR" />
+	    <result column="apply_doc_name" property="applyDocName" jdbcType="VARCHAR" />
+	    <result column="apply_time" property="applyTime" jdbcType="TIMESTAMP" />
+	    <result column="clinical_manifest" property="clinicalManifest" jdbcType="VARCHAR" />
+	    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+	    <result column="device_id" property="deviceId" jdbcType="VARCHAR" />
+	    <result column="hosp_id" property="hospId" jdbcType="VARCHAR" />
+	    <result column="is_available" property="isAvailable" jdbcType="VARCHAR" />
+	    <result column="org_studyinfo_id" property="orgStudyinfoId" jdbcType="VARCHAR" />
+	    <result column="photo_maker_id" property="photoMakerId" jdbcType="VARCHAR" />
+	    <result column="position_checkitem" property="positionCheckitem" jdbcType="VARCHAR" />
+	    <result column="pre_diagnose" property="preDiagnose" jdbcType="VARCHAR" />
+	    <result column="rpt_status" property="rptStatus" jdbcType="VARCHAR" />
+	    <result column="status" property="status" jdbcType="VARCHAR" />
+	    <result column="study_demand" property="studyDemand" jdbcType="VARCHAR" />
+	    <result column="study_desc" property="studyDesc" jdbcType="VARCHAR" />
+	    <result column="trans_status" property="transStatus" jdbcType="VARCHAR" />
+	    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+	    <result column="pat_id" property="patId" jdbcType="VARCHAR" />
+	    <result column="rpt_id" property="rptId" jdbcType="VARCHAR" />
+	</resultMap>
+
+    <insert id="insert" parameterType="org.cw.midc.entity.ris.StudyInfo">
+		 insert into study_info (studyinfo_id, abs_history, age, 
+      age_unit, apply_dep_name, apply_doc_name, 
+      apply_time, clinical_manifest, create_time, 
+      device_id, hosp_id, is_available, 
+      org_studyinfo_id, photo_maker_id, position_checkitem, 
+      pre_diagnose, rpt_status, status, 
+      study_demand, study_desc, trans_status, 
+      update_time, pat_id, rpt_id
+      )
+    values (#{studyinfoId,jdbcType=VARCHAR}, #{absHistory,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, 
+      #{ageUnit,jdbcType=VARCHAR}, #{applyDepName,jdbcType=VARCHAR}, #{applyDocName,jdbcType=VARCHAR}, 
+      #{applyTime,jdbcType=TIMESTAMP}, #{clinicalManifest,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{deviceId,jdbcType=VARCHAR}, #{hospId,jdbcType=VARCHAR}, #{isAvailable,jdbcType=VARCHAR}, 
+      #{orgStudyinfoId,jdbcType=VARCHAR}, #{photoMakerId,jdbcType=VARCHAR}, #{positionCheckitem,jdbcType=VARCHAR}, 
+      #{preDiagnose,jdbcType=VARCHAR}, #{rptStatus,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{studyDemand,jdbcType=VARCHAR}, #{studyDesc,jdbcType=VARCHAR}, #{transStatus,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{patId,jdbcType=VARCHAR}, #{rptId,jdbcType=VARCHAR}
+      )
+    </insert>
+    
+    <update id="update" parameterType="org.cw.midc.entity.ris.StudyInfo">
+          update study_info
+    <set >
+      <if test="absHistory != null" >
+        abs_history = #{absHistory,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        age = #{age,jdbcType=INTEGER},
+      </if>
+      <if test="ageUnit != null" >
+        age_unit = #{ageUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="applyDepName != null" >
+        apply_dep_name = #{applyDepName,jdbcType=VARCHAR},
+      </if>
+      <if test="applyDocName != null" >
+        apply_doc_name = #{applyDocName,jdbcType=VARCHAR},
+      </if>
+      <if test="applyTime != null" >
+        apply_time = #{applyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="clinicalManifest != null" >
+        clinical_manifest = #{clinicalManifest,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deviceId != null" >
+        device_id = #{deviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="hospId != null" >
+        hosp_id = #{hospId,jdbcType=VARCHAR},
+      </if>
+      <if test="isAvailable != null" >
+        is_available = #{isAvailable,jdbcType=VARCHAR},
+      </if>
+      <if test="orgStudyinfoId != null" >
+        org_studyinfo_id = #{orgStudyinfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="photoMakerId != null" >
+        photo_maker_id = #{photoMakerId,jdbcType=VARCHAR},
+      </if>
+      <if test="positionCheckitem != null" >
+        position_checkitem = #{positionCheckitem,jdbcType=VARCHAR},
+      </if>
+      <if test="preDiagnose != null" >
+        pre_diagnose = #{preDiagnose,jdbcType=VARCHAR},
+      </if>
+      <if test="rptStatus != null" >
+        rpt_status = #{rptStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="studyDemand != null" >
+        study_demand = #{studyDemand,jdbcType=VARCHAR},
+      </if>
+      <if test="studyDesc != null" >
+        study_desc = #{studyDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="transStatus != null" >
+        trans_status = #{transStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="patId != null" >
+        pat_id = #{patId,jdbcType=VARCHAR},
+      </if>
+      <if test="rptId != null" >
+        rpt_id = #{rptId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where studyinfo_id = #{studyinfoId,jdbcType=VARCHAR}
+    </update>
+    
+    
+     <delete id="delete" parameterType="java.lang.String">
+        delete from study_info where studyinfo_id = #{studyinfoId,jdbcType=VARCHAR}
+    </delete>
+
+</mapper>

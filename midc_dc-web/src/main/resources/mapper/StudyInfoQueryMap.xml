@@ -3,6 +3,34 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.cw.midc.entity.StudyInfoEntity">
 
+ 	<resultMap id="StudyInfo" type="org.cw.midc.entity.ris.StudyInfo" >	    
+		<id column="studyinfo_id" property="studyinfoId" jdbcType="VARCHAR" />
+	    <result column="abs_history" property="absHistory" jdbcType="VARCHAR" />
+	    <result column="age" property="age" jdbcType="INTEGER" />
+	    <result column="age_unit" property="ageUnit" jdbcType="VARCHAR" />
+	    <result column="apply_dep_name" property="applyDepName" jdbcType="VARCHAR" />
+	    <result column="apply_doc_name" property="applyDocName" jdbcType="VARCHAR" />
+	    <result column="apply_time" property="applyTime" jdbcType="TIMESTAMP" />
+	    <result column="clinical_manifest" property="clinicalManifest" jdbcType="VARCHAR" />
+	    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+	    <result column="device_id" property="deviceId" jdbcType="VARCHAR" />
+	    <result column="hosp_id" property="hospId" jdbcType="VARCHAR" />
+	    <result column="is_available" property="isAvailable" jdbcType="VARCHAR" />
+	    <result column="org_studyinfo_id" property="orgStudyinfoId" jdbcType="VARCHAR" />
+	    <result column="photo_maker_id" property="photoMakerId" jdbcType="VARCHAR" />
+	    <result column="position_checkitem" property="positionCheckitem" jdbcType="VARCHAR" />
+	    <result column="pre_diagnose" property="preDiagnose" jdbcType="VARCHAR" />
+	    <result column="rpt_status" property="rptStatus" jdbcType="VARCHAR" />
+	    <result column="status" property="status" jdbcType="VARCHAR" />
+	    <result column="study_demand" property="studyDemand" jdbcType="VARCHAR" />
+	    <result column="study_desc" property="studyDesc" jdbcType="VARCHAR" />
+	    <result column="trans_status" property="transStatus" jdbcType="VARCHAR" />
+	    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+	    <result column="pat_id" property="patId" jdbcType="VARCHAR" />
+	    <result column="rpt_id" property="rptId" jdbcType="VARCHAR" />
+	</resultMap>
+	
+
    <select id="getList" resultType="Map" parameterType="java.util.Map">
         select a.studyinfo_id as studyinfoId,a.age as age ,a.age_unit as ageUnit, a.device_type as deviceType ,
         a.pre_diagnose as  preDiagnose,
@@ -63,6 +91,13 @@
         </where>
     </select>
     
+    <select id="getListByStudyinfoId" parameterType="java.lang.String" resultMap="StudyInfo">
+        select * from study_info where studyinfo_id = #{studyinfoId,jdbcType=VARCHAR}
+    </select>
+    
+    <select id="getById" parameterType="java.lang.String" resultMap="StudyInfo">
+        select * from study_info where studyinfo_id = #{studyinfoId,jdbcType=VARCHAR}
+    </select>
     
     <select id="getCount" parameterType="java.util.Map" resultType="java.lang.Integer">
         select count(*) from study_info a ,patient b ,hospital c

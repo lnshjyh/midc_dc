@@ -12,8 +12,10 @@ import org.apache.oltu.oauth2.common.exception.OAuthSystemException;
 import org.apache.oltu.oauth2.common.message.OAuthResponse;
 import org.apache.oltu.oauth2.common.message.types.GrantType;
 import org.apache.oltu.oauth2.common.message.types.TokenType;
-import org.cw.midc.model.Hospital;
-import org.cw.midc.model.oauth.OauthAccessToken;
+import org.cw.midc.dao.HospitalDao;
+import org.cw.midc.dao.oauth.OauthAccessTokenDao;
+import org.cw.midc.entity.Hospital;
+import org.cw.midc.entity.oauth.OauthAccessToken;
 import org.cw.midc.repository.HospitalRepository;
 import org.cw.midc.repository.oauth.OauthAccessTokenRepository;
 import org.cw.midc.util.CommonUtils;
@@ -27,10 +29,10 @@ import org.springframework.stereotype.Service;
 public class Oauth2Handler {
 	
 	@Autowired
-	private OauthAccessTokenRepository oauthAccessTokenRepository;
+	private OauthAccessTokenDao oauthAccessTokenDao;
 	
 	@Autowired
-	private HospitalRepository hospitalRepository;
+	private HospitalDao hospitalDao;
 
     public final static int REFRESH_TOKEN_VALIDITY_SECONDS = 60 * 60 * 24 * 30;
 
@@ -43,27 +45,21 @@ public class Oauth2Handler {
 
 	public OAuthResponse processOauthRq(OAuthTokenxRequest tokenRequest, HttpServletResponse response) throws OAuthSystemException{
 		 String grantType = tokenRequest.getGrantType();
-//		 Hospital clientHos = hospitalDao.findUnique("getByClientId", tokenRequest.getClientId());
-		 List<Hospital> clientHosList = hospitalRepository.findByClientId(tokenRequest.getClientId());
-		 if(clientHosList == null || clientHosList.isEmpty()){
+		 Hospital clientHos = hospitalDao.findUnique("getByClientId", tokenRequest.getClientId());
+		 if(clientHos == null){
 			 return invalidClientErrorResponse(tokenRequest);
 		 }
-		 Hospital clientHos = clientHosList.get(0);
 		 String secret = clientHos.getClientSecret();
 		 if(!secret.equals(tokenRequest.getClientSecret())){
 			 return invalidClientSecretResponse(tokenRequest);
 		 }
-//		 OauthAccessToken tokenObj = oauthAccessTokenDao.findUnique("getByClientId", tokenRequest.getClientId());
-		 List<OauthAccessToken> tokenObjList = oauthAccessTokenRepository.findByClientId(tokenRequest.getClientId());
-		 OauthAccessToken tokenObj = null;
+		 OauthAccessToken tokenObj = oauthAccessTokenDao.findUnique("getByClientId", tokenRequest.getClientId());
 		 boolean isNeedCreate = false;
 		 
          if(GrantType.CLIENT_CREDENTIALS.toString().equalsIgnoreCase(grantType)){
-        	 if(tokenObjList != null && !tokenObjList.isEmpty()){
-        		 tokenObj = tokenObjList.get(0);
+        	 if(tokenObj != null){
         		 if(isExpire(tokenObj,ACCESS_TOKEN_VALIDITY_SECONDS)){
-//        			 oauthAccessTokenDao.delete("deleteByClientId", tokenRequest.getClientId());
-        			 oauthAccessTokenRepository.delete(tokenObj);
+        			 oauthAccessTokenDao.delete("deleteByClientId", tokenRequest.getClientId());
         			 isNeedCreate = true;
         		 }
         		 else{
@@ -100,8 +96,7 @@ public class Oauth2Handler {
 	private OauthAccessToken saveTokenObj(OAuthTokenxRequest tokenRequest){
 		 OauthAccessToken tokenObj = new OauthAccessToken();
 		 tokenObj = this.buildAccessTokenObj(tokenObj,tokenRequest);
-//		 oauthAccessTokenDao.save(tokenObj);
-		 oauthAccessTokenRepository.save(tokenObj);
+		 oauthAccessTokenDao.save(tokenObj);
 		 return tokenObj;
 	}
 	

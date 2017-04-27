@@ -30,7 +30,7 @@ public class MyBatisConfig  {
         bean.setConfigLocation(new ClassPathResource("mybatis.xml"));
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         try {
-            bean.setMapperLocations(resolver.getResources("classpath:mapper/*.xml"));
+            bean.setMapperLocations(resolver.getResources("classpath:mapper/**/*.xml"));
             return bean.getObject();
         } catch (Exception e) {
             e.printStackTrace();
