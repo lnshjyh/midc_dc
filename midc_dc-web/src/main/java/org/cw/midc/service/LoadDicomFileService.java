@@ -6,7 +6,7 @@ import java.io.IOException;
 import org.apache.commons.lang.StringUtils;
 import org.cw.midc.exception.DicomFileDuplicatedException;
 import org.cw.midc.exception.RisInfoNotFoundException;
-import org.cw.midc.model.FileInfo;
+import org.cw.midc.entity.FileInfo;
 import org.cw.midc.model.pacs.Instance;
 import org.cw.midc.model.pacs.Series;
 import org.cw.midc.model.pacs.Study;
@@ -72,7 +72,7 @@ public class LoadDicomFileService {
 		{
 			fileInfo.setFailedReason(StringUtils.substring(e.getMessage(), 0, 255));
 			eventBus.send("parseFileFailed", fileInfo);
-			log.error("File:{} parse failed, cause: {}", fileInfo.getId(), e.getMessage());
+			log.error("File:{} parse failed, cause: {}", fileInfo.getFileId(), e.getMessage());
 		}
 	}
 
@@ -102,7 +102,7 @@ public class LoadDicomFileService {
 			tempFile = fileService.unzipOneFile(src);
 		} catch (ZipException e1) {
 			e1.printStackTrace();
-			log.error("File:{} unzip failed!, cause: {}", fileInfo.getId(), e1.getMessage());;
+			log.error("File:{} unzip failed!, cause: {}", fileInfo.getFileId(), e1.getMessage());;
 			throw e1;
 		}
 		DicomObject dicom = new BasicDicomObject();
@@ -116,7 +116,7 @@ public class LoadDicomFileService {
 			loadDicomObj2DB(fileInfo, dicom, studyInfo);
 		} catch (IOException e) {
 			e.printStackTrace();
-			log.error("File:{} dicom file parse failed, cause: {}",fileInfo.getId(), e.getMessage());
+			log.error("File:{} dicom file parse failed, cause: {}",fileInfo.getFileId(), e.getMessage());
 			throw e;
 		} catch (DicomFileDuplicatedException de) {
 			throw de;
@@ -128,7 +128,7 @@ public class LoadDicomFileService {
 					dis.close();
 				} catch (IOException e) {
 					e.printStackTrace();
-					log.error("File:{} close dicom stream failed, cause: {}",fileInfo.getId(), e.getMessage());
+					log.error("File:{} close dicom stream failed, cause: {}",fileInfo.getFileId(), e.getMessage());
 					throw e;
 				}				
 			}
@@ -193,7 +193,7 @@ public class LoadDicomFileService {
 				}
 				else
 				{
-					log.error("File:{} exist, ignore it", fileInfo.getId());
+					log.error("File:{} exist, ignore it", fileInfo.getFileId());
 					throw new DicomFileDuplicatedException();
 				}
 			}

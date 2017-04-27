@@ -3,7 +3,7 @@ package org.cw.midc.service.factory;
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
 
-import org.cw.midc.model.FileInfo;
+import org.cw.midc.entity.FileInfo;
 import org.cw.midc.model.pacs.Instance;
 import org.cw.midc.model.pacs.Series;
 import org.cw.midc.model.pacs.Study;
@@ -130,7 +130,7 @@ public class PacsFactory {
 		instance.setSeriesUniqueId(seriesUniqueID);
 		instance.setSopInstanceUId(sopInstanceUID);
 		instance.setInstanceNumber(instanceNumber);
-		instance.setFileId(fileInfo.getId());
+		instance.setFileId(fileInfo.getFileId());
 		instance.setAcquisitionDateTime(acquisitionDateTime);
 		return instance;
 	}

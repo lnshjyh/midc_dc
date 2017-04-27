@@ -2,7 +2,7 @@ package org.cw.midc.service;
 
 import java.util.List;
 
-import org.cw.midc.model.FileInfo;
+import org.cw.midc.entity.FileInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
