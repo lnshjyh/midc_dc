@@ -4,16 +4,18 @@ import java.io.File;
 import java.io.IOException;
 
 import org.apache.commons.lang.StringUtils;
+import org.cw.midc.dao.InstanceDao;
+import org.cw.midc.dao.RisPacsRelDao;
+import org.cw.midc.dao.SeriesDao;
+import org.cw.midc.dao.StudyDao;
+import org.cw.midc.entity.FileInfo;
+import org.cw.midc.entity.Instance;
+import org.cw.midc.entity.RisPacsRel;
+import org.cw.midc.entity.Series;
+import org.cw.midc.entity.Study;
 import org.cw.midc.exception.DicomFileDuplicatedException;
 import org.cw.midc.exception.RisInfoNotFoundException;
-import org.cw.midc.model.FileInfo;
-import org.cw.midc.model.pacs.Instance;
-import org.cw.midc.model.pacs.Series;
-import org.cw.midc.model.pacs.Study;
 import org.cw.midc.model.ris.StudyInfo;
-import org.cw.midc.repository.pacs.InstanceRepository;
-import org.cw.midc.repository.pacs.SeriesRepository;
-import org.cw.midc.repository.pacs.StudyRepository;
 import org.cw.midc.repository.ris.StudyInfoRepository;
 import org.cw.midc.service.factory.PacsFactory;
 import org.cw.midc.util.CommonUtils;
@@ -28,6 +30,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import net.lingala.zip4j.exception.ZipException;
 
 @Service
@@ -43,16 +46,19 @@ public class LoadDicomFileService {
 	private FileService fileService;
 	
 	@Autowired
-	private StorageService storageService;
+	private StorageService storageService;	
 	
 	@Autowired
-	private StudyRepository studyRepository;
+	private StudyDao studyDao;
 	
 	@Autowired
-	private SeriesRepository seriesRepository;
+	private SeriesDao seriesDao;
 	
 	@Autowired
-	private InstanceRepository instanceRepository;
+	private InstanceDao instanceDao;
+	
+	@Autowired
+	private RisPacsRelDao risPacsRelDao;
 	
 	@Autowired
 	private StudyInfoRepository studyInfoRepository;
@@ -72,7 +78,7 @@ public class LoadDicomFileService {
 		{
 			fileInfo.setFailedReason(StringUtils.substring(e.getMessage(), 0, 255));
 			eventBus.send("parseFileFailed", fileInfo);
-			log.error("File:{} parse failed, cause: {}", fileInfo.getId(), e.getMessage());
+			log.error("File:{} parse failed, cause: {}", fileInfo.getFileId(), e.getMessage());
 		}
 	}
 
@@ -102,7 +108,7 @@ public class LoadDicomFileService {
 			tempFile = fileService.unzipOneFile(src);
 		} catch (ZipException e1) {
 			e1.printStackTrace();
-			log.error("File:{} unzip failed!, cause: {}", fileInfo.getId(), e1.getMessage());;
+			log.error("File:{} unzip failed!, cause: {}", fileInfo.getFileId(), e1.getMessage());;
 			throw e1;
 		}
 		DicomObject dicom = new BasicDicomObject();
@@ -116,7 +122,7 @@ public class LoadDicomFileService {
 			loadDicomObj2DB(fileInfo, dicom, studyInfo);
 		} catch (IOException e) {
 			e.printStackTrace();
-			log.error("File:{} dicom file parse failed, cause: {}",fileInfo.getId(), e.getMessage());
+			log.error("File:{} dicom file parse failed, cause: {}",fileInfo.getFileId(), e.getMessage());
 			throw e;
 		} catch (DicomFileDuplicatedException de) {
 			throw de;
@@ -128,7 +134,7 @@ public class LoadDicomFileService {
 					dis.close();
 				} catch (IOException e) {
 					e.printStackTrace();
-					log.error("File:{} close dicom stream failed, cause: {}",fileInfo.getId(), e.getMessage());
+					log.error("File:{} close dicom stream failed, cause: {}",fileInfo.getFileId(), e.getMessage());
 					throw e;
 				}				
 			}
@@ -150,50 +156,57 @@ public class LoadDicomFileService {
 		String studyUID = CommonUtils.MD5(fileInfo.getHospitalId() + studyInstanceUId);
 		String seriesUID = CommonUtils.MD5(fileInfo.getHospitalId() + seriesInstanceUId);
 		String instanceUID = CommonUtils.MD5(fileInfo.getHospitalId() + sopInstanceUId);
-		Study study = studyRepository.findOne(studyUID);
+//		Study study = studyRepository.findOne(studyUID);
+		Study study = studyDao.findUnique("selectByPrimaryKey", studyUID);
 		Series series = null;
 		Instance instance = null;
 		if(study == null)//如果study不存在
 		{
 			//创建study
 			study = pacsFactory.createStudyFrom(dicom, fileInfo, studyUID);
-			studyInfo.getStudies().add(study);
-			studyInfoRepository.save(studyInfo);
-//			studyRepository.save(study);
+			
+			//存储Study
+			studyDao.save(study);
+
+			//存储Ris和pacs关联关系表
+			RisPacsRel rel = new RisPacsRel(studyInfo.getId(), studyUID);
+			risPacsRelDao.save(rel);
+			
+
 			
 			//创建series
 			series = pacsFactory.createSeriesFrom(dicom, fileInfo, seriesUID, studyUID);
-			seriesRepository.save(series);
+			seriesDao.save(series);
 			
 			//创建instance
 			instance = pacsFactory.createInstanceFrom(dicom, fileInfo, instanceUID, seriesUID);
-			instanceRepository.save(instance);
+			instanceDao.save(instance);
 		}
 		else
 		{
-			series = seriesRepository.findOne(seriesUID);
+			series = seriesDao.findUnique("selectByPrimaryKey", seriesUID);
 			if(series == null)//序列不存在
 			{
 				//创建序列
 				series = pacsFactory.createSeriesFrom(dicom, fileInfo, seriesUID, studyUID);
-				seriesRepository.save(series);
+				seriesDao.save(series);
 				
 				//创建instance
 				instance = pacsFactory.createInstanceFrom(dicom, fileInfo, instanceUID, seriesUID);
-				instanceRepository.save(instance);
+				instanceDao.save(instance);
 			}
 			else
 			{
-				instance = instanceRepository.findOne(instanceUID);
+				instance = instanceDao.findUnique("selectByPrimaryKey", seriesUID);
 				if(instance == null)
 				{
 					//仅创建instance
 					instance = pacsFactory.createInstanceFrom(dicom, fileInfo, instanceUID, seriesUID);
-					instanceRepository.save(instance);
+					instanceDao.save(instance);
 				}
 				else
 				{
-					log.error("File:{} exist, ignore it", fileInfo.getId());
+					log.error("File:{} exist, ignore it", fileInfo.getFileId());
 					throw new DicomFileDuplicatedException();
 				}
 			}

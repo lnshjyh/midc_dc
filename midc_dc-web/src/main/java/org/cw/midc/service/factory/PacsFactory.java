@@ -3,10 +3,10 @@ package org.cw.midc.service.factory;
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
 
-import org.cw.midc.model.FileInfo;
-import org.cw.midc.model.pacs.Instance;
-import org.cw.midc.model.pacs.Series;
-import org.cw.midc.model.pacs.Study;
+import org.cw.midc.entity.FileInfo;
+import org.cw.midc.entity.Instance;
+import org.cw.midc.entity.Series;
+import org.cw.midc.entity.Study;
 import org.cw.midc.util.DateUtils;
 import org.dcm4che2.data.DicomObject;
 import org.dcm4che2.data.Tag;
@@ -70,17 +70,17 @@ public class PacsFactory {
 		
 		//生成实体
 		Study study = new Study();
-		study.setStudyUniqueId(key);
-		study.setStudyInstanceUId(studyInstanceUID);
-		study.setPatientId(patientId);
-		study.setPatientName(patientName);
-		study.setPatientSex(patientSex);
-		study.setPatientAge(patientAge);
-		study.setPatientBirthday(patientBirthdate);
-		study.setPatientSize((patientSize == null || "".equals(patientSize)) ? 0 : Float.parseFloat(patientSize));
-		study.setPatientWeight((patientWeight == null || "".equals(patientWeight)) ? 0 : Float.parseFloat(patientWeight));
+		study.setStudyUid(key);
+		study.setStudyIuid(studyInstanceUID);
+		study.setPatId(patientId);
+		study.setPatName(patientName);
+		study.setPatSex(patientSex);
+		study.setPatAge(patientAge);
+		study.setPatBirth(patientBirthdate);
+		study.setPatSize((patientSize == null || "".equals(patientSize)) ? 0 : Float.parseFloat(patientSize));
+		study.setPatWeight((patientWeight == null || "".equals(patientWeight)) ? 0 : Float.parseFloat(patientWeight));
 		study.setAccessNo(accessNumber);
-		study.setStudyDescription(studyDescription);
+		study.setStudyDesc(studyDescription);
 		study.setModality(modality);
 		study.setStudyId(studyId);
 		study.setUserId(fileInfo.getUserId());
@@ -103,11 +103,11 @@ public class PacsFactory {
 		String seriesNumber = dicom.getString(Tag.SeriesNumber);
 		
 		Series series = new Series();
-		series.setSeriesUniqueId(key);
-		series.setSeriesInstanceUId(seriesInstanceUID);
+		series.setSeriesUid(key);
+		series.setSeriesIuid(seriesInstanceUID);
 		series.setSeriesNo(seriesNumber);
-		series.setSeriesDescription(seriesDescription);
-		series.setStudyUniqueId(studyUniqueID);		
+		series.setSeriesDesc(seriesDescription);
+		series.setStudyUid(studyUniqueID);	
 		return series;
 	}
 	
@@ -126,12 +126,12 @@ public class PacsFactory {
 		Date acquisitionDateTime = dicom.getDate(Tag.AcquisitionDateTime);
 		
 		Instance instance = new Instance();
-		instance.setInstanceUId(key);
-		instance.setSeriesUniqueId(seriesUniqueID);
-		instance.setSopInstanceUId(sopInstanceUID);
-		instance.setInstanceNumber(instanceNumber);
-		instance.setFileId(fileInfo.getId());
-		instance.setAcquisitionDateTime(acquisitionDateTime);
+		instance.setInstanceUid(key);
+		instance.setSeriesUid(seriesUniqueID);
+		instance.setSopIuid(sopInstanceUID);
+		instance.setInstNo(instanceNumber);
+		instance.setFileId(fileInfo.getFileId());
+		instance.setAcqDateTime(acquisitionDateTime);
 		return instance;
 	}
 

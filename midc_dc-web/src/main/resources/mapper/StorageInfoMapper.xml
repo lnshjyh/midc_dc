@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.cw.midc.entity.StorageInfo" >
+  <resultMap id="BaseResultMap" type="org.cw.midc.entity.StorageInfo" >
+    <id column="storage_id" property="storageId" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="path" property="path" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select * 
+    from storage_info
+    where storage_id = #{storageId,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="selectByStatus" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select * 
+    from storage_info
+    where status = #{status,jdbcType=VARCHAR}
+  </select>
+
+  <insert id="insert" parameterType="org.cw.midc.entity.StorageInfo" >
+    insert into storage_info (storage_id, create_time, name, 
+      path, status, update_time
+      )
+    values (#{storageId,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{name,jdbcType=VARCHAR}, 
+      #{path,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+
+</mapper>

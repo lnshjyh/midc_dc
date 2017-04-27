@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.cw.midc.entity.Instance" >
+  <resultMap id="BaseResultMap" type="org.cw.midc.entity.Instance" >
+    <id column="instance_uid" property="instanceUid" jdbcType="VARCHAR" />
+    <result column="acq_date_time" property="acqDateTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="file_id" property="fileId" jdbcType="VARCHAR" />
+    <result column="inst_no" property="instNo" jdbcType="VARCHAR" />
+    <result column="series_uid" property="seriesUid" jdbcType="VARCHAR" />
+    <result column="sop_iuid" property="sopIuid" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select * 
+    from instance
+    where instance_uid = #{instanceUid,jdbcType=VARCHAR}
+  </select>
+  
+  <insert id="insert" parameterType="org.cw.midc.entity.Instance" >
+    insert into instance (instance_uid, acq_date_time, create_time, 
+      file_id, inst_no, series_uid, 
+      sop_iuid)
+    values (#{instanceUid,jdbcType=VARCHAR}, #{acqDateTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{fileId,jdbcType=VARCHAR}, #{instNo,jdbcType=VARCHAR}, #{seriesUid,jdbcType=VARCHAR}, 
+      #{sopIuid,jdbcType=VARCHAR})
+  </insert>
+
+</mapper>
