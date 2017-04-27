@@ -17,6 +17,12 @@
     where instance_uid = #{instanceUid,jdbcType=VARCHAR}
   </select>
   
+  <select id="selectBySeriesUId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select * 
+    from instance
+    where series_uid = #{seriesUid,jdbcType=VARCHAR}
+  </select>
+  
   <insert id="insert" parameterType="org.cw.midc.entity.Instance" >
     insert into instance (instance_uid, acq_date_time, create_time, 
       file_id, inst_no, series_uid, 

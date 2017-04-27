@@ -21,16 +21,17 @@
     <result column="study_time" property="studyTime" jdbcType="TIMESTAMP" />
     <result column="user_id" property="userId" jdbcType="VARCHAR" />
   </resultMap>
-  <sql id="Base_Column_List" >
-    study_uid, access_no, create_time, inst_cnt, modality, pat_age, pat_birth, pat_id, 
-    pat_name, pat_sex, pat_size, pat_weight, status, study_desc, study_id, study_iuid, 
-    study_time, user_id
-  </sql>
+  
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select 
-    <include refid="Base_Column_List" />
+    select * 
     from study
     where study_uid = #{studyUid,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="selectByStudyInfoId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    SELECT s.study_uid, s.modality
+    FROM ris_pacs_rel rpr LEFT JOIN study s ON rpr.study_uid = s.study_uid
+    WHERE rpr.study_info_id = #{studyInfoId,jdbcType=VARCHAR}
   </select>
 
   <insert id="insert" parameterType="org.cw.midc.entity.Study" >
