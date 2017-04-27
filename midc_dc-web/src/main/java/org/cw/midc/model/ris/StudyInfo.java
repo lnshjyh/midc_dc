@@ -15,7 +15,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.cw.midc.model.pacs.Study;
 
 @Entity
 @Table(name="study_info")
@@ -99,8 +98,6 @@ public class StudyInfo {
 	@JoinColumn(name="studyinfo_id")
 	private Set<StudyCheckItemPosition> studyCheckItemPositions;
 	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	private Set<Study> studies = new HashSet<Study>();
 	
 	
 	
@@ -339,13 +336,6 @@ public class StudyInfo {
 		this.orginalStudyInfoId = orginalStudyInfoId;
 	}
 
-	public Set<Study> getStudies() {
-		return studies;
-	}
-
-	public void setStudies(Set<Study> studies) {
-		this.studies = studies;
-	}
 
 	public String getPositionCheckItem() {
 		return positionCheckItem;

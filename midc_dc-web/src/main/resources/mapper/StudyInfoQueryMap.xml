@@ -95,6 +95,35 @@
         select * from study_info where studyinfo_id = #{studyinfoId,jdbcType=VARCHAR}
     </select>
     
+    <select id="getListByHospitalIdAndReportStatusAndTransportStatus" parameterType="java.util.Map" resultMap="StudyInfo">
+        select * from study_info a
+         <where>
+        	1=1
+            <if test="@Ognl@isNotEmpty(hospitalId)">
+                and a.hosp_id = #{hospitalId}
+            </if>
+            <if test="@Ognl@isNotEmpty(reportStatus)">
+                and a.rpt_status = #{reportStatus}
+            </if>
+            <if test="@Ognl@isNotEmpty(transportStatus)">
+                and a.trans_status = #{transportStatus}
+            </if>
+        </where>
+    </select>
+    
+    <select id="getByOrginalStudyInfoIdAndHospitalId" parameterType="java.util.Map" resultMap="StudyInfo">
+        select * from study_info a
+         <where>
+        	1=1
+            <if test="@Ognl@isNotEmpty(orginalStudyInfoId)">
+                and a.org_studyinfo_id = #{orginalStudyInfoId}
+            </if>
+            <if test="@Ognl@isNotEmpty(hospitalId)">
+                and a.hosp_id = #{hospitalId}
+            </if>
+        </where>
+    </select>
+    
     <select id="getById" parameterType="java.lang.String" resultMap="StudyInfo">
         select * from study_info where studyinfo_id = #{studyinfoId,jdbcType=VARCHAR}
     </select>

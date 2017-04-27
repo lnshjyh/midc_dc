@@ -1,8 +1,11 @@
 package org.cw.midc.entity;
 
 import java.util.Date;
+import java.util.Set;
 
 import org.cw.midc.BaseEntity;
+import org.cw.midc.entity.ris.Patient;
+import org.cw.midc.entity.ris.StudyCheckItemPosition;
 
 public class StudyInfoEntity extends BaseEntity {
 	private String id;
@@ -34,6 +37,41 @@ public class StudyInfoEntity extends BaseEntity {
 	private Date createTime;
 	
 	private Date updateTime;
+	
+	
+	private String orginalStudyInfoId;
+
+	
+	
+	private String deviceType;
+	
+	private String positionCheckItem;
+	
+	private String clinicalManifest;
+	
+	private String studyDemand;
+	
+	//报告状态: 0：未写，1：初诊，2：审核完毕',
+	private String reportStatus;
+	
+	//传输状态：1：基层到中心 2：中心到基层',
+	private String transportStatus;
+	
+	
+	private String applyDoctorName;
+	
+	private String applyDepartmentName;
+	
+	private Date applyTime;
+
+	private String hospitalId;
+	
+//	private Report report;
+	
+	private Patient patient;
+	
+	private Set<StudyCheckItemPosition> studyCheckItemPositions;
+	
 	
 	public StudyInfoEntity()
 	{
@@ -147,5 +185,138 @@ public class StudyInfoEntity extends BaseEntity {
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
+
+
+	public String getOrginalStudyInfoId() {
+		return orginalStudyInfoId;
+	}
+
+
+	public void setOrginalStudyInfoId(String orginalStudyInfoId) {
+		this.orginalStudyInfoId = orginalStudyInfoId;
+	}
+
+
+	public String getDeviceType() {
+		return deviceType;
+	}
+
+
+	public void setDeviceType(String deviceType) {
+		this.deviceType = deviceType;
+	}
+
+
+	public String getPositionCheckItem() {
+		return positionCheckItem;
+	}
+
+
+	public void setPositionCheckItem(String positionCheckItem) {
+		this.positionCheckItem = positionCheckItem;
+	}
+
+
+	public String getClinicalManifest() {
+		return clinicalManifest;
+	}
+
+
+	public void setClinicalManifest(String clinicalManifest) {
+		this.clinicalManifest = clinicalManifest;
+	}
+
+
+	public String getStudyDemand() {
+		return studyDemand;
+	}
+
+
+	public void setStudyDemand(String studyDemand) {
+		this.studyDemand = studyDemand;
+	}
+
+
+	public String getReportStatus() {
+		return reportStatus;
+	}
+
+
+	public void setReportStatus(String reportStatus) {
+		this.reportStatus = reportStatus;
+	}
+
+
+	public String getTransportStatus() {
+		return transportStatus;
+	}
+
+
+	public void setTransportStatus(String transportStatus) {
+		this.transportStatus = transportStatus;
+	}
+
+
+	public String getApplyDoctorName() {
+		return applyDoctorName;
+	}
+
+
+	public void setApplyDoctorName(String applyDoctorName) {
+		this.applyDoctorName = applyDoctorName;
+	}
+
+
+	public String getApplyDepartmentName() {
+		return applyDepartmentName;
+	}
+
+
+	public void setApplyDepartmentName(String applyDepartmentName) {
+		this.applyDepartmentName = applyDepartmentName;
+	}
+
+
+	public Date getApplyTime() {
+		return applyTime;
+	}
+
+
+	public void setApplyTime(Date applyTime) {
+		this.applyTime = applyTime;
+	}
+
+
+	public String getHospitalId() {
+		return hospitalId;
+	}
+
+
+	public void setHospitalId(String hospitalId) {
+		this.hospitalId = hospitalId;
+	}
+
+
+	public Patient getPatient() {
+		return patient;
+	}
+
+
+	public void setPatient(Patient patient) {
+		this.patient = patient;
+	}
+
+
+	public Set<StudyCheckItemPosition> getStudyCheckItemPositions() {
+		return studyCheckItemPositions;
+	}
+
+
+	public void setStudyCheckItemPositions(
+			Set<StudyCheckItemPosition> studyCheckItemPositions) {
+		this.studyCheckItemPositions = studyCheckItemPositions;
+	}
+	
+	
 
 }

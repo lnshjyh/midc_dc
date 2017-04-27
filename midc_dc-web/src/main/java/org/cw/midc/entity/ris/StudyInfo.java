@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.cw.midc.BaseEntity;
-import org.cw.midc.model.pacs.Study;
 
 public class StudyInfo  extends BaseEntity {
 
@@ -53,9 +52,9 @@ public class StudyInfo  extends BaseEntity {
 	
 //	private Report report;
 	
-//	private Patient patient;
+	private Patient patient;
 	
-//	private Set<StudyCheckItemPosition> studyCheckItemPositions;
+	private Set<StudyCheckItemPosition> studyCheckItemPositions;
 	
 //	private Set<Study> studies = new HashSet<Study>();
 	
@@ -214,7 +213,7 @@ public class StudyInfo  extends BaseEntity {
 		this.updateTime = updateTime;
 	}
 
-/*	public Patient getPatient() {
+	public Patient getPatient() {
 		return patient;
 	}
 
@@ -229,7 +228,6 @@ public class StudyInfo  extends BaseEntity {
 	public void setStudyCheckItemPositions(Set<StudyCheckItemPosition> studyCheckItemPositions) {
 		this.studyCheckItemPositions = studyCheckItemPositions;
 	}
-*/
 	public String getClinicalManifest() {
 		return clinicalManifest;
 	}
