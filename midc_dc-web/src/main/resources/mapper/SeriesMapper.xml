@@ -17,6 +17,12 @@
     from series
     where series_uid = #{seriesUid,jdbcType=VARCHAR}
   </select>
+  
+  <select id="selectByStudyUId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select * 
+    from series
+    where study_uid = #{studyUid,jdbcType=VARCHAR}
+  </select>
 
   <insert id="insert" parameterType="org.cw.midc.entity.Series" >
     insert into series (series_uid, body_part, create_time, 

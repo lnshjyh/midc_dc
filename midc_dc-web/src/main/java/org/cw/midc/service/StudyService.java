@@ -2,19 +2,16 @@ package org.cw.midc.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
+import org.cw.midc.dao.InstanceDao;
+import org.cw.midc.dao.SeriesDao;
+import org.cw.midc.dao.StudyDao;
 import org.cw.midc.dto.InstanceQueryDto;
 import org.cw.midc.dto.SeriesQueryDto;
 import org.cw.midc.dto.StudyQueryDto;
-import org.cw.midc.model.pacs.Instance;
-import org.cw.midc.model.pacs.Series;
-import org.cw.midc.model.pacs.Study;
-import org.cw.midc.model.ris.StudyInfo;
-import org.cw.midc.repository.pacs.InstanceRepository;
-import org.cw.midc.repository.pacs.SeriesRepository;
-import org.cw.midc.repository.pacs.StudyRepository;
-import org.cw.midc.repository.ris.StudyInfoRepository;
+import org.cw.midc.entity.Instance;
+import org.cw.midc.entity.Series;
+import org.cw.midc.entity.Study;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,25 +19,17 @@ import org.springframework.stereotype.Service;
 public class StudyService {
 	
 	@Autowired
-	private StudyInfoRepository studyInfoRepository;
+	private StudyDao studyDao;
 	
 	@Autowired
-	private StudyRepository studyRepository;
+	private SeriesDao seriesDao;
 	
 	@Autowired
-	private SeriesRepository seriesRepository;
-	
-	@Autowired
-	private InstanceRepository instanceRepository;
+	private InstanceDao instanceDao;
 	
 	public List<StudyQueryDto> getStudyStruct(String studyInfoId)
 	{
-		StudyInfo studyInfo = studyInfoRepository.findOne(studyInfoId);
-		if(studyInfo == null)
-		{
-			return null;
-		}
-		Set<Study> studys = studyInfo.getStudies();
+		List<Study> studys = studyDao.find("selectByStudyInfoId", studyInfoId);
 		if(studys == null || studys.isEmpty())
 		{
 			return null;
@@ -48,15 +37,15 @@ public class StudyService {
 		List<StudyQueryDto> studyQueryDtos = new ArrayList<>();
 		studys.forEach(study -> {
 			StudyQueryDto studyQueryDto = new StudyQueryDto(); 
-			studyQueryDto.setStudyUniqueId(study.getStudyUniqueId());			
-			List<Series> series = seriesRepository.findByStudyUniqueId(study.getStudyUniqueId());
+			studyQueryDto.setStudyUniqueId(study.getStudyUid());			
+			List<Series> series = seriesDao.find("selectByStudyUId", study.getStudyUid());
 			series.forEach(seriesSingle -> {
 				SeriesQueryDto seriesQueryDto = new SeriesQueryDto();
-				seriesQueryDto.setSeriesUniqueId(seriesSingle.getSeriesUniqueId());				
-				List<Instance> instances = instanceRepository.findBySeriesUniqueId(seriesSingle.getSeriesUniqueId());
+				seriesQueryDto.setSeriesUniqueId(seriesSingle.getSeriesUid());				
+				List<Instance> instances = instanceDao.find("selectBySeriesUId", seriesSingle.getSeriesUid());
 				instances.forEach(instance -> {
 					InstanceQueryDto instanceQueryDto = new InstanceQueryDto();
-					instanceQueryDto.setInstanceUniqueId(instance.getInstanceUId());
+					instanceQueryDto.setInstanceUniqueId(instance.getInstanceUid());
 					instanceQueryDto.setFileId(instance.getFileId());
 					seriesQueryDto.getInstanceQueryDtos().add(instanceQueryDto);
 				});
