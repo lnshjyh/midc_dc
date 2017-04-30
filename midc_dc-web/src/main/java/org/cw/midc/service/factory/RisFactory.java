@@ -45,6 +45,7 @@ public class RisFactory {
 		studyInfo.setApplyDepName(risInfoDto.getApplyDepartmentName());
 		studyInfo.setTransStatus("1");
 		Patient patient = createPatientFromDTO(risInfoDto);
+		studyInfo.setPatId(patient.getPatId());
 		studyInfo.setPatient(patient);
 		
 		
@@ -56,6 +57,7 @@ public class RisFactory {
 			risInfoDto.getPositionChecks().forEach(positionCheckDto -> {
 				positonCheckItemStr.append("");
 				StudyCheckPos studyCheckItemPosition = new StudyCheckPos();
+				studyCheckItemPosition.setStudyinfoId(key);
 				if(!StringUtils.isEmpty(positionCheckDto.getPosition()))
 				{
 					PositionType position = positionTypeRepository.findOne(Integer.parseInt(positionCheckDto.getPosition()));
