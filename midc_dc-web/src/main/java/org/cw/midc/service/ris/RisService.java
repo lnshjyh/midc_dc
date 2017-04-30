@@ -79,7 +79,6 @@ public class RisService {
 				paramMap);
 
 		List<String> result = new ArrayList<String>();
-		;
 
 		// 返回的是原始的studyInfoId，来自于基层机构
 		studyInfos.forEach(studyinfo -> {

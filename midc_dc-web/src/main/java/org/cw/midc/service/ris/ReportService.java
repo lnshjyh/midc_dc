@@ -105,9 +105,10 @@ public class ReportService {
 		String userId = user.getUserId();
 		String reportId = studyInfo.getRptId();
 		
+		
+		
 		//生成一个新的报告
-		Report resultNew = new Report();
-		resultNew.setStudyinfoId(reportModifyDto.getStudyInfoId());
+		Report resultNew = reportDao.findUnique("selectByPrimaryKey", reportId);
 		resultNew.setAdvice(reportModifyDto.getAdvice());
 		resultNew.setDescription(reportModifyDto.getDescription());
 		resultNew.setDiagnosis(reportModifyDto.getDiagnosis());
@@ -179,7 +180,7 @@ public class ReportService {
 		return result;		
 	}
 	
-	public ReportQueryDto getReportByHospital(String studyInfoId, String clientId)
+	public ReportQueryDto getReportByHospital(String orignalStudyInfoId, String clientId)
 	{
 		List<Hospital> hospitalList = hospitalRepository.findByClientId(clientId);
 		if(hospitalList == null || hospitalList.size() == 0)
@@ -189,21 +190,39 @@ public class ReportService {
 		String hospitalId = hospitalList.get(0).getHospId();
 		Map<String, Object> param = new HashMap<>();
 		param.put("hospitalId", hospitalId);
-		param.put("orginalStudyInfoId", studyInfoId);
+		param.put("orginalStudyInfoId", orignalStudyInfoId);
 		StudyInfo studyInfo = studyInfoDao.findUnique("getByOrginalStudyInfoIdAndHospitalId", param);
 		if(studyInfo == null)
 		{
+			log.error("No studyInfo found for originalStudyInfoId : {}, clientId : {}", orignalStudyInfoId, clientId);
 			return null;
 		}
 		
-		//更新传输状态
-		studyInfo.setTransStatus(Constants.STUDYINFO_TRANS_STATUS_C2B);
-		studyInfo.setUpdateTime(new Date());
-//		studyInfoRepository.save(studyInfo);
-		studyInfoDao.update("update", studyInfo);
+		if(studyInfo.getRptId() == null)
+		{
+			log.info("No report found for originalStudyInfoId : {}, clientId : {}", orignalStudyInfoId, clientId);
+			return null;
+		}
 		
-//		ReportQueryDto result = DozerBeanMapperFactory.getMapper().map(studyInfo.getReport(), ReportQueryDto.class);
-		ReportQueryDto result = null;
+		//查询报告		
+		Report report = reportDao.findUnique("selectByPrimaryKey", studyInfo.getRptId());
+		
+		//更新传输状态
+		param.clear();
+		param.put("transStatus", Constants.STUDYINFO_TRANS_STATUS_C2B);
+		param.put("studyinfoId", studyInfo.getStudyinfoId());
+		studyInfoDao.update("updateTransStatus", param);
+		
+		//对外转换
+		ReportQueryDto result = new ReportQueryDto();
+		result.setId(report.getRptId());
+		result.setAdvice(report.getAdvice());
+		result.setDescription(report.getDescription());
+		result.setDiagnosis(report.getDiagnosis());
+		result.setJuniorDoctorId(report.getjDocId());
+		result.setSeniorDoctorId(report.getsDocId());
+		result.setDirectoDoctorId(report.getdDocId());
+		result.setUpdateTime(report.getUpdateTime());
 		return result;		
 	}
 	

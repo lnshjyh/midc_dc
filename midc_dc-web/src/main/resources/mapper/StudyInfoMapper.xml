@@ -71,6 +71,12 @@
       where studyinfo_id = #{studyinfoId,jdbcType=VARCHAR}
   </update>
   
+  <update id="updateTransStatus" parameterType="Map" >
+      update study_info 
+      set trans_status =  #{transStatus,jdbcType=VARCHAR}           
+      where studyinfo_id = #{studyinfoId,jdbcType=VARCHAR}
+  </update>
+  
   <select id="getList" resultType="Map" parameterType="java.util.Map">
         select a.studyinfo_id as studyinfoId,a.age as age ,a.age_unit as ageUnit, a.device_type as deviceType ,
         a.pre_diagnose as  preDiagnose,
