@@ -9,7 +9,6 @@ import org.cw.midc.dto.ReportQueryDto;
 import org.cw.midc.entity.User;
 import org.cw.midc.model.Hospital;
 import org.cw.midc.entity.Report;
-import org.cw.midc.model.ris.StudyInfo;
 import org.cw.midc.repository.HospitalRepository;
 import org.cw.midc.repository.ris.ReportRepository;
 import org.cw.midc.repository.ris.StudyInfoRepository;

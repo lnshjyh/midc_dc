@@ -4,8 +4,6 @@ import java.util.Date;
 import java.util.Set;
 
 import org.cw.midc.BaseEntity;
-import org.cw.midc.entity.ris.Patient;
-import org.cw.midc.entity.ris.StudyCheckItemPosition;
 
 public class StudyInfoEntity extends BaseEntity {
 	private String id;
@@ -66,12 +64,7 @@ public class StudyInfoEntity extends BaseEntity {
 
 	private String hospitalId;
 	
-//	private Report report;
-	
-	private Patient patient;
-	
-	private Set<StudyCheckItemPosition> studyCheckItemPositions;
-	
+
 	
 	public StudyInfoEntity()
 	{
@@ -295,28 +288,5 @@ public class StudyInfoEntity extends BaseEntity {
 	public void setHospitalId(String hospitalId) {
 		this.hospitalId = hospitalId;
 	}
-
-
-	public Patient getPatient() {
-		return patient;
-	}
-
-
-	public void setPatient(Patient patient) {
-		this.patient = patient;
-	}
-
-
-	public Set<StudyCheckItemPosition> getStudyCheckItemPositions() {
-		return studyCheckItemPositions;
-	}
-
-
-	public void setStudyCheckItemPositions(
-			Set<StudyCheckItemPosition> studyCheckItemPositions) {
-		this.studyCheckItemPositions = studyCheckItemPositions;
-	}
-	
-	
 
 }

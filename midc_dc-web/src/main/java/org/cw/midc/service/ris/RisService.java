@@ -11,8 +11,8 @@ import org.cw.midc.dao.ris.StudyInfoOperateDao;
 import org.cw.midc.dto.RisInfoDto;
 import org.cw.midc.model.Hospital;
 import org.cw.midc.model.oauth.OauthAccessToken;
+import org.cw.midc.entity.StudyInfo;
 import org.cw.midc.entity.StudyInfoEntity;
-import org.cw.midc.entity.ris.StudyInfo;
 import org.cw.midc.repository.HospitalRepository;
 import org.cw.midc.service.factory.RisFactory;
 import org.cw.midc.util.Constants;
@@ -59,7 +59,7 @@ public class RisService {
         paramMap.put("hospitalId", hospitalId);
         paramMap.put("reportStatus", Constants.REPORT_STATUS_APPROVED);
         paramMap.put("transportStatus", Constants.STUDYINFO_TRANS_STATUS_B2C);
-		List<StudyInfoEntity> studyInfos = studyInfoDao.find("getListByHospitalIdAndReportStatusAndTransportStatus",paramMap);
+		List<StudyInfo> studyInfos = studyInfoDao.find("getListByHospitalIdAndReportStatusAndTransportStatus",paramMap);
 		
 		List<String> result = new ArrayList<String>();;
 		

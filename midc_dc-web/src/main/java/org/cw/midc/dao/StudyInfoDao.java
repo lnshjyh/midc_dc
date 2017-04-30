@@ -1,11 +1,10 @@
 package org.cw.midc.dao;
 
 
+import org.cw.midc.entity.StudyInfo;
 import org.springframework.stereotype.Repository;
-import org.cw.midc.dao.BaseDao;
-import org.cw.midc.entity.StudyInfoEntity;
 
 @Repository
-public class StudyInfoDao extends BaseDao<StudyInfoEntity> {
+public class StudyInfoDao extends BaseDao<StudyInfo> {
 
 }

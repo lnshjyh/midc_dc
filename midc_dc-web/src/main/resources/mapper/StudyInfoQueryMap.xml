@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.cw.midc.entity.StudyInfoEntity">
+<mapper namespace="org.cw.midc.entity.StudyInfo">
 
  	<resultMap id="StudyInfo" type="org.cw.midc.entity.ris.StudyInfo" >	    
 		<id column="studyinfo_id" property="studyinfoId" jdbcType="VARCHAR" />
