@@ -29,6 +29,13 @@ public class Report extends BaseEntity{
 
 
     private String deviceType;
+    
+    public Report()
+    {
+    	this.status = "0";
+    	this.createTime = new Date();
+    	this.updateTime = this.createTime;
+    }
 
     public String getRptId() {
         return rptId;

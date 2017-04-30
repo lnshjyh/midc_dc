@@ -1,6 +1,7 @@
 package org.cw.midc.controller.out;
 
 import org.cw.midc.Response;
+import org.cw.midc.dto.ReportCreateDto;
 import org.cw.midc.dto.ReportModifyDto;
 import org.cw.midc.dto.ReportQueryDto;
 import org.cw.midc.entity.Report;
@@ -26,11 +27,11 @@ public class ReportForClientController {
 	
 	@ResponseBody
 	@PostMapping("report")
-	public Response createReport(@RequestBody Report report)
+	public Response createReport(@RequestBody ReportCreateDto reportCreateDto)
 	{
-		Preconditions.checkNotNull(report, "不能为空");
+		Preconditions.checkNotNull(reportCreateDto, "不能为空");
 		Response response = new Response();
-		reportService.createReport(report);
+		reportService.createReport(reportCreateDto);
 		response.setMsg("Create report successfully!");
 		return response;
 	}

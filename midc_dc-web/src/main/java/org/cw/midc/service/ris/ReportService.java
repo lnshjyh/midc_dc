@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.cw.midc.dao.ReportDao;
 import org.cw.midc.dao.StudyInfoDao;
+import org.cw.midc.dto.ReportCreateDto;
 import org.cw.midc.dto.ReportModifyDto;
 import org.cw.midc.dto.ReportQueryDto;
 import org.cw.midc.entity.User;
@@ -40,10 +41,15 @@ public class ReportService {
 	@Autowired
 	private StudyInfoDao studyInfoDao;
 	
-	public void createReport(Report report)
+	public void createReport(ReportCreateDto reportCreateDto)
 	{
 		User user = (User) UserContextUtil.getAttribute("currentUser");
 		
+		Report report = new Report();
+		report.setStudyinfoId(reportCreateDto.getStudyInfoId());
+		report.setAdvice(reportCreateDto.getAdvice());
+		report.setDescription(reportCreateDto.getDescription());
+		report.setDiagnosis(reportCreateDto.getDiagnosis());
 //		StudyInfo studyInfo = studyInfoRepository.findOne(report.getStudyInfoId());
 		StudyInfo studyInfo = studyInfoDao.findUnique("getById", report.getStudyinfoId());
 		
@@ -54,24 +60,30 @@ public class ReportService {
 		}
 		
 		String userId = user.getUserId();
+		String rptStatus = "0";
 		
 		if("ROLE_SENIOR_DOC".equals(getHighestRole()))
 		{
 			report.setjDocId(userId);
 			report.setsDocId(userId);
-			studyInfo.setRptStatus(Constants.REPORT_STATUS_APPROVED);
+			rptStatus = Constants.REPORT_STATUS_APPROVED;
 		}
 		else if("ROLE_JUNIOR_DOC".equals(getHighestRole()))
 		{
 			report.setjDocId(userId);
-			studyInfo.setRptStatus(Constants.REPORT_STATUS_PRE_DIAGNOSE);
+			rptStatus = Constants.REPORT_STATUS_PRE_DIAGNOSE;
 		}
 		else
 		{
 			return;
 		}
 		report.setRptId((CommonUtils.generateId()));
-        //[未写] 更新 studyInfo表的报告状态
+        
+		//更新 studyInfo表的报告状态
+		Map<String, Object> param = new HashMap<>();
+		param.put("rptStatus", rptStatus);
+		param.put("studyinfoId", report.getStudyinfoId());
+		studyInfoDao.update("updateRptStatus", param);
 		
 		//插入报告表
 		reportDao.save(report);
