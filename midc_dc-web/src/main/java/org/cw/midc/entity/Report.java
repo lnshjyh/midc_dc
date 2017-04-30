@@ -19,6 +19,7 @@ public class Report extends BaseEntity{
 
     private String sDocId;
 
+    //0 失效，1 生效
     private String status;
 
     private String studyinfoId;
@@ -32,7 +33,7 @@ public class Report extends BaseEntity{
     
     public Report()
     {
-    	this.status = "0";
+    	this.status = "1";
     	this.createTime = new Date();
     	this.updateTime = this.createTime;
     }

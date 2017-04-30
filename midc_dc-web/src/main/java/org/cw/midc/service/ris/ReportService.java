@@ -83,7 +83,8 @@ public class ReportService {
 		Map<String, Object> param = new HashMap<>();
 		param.put("rptStatus", rptStatus);
 		param.put("studyinfoId", report.getStudyinfoId());
-		studyInfoDao.update("updateRptStatus", param);
+		param.put("rptId", report.getRptId());
+		studyInfoDao.update("updateRptIdAndStatus", param);
 		
 		//插入报告表
 		reportDao.save(report);
@@ -96,33 +97,53 @@ public class ReportService {
 		StudyInfo studyInfo = studyInfoDao.findUnique("getById", reportModifyDto.getStudyInfoId());
 		if(studyInfo == null)
 		{
+			log.error("No studyInfo found for {}", reportModifyDto.getStudyInfoId());
 			return;
 		}
 		User user = (User) UserContextUtil.getAttribute("currentUser");
 		
 		String userId = user.getUserId();
-		Report report = reportDao.findUnique("selectByStudyInfoId", reportModifyDto.getStudyInfoId());
-		String reportId = report.getRptId();
-		Report resultNew = DozerBeanMapperFactory.getMapper().map(reportModifyDto, Report.class);
-		resultNew.setRptId(reportId);
+		String reportId = studyInfo.getRptId();
 		
+		//生成一个新的报告
+		Report resultNew = new Report();
+		resultNew.setStudyinfoId(reportModifyDto.getStudyInfoId());
+		resultNew.setAdvice(reportModifyDto.getAdvice());
+		resultNew.setDescription(reportModifyDto.getDescription());
+		resultNew.setDiagnosis(reportModifyDto.getDiagnosis());
+		resultNew.setRptId((CommonUtils.generateId()));
+		
+		//更新StudyInfo表状态
+		String rptStatus = "0";		
 		if("ROLE_SENIOR_DOC".equals(getHighestRole()))
 		{
 			resultNew.setsDocId(userId);
-			studyInfo.setRptStatus(Constants.REPORT_STATUS_APPROVED);
+			rptStatus = Constants.REPORT_STATUS_APPROVED;
 		}
 		else if("ROLE_JUNIOR_DOC".equals(getHighestRole()))
 		{
 			resultNew.setjDocId(userId);
-			studyInfo.setRptStatus(Constants.REPORT_STATUS_PRE_DIAGNOSE);
+			rptStatus = Constants.REPORT_STATUS_PRE_DIAGNOSE;
 		}
 		else
 		{
 			return;
 		}
 		
-		//更新报告表
-//		studyInfoRepository.save(studyInfo);
+		Map<String, Object> param = new HashMap<>();
+		param.put("rptStatus", rptStatus);
+		param.put("studyinfoId", reportModifyDto.getStudyInfoId());
+		param.put("rptId", resultNew.getRptId());
+		studyInfoDao.update("updateRptIdAndStatus", param);
+		
+		//原始报告置为失效
+		param.clear();
+		param.put("status", "0");
+		param.put("rptId", reportId);
+		reportDao.update("updateStatus", param);
+		
+		//插入新报告
+		reportDao.save(resultNew);
 		
 		
 	}
@@ -130,9 +151,23 @@ public class ReportService {
 	public ReportQueryDto getReportByStudyInfoId(String studyInfoId)
 	{
 //		StudyInfo studyInfo = studyInfoRepository.findOne(studyInfoId);
-		Report rport = reportDao.findUnique("selectByStudyInfoId", studyInfoId);
+		StudyInfo studyInfo = studyInfoDao.findUnique("getById", studyInfoId);
+		if(studyInfo == null)
+		{
+			log.error("No studyInfo found for {}", studyInfoId);
+			return null;
+		}
+		
+		if(studyInfo.getRptId() == null)
+		{
+			log.debug("No report for studyInfoId : {}", studyInfoId);
+			return null;
+		}
+		
+		Report rport = reportDao.findUnique("selectByPrimaryKey", studyInfo.getRptId());
 		ReportQueryDto result = new ReportQueryDto();
 		result.setId(rport.getRptId());
+		result.setStudyInfoId(rport.getStudyinfoId());
 		result.setDescription(rport.getDescription());
 		result.setDiagnosis(rport.getDiagnosis());
 		result.setAdvice(rport.getAdvice());
@@ -152,7 +187,7 @@ public class ReportService {
 			return null;
 		}
 		String hospitalId = hospitalList.get(0).getHospId();
-		Map param = new HashMap<>();
+		Map<String, Object> param = new HashMap<>();
 		param.put("hospitalId", hospitalId);
 		param.put("orginalStudyInfoId", studyInfoId);
 		StudyInfo studyInfo = studyInfoDao.findUnique("getByOrginalStudyInfoIdAndHospitalId", param);

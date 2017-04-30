@@ -64,8 +64,10 @@
       )
   </insert>
   
-  <update id="updateRptStatus" parameterType="Map" >
-      update study_info set rpt_status =  #{rptStatus,jdbcType=VARCHAR}
+  <update id="updateRptIdAndStatus" parameterType="Map" >
+      update study_info 
+      set rpt_status =  #{rptStatus,jdbcType=VARCHAR},
+          rpt_id =  #{rptId,jdbcType=VARCHAR}                          
       where studyinfo_id = #{studyinfoId,jdbcType=VARCHAR}
   </update>
   

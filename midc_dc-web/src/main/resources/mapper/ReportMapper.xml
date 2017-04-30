@@ -19,8 +19,7 @@
     update_time, description
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select 
-    <include refid="Base_Column_List" />
+    select * 
     from report
     where rpt_id = #{rptId,jdbcType=VARCHAR}
   </select>
@@ -46,4 +45,10 @@
     from report
     where studyinfo_id = #{studyinfoId,jdbcType=VARCHAR}
   </select>
+  
+  <update id="updateStatus" parameterType="Map">
+  	update report 
+  	set status = #{status,jdbcType=VARCHAR}
+  	where rpt_id = #{rptId,jdbcType=VARCHAR}
+  </update>
 </mapper>
