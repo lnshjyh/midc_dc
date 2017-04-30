@@ -2,7 +2,6 @@ package org.cw.midc.repository;
 
 import java.util.List;
 
-import org.cw.midc.model.FileInfo;
 import org.cw.midc.model.Hospital;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Modifying;
