@@ -6,17 +6,15 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.cw.midc.dao.HospitalDao;
 import org.cw.midc.dao.PatientDao;
 import org.cw.midc.dao.StudyCheckPosDao;
 import org.cw.midc.dao.StudyInfoDao;
 import org.cw.midc.dto.RisInfoDto;
-import org.cw.midc.model.Hospital;
-import org.cw.midc.model.oauth.OauthAccessToken;
+import org.cw.midc.entity.Hospital;
 import org.cw.midc.entity.Patient;
 import org.cw.midc.entity.StudyCheckPos;
 import org.cw.midc.entity.StudyInfo;
-import org.cw.midc.entity.StudyInfoEntity;
-import org.cw.midc.repository.HospitalRepository;
 import org.cw.midc.service.factory.RisFactory;
 import org.cw.midc.util.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,15 +36,12 @@ public class RisService {
 
 	@Autowired
 	private StudyCheckPosDao studyCheckPosDao;
-
-	// @Resource
-	// private StudyInfoOperateDao studyInfoOperateDao;
-
+	
 	@Autowired
-	private HospitalRepository hospitalRepository;
+	private HospitalDao hospitalDao;
 
 	public void createRisInfo(RisInfoDto risInfoDto, String clientId) {
-		List<Hospital> hospitalList = hospitalRepository.findByClientId(clientId);
+		List<Hospital> hospitalList = hospitalDao.find("getByClientId", clientId);
 		if (hospitalList == null || hospitalList.size() == 0) {
 			return;
 		}
@@ -66,7 +61,7 @@ public class RisService {
 	}
 
 	public List<String> getStudyInfoIdsFinishedAndUnDownloadedReport(String clientId) {
-		List<Hospital> hospitalList = hospitalRepository.findByClientId(clientId);
+		List<Hospital> hospitalList = hospitalDao.find("getByClientId", clientId);
 		if (hospitalList == null || hospitalList.size() == 0) {
 			return null;
 		}
