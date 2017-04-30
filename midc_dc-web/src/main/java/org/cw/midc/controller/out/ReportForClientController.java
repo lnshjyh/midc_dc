@@ -3,7 +3,7 @@ package org.cw.midc.controller.out;
 import org.cw.midc.Response;
 import org.cw.midc.dto.ReportModifyDto;
 import org.cw.midc.dto.ReportQueryDto;
-import org.cw.midc.model.ris.Report;
+import org.cw.midc.entity.Report;
 import org.cw.midc.service.ris.ReportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

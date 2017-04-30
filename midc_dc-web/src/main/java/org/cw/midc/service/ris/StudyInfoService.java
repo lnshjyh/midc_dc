@@ -9,9 +9,8 @@ import javax.annotation.Resource;
 import org.apache.commons.lang3.StringUtils;
 import org.cw.midc.ParamFilter;
 import org.cw.midc.dao.StudyInfoDao;
-import org.cw.midc.dao.ris.StudyInfoOperateDao;
+//import org.cw.midc.dao.ris.StudyInfoOperateDao;
 import org.cw.midc.page.Page;
-import org.cw.midc.service.DevicetypePositionCheckitemService;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -20,8 +19,8 @@ public class StudyInfoService {
 	@Resource
     private StudyInfoDao studyInfoDao;
 	
-	@Resource
-    private StudyInfoOperateDao studyInfoOperateDao;
+//	@Resource
+//    private StudyInfoOperateDao studyInfoOperateDao;
 	
 
     public List getList(HashMap<String,Object> param) {

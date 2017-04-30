@@ -50,7 +50,7 @@
       )
     </insert>
     
-    <update id="update" parameterType="org.cw.midc.entity.ris.StudyInfo">
+    <update id="update" parameterType="org.cw.midc.entity.StudyInfo">
           update study_info
     <set >
       <if test="absHistory != null" >

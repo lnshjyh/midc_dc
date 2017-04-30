@@ -32,6 +32,40 @@ public class Patient extends BaseEntity{
     private String sex;
 
     private Date updateTime;
+    
+	public Patient()
+	{
+		
+	}
+	
+	public Patient(String id, 
+			String patientName, 
+			String patientSpellName, 
+			Date birthday, 
+			String sex, 
+			String patientType,
+			String idNumber, 
+			String phoneNumber, 
+			String nationality, 
+			String address, 
+			String patientCardId, 
+			String operatorId)
+	{
+		this.patId = id;
+		this.patName = patientName;
+		this.patSpellName = patientSpellName;
+		this.birthday = birthday;
+		this.sex = sex;
+		this.patientType = patientType;
+		this.idNumber = idNumber;
+		this.phoneNumber = phoneNumber;
+		this.nationality = nationality;
+		this.address = address;
+		this.patCardId = patientCardId;
+		this.operId = operatorId;
+		this.createTime = new Date();
+		this.updateTime = this.createTime;
+	}
 
     public String getPatId() {
         return patId;

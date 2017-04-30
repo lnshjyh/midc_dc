@@ -8,6 +8,7 @@ import org.cw.midc.dao.InstanceDao;
 import org.cw.midc.dao.RisPacsRelDao;
 import org.cw.midc.dao.SeriesDao;
 import org.cw.midc.dao.StudyDao;
+import org.cw.midc.dao.StudyInfoDao;
 import org.cw.midc.entity.FileInfo;
 import org.cw.midc.entity.Instance;
 import org.cw.midc.entity.RisPacsRel;
@@ -15,8 +16,8 @@ import org.cw.midc.entity.Series;
 import org.cw.midc.entity.Study;
 import org.cw.midc.exception.DicomFileDuplicatedException;
 import org.cw.midc.exception.RisInfoNotFoundException;
-import org.cw.midc.model.ris.StudyInfo;
-import org.cw.midc.repository.ris.StudyInfoRepository;
+import org.cw.midc.entity.StudyInfo;
+//import org.cw.midc.repository.ris.StudyInfoRepository;
 import org.cw.midc.service.factory.PacsFactory;
 import org.cw.midc.util.CommonUtils;
 import org.cw.midc.util.FileService;
@@ -60,8 +61,11 @@ public class LoadDicomFileService {
 	@Autowired
 	private RisPacsRelDao risPacsRelDao;
 	
+//	@Autowired
+//	private StudyInfoRepository studyInfoRepository;
+	
 	@Autowired
-	private StudyInfoRepository studyInfoRepository;
+	private StudyInfoDao studyInfoDao;
 	
 	@Autowired
 	private RequestResponseBus eventBus;
@@ -93,7 +97,8 @@ public class LoadDicomFileService {
 	public void loadDicomFile2DB(FileInfo fileInfo) throws ZipException, IOException, RisInfoNotFoundException, DicomFileDuplicatedException
 	{
 		String newCloudStudyInfoId = fileInfo.getHospitalId() + fileInfo.getStudyInfoId();
-		StudyInfo studyInfo = studyInfoRepository.findOne(newCloudStudyInfoId);
+//		StudyInfo studyInfo = studyInfoRepository.findOne(newCloudStudyInfoId);
+		StudyInfo studyInfo = studyInfoDao.findUnique("getById", newCloudStudyInfoId);
 		if(studyInfo == null)
 		{
 			log.error("Ris Information not found for {}", newCloudStudyInfoId);
@@ -168,7 +173,7 @@ public class LoadDicomFileService {
 			studyDao.save(study);
 
 			//存储Ris和pacs关联关系表
-			RisPacsRel rel = new RisPacsRel(studyInfo.getId(), studyUID);
+			RisPacsRel rel = new RisPacsRel(studyInfo.getStudyinfoId(), studyUID);
 			risPacsRelDao.save(rel);
 			
 

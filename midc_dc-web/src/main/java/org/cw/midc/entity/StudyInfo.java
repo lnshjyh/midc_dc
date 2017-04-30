@@ -1,6 +1,7 @@
 package org.cw.midc.entity;
 
 import java.util.Date;
+import java.util.List;
 
 import org.cw.midc.BaseEntity;
 
@@ -52,6 +53,43 @@ public class StudyInfo extends BaseEntity{
     private String rptId;
 
     private String deviceType;
+    
+    private Patient patient;
+    
+    private List<StudyCheckPos> studyCheckPoses;
+    
+	public StudyInfo()
+	{
+		this.createTime = new Date();
+		this.updateTime = this.createTime;
+		this.status = "0";
+		this.transStatus = "1";
+	}
+	
+	public StudyInfo(String key, 
+			int age, 
+			String 
+			ageUnit, 
+			String deviceType, 
+			String preDiagnose, 
+			String abstractHistory, 
+			String studyDescription,
+			String hospitalId)
+	{
+		this.studyinfoId = key;
+		this.age = age;
+		this.ageUnit = ageUnit;
+		this.deviceType = deviceType;
+		this.preDiagnose = preDiagnose;
+		this.absHistory = abstractHistory;
+		this.studyDesc = studyDescription;
+		this.hospId = hospitalId;
+		this.isAvailable = "1";
+		this.createTime = new Date();
+		this.updateTime = this.createTime;
+		this.status = "0";
+		this.transStatus = "1";
+	}
 
     public String getStudyinfoId() {
         return studyinfoId;
@@ -244,4 +282,24 @@ public class StudyInfo extends BaseEntity{
     public void setDeviceType(String deviceType) {
         this.deviceType = deviceType == null ? null : deviceType.trim();
     }
+
+	public Patient getPatient() {
+		return patient;
+	}
+
+	public void setPatient(Patient patient) {
+		this.patient = patient;
+	}
+
+	public List<StudyCheckPos> getStudyCheckPoses() {
+		return studyCheckPoses;
+	}
+
+	public void setStudyCheckPoses(List<StudyCheckPos> studyCheckPoses) {
+		this.studyCheckPoses = studyCheckPoses;
+	}
+
+
+    
+    
 }

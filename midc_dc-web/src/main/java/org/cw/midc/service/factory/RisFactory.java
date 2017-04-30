@@ -1,6 +1,8 @@
 package org.cw.midc.service.factory;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
@@ -8,7 +10,7 @@ import org.cw.midc.dto.RisInfoDto;
 import org.cw.midc.model.Checkitem;
 import org.cw.midc.model.PositionType;
 import org.cw.midc.entity.Patient;
-import org.cw.midc.entity.StudyCheckItemPosition;
+import org.cw.midc.entity.StudyCheckPos;
 import org.cw.midc.entity.StudyInfo;
 import org.cw.midc.repository.CheckitemRepository;
 import org.cw.midc.repository.PositionTypeRepository;
@@ -36,12 +38,12 @@ public class RisFactory {
 				risInfoDto.getAbstractHistory(),
 				risInfoDto.getStudyDescription(),
 				risInfoDto.getHospitalId());
-		studyInfo.setOrginalStudyInfoId(risInfoDto.getStudyInfoId());
+		studyInfo.setOrgStudyinfoId(risInfoDto.getStudyInfoId());
 		studyInfo.setClinicalManifest(risInfoDto.getClinicalManifest());
 		studyInfo.setStudyDemand(risInfoDto.getStudyDemand());
-		studyInfo.setApplyDoctorName(risInfoDto.getApplyDoctorName());
-		studyInfo.setApplyDepartmentName(risInfoDto.getApplyDepartmentName());
-		studyInfo.setTransportStatus("1");
+		studyInfo.setApplyDocName(risInfoDto.getApplyDoctorName());
+		studyInfo.setApplyDepName(risInfoDto.getApplyDepartmentName());
+		studyInfo.setTransStatus("1");
 		Patient patient = createPatientFromDTO(risInfoDto);
 		studyInfo.setPatient(patient);
 		
@@ -50,10 +52,10 @@ public class RisFactory {
 		if(risInfoDto.getPositionChecks() != null && !risInfoDto.getPositionChecks().isEmpty())
 		{
 			StringBuilder positonCheckItemStr = new StringBuilder("[");
-			Set<StudyCheckItemPosition> studyCheckItemPositions = new HashSet<StudyCheckItemPosition>();
+			List<StudyCheckPos> studyCheckItemPositions = new ArrayList<>();
 			risInfoDto.getPositionChecks().forEach(positionCheckDto -> {
 				positonCheckItemStr.append("");
-				StudyCheckItemPosition studyCheckItemPosition = new StudyCheckItemPosition();
+				StudyCheckPos studyCheckItemPosition = new StudyCheckPos();
 				if(!StringUtils.isEmpty(positionCheckDto.getPosition()))
 				{
 					PositionType position = positionTypeRepository.findOne(Integer.parseInt(positionCheckDto.getPosition()));
@@ -81,13 +83,14 @@ public class RisFactory {
 
 			});
 			positonCheckItemStr.append("]");
-			studyInfo.setPositionCheckItem(positonCheckItemStr.toString());
-			studyInfo.setStudyCheckItemPositions(studyCheckItemPositions);
+			studyInfo.setPositionCheckitem(positonCheckItemStr.toString());
+			studyInfo.setStudyCheckPoses(studyCheckItemPositions);
 		}
 		
 		
 		return studyInfo;
 	}
+	
 	
 	public Patient createPatientFromDTO(RisInfoDto risInfoDto)
 	{

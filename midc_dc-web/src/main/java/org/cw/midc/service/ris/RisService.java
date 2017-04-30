@@ -7,7 +7,6 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.cw.midc.dao.StudyInfoDao;
-import org.cw.midc.dao.ris.StudyInfoOperateDao;
 import org.cw.midc.dto.RisInfoDto;
 import org.cw.midc.model.Hospital;
 import org.cw.midc.model.oauth.OauthAccessToken;
@@ -30,8 +29,8 @@ public class RisService {
 	@Resource
     private StudyInfoDao studyInfoDao;
 	
-	@Resource
-    private StudyInfoOperateDao studyInfoOperateDao;
+//	@Resource
+//    private StudyInfoOperateDao studyInfoOperateDao;
 
 	@Autowired
 	private HospitalRepository hospitalRepository;
@@ -45,7 +44,7 @@ public class RisService {
 		String hospitalId = hospitalList.get(0).getHospId();
 		risInfoDto.setHospitalId(hospitalId);
 		StudyInfo studyInfo = risFactory.createStudyInfoFromDTO(risInfoDto);
-		studyInfoOperateDao.save(studyInfo);
+		studyInfoDao.save(studyInfo);
 	}
 
 	public List<String> getStudyInfoIdsFinishedAndUnDownloadedReport(String clientId) {
@@ -65,7 +64,7 @@ public class RisService {
 		
 		//返回的是原始的studyInfoId，来自于基层机构
 		studyInfos.forEach(studyinfo->{
-			result.add(studyinfo.getOrginalStudyInfoId());
+			result.add(studyinfo.getOrgStudyinfoId());
 		});
 		return result;		
 	}
