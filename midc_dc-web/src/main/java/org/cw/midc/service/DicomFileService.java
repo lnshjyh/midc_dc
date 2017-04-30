@@ -8,11 +8,11 @@ import java.util.Map;
 import javax.transaction.Transactional;
 
 import org.cw.midc.dao.FileInfoDao;
+import org.cw.midc.dao.HospitalDao;
 import org.cw.midc.dao.MediaInfoDao;
 import org.cw.midc.entity.FileInfo;
-import org.cw.midc.model.Hospital;
 import org.cw.midc.entity.MediaInfo;
-import org.cw.midc.repository.HospitalRepository;
+import org.cw.midc.entity.Hospital;
 import org.cw.midc.util.CommonUtils;
 import org.rribbit.Listener;
 import org.rribbit.RequestResponseBus;
@@ -34,14 +34,9 @@ public class DicomFileService {
 	@Autowired
 	private StorageService storageService;
 	
-//	@Autowired
-//	private FileInfoRepository fileInfoRepository;
-	
 	@Autowired
 	private FileInfoDao fileInfoDao;
 	
-//	@Autowired
-//	private MediaRepository mediaRepository;
 	
 	@Autowired
 	private MediaInfoDao mediaInfoDao;
@@ -50,7 +45,9 @@ public class DicomFileService {
 	private RequestResponseBus eventBus;
 	
 	@Autowired
-	private HospitalRepository hospitalRepository;
+	private HospitalDao hospitalDao;
+	
+	
 	
 	/**
 	 * 存储文件到文件系统，并且存文件信息
@@ -97,14 +94,13 @@ public class DicomFileService {
 		
 		//存储文件信息
 		String fileId = CommonUtils.generateId();
-		List<Hospital> hospitalList = hospitalRepository.findByClientId(clientId);
+		List<Hospital> hospitalList = hospitalDao.find("getByClientId", clientId);
 		if(hospitalList == null || hospitalList.size() == 0)
 		{
 			return;
 		}
 		String hospitalId = hospitalList.get(0).getHospId();
 		FileInfo fileInfo = new FileInfo(fileId, fileRelativePath, file.getOriginalFilename(), studyInfoId, mediaInfo.getMediaId(), hospitalId);		
-//		fileInfoRepository.save(fileInfo);
 		fileInfoDao.save(fileInfo);
 		eventBus.send("dicomFileUploaded", fileInfo);
 	}
@@ -112,9 +108,7 @@ public class DicomFileService {
 	public File getFile(String fileId)
 	{
 		String storageBasePath = storageService.getCurrentBaseStoragePath();
-//		FileInfo fileInfo = fileInfoRepository.findOne(fileId);
 		FileInfo fileInfo = fileInfoDao.findUnique("selectByPrimaryKey", fileId);
-//		MediaInfo mediaInfo = mediaInfoDao.findOne(fileInfo.getMediaId());
 		MediaInfo mediaInfo = mediaInfoDao.findUnique("selectByPrimaryKey", fileInfo.getMediaId());
 		String fileAbsolutePathStr = storageBasePath + mediaInfo.getPath() + fileInfo.getFilePath();
 		File file = new File(fileAbsolutePathStr);
@@ -128,9 +122,7 @@ public class DicomFileService {
 	 */
 	public List<FileInfo> getUnHandledFileInfoByBatch(int batchCount)
 	{
-//		PageRequest pageRequest = new PageRequest(0, batchCount, new Sort(Sort.Direction.ASC, "createTime"));
 		List<FileInfo> result = fileInfoDao.find("selectByStatus", "0");
-//		List<FileInfo> result = fileInfoRepository.findByStatus("0", pageRequest);
 		return result;
 	}
 	
@@ -147,8 +139,6 @@ public class DicomFileService {
         paramMap.put("failedReason", "");
         paramMap.put("fileId", fileInfo.getFileId());
         fileInfoDao.update("updateStatusById", paramMap);
-        
-//		fileInfoRepository.updateStatusByID("1", fileInfo.getId(), "");
 	}
 	
 	/**
@@ -164,8 +154,6 @@ public class DicomFileService {
         paramMap.put("failedReason", fileInfo.getFailedReason());
         paramMap.put("fileId", fileInfo.getFileId());
         fileInfoDao.update("updateStatusById", paramMap);
-        
-//		fileInfoRepository.updateStatusByID("2", fileInfo.getId(), fileInfo.getFailedReason());
 	}
 	
 }

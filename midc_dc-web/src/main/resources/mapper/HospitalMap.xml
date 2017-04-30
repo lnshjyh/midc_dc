@@ -70,6 +70,12 @@
 	    where hosp_id = #{hospId,jdbcType=VARCHAR}
     </update>
     
+    <update id="updateHeartBeatTime" parameterType="Map">
+    	update hospital 
+    	set last_hb_time = #{lastHbTime,jdbcType=TIMESTAMP}
+    	where hosp_id = #{hospId,jdbcType=VARCHAR}
+    </update>
+    
     <select id="getList" parameterType="java.util.Map" resultMap="Hospital">
     	select * from hospital
         order by create_time desc

@@ -1,25 +1,22 @@
 package org.cw.midc.service.ris;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.cw.midc.dao.HospitalDao;
 import org.cw.midc.dao.ReportDao;
 import org.cw.midc.dao.StudyInfoDao;
 import org.cw.midc.dto.ReportCreateDto;
 import org.cw.midc.dto.ReportModifyDto;
 import org.cw.midc.dto.ReportQueryDto;
-import org.cw.midc.entity.User;
-import org.cw.midc.model.Hospital;
+import org.cw.midc.entity.Hospital;
 import org.cw.midc.entity.Report;
 import org.cw.midc.entity.StudyInfo;
-import org.cw.midc.repository.HospitalRepository;
-import org.cw.midc.service.factory.DozerBeanMapperFactory;
+import org.cw.midc.entity.User;
 import org.cw.midc.util.CommonUtils;
 import org.cw.midc.util.Constants;
 import org.cw.midc.util.UserContextUtil;
-import org.dozer.DozerBeanMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,10 +30,9 @@ public class ReportService {
 	
 	@Autowired
 	private ReportDao reportDao;
-
 	
 	@Autowired
-	private HospitalRepository hospitalRepository;
+	private HospitalDao hospitalDao;
 	
 	@Autowired
 	private StudyInfoDao studyInfoDao;
@@ -182,7 +178,7 @@ public class ReportService {
 	
 	public ReportQueryDto getReportByHospital(String orignalStudyInfoId, String clientId)
 	{
-		List<Hospital> hospitalList = hospitalRepository.findByClientId(clientId);
+		List<Hospital> hospitalList = hospitalDao.find("getByClientId", clientId);
 		if(hospitalList == null || hospitalList.size() == 0)
 		{
 			return null;
