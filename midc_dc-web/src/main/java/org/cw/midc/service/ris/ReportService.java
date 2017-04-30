@@ -3,11 +3,12 @@ package org.cw.midc.service.ris;
 import java.util.Date;
 import java.util.List;
 
+import org.cw.midc.dao.ReportDao;
 import org.cw.midc.dto.ReportModifyDto;
 import org.cw.midc.dto.ReportQueryDto;
 import org.cw.midc.entity.User;
 import org.cw.midc.model.Hospital;
-import org.cw.midc.model.ris.Report;
+import org.cw.midc.entity.Report;
 import org.cw.midc.model.ris.StudyInfo;
 import org.cw.midc.repository.HospitalRepository;
 import org.cw.midc.repository.ris.ReportRepository;
@@ -31,6 +32,9 @@ public class ReportService {
 	private ReportRepository reportRepository;
 	
 	@Autowired
+	private ReportDao reportDao;
+	
+	@Autowired
 	private StudyInfoRepository studyInfoRepository;
 	
 	@Autowired
@@ -40,7 +44,8 @@ public class ReportService {
 	{
 		User user = (User) UserContextUtil.getAttribute("currentUser");
 		
-		StudyInfo studyInfo = studyInfoRepository.findOne(report.getStudyInfoId());
+//		StudyInfo studyInfo = studyInfoRepository.findOne(report.getStudyInfoId());
+		StudyInfo studyInfo = null;
 		
 		if(studyInfo == null)
 		{
@@ -52,49 +57,50 @@ public class ReportService {
 		
 		if("ROLE_SENIOR_DOC".equals(getHighestRole()))
 		{
-			report.setJuniorDoctorId(userId);
-			report.setSeniorDoctorId(userId);
+			report.setjDocId(userId);
+			report.setsDocId(userId);
 			studyInfo.setReportStatus(Constants.REPORT_STATUS_APPROVED);
 		}
 		else if("ROLE_JUNIOR_DOC".equals(getHighestRole()))
 		{
-			report.setJuniorDoctorId(userId);
+			report.setjDocId(userId);
 			studyInfo.setReportStatus(Constants.REPORT_STATUS_PRE_DIAGNOSE);
 		}
 		else
 		{
 			return;
 		}
-		report.setId(CommonUtils.generateId());
-		studyInfo.setReport(report);
-		studyInfoRepository.save(studyInfo);
-//		reportRepository.save(report);
+		report.setRptId((CommonUtils.generateId()));
+        //[未写] 更新 studyInfo表的报告状态
+		
+		//插入报告表
+		reportDao.save(report);
 		
 	}
 	
 	public void modifyReport(ReportModifyDto reportModifyDto)
 	{
 		StudyInfo studyInfo = studyInfoRepository.findOne(reportModifyDto.getStudyInfoId());
-		if(studyInfo == null || studyInfo.getReport() == null)
+		if(studyInfo == null)
 		{
 			return;
 		}
 		User user = (User) UserContextUtil.getAttribute("currentUser");
 		
 		String userId = user.getUserId();
-		Report report = studyInfo.getReport();
-		String reportId = report.getId();
+		Report report = reportDao.findUnique("selectByStudyInfoId", reportModifyDto.getStudyInfoId());
+		String reportId = report.getRptId();
 		Report resultNew = DozerBeanMapperFactory.getMapper().map(reportModifyDto, Report.class);
-		resultNew.setId(reportId);
+		resultNew.setRptId(reportId);
 		
 		if("ROLE_SENIOR_DOC".equals(getHighestRole()))
 		{
-			resultNew.setJuniorDoctorId(userId);
+			resultNew.setsDocId(userId);
 			studyInfo.setReportStatus(Constants.REPORT_STATUS_APPROVED);
 		}
 		else if("ROLE_JUNIOR_DOC".equals(getHighestRole()))
 		{
-			resultNew.setJuniorDoctorId(userId);
+			resultNew.setjDocId(userId);
 			studyInfo.setReportStatus(Constants.REPORT_STATUS_PRE_DIAGNOSE);
 		}
 		else
@@ -102,7 +108,6 @@ public class ReportService {
 			return;
 		}
 		
-		studyInfo.setReport(resultNew);
 		studyInfoRepository.save(studyInfo);
 		
 		
@@ -111,13 +116,17 @@ public class ReportService {
 	public ReportQueryDto getReportByStudyInfoId(String studyInfoId)
 	{
 		StudyInfo studyInfo = studyInfoRepository.findOne(studyInfoId);
-		if(studyInfo == null || studyInfo.getReport() == null)
-		{
-			return null;
-		}
-		
-		ReportQueryDto result = DozerBeanMapperFactory.getMapper().map(studyInfo.getReport(), ReportQueryDto.class);
-		
+		Report rport = reportDao.findUnique("selectByStudyInfoId", studyInfoId);
+		ReportQueryDto result = new ReportQueryDto();
+		result.setId(rport.getRptId());
+		result.setDescription(rport.getDescription());
+		result.setDiagnosis(rport.getDiagnosis());
+		result.setAdvice(rport.getAdvice());
+		result.setJuniorDoctorId(rport.getjDocId());
+		result.setSeniorDoctorId(rport.getsDocId());
+		result.setDirectoDoctorId(rport.getdDocId());
+		result.setCreateTime(rport.getCreateTime());
+		result.setUpdateTime(rport.getUpdateTime());
 		return result;		
 	}
 	
@@ -130,7 +139,7 @@ public class ReportService {
 		}
 		String hospitalId = hospitalList.get(0).getHospId();
 		StudyInfo studyInfo = studyInfoRepository.findByOrginalStudyInfoIdAndHospitalId(studyInfoId, hospitalId);
-		if(studyInfo == null || studyInfo.getReport() == null)
+		if(studyInfo == null)
 		{
 			return null;
 		}
@@ -140,8 +149,8 @@ public class ReportService {
 		studyInfo.setUpdateTime(new Date());
 		studyInfoRepository.save(studyInfo);
 		
-		ReportQueryDto result = DozerBeanMapperFactory.getMapper().map(studyInfo.getReport(), ReportQueryDto.class);
-		
+//		ReportQueryDto result = DozerBeanMapperFactory.getMapper().map(studyInfo.getReport(), ReportQueryDto.class);
+		ReportQueryDto result = null;
 		return result;		
 	}
 	

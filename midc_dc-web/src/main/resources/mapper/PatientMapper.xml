@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.cw.midc.entity.Patient" >
+  <resultMap id="BaseResultMap" type="org.cw.midc.entity.Patient" >
+    <id column="pat_id" property="patId" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="id_number" property="idNumber" jdbcType="VARCHAR" />
+    <result column="nationality" property="nationality" jdbcType="VARCHAR" />
+    <result column="oper_id" property="operId" jdbcType="VARCHAR" />
+    <result column="pat_card_id" property="patCardId" jdbcType="VARCHAR" />
+    <result column="pat_name" property="patName" jdbcType="VARCHAR" />
+    <result column="pat_spell_name" property="patSpellName" jdbcType="VARCHAR" />
+    <result column="patient_type" property="patientType" jdbcType="VARCHAR" />
+    <result column="phone_number" property="phoneNumber" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select * 
+    from patient
+    where pat_id = #{patId,jdbcType=VARCHAR}
+  </select>
+ 
+  <insert id="insert" parameterType="org.cw.midc.entity.Patient" >
+    insert into patient (pat_id, address, birthday, 
+      create_time, id_number, nationality, 
+      oper_id, pat_card_id, pat_name, 
+      pat_spell_name, patient_type, phone_number, 
+      sex, update_time)
+    values (#{patId,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{birthday,jdbcType=TIMESTAMP}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{idNumber,jdbcType=VARCHAR}, #{nationality,jdbcType=VARCHAR}, 
+      #{operId,jdbcType=VARCHAR}, #{patCardId,jdbcType=VARCHAR}, #{patName,jdbcType=VARCHAR}, 
+      #{patSpellName,jdbcType=VARCHAR}, #{patientType,jdbcType=VARCHAR}, #{phoneNumber,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+</mapper>
