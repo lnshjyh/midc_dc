@@ -53,7 +53,7 @@
     where checkitem_id = #{checkitemId,jdbcType=INTEGER}
   </update>
   
-  <select id="getList" resultType="Map" parameterType="java.util.Map">
+  <select id="getList" resultMap="BaseResultMap" parameterType="java.util.Map">
         select  <include refid="Base_Column_List" />
          from checkitem a 
         <where>

@@ -22,7 +22,7 @@
     delete from positiontype
     where positiontype_id = #{positiontypeId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="org.cw.midc.model.Positiontype" >
+  <insert id="insert" parameterType="org.cw.midc.entity.Positiontype" >
     insert into positiontype (positiontype_id, create_time, is_available, 
       oper_id, positiontype_name, update_time
       )
@@ -53,7 +53,7 @@
     where positiontype_id = #{positiontypeId,jdbcType=INTEGER}
   </update>
   
-  <select id="getList" resultType="Map" parameterType="java.util.Map">
+  <select id="getList" resultMap="BaseResultMap" parameterType="java.util.Map">
         select  <include refid="Base_Column_List" />
          from positiontype a 
         <where>

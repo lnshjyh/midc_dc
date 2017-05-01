@@ -22,7 +22,7 @@
 	    is_connected, last_hb_time, latitude, longitude, update_time
 	</sql>
 	
-	<select id="getList" resultType="Map" parameterType="java.util.Map">
+	<select id="getList" resultMap="Hospital" parameterType="java.util.Map">
         select  <include refid="Base_Column_List" />
          from hospital a 
         <where>
@@ -112,9 +112,6 @@
         select * from hospital where  client_id = #{clientId,jdbcType=VARCHAR}
     </select>
     
-    <select id="getCount" parameterType="java.util.Map" resultType="Integer">
-        select count(*) from hospital
-    </select>
     
     <select id="getById" parameterType="java.lang.String" resultMap="Hospital">
         select * from hospital where hosp_id = #{hospId,jdbcType=VARCHAR}
