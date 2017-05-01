@@ -2,8 +2,7 @@ package org.cw.midc.controller.out;
 
 import com.google.common.collect.Maps;
 
-import org.cw.midc.model.oauth.OauthAccessToken;
-
+import org.cw.midc.entity.oauth.OauthAccessToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

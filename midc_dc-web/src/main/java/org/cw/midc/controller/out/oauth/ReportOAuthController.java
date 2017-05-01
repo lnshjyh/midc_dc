@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.cw.midc.Response;
 import org.cw.midc.dto.ReportQueryDto;
-import org.cw.midc.model.oauth.OauthAccessToken;
+import org.cw.midc.entity.oauth.OauthAccessToken;
 import org.cw.midc.service.ris.ReportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -8,7 +8,6 @@ import org.cw.midc.ParamFilter;
 import org.cw.midc.aop.annotaion.WebLogger;
 import org.cw.midc.entity.User;
 import org.cw.midc.model.Checkitem;
-import org.cw.midc.model.Hospital;
 import org.cw.midc.service.CheckitemService;
 
 import org.springframework.stereotype.Controller;

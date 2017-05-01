@@ -1,6 +1,6 @@
 package org.cw.midc.dao.oauth;
 
-import org.cw.midc.model.oauth.OauthAccessToken;
+import org.cw.midc.entity.oauth.OauthAccessToken;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;

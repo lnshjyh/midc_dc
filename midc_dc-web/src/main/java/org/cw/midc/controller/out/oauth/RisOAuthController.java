@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.cw.midc.Response;
 import org.cw.midc.dto.RisInfoDto;
-import org.cw.midc.model.oauth.OauthAccessToken;
+import org.cw.midc.entity.oauth.OauthAccessToken;
 import org.cw.midc.service.DicomFileService;
 import org.cw.midc.service.ris.RisService;
 import org.cw.midc.util.CommonUtils;

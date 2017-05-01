@@ -6,7 +6,7 @@ import java.util.List;
 import org.cw.midc.Response;
 import org.cw.midc.dto.HospitalQueryDto;
 import org.cw.midc.dto.ReportQueryDto;
-import org.cw.midc.model.Hospital;
+import org.cw.midc.entity.Hospital;
 import org.cw.midc.service.HospitalService;
 import org.cw.midc.service.factory.DozerBeanMapperFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -16,7 +16,6 @@ import org.cw.midc.dao.HospitalDao;
 import org.cw.midc.dao.oauth.OauthAccessTokenDao;
 import org.cw.midc.entity.Hospital;
 import org.cw.midc.entity.oauth.OauthAccessToken;
-import org.cw.midc.repository.HospitalRepository;
 import org.cw.midc.util.CommonUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
 import org.cw.midc.Response;
-import org.cw.midc.model.oauth.OauthAccessToken;
+import org.cw.midc.entity.oauth.OauthAccessToken;
 import org.cw.midc.service.DicomFileService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

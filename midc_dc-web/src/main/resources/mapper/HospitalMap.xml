@@ -16,6 +16,36 @@
 	    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
 	    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
 	  </resultMap>
+	  
+	<sql id="Base_Column_List" >
+	    hosp_id, address, client_id, client_secret, create_time, hosp_name, is_available, 
+	    is_connected, last_hb_time, latitude, longitude, update_time
+	</sql>
+	
+	<select id="getList" resultType="Map" parameterType="java.util.Map">
+        select  <include refid="Base_Column_List" />
+         from hospital a 
+        <where>
+        	1=1
+            <if test="@Ognl@isNotEmpty(hospName)">
+                and a.hosp_name like '%${hospName}%' 
+            </if>
+        </where>
+        <if test="@Ognl@isNotEmpty(page)">
+            limit #{page.firstIndex}, #{page.pageSize}
+        </if>
+    </select>
+    
+    <select id="getCount" parameterType="java.util.Map" resultType="java.lang.Integer">
+        select  count(0)
+         from hospital a 
+        <where>
+        	1=1
+            <if test="@Ognl@isNotEmpty(hospName)">
+                and a.hosp_name = #{hospName}
+            </if>
+        </where>
+    </select>
 
     <insert id="insert" parameterType="org.cw.midc.entity.Hospital">
 		   insert into hospital (hosp_id, hosp_name, address, 
@@ -60,9 +90,6 @@
 	      <if test="lastHbTime != null">
 	        last_hb_time = #{lastHbTime,jdbcType=TIMESTAMP},
 	      </if>
-	      <if test="createTime != null">
-	        create_time = #{createTime,jdbcType=TIMESTAMP},
-	      </if>
 	      <if test="updateTime != null">
 	        update_time = #{updateTime,jdbcType=TIMESTAMP},
 	      </if>
@@ -76,7 +103,7 @@
     	where hosp_id = #{hospId,jdbcType=VARCHAR}
     </update>
     
-    <select id="getList" parameterType="java.util.Map" resultMap="Hospital">
+    <select id="getAll" parameterType="java.util.Map" resultMap="Hospital">
     	select * from hospital
         order by create_time desc
     </select>

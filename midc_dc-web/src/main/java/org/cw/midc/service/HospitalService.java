@@ -6,9 +6,9 @@ import com.google.common.collect.Maps;
 import org.cw.midc.util.CommonUtils;
 import org.cw.midc.util.RegexUtil;
 import org.cw.midc.ParamFilter;
-import org.cw.midc.model.Hospital;
+import org.cw.midc.dao.HospitalDao;
+import org.cw.midc.entity.Hospital;
 import org.cw.midc.page.Page;
-import org.cw.midc.repository.HospitalRepository;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -28,16 +28,10 @@ import static com.google.common.base.Preconditions.checkNotNull;
 public class HospitalService {
 
     @Resource
-    private HospitalRepository hospitalRepository;
+    private HospitalDao hospitalDao;
 
-    public List<Hospital> getList(ParamFilter param) {
-    	Page page = param.getPage();
-    	int pageNo = page.getPageNo();
-    	int pageSize = page.getPageSize();
-    	Map<String,Object> para = param.getParam();
-    	String hospName = para == null?null:(String)para.get("hospName");
-    	PageRequest pageRequest = new PageRequest(pageNo-1, pageSize, new Sort(Sort.Direction.ASC, "createTime"));
-        return hospName == null?(List<Hospital>)hospitalRepository.findAll():hospitalRepository.findByHospNameLike(hospName, pageRequest);
+    public List getList(ParamFilter param) {
+        return hospitalDao.findMap("getList", param.getParam(), param.getPage());
     }
 
     @Transactional
@@ -46,9 +40,7 @@ public class HospitalService {
         checkArgument(!Strings.isNullOrEmpty(hospital.getHospName()), "医疗机构名不能为空");
         checkArgument(!Strings.isNullOrEmpty(hospital.getClientId()), "ClientId不能为空");
         checkArgument(!Strings.isNullOrEmpty(hospital.getHospId()), "hospId不能为空");
-        hospitalRepository.updateByID(hospital.getClientId(),
-        		hospital.getHospName(),hospital.getAddress(),hospital.getLongitude(),
-        		hospital.getLatitude(),hospital.getHospId());
+        hospitalDao.update("update",hospital);
     }
 
     @Transactional
@@ -63,23 +55,26 @@ public class HospitalService {
         hospital.setIsConnected("0");
         hospital.setHospId(CommonUtils.generateId());
 
-        hospitalRepository.save(hospital);
+        hospitalDao.save(hospital);
     }
 
 
     public void delete(List<String> hospIds) {
-    	List<Hospital> list = (List<Hospital>)hospitalRepository.findAll(hospIds);
-    	hospitalRepository.delete(list);
+    	checkArgument((hospIds != null && hospIds.size() > 0), "ID不能为空");
+        for (String hospId : hospIds) {
+        	hospitalDao.delete("delete", hospId);
+        	hospitalDao.delete("delete", hospId);
+        }
     }
 
     public Hospital getDetail(String hospId) {
-    	Hospital hospital = hospitalRepository.findOne(hospId);
+    	Hospital hospital = hospitalDao.findUnique("getById", hospId);
         return hospital;
     }
     
     public List<Hospital> getAllHospitals()
     {
-    	List<Hospital> result = (List<Hospital>)hospitalRepository.findAll();
+    	List<Hospital> result = (List<Hospital>)hospitalDao.find("getAll");
     	return result;
     }
 

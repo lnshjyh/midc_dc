@@ -3,7 +3,7 @@ package org.cw.midc.controller.out.oauth;
 import javax.servlet.http.HttpServletRequest;
 
 import org.cw.midc.Response;
-import org.cw.midc.model.oauth.OauthAccessToken;
+import org.cw.midc.entity.oauth.OauthAccessToken;
 import org.cw.midc.service.HeartBeatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
