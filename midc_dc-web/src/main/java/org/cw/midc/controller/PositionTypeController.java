@@ -39,7 +39,6 @@ public class PositionTypeController {
 
     @ResponseBody
     @PostMapping("list")
-    @WebLogger("查询部位列表")
     public Response list(@RequestBody  ParamFilter queryFilter) {
         List positionTypeList = positionTypeService.getList(queryFilter);
         Page page = queryFilter.getPage();
@@ -48,7 +47,6 @@ public class PositionTypeController {
 
     @ResponseBody
     @PostMapping("add")
-    @WebLogger("添加检查部位")
     public Response add(@RequestBody Positiontype positionType) {
         checkNotNull(positionType, "检查部位不能为空");
         positionTypeService.add(positionType);
@@ -58,7 +56,6 @@ public class PositionTypeController {
 
     @ResponseBody
     @PostMapping("edit")
-    @WebLogger("编辑检查部位")
     public Response edit(@RequestBody Positiontype positionType) {
     	positionTypeService.update(positionType);
         return new Response("修改成功");
@@ -66,7 +63,6 @@ public class PositionTypeController {
 
     @ResponseBody
     @PostMapping("delete")
-    @WebLogger("删除检查部位")
     public Response delete(@RequestBody List<Integer> positiontypeIds) {
         checkArgument((positiontypeIds != null && positiontypeIds.size() > 0), "部位ID不能为空");
         positionTypeService.delete(positiontypeIds);
@@ -76,7 +72,6 @@ public class PositionTypeController {
 
     @ResponseBody
     @PostMapping("detail")
-    @WebLogger("查询检查部位详细")
     public Response detail(@RequestBody Integer positiontypeId) {
     	Positiontype positionType = positionTypeService.getDetail(positiontypeId);
         return new Response(positionType);

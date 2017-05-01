@@ -55,11 +55,11 @@
   
   <select id="getList" resultMap="BaseResultMap" parameterType="java.util.Map">
         select  <include refid="Base_Column_List" />
-         from positiontype a 
+         from positiontype  
         <where>
         	1=1
             <if test="@Ognl@isNotEmpty(positiontypeName)">
-                and a.positiontype_name like '%${positiontypeName}%' 
+                and positiontype_name like '%${positiontypeName}%' 
             </if>
         </where>
         <if test="@Ognl@isNotEmpty(page)">

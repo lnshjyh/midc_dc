@@ -14,7 +14,7 @@
     <result column="positiontypeName" property="positiontypename" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, checkitem_id, create_time, device_type_id, oper_id, position_type_id, update_time, 
+    id, checkitem_id, create_time, device_type_id, oper_id, positiontype_id, update_time, 
     deviceTypeName, checkitemName, positiontypeName
   </sql>
   <select id="getById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
@@ -29,11 +29,11 @@
   </delete>
   <insert id="insert" parameterType="org.cw.midc.entity.DevicetypePositionCheckitem" >
     insert into devicetype_position_checkitem (id, checkitem_id, create_time, 
-      device_type_id, oper_id, position_type_id, 
+      device_type_id, oper_id, positiontype_id, 
       update_time, deviceTypeName, checkitemName, 
       positiontypeName)
     values (#{id,jdbcType=INTEGER}, #{checkitemId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{deviceTypeId,jdbcType=VARCHAR}, #{operId,jdbcType=VARCHAR}, #{positionTypeId,jdbcType=INTEGER}, 
+      #{deviceTypeId,jdbcType=VARCHAR}, #{operId,jdbcType=VARCHAR}, #{positiontypeId,jdbcType=INTEGER}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{devicetypename,jdbcType=VARCHAR}, #{checkitemname,jdbcType=VARCHAR}, 
       #{positiontypename,jdbcType=VARCHAR})
   </insert>
@@ -53,8 +53,8 @@
       <if test="operId != null" >
         oper_id = #{operId,jdbcType=VARCHAR},
       </if>
-      <if test="positionTypeId != null" >
-        position_type_id = #{positionTypeId,jdbcType=INTEGER},
+      <if test="positiontypeId != null" >
+        positiontype_id = #{positiontypeId,jdbcType=INTEGER},
       </if>
       <if test="updateTime != null" >
         update_time = #{updateTime,jdbcType=TIMESTAMP},
@@ -74,7 +74,7 @@
   
   <select id="getList" resultMap="BaseResultMap" parameterType="java.util.Map">
         select  <include refid="Base_Column_List" />
-         from hospital a 
+         from devicetype_position_checkitem 
         <where>
         	1=1
         </where>
@@ -85,7 +85,7 @@
     
     <select id="getCount" parameterType="java.util.Map" resultType="java.lang.Integer">
         select  count(0)
-         from hospital a 
+         from devicetype_position_checkitem a 
         <where>
         	1=1
         </where>

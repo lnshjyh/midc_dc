@@ -11,9 +11,23 @@ public class CheckItem extends BaseEntity{
 		this.checkitemName = checkitemName;
 	}
 
+    public CheckItem(){
+    	
+    }
 	private Integer checkitemId;
 
-    private String checkitemName;
+    public CheckItem(Integer checkitemId, String checkitemName, Date createTime, String isAvailable, String operId,
+			Date updateTime) {
+		super();
+		this.checkitemId = checkitemId;
+		this.checkitemName = checkitemName;
+		this.createTime = createTime;
+		this.isAvailable = isAvailable;
+		this.operId = operId;
+		this.updateTime = updateTime;
+	}
+
+	private String checkitemName;
 
     private Date createTime;
 

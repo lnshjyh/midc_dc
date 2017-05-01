@@ -10,6 +10,10 @@ public class Positiontype extends BaseEntity{
 		this.positiontypeId = positiontypeId;
 		this.positiontypeName = positiontypeName;
 	}
+    
+    public Positiontype(){
+    	
+    }
 
 	private Integer positiontypeId;
 

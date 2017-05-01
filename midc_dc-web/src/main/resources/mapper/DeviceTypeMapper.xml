@@ -52,11 +52,11 @@
   
   <select id="getList" resultMap="BaseResultMap" parameterType="java.util.Map">
         select  <include refid="Base_Column_List" />
-         from device_type a 
+         from device_type 
         <where>
         	1=1
             <if test="@Ognl@isNotEmpty(deviceTypeName)">
-                and a.device_type_name like '%${deviceTypeName}%' 
+                and device_type_name like '%${deviceTypeName}%' 
             </if>
         </where>
         <if test="@Ognl@isNotEmpty(page)">

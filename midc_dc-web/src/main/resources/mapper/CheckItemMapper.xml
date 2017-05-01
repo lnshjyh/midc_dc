@@ -55,11 +55,11 @@
   
   <select id="getList" resultMap="BaseResultMap" parameterType="java.util.Map">
         select  <include refid="Base_Column_List" />
-         from checkitem a 
+         from checkitem 
         <where>
         	1=1
             <if test="@Ognl@isNotEmpty(checkitemName)">
-                and a.checkitem_name like '%${checkitemName}%' 
+                and checkitem_name like '%${checkitemName}%' 
             </if>
         </where>
         <if test="@Ognl@isNotEmpty(page)">

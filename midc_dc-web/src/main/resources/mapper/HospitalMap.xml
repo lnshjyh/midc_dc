@@ -24,11 +24,11 @@
 	
 	<select id="getList" resultMap="Hospital" parameterType="java.util.Map">
         select  <include refid="Base_Column_List" />
-         from hospital a 
+         from hospital 
         <where>
         	1=1
             <if test="@Ognl@isNotEmpty(hospName)">
-                and a.hosp_name like '%${hospName}%' 
+                and hosp_name like '%${hospName}%' 
             </if>
         </where>
         <if test="@Ognl@isNotEmpty(page)">

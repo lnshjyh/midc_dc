@@ -37,7 +37,6 @@ public class CheckitemController {
 
     @ResponseBody
     @PostMapping("list")
-    @WebLogger("查询检查项列表")
     public Response list(@RequestBody  ParamFilter queryFilter) {
         List checkitemList = checkitemService.getList(queryFilter);
         Page page = queryFilter.getPage();
@@ -46,7 +45,6 @@ public class CheckitemController {
 
     @ResponseBody
     @PostMapping("add")
-    @WebLogger("添加检查项")
     public Response add(@RequestBody CheckItem checkitem) {
         checkNotNull(checkitem, "检查项不能为空");
         checkitemService.add(checkitem);
@@ -56,7 +54,6 @@ public class CheckitemController {
 
     @ResponseBody
     @PostMapping("edit")
-    @WebLogger("编辑检查项")
     public Response edit(@RequestBody CheckItem checkitem) {
     	checkitemService.update(checkitem);
         return new Response("修改成功");
@@ -64,7 +61,6 @@ public class CheckitemController {
 
     @ResponseBody
     @PostMapping("delete")
-    @WebLogger("删除检查项")
     public Response delete(@RequestBody List<Integer> checkitemIds) {
         checkArgument((checkitemIds != null && checkitemIds.size() > 0), "检查项ID不能为空");
         checkitemService.delete(checkitemIds);
@@ -74,7 +70,6 @@ public class CheckitemController {
 
     @ResponseBody
     @PostMapping("detail")
-    @WebLogger("查询检查项详细")
     public Response detail(@RequestBody Integer checkitemId) {
     	CheckItem checkitem = checkitemService.getDetail(checkitemId);
         return new Response(checkitem);

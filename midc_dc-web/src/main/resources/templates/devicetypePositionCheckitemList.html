@@ -28,7 +28,7 @@
                             <li>
                                 <label class="label_name">设备类型</label>
                                 <label>
-                                    <select name="deviceType" size="1" ng-model="devicetypePositionCheckitem.deviceTypeId"
+                                    <select id="device"  name="deviceType" size="1" ng-model="devicetypePositionCheckitem.deviceTypeId"
                                             >
                                         <option ng-repeat="map in dList"
                                                 value="{{map.deviceTypeId}}" ng-bind="map.deviceTypeName"></option>
@@ -39,7 +39,7 @@
                             <li>
                                 <label class="label_name">检查部位</label>
                                 <label>
-                                    <select name="positionId" size="1" ng-model="devicetypePositionCheckitem.positiontypeId"
+                                    <select id = "position" name="positionId" size="1" ng-model="devicetypePositionCheckitem.positiontypeId"
                                             >
                                         <option ng-repeat="map in pList"
                                                 value="{{map.positiontypeId}}" ng-bind="map.positiontypeName"></option>
@@ -50,7 +50,7 @@
                             <li>
                                 <label class="label_name">检查方法</label>
                                 <label>
-                                    <select name="checkitemId" size="1" ng-model="devicetypePositionCheckitem.checkitemId"
+                                    <select id="checkitem" name="checkitemId" size="1" ng-model="devicetypePositionCheckitem.checkitemId"
                                             >
                                         <option ng-repeat="map in cList"
                                                 value="{{map.checkitemId}}" ng-bind="map.checkitemName"></option>

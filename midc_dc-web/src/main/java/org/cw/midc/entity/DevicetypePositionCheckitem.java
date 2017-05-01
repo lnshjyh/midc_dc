@@ -5,7 +5,10 @@ import java.util.Date;
 import org.cw.midc.BaseEntity;
 
 public class DevicetypePositionCheckitem extends BaseEntity{
-    private Integer id;
+    public DevicetypePositionCheckitem() {
+	}
+
+	private Integer id;
 
     private Integer checkitemId;
 

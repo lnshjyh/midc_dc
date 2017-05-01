@@ -44,7 +44,6 @@ public class DevicetypePositionCheckitemController {
 
     @ResponseBody
     @PostMapping("list")
-    @WebLogger("查询列表")
     public Response list(@RequestBody  ParamFilter queryFilter) {
     	List list = devicetypePositionCheckitemService.getList(queryFilter);
         Page page = queryFilter.getPage();
@@ -53,7 +52,6 @@ public class DevicetypePositionCheckitemController {
 
     @ResponseBody
     @PostMapping("add")
-    @WebLogger("添加设备关联")
     public Response add(@RequestBody DevicetypePositionCheckitem devicetypePositionCheckitem) {
         checkNotNull(devicetypePositionCheckitem, "不能为空");
         devicetypePositionCheckitemService.add(devicetypePositionCheckitem);
@@ -64,7 +62,6 @@ public class DevicetypePositionCheckitemController {
 
     @ResponseBody
     @PostMapping("delete")
-    @WebLogger("删除设备关联")
     public Response delete(@RequestBody List<Integer> Ids) {
         checkArgument((Ids != null && Ids.size() > 0), "ID不能为空");
         devicetypePositionCheckitemService.delete(Ids);

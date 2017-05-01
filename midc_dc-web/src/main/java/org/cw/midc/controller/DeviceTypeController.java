@@ -38,7 +38,6 @@ public class DeviceTypeController {
 
     @ResponseBody
     @PostMapping("list")
-    @WebLogger("查询设备类型列表")
     public Response list(@RequestBody  ParamFilter queryFilter) {
         List deviceTypeList = deviceTypeService.getList(queryFilter);
         Page page = queryFilter.getPage();
@@ -47,7 +46,6 @@ public class DeviceTypeController {
 
     @ResponseBody
     @PostMapping("add")
-    @WebLogger("添加设备")
     public Response add(@RequestBody DeviceType deviceType) {
         checkNotNull(deviceType, "设备类型不能为空");
         deviceTypeService.add(deviceType);
@@ -57,7 +55,6 @@ public class DeviceTypeController {
 
     @ResponseBody
     @PostMapping("edit")
-    @WebLogger("编辑设备类型")
     public Response edit(@RequestBody DeviceType deviceType) {
     	deviceTypeService.update(deviceType);
         return new Response("修改成功");
@@ -65,7 +62,6 @@ public class DeviceTypeController {
 
     @ResponseBody
     @PostMapping("delete")
-    @WebLogger("删除设备类型")
     public Response delete(@RequestBody List<String> deviceTypeIds) {
         checkArgument((deviceTypeIds != null && deviceTypeIds.size() > 0), "设备ID不能为空");
         deviceTypeService.delete(deviceTypeIds);
@@ -75,7 +71,6 @@ public class DeviceTypeController {
 
     @ResponseBody
     @PostMapping("detail")
-    @WebLogger("查询设备类型详细")
     public Response detail(@RequestBody String deviceTypeId) {
     	DeviceType deviceType = deviceTypeService.getDetail(deviceTypeId);
         return new Response(deviceType);
