@@ -1,9 +1,8 @@
 package org.cw.midc.shiro.filter;
 
 import org.cw.midc.Response;
+import org.cw.midc.dao.oauth.OauthAccessJdbc;
 import org.cw.midc.model.oauth.OauthAccessToken;
-import org.cw.midc.repository.oauth.OauthAccessJdbc;
-import org.cw.midc.repository.oauth.OauthAccessTokenRepository;
 import org.cw.midc.util.ServletUtil;
 import org.apache.oltu.oauth2.common.OAuth;
 import org.apache.shiro.subject.Subject;

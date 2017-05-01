@@ -23,7 +23,7 @@ import org.springframework.web.filter.DelegatingFilterProxy;
 
 import com.google.common.collect.Maps;
 
-import org.cw.midc.repository.oauth.OauthAccessJdbc;
+import org.cw.midc.dao.oauth.OauthAccessJdbc;
 import org.cw.midc.shiro.DBSessionManageDao;
 import org.cw.midc.shiro.UserRealm;
 import org.cw.midc.shiro.filter.FormLoginFilter;

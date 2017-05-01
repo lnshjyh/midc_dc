@@ -1,4 +1,4 @@
-package org.cw.midc.repository.oauth;
+package org.cw.midc.dao.oauth;
 
 import org.cw.midc.model.oauth.OauthAccessToken;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
