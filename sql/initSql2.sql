@@ -173,3 +173,86 @@ CREATE TABLE `study_info` (
   `device_type` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`studyinfo_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+
+DROP TABLE IF EXISTS `checkitem`;
+CREATE TABLE `checkitem` (
+  `checkitem_id` int(11) NOT NULL AUTO_INCREMENT,
+  `checkitem_name` varchar(64) DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `is_available` varchar(4) DEFAULT NULL,
+  `oper_id` varchar(32) DEFAULT NULL,
+  `update_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`checkitem_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `devicetype_position_checkitem`;
+CREATE TABLE `devicetype_position_checkitem` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `checkitem_id` int(11) DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `device_type_id` varchar(255) DEFAULT NULL,
+  `oper_id` varchar(32) DEFAULT NULL,
+  `positiontype_id` int(11) DEFAULT NULL,
+  `update_time` datetime DEFAULT NULL,
+  `deviceTypeName` varchar(255) DEFAULT NULL,
+  `checkitemName` varchar(255) DEFAULT NULL,
+  `positiontypeName` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `device_type`;
+CREATE TABLE `device_type` (
+  `device_type_id` varchar(32) NOT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `device_type_name` varchar(64) DEFAULT NULL,
+  `is_available` varchar(4) DEFAULT NULL,
+  `oper_id` varchar(32) DEFAULT NULL,
+  `update_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`device_type_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `hospital`;
+CREATE TABLE `hospital` (
+  `hosp_id` varchar(32) NOT NULL,
+  `address` varchar(256) DEFAULT NULL,
+  `client_id` varchar(32) DEFAULT NULL,
+  `client_secret` varchar(64) DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `hosp_name` varchar(64) DEFAULT NULL,
+  `is_available` varchar(4) DEFAULT NULL,
+  `is_connected` varchar(4) DEFAULT NULL,
+  `last_hb_time` datetime DEFAULT NULL,
+  `latitude` float DEFAULT NULL,
+  `longitude` float DEFAULT NULL,
+  `update_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`hosp_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `positiontype`;
+CREATE TABLE `positiontype` (
+  `positiontype_id` int(11) NOT NULL AUTO_INCREMENT,
+  `create_time` datetime DEFAULT NULL,
+  `is_available` varchar(4) DEFAULT NULL,
+  `oper_id` varchar(32) DEFAULT NULL,
+  `positiontype_name` varchar(64) DEFAULT NULL,
+  `update_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`positiontype_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `oauth_access_token`;
+CREATE TABLE `oauth_access_token` (
+  `access_token` varchar(32) NOT NULL,
+  `client_id` varchar(32) DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `refresh_token` varchar(32) DEFAULT NULL,
+  `refresh_token_expired_seconds` int(11) DEFAULT NULL,
+  `token_expired_seconds` int(11) DEFAULT NULL,
+  `token_type` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`access_token`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
