@@ -63,7 +63,6 @@ public class HospitalService {
     	checkArgument((hospIds != null && hospIds.size() > 0), "ID不能为空");
         for (String hospId : hospIds) {
         	hospitalDao.delete("delete", hospId);
-        	hospitalDao.delete("delete", hospId);
         }
     }
 

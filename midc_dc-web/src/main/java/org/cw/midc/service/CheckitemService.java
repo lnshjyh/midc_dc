@@ -7,10 +7,10 @@ import org.cw.midc.util.CommonUtils;
 import org.cw.midc.util.RegexUtil;
 import org.cw.midc.util.UserContextUtil;
 import org.cw.midc.ParamFilter;
+import org.cw.midc.dao.CheckItemDao;
+import org.cw.midc.entity.CheckItem;
 import org.cw.midc.entity.User;
-import org.cw.midc.model.Checkitem;
 import org.cw.midc.page.Page;
-import org.cw.midc.repository.CheckitemRepository;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -30,29 +30,21 @@ import static com.google.common.base.Preconditions.checkNotNull;
 public class CheckitemService {
 
     @Resource
-    private CheckitemRepository checkitemRepository;
+    private CheckItemDao checkitemDao;
 
-    public List<Checkitem> getList(ParamFilter param) {
-    	Page page = param.getPage();
-    	int pageNo = page.getPageNo();
-    	int pageSize = page.getPageSize();
-    	Map<String,Object> para = param.getParam();
-    	String checkitemName = para == null?null:(String)para.get("checkitemName");
-    	PageRequest pageRequest = new PageRequest(pageNo-1, pageSize, new Sort(Sort.Direction.ASC, "createTime"));
-        return checkitemName == null?(List<Checkitem>)checkitemRepository.findAll():checkitemRepository.findByCheckitemNameLike(checkitemName, pageRequest);
+    public List getList(ParamFilter param) {
+        return checkitemDao.findMap("getList", param.getParam(), param.getPage());
     }
 
     @Transactional
-    public void update(Checkitem checkitem) {
+    public void update(CheckItem checkitem) {
         checkNotNull(checkitem, "检查项不能为空");
         checkArgument(!Strings.isNullOrEmpty(checkitem.getCheckitemName()), "检查名不能为空");
-        checkitemRepository.updateByID(checkitem.getCheckitemName(),
-        		checkitem.getIsAvailable(),checkitem.getOperId(),new Date(),
-        		checkitem.getCheckitemId());
+        checkitemDao.update(checkitem);;
     }
 
     @Transactional
-    public void add(Checkitem checkitem) {
+    public void add(CheckItem checkitem) {
     	checkNotNull(checkitem, "检查项不能为空");
     	checkArgument(!Strings.isNullOrEmpty(checkitem.getCheckitemName()), "检查名不能为空");
     	checkitem.setCreateTime(new Date());
@@ -61,17 +53,19 @@ public class CheckitemService {
     	User user = (User)UserContextUtil.getAttribute("currentUser");
     	checkitem.setOperId(user.getUserId());
 
-    	checkitemRepository.save(checkitem);
+    	checkitemDao.save(checkitem);
     }
 
 
     public void delete(List<Integer> checkitemIds) {
-    	List<Checkitem> list = (List<Checkitem>)checkitemRepository.findAll(checkitemIds);
-    	checkitemRepository.delete(list);
+    	checkArgument((checkitemIds != null && checkitemIds.size() > 0), "用户编号不能为空");
+        for (Integer checkitemId : checkitemIds) {
+        	checkitemDao.delete("deleteById", checkitemId);
+        }
     }
 
-    public Checkitem getDetail(Integer checkitemId) {
-    	Checkitem checkitem = checkitemRepository.findOne(checkitemId);
+    public CheckItem getDetail(Integer checkitemId) {
+    	CheckItem checkitem = checkitemDao.findUnique("getById", checkitemId);
         return checkitem;
     }
 

@@ -7,23 +7,14 @@ import org.cw.midc.util.CommonUtils;
 import org.cw.midc.util.RegexUtil;
 import org.cw.midc.util.UserContextUtil;
 import org.cw.midc.ParamFilter;
+import org.cw.midc.dao.DeviceTypeDao;
+import org.cw.midc.entity.DeviceType;
 import org.cw.midc.entity.User;
-import org.cw.midc.model.Checkitem;
-import org.cw.midc.model.DeviceType;
-import org.cw.midc.model.PositionType;
-import org.cw.midc.page.Page;
-import org.cw.midc.repository.CheckitemRepository;
-import org.cw.midc.repository.DeviceTypeRepository;
-import org.cw.midc.repository.PositionTypeRepository;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -34,16 +25,10 @@ import static com.google.common.base.Preconditions.checkNotNull;
 public class DeviceTypeService {
 
     @Resource
-    private DeviceTypeRepository deviceTypeRepository;
+    private DeviceTypeDao deviceTypeDao;
 
-    public List<DeviceType> getList(ParamFilter param) {
-    	Page page = param.getPage();
-    	int pageNo = page.getPageNo();
-    	int pageSize = page.getPageSize();
-    	Map<String,Object> para = param.getParam();
-    	String deviceTypeName = para == null?null:(String)para.get("deviceTypeName");
-    	PageRequest pageRequest = new PageRequest(pageNo-1, pageSize, new Sort(Sort.Direction.ASC, "createTime"));
-        return deviceTypeName == null?(List<DeviceType>)deviceTypeRepository.findAll():deviceTypeRepository.findByDeviceTypeNameLike(deviceTypeName, pageRequest);
+    public List getList(ParamFilter param) {
+        return deviceTypeDao.findMap("getList",param.getParam(),param.getPage());
     }
 
     @Transactional
@@ -51,9 +36,7 @@ public class DeviceTypeService {
         checkNotNull(deviceType, "设备类型不能为空");
         checkArgument(!Strings.isNullOrEmpty(deviceType.getDeviceTypeName()), "设备类型名不能为空");
         checkArgument(!Strings.isNullOrEmpty(deviceType.getDeviceTypeId()), "设备类型ID不能为空");
-        deviceTypeRepository.updateByID(deviceType.getDeviceTypeName(),
-        		deviceType.getIsAvailable(),deviceType.getOperId(),new Date(),
-        		deviceType.getDeviceTypeId());
+        deviceTypeDao.update(deviceType);;
     }
 
     @Transactional
@@ -66,23 +49,25 @@ public class DeviceTypeService {
     	User user = (User)UserContextUtil.getAttribute("currentUser");
     	deviceType.setOperId(user.getUserId());
 
-    	deviceTypeRepository.save(deviceType);
+    	deviceTypeDao.save(deviceType);
     }
 
 
     public void delete(List<String> deviceTypeIds) {
-    	List<DeviceType> list = (List<DeviceType>)deviceTypeRepository.findAll(deviceTypeIds);
-    	deviceTypeRepository.delete(list);
+    	checkArgument((deviceTypeIds != null && deviceTypeIds.size() > 0), "ID不能为空");
+    	for (String deviceTypeId : deviceTypeIds) {
+    		deviceTypeDao.delete("deleteById", deviceTypeId);
+        }
     }
 
     public DeviceType getDetail(String deviceTypeId) {
-    	DeviceType deviceType = deviceTypeRepository.findOne(deviceTypeId);
+    	DeviceType deviceType = deviceTypeDao.findUnique("getById", deviceTypeId);
         return deviceType;
     }
     
     public List<DeviceType> getAllDeviceTypes()
     {
-    	List<DeviceType> deviceTypes = (List<DeviceType>)deviceTypeRepository.findAll();
+    	List<DeviceType> deviceTypes = (List<DeviceType>)deviceTypeDao.find("getAll");
         return deviceTypes;
     }
 

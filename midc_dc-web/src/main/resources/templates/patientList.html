@@ -54,7 +54,7 @@
                      <li>
                          <label class="lf">设备类型</label>
                          <label>
-                             <select name="deviceType" size="1" ng-model="queryFilter.param.deviceTypePk" ng-change="getByDevice()"
+                             <select name="deviceType" size="1" ng-model="queryFilter.param.deviceTypeId" ng-change="getByDevice()"
                                      >
                                      <option value="">--请选择--</option>
                                  <option ng-repeat="map in dList"
@@ -65,22 +65,22 @@
                      <li>
                          <label class="lf">检查部位</label>
                          <label>
-                             <select name="positionId" size="1" ng-model="queryFilter.param.positionIdPk" ng-change="getByDevicePos()"
+                             <select name="positionId" size="1" ng-model="queryFilter.param.positiontypeId" ng-change="getByDevicePos()"
                                      >
                                      <option value="">--请选择--</option>
                                  <option ng-repeat="map in dpcList1"
-                                         value="{{map.positionType.positiontypeId}}" ng-bind="map.positionType.positiontypeName"></option>
+                                         value="{{map.positiontypeId}}" ng-bind="map.positiontypeName"></option>
                              </select>
                          </label>
                      </li>
                      <li>
                          <label class="lf">检查方法</label>
                          <label>
-                             <select name="checkitemId" size="1" ng-model="queryFilter.param.checkitemIdPk"
+                             <select name="checkitemId" size="1" ng-model="queryFilter.param.checkitemId"
                                      >
                                      <option value="">--请选择--</option>
                                  <option ng-repeat="map in dpcList2"
-                                         value="{{map.checkitem.checkitemId}}" ng-bind="map.checkitem.checkitemName"></option>
+                                         value="{{map.checkitemId}}" ng-bind="map.checkitemName"></option>
                              </select>
                          </label>
                      </li>

@@ -6,7 +6,7 @@ import java.util.List;
 import org.cw.midc.Response;
 import org.cw.midc.dto.DeviceTypeQueryDto;
 import org.cw.midc.dto.HospitalQueryDto;
-import org.cw.midc.model.DeviceType;
+import org.cw.midc.entity.DeviceType;
 import org.cw.midc.service.DeviceTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

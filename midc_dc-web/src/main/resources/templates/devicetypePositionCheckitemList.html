@@ -28,7 +28,7 @@
                             <li>
                                 <label class="label_name">设备类型</label>
                                 <label>
-                                    <select name="deviceType" size="1" ng-model="devicetypePositionCheckitem.deviceTypePk"
+                                    <select name="deviceType" size="1" ng-model="devicetypePositionCheckitem.deviceTypeId"
                                             >
                                         <option ng-repeat="map in dList"
                                                 value="{{map.deviceTypeId}}" ng-bind="map.deviceTypeName"></option>
@@ -39,7 +39,7 @@
                             <li>
                                 <label class="label_name">检查部位</label>
                                 <label>
-                                    <select name="positionId" size="1" ng-model="devicetypePositionCheckitem.positionIdPk"
+                                    <select name="positionId" size="1" ng-model="devicetypePositionCheckitem.positiontypeId"
                                             >
                                         <option ng-repeat="map in pList"
                                                 value="{{map.positiontypeId}}" ng-bind="map.positiontypeName"></option>
@@ -50,7 +50,7 @@
                             <li>
                                 <label class="label_name">检查方法</label>
                                 <label>
-                                    <select name="checkitemId" size="1" ng-model="devicetypePositionCheckitem.checkitemIdPk"
+                                    <select name="checkitemId" size="1" ng-model="devicetypePositionCheckitem.checkitemId"
                                             >
                                         <option ng-repeat="map in cList"
                                                 value="{{map.checkitemId}}" ng-bind="map.checkitemName"></option>
@@ -86,9 +86,9 @@
                             <input name="subDevChkbox_{{$index}}" value="{{model.id}}" type="checkbox" class="ace subDevChkbox"/>
                             <span class="lbl" style="cursor:pointer;"></span>
                         </td>
-                        <td ng-bind="model.device.deviceTypeName"></td>
-                        <td ng-bind="model.positionType.positiontypeName"></td>
-                        <td ng-bind="model.checkitem.checkitemName"></td>
+                        <td ng-bind="model.deviceTypeName"></td>
+                        <td ng-bind="model.positiontypeName"></td>
+                        <td ng-bind="model.checkitemName"></td>
                     </tr>
                     </tbody>
                 </table>

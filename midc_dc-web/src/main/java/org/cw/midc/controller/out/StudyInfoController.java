@@ -8,10 +8,7 @@ import javax.annotation.Resource;
 
 import org.cw.midc.ParamFilter;
 import org.cw.midc.Response;
-import org.cw.midc.model.Checkitem;
-import org.cw.midc.model.DeviceType;
-import org.cw.midc.model.DevicetypePositionCheckitem;
-import org.cw.midc.model.PositionType;
+import org.cw.midc.entity.DevicetypePositionCheckitem;
 import org.cw.midc.page.Page;
 import org.cw.midc.service.DevicetypePositionCheckitemService;
 import org.cw.midc.service.ris.StudyInfoService;

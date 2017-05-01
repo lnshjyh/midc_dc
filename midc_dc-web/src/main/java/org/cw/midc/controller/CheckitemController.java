@@ -6,8 +6,8 @@ import org.cw.midc.Response;
 import org.cw.midc.page.Page;
 import org.cw.midc.ParamFilter;
 import org.cw.midc.aop.annotaion.WebLogger;
+import org.cw.midc.entity.CheckItem;
 import org.cw.midc.entity.User;
-import org.cw.midc.model.Checkitem;
 import org.cw.midc.service.CheckitemService;
 
 import org.springframework.stereotype.Controller;
@@ -47,7 +47,7 @@ public class CheckitemController {
     @ResponseBody
     @PostMapping("add")
     @WebLogger("添加检查项")
-    public Response add(@RequestBody Checkitem checkitem) {
+    public Response add(@RequestBody CheckItem checkitem) {
         checkNotNull(checkitem, "检查项不能为空");
         checkitemService.add(checkitem);
         return new Response("添加成功");
@@ -57,7 +57,7 @@ public class CheckitemController {
     @ResponseBody
     @PostMapping("edit")
     @WebLogger("编辑检查项")
-    public Response edit(@RequestBody Checkitem checkitem) {
+    public Response edit(@RequestBody CheckItem checkitem) {
     	checkitemService.update(checkitem);
         return new Response("修改成功");
     }
@@ -76,7 +76,7 @@ public class CheckitemController {
     @PostMapping("detail")
     @WebLogger("查询检查项详细")
     public Response detail(@RequestBody Integer checkitemId) {
-    	Checkitem checkitem = checkitemService.getDetail(checkitemId);
+    	CheckItem checkitem = checkitemService.getDetail(checkitemId);
         return new Response(checkitem);
     }
 }

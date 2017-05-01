@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.cw.midc.Response;
-import org.cw.midc.model.Checkitem;
-import org.cw.midc.model.DevicetypePositionCheckitem;
-import org.cw.midc.model.PositionType;
+import org.cw.midc.entity.CheckItem;
+import org.cw.midc.entity.DevicetypePositionCheckitem;
+import org.cw.midc.entity.Positiontype;
 import org.cw.midc.service.DevicetypePositionCheckitemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,10 +25,10 @@ public class DevicetypePositionCheckitemOAuthController {
 	public Response getPositionByDeviceType(@RequestParam("deviceTypeId") String deviceTypeId)
 	{
 		Response response = new Response();
-		List<PositionType> positionTypeList = new ArrayList<PositionType>();
+		List<Positiontype> positionTypeList = new ArrayList<Positiontype>();
 		List<DevicetypePositionCheckitem> result = devicetypePositionCheckitemService.findByDeviceType(deviceTypeId);
 		result.forEach(item -> {
-			positionTypeList.add(item.getPositionType());
+			positionTypeList.add(new Positiontype(item.getPositiontypeId(),item.getPositiontypename()));
 		});
 		response.setData(positionTypeList);
 		return response;
@@ -39,12 +39,12 @@ public class DevicetypePositionCheckitemOAuthController {
 			@RequestParam("postionTypeId") String postionTypeId)
 	{
 		Response response = new Response();
-		List<Checkitem> checkitemList = new ArrayList<Checkitem>();
+		List<CheckItem> checkitemList = new ArrayList<CheckItem>();
 		Integer postionTypeIdInt = Integer.parseInt(postionTypeId);
 		List<DevicetypePositionCheckitem> result = devicetypePositionCheckitemService.findByDeviceTypeAndPositionType(deviceTypeId, postionTypeIdInt)
 ;
 		result.forEach(item -> {
-			checkitemList.add(item.getCheckitem());
+			checkitemList.add(new CheckItem(item.getCheckitemId(),item.getCheckitemname()));
 		});
 		response.setData(checkitemList);
 		return response;

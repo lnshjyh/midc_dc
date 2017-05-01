@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.cw.midc.entity.Positiontype" >
+  <resultMap id="BaseResultMap" type="org.cw.midc.entity.Positiontype" >
+    <id column="positiontype_id" property="positiontypeId" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="is_available" property="isAvailable" jdbcType="VARCHAR" />
+    <result column="oper_id" property="operId" jdbcType="VARCHAR" />
+    <result column="positiontype_name" property="positiontypeName" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    positiontype_id, create_time, is_available, oper_id, positiontype_name, update_time
+  </sql>
+  <select id="getById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from positiontype
+    where positiontype_id = #{positiontypeId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteById" parameterType="java.lang.Integer" >
+    delete from positiontype
+    where positiontype_id = #{positiontypeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.cw.midc.model.Positiontype" >
+    insert into positiontype (positiontype_id, create_time, is_available, 
+      oper_id, positiontype_name, update_time
+      )
+    values (#{positiontypeId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{isAvailable,jdbcType=VARCHAR}, 
+      #{operId,jdbcType=VARCHAR}, #{positiontypeName,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  
+  <update id="update" parameterType="org.cw.midc.entity.Positiontype" >
+    update positiontype
+    <set >
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isAvailable != null" >
+        is_available = #{isAvailable,jdbcType=VARCHAR},
+      </if>
+      <if test="operId != null" >
+        oper_id = #{operId,jdbcType=VARCHAR},
+      </if>
+      <if test="positiontypeName != null" >
+        positiontype_name = #{positiontypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where positiontype_id = #{positiontypeId,jdbcType=INTEGER}
+  </update>
+  
+  <select id="getList" resultType="Map" parameterType="java.util.Map">
+        select  <include refid="Base_Column_List" />
+         from positiontype a 
+        <where>
+        	1=1
+            <if test="@Ognl@isNotEmpty(positiontypeName)">
+                and a.positiontype_name like '%${positiontypeName}%' 
+            </if>
+        </where>
+        <if test="@Ognl@isNotEmpty(page)">
+            limit #{page.firstIndex}, #{page.pageSize}
+        </if>
+    </select>
+    
+    <select id="getCount" parameterType="java.util.Map" resultType="java.lang.Integer">
+        select  count(0)
+         from positiontype a 
+        <where>
+        	1=1
+           <if test="@Ognl@isNotEmpty(positiontypeName)">
+                and a.positiontype_name like '%${positiontypeName}%' 
+            </if>
+        </where>
+    </select>
+    
+    <select id="getAll" parameterType="java.util.Map" resultMap="BaseResultMap">
+    	select * from positiontype
+        order by create_time desc
+    </select>
+  
+</mapper>

@@ -6,8 +6,8 @@ import org.cw.midc.Response;
 import org.cw.midc.page.Page;
 import org.cw.midc.ParamFilter;
 import org.cw.midc.aop.annotaion.WebLogger;
+import org.cw.midc.entity.Positiontype;
 import org.cw.midc.entity.User;
-import org.cw.midc.model.PositionType;
 import org.cw.midc.service.HospitalService;
 import org.cw.midc.service.PositionTypeService;
 import org.cw.midc.service.UserService;
@@ -49,7 +49,7 @@ public class PositionTypeController {
     @ResponseBody
     @PostMapping("add")
     @WebLogger("添加检查部位")
-    public Response add(@RequestBody PositionType positionType) {
+    public Response add(@RequestBody Positiontype positionType) {
         checkNotNull(positionType, "检查部位不能为空");
         positionTypeService.add(positionType);
         return new Response("添加成功");
@@ -59,7 +59,7 @@ public class PositionTypeController {
     @ResponseBody
     @PostMapping("edit")
     @WebLogger("编辑检查部位")
-    public Response edit(@RequestBody PositionType positionType) {
+    public Response edit(@RequestBody Positiontype positionType) {
     	positionTypeService.update(positionType);
         return new Response("修改成功");
     }
@@ -78,7 +78,7 @@ public class PositionTypeController {
     @PostMapping("detail")
     @WebLogger("查询检查部位详细")
     public Response detail(@RequestBody Integer positiontypeId) {
-    	PositionType positionType = positionTypeService.getDetail(positiontypeId);
+    	Positiontype positionType = positionTypeService.getDetail(positiontypeId);
         return new Response(positionType);
     }
 }

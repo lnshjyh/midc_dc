@@ -13,7 +13,7 @@ patientApp.controller('patientCtrl', ['$rootScope', '$scope','patientService',fu
 	});
 	
 	$scope.getByDevice = function(){
-		var deviceId = $scope.queryFilter.param.deviceTypePk;
+		var deviceId = $scope.queryFilter.param.deviceTypeId;
 		var para={
 				deviceTypeId:deviceId
 		}
@@ -26,8 +26,8 @@ patientApp.controller('patientCtrl', ['$rootScope', '$scope','patientService',fu
 	}
 	
 	$scope.getByDevicePos = function(){
-		var deviceId = $scope.queryFilter.param.deviceTypePk;
-		var positionId = $scope.queryFilter.param.positionIdPk;
+		var deviceId = $scope.queryFilter.param.deviceTypeId;
+		var positionId = $scope.queryFilter.param.positiontypeId;
 		var para={
 				deviceTypeId:deviceId,
 				positiontypeId:positionId

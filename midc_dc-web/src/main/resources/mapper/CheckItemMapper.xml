@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.cw.midc.entity.CheckItem" >
+  <resultMap id="BaseResultMap" type="org.cw.midc.entity.CheckItem" >
+    <id column="checkitem_id" property="checkitemId" jdbcType="INTEGER" />
+    <result column="checkitem_name" property="checkitemName" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="is_available" property="isAvailable" jdbcType="VARCHAR" />
+    <result column="oper_id" property="operId" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    checkitem_id, checkitem_name, create_time, is_available, oper_id, update_time
+  </sql>
+  <select id="getById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from checkitem
+    where checkitem_id = #{checkitemId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteById" parameterType="java.lang.Integer" >
+    delete from checkitem
+    where checkitem_id = #{checkitemId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.cw.midc.entity.CheckItem" >
+    insert into checkitem (checkitem_id, checkitem_name, create_time, 
+      is_available, oper_id, update_time
+      )
+    values (#{checkitemId,jdbcType=INTEGER}, #{checkitemName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{isAvailable,jdbcType=VARCHAR}, #{operId,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  
+  <update id="update" parameterType="org.cw.midc.entity.CheckItem" >
+    update checkitem
+    <set >
+      <if test="checkitemName != null" >
+        checkitem_name = #{checkitemName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isAvailable != null" >
+        is_available = #{isAvailable,jdbcType=VARCHAR},
+      </if>
+      <if test="operId != null" >
+        oper_id = #{operId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where checkitem_id = #{checkitemId,jdbcType=INTEGER}
+  </update>
+  
+  <select id="getList" resultType="Map" parameterType="java.util.Map">
+        select  <include refid="Base_Column_List" />
+         from checkitem a 
+        <where>
+        	1=1
+            <if test="@Ognl@isNotEmpty(checkitemName)">
+                and a.checkitem_name like '%${checkitemName}%' 
+            </if>
+        </where>
+        <if test="@Ognl@isNotEmpty(page)">
+            limit #{page.firstIndex}, #{page.pageSize}
+        </if>
+    </select>
+    
+    <select id="getCount" parameterType="java.util.Map" resultType="java.lang.Integer">
+        select  count(0)
+         from checkitem a 
+        <where>
+        	1=1
+            <if test="@Ognl@isNotEmpty(checkitemName)">
+                and a.checkitem_name like '%${checkitemName}%' 
+            </if>
+        </where>
+    </select>
+    
+    <select id="getAll" parameterType="java.util.Map" resultMap="BaseResultMap">
+    	select * from checkitem
+        order by create_time desc
+    </select>
+  
+  
+</mapper>

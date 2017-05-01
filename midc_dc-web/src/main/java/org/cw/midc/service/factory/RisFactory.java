@@ -6,14 +6,14 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
+import org.cw.midc.dao.CheckItemDao;
+import org.cw.midc.dao.PositionTypeDao;
 import org.cw.midc.dto.RisInfoDto;
-import org.cw.midc.model.Checkitem;
-import org.cw.midc.model.PositionType;
+import org.cw.midc.entity.CheckItem;
 import org.cw.midc.entity.Patient;
+import org.cw.midc.entity.Positiontype;
 import org.cw.midc.entity.StudyCheckPos;
 import org.cw.midc.entity.StudyInfo;
-import org.cw.midc.repository.CheckitemRepository;
-import org.cw.midc.repository.PositionTypeRepository;
 import org.cw.midc.util.CommonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,10 +22,10 @@ import org.springframework.stereotype.Service;
 public class RisFactory {
 	
 	@Autowired
-	private PositionTypeRepository positionTypeRepository;
+	private PositionTypeDao positionTypeDao;
 	
 	@Autowired
-	private CheckitemRepository checkitemRepository;
+	private CheckItemDao checkItemDao;
 
 	public StudyInfo createStudyInfoFromDTO(RisInfoDto risInfoDto)
 	{
@@ -60,7 +60,7 @@ public class RisFactory {
 				studyCheckItemPosition.setStudyinfoId(key);
 				if(!StringUtils.isEmpty(positionCheckDto.getPosition()))
 				{
-					PositionType position = positionTypeRepository.findOne(Integer.parseInt(positionCheckDto.getPosition()));
+					Positiontype position = positionTypeDao.findUnique("getById", Integer.parseInt(positionCheckDto.getPosition()));
 					
 					studyCheckItemPosition.setPosition(positionCheckDto.getPosition());
 					if(position != null)
@@ -73,7 +73,7 @@ public class RisFactory {
 				if(!StringUtils.isEmpty(positionCheckDto.getCheckItem()))
 				{
 					studyCheckItemPosition.setCheckItem(positionCheckDto.getCheckItem());
-					Checkitem checkItem = checkitemRepository.findOne(Integer.parseInt(positionCheckDto.getCheckItem()));
+					CheckItem checkItem = checkItemDao.findUnique("getById",Integer.parseInt(positionCheckDto.getCheckItem()));
 					studyCheckItemPosition.setSubPosition(positionCheckDto.getSubPosition());
 					if(checkItem != null)
 					{

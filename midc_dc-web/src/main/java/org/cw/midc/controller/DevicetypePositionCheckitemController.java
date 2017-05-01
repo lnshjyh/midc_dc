@@ -7,11 +7,11 @@ import org.cw.midc.Response;
 import org.cw.midc.page.Page;
 import org.cw.midc.ParamFilter;
 import org.cw.midc.aop.annotaion.WebLogger;
+import org.cw.midc.entity.CheckItem;
+import org.cw.midc.entity.DeviceType;
+import org.cw.midc.entity.DevicetypePositionCheckitem;
+import org.cw.midc.entity.Positiontype;
 import org.cw.midc.entity.User;
-import org.cw.midc.model.Checkitem;
-import org.cw.midc.model.DeviceType;
-import org.cw.midc.model.DevicetypePositionCheckitem;
-import org.cw.midc.model.PositionType;
 import org.cw.midc.service.CheckitemService;
 import org.cw.midc.service.DevicetypePositionCheckitemService;
 import org.cw.midc.service.HospitalService;
@@ -46,8 +46,7 @@ public class DevicetypePositionCheckitemController {
     @PostMapping("list")
     @WebLogger("查询列表")
     public Response list(@RequestBody  ParamFilter queryFilter) {
-    	org.springframework.data.domain.Page<DevicetypePositionCheckitem> pageD = devicetypePositionCheckitemService.getList(queryFilter);
-    	List<DevicetypePositionCheckitem> list = pageD.getContent();
+    	List list = devicetypePositionCheckitemService.getList(queryFilter);
         Page page = queryFilter.getPage();
         return new Response(list,page);
     }
@@ -57,12 +56,6 @@ public class DevicetypePositionCheckitemController {
     @WebLogger("添加设备关联")
     public Response add(@RequestBody DevicetypePositionCheckitem devicetypePositionCheckitem) {
         checkNotNull(devicetypePositionCheckitem, "不能为空");
-        Integer cpk = devicetypePositionCheckitem.getCheckitemIdPk();
-        Integer ppk = devicetypePositionCheckitem.getPositionIdPk();
-        String dpk = devicetypePositionCheckitem.getDeviceTypePk();
-        devicetypePositionCheckitem.setCheckitem(devicetypePositionCheckitemService.getCheckitem(cpk));
-        devicetypePositionCheckitem.setPositionType(devicetypePositionCheckitemService.getPositionType(ppk));
-        devicetypePositionCheckitem.setDevice(devicetypePositionCheckitemService.getDeviceType(dpk));
         devicetypePositionCheckitemService.add(devicetypePositionCheckitem);
         return new Response("添加成功");
     }
@@ -81,9 +74,9 @@ public class DevicetypePositionCheckitemController {
     @ResponseBody
     @GetMapping("basicdata")
     public Response basicdata() {
-    	List<Checkitem>  clist = devicetypePositionCheckitemService.getCheckitemList();
+    	List<CheckItem>  clist = devicetypePositionCheckitemService.getCheckitemList();
     	List<DeviceType> dlist =  devicetypePositionCheckitemService.getDeviceTypeList();
-    	List<PositionType> plist = devicetypePositionCheckitemService.getPositionTypeList();
+    	List<Positiontype> plist = devicetypePositionCheckitemService.getPositionTypeList();
     	Map<String,Object> map = new HashMap<String,Object>();
     	map.put("c", clist);
     	map.put("d", dlist);
