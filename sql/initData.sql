@@ -42,14 +42,14 @@ INSERT INTO `sys_menu` VALUES ('54', '1480224173523', '添加', '/dic/add', '1',
 INSERT INTO `sys_menu` VALUES ('55', '1480224199655', '修改', '/dic/edit', '1', null, '1', null, '1478700606660', '字典管理', '0', null, '2016-11-27 03:55:35', null, '2016-11-27 03:55:35', '修改');
 INSERT INTO `sys_menu` VALUES ('56', '1480254855433', '删除', '/dic/delete', '1', null, '1', null, '1478700606660', '字典管理', '0', null, '2016-11-27 12:26:30', null, '2016-11-27 12:26:30', null);
 
---update @17-3-25
+-- update @17-3-25
 INSERT INTO `sys_menu` VALUES ('58', '58', '医疗机构管理', '/hospital/listPage', '0', 'icon-screenshot', '1', null, '1', '系统管理', '0', null, '2017-03-21 13:47:15', null, '2017-03-21 13:47:15', '');
 INSERT INTO `sys_menu` VALUES ('59', '59', '检查项管理', '/checkitem/listPage', '0', 'icon-beer', '1', null, '1', '系统管理', '0', null, '2017-03-25 11:07:50', null, '2017-03-25 11:07:50', null);
 INSERT INTO `sys_menu` VALUES ('60', '60', '检查部位管理', '/positionType/listPage', '0', 'icon-book', '1', null, '1', '系统管理', '0', null, '2017-03-25 11:09:06', null, '2017-03-25 11:09:06', null);
 INSERT INTO `sys_menu` VALUES ('61', '61', '设备类型管理', '/deviceType/listPage', '0', 'icon-book', '1', null, '1', '系统管理', '0', null, '2017-03-25 11:09:31', null, '2017-03-25 11:09:31', null);
---update @17-4-5
+-- update @17-4-5
 INSERT INTO `sys_menu` VALUES ('62', '62', '设备关联管理', '/devicetypePC/listPage', '0', 'icon-book', '1', null, '1', '系统管理', '0', '0', '2017-04-05 20:44:42', '0', '2017-04-05 20:44:57', null);
---update @17-4-17
+-- update @17-4-17
 INSERT INTO `sys_menu` VALUES ('63', '63', '患者管理', '/patlist/listPage', '0', 'icon-book', '1', null, '1', '系统管理', '0', '0', '2017-04-17 22:44:42', '0', '2017-04-17 22:44:57', null);
 
 
@@ -90,14 +90,14 @@ INSERT INTO `sys_role_menu` VALUES ('981', 'ROLE_ADMIN', '1479219651971', '0', '
 INSERT INTO `sys_role_menu` VALUES ('982', 'ROLE_ADMIN', '1479219802326', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
 INSERT INTO `sys_role_menu` VALUES ('983', 'ROLE_ADMIN', '21', '0', '2016-11-27 12:26:44', null, '2016-11-27 12:26:44', null, null);
 
---update @17-3-25
+-- update @17-3-25
 INSERT INTO `sys_role_menu` VALUES ('1034', 'ROLE_ADMIN', '60', '0', '2017-03-25 11:09:58', null, '2017-03-25 11:09:58', null, null);
 INSERT INTO `sys_role_menu` VALUES ('1011', 'ROLE_ADMIN', '58', '0', '2017-03-25 11:09:57', null, '2017-03-25 11:09:57', null, null);
 INSERT INTO `sys_role_menu` VALUES ('1012', 'ROLE_ADMIN', '59', '0', '2017-03-25 11:09:57', null, '2017-03-25 11:09:57', null, null);
 INSERT INTO `sys_role_menu` VALUES ('1022', 'ROLE_ADMIN', '61', '0', '2017-03-25 11:09:57', null, '2017-03-25 11:09:57', null, null);
---update @17-4-5
+-- update @17-4-5
 INSERT INTO `sys_role_menu` VALUES ('1059', 'ROLE_ADMIN', '62', '0', '2017-04-05 12:49:55', null, '2017-04-05 12:49:55', null, null);
---update @17-4-17
+-- update @17-4-17
 INSERT INTO `sys_role_menu` VALUES ('1063', 'ROLE_ADMIN', '63', '0', '2017-04-17 22:49:55', null, '2017-04-17 22:49:55', null, null);
 
 -- ----------------------------
