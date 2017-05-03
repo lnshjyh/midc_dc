@@ -15,14 +15,14 @@ INSERT INTO `sys_dict` VALUES ('31', '30', 'aaa', 'aaa', '0', null, 'N', '0', '2
 --update @17-5-3
 DELETE FROM `sys_menu` ;
 
-INSERT INTO `sys_menu` VALUES ('1', '1', '系统管理', null, '0', 'icon-desktop', '1', '1', '#', null, '0', '0', '2016-05-16 17:10:44', '0', '2016-06-02 21:01:12', null);
+INSERT INTO `sys_menu` VALUES ('1', '1', '系统管理', null, '0', 'icon-desktop', '1', '2', '#', null, '0', '0', '2016-05-16 17:10:44', '0', '2016-06-02 21:01:12', null);
 INSERT INTO `sys_menu` VALUES ('4', '4', '菜单管理', '/menu/listPage', '0', 'icon-sitemap', '1', '4', '1', '系统管理', '0', '0', '2016-05-06 14:35:51', '0', '2016-05-15 21:23:15', '菜单管理');
 INSERT INTO `sys_menu` VALUES ('38', '23', '登录日志', '/loginLog/listPage', '0', 'icon-tasks', '1', null, '1', '系统管理', '0', null, '2016-06-26 16:07:57', null, '2016-06-26 16:07:57', '登录日志');
 INSERT INTO `sys_menu` VALUES ('39', '24', '操作日志', '/webLog/list', '0', 'icon-print', '1', null, '1', '系统管理', '0', null, '2016-06-26 16:11:30', null, '2016-06-26 16:11:30', null);
 INSERT INTO `sys_menu` VALUES ('41', '1478700606660', '字典管理', '/dict/list', '0', 'icon-screenshot', '1', null, '1', '系统管理', '0', null, '2016-11-09 12:42:21', null, '2016-11-09 12:42:21', '字典管理');
 
 
-INSERT INTO `sys_menu` VALUES ('19', '5', '业务管理', null, '0', 'icon-credit-card', '1', '5', '#', null, '0', null, '2016-05-22 11:17:51', null, '2016-06-02 23:09:38', null);
+INSERT INTO `sys_menu` VALUES ('19', '5', '业务管理', null, '0', 'icon-credit-card', '1', '1', '#', null, '0', null, '2016-05-22 11:17:51', null, '2016-06-02 23:09:38', null);
 INSERT INTO `sys_menu` VALUES ('2', '2', '用户管理', '/user/listPage', '0', 'icon-user', '1', '2', '5', '业务管理', '0', '0', '2016-05-06 14:34:37', '0', '2016-06-02 22:44:56', '用户管理');
 INSERT INTO `sys_menu` VALUES ('3', '3', '角色管理', '/role/listPage', '0', 'icon-magnet', '1', '3', '5', '业务管理', '0', '0', '2016-05-06 14:35:24', '0', '2016-05-17 14:14:34', '角色管理');
 -- update @17-3-25
