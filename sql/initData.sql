@@ -12,7 +12,7 @@ INSERT INTO `sys_dict` VALUES ('31', '30', 'aaa', 'aaa', '0', null, 'N', '0', '2
 -- ----------------------------
 -- Records of sys_menu
 -- ----------------------------
---update @17-5-3
+-- update @17-5-3
 DELETE FROM `sys_menu` ;
 
 INSERT INTO `sys_menu` VALUES ('1', '1', '系统管理', null, '0', 'icon-desktop', '1', '2', '#', null, '0', '0', '2016-05-16 17:10:44', '0', '2016-06-02 21:01:12', null);
