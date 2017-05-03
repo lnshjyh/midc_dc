@@ -39,7 +39,7 @@ devicetypePositionCheckitemApp.controller('devicetypePositionCheckitemCtrl', ['$
 					var devicetypePositionCheckitem = angular.copy($scope.devicetypePositionCheckitem);
 					devicetypePositionCheckitem.checkitemName = $("#checkitem").find("option:selected").text();
 					devicetypePositionCheckitem.positiontypeName = $("#position").find("option:selected").text();
-					devicetypePositionCheckitem.deviceTypeName = $("#device").find("option:selected").text();
+					devicetypePositionCheckitem.devicetypeName = $("#device").find("option:selected").text();
 					
 					if(!devicetypePositionCheckitem){
 						layer.msg('不能为空！', {

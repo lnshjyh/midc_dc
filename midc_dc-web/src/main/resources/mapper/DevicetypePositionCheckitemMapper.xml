@@ -9,9 +9,9 @@
     <result column="oper_id" property="operId" jdbcType="VARCHAR" />
     <result column="positiontype_id" property="positiontypeId" jdbcType="INTEGER" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
-    <result column="deviceTypeName" property="devicetypename" jdbcType="VARCHAR" />
-    <result column="checkitemName" property="checkitemname" jdbcType="VARCHAR" />
-    <result column="positiontypeName" property="positiontypename" jdbcType="VARCHAR" />
+    <result column="deviceTypeName" property="devicetypeName" jdbcType="VARCHAR" />
+    <result column="checkitemName" property="checkitemName" jdbcType="VARCHAR" />
+    <result column="positiontypeName" property="positiontypeName" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     id, checkitem_id, create_time, device_type_id, oper_id, positiontype_id, update_time, 
@@ -34,8 +34,8 @@
       positiontypeName)
     values (#{id,jdbcType=INTEGER}, #{checkitemId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
       #{deviceTypeId,jdbcType=VARCHAR}, #{operId,jdbcType=VARCHAR}, #{positiontypeId,jdbcType=INTEGER}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{devicetypename,jdbcType=VARCHAR}, #{checkitemname,jdbcType=VARCHAR}, 
-      #{positiontypename,jdbcType=VARCHAR})
+      #{updateTime,jdbcType=TIMESTAMP}, #{devicetypeName,jdbcType=VARCHAR}, #{checkitemName,jdbcType=VARCHAR}, 
+      #{positiontypeName,jdbcType=VARCHAR})
   </insert>
  
   <update id="update" parameterType="org.cw.midc.entity.DevicetypePositionCheckitem" >
@@ -60,13 +60,13 @@
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="devicetypename != null" >
-        deviceTypeName = #{devicetypename,jdbcType=VARCHAR},
+        deviceTypeName = #{devicetypeName,jdbcType=VARCHAR},
       </if>
       <if test="checkitemname != null" >
-        checkitemName = #{checkitemname,jdbcType=VARCHAR},
+        checkitemName = #{checkitemName,jdbcType=VARCHAR},
       </if>
       <if test="positiontypename != null" >
-        positiontypeName = #{positiontypename,jdbcType=VARCHAR},
+        positiontypeName = #{positiontypeName,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}

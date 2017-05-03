@@ -22,11 +22,11 @@ public class DevicetypePositionCheckitem extends BaseEntity{
 
     private Date updateTime;
 
-    private String devicetypename;
+    private String devicetypeName;
 
-    private String checkitemname;
+    private String checkitemName;
 
-    private String positiontypename;
+    private String positiontypeName;
 
     public Integer getId() {
         return id;
@@ -85,27 +85,30 @@ public class DevicetypePositionCheckitem extends BaseEntity{
         this.updateTime = updateTime;
     }
 
-    public String getDevicetypename() {
-        return devicetypename;
-    }
+	public String getDevicetypeName() {
+		return devicetypeName;
+	}
 
-    public void setDevicetypename(String devicetypename) {
-        this.devicetypename = devicetypename == null ? null : devicetypename.trim();
-    }
+	public void setDevicetypeName(String devicetypeName) {
+		this.devicetypeName = devicetypeName;
+	}
 
-    public String getCheckitemname() {
-        return checkitemname;
-    }
+	public String getCheckitemName() {
+		return checkitemName;
+	}
 
-    public void setCheckitemname(String checkitemname) {
-        this.checkitemname = checkitemname == null ? null : checkitemname.trim();
-    }
+	public void setCheckitemName(String checkitemName) {
+		this.checkitemName = checkitemName;
+	}
 
-    public String getPositiontypename() {
-        return positiontypename;
-    }
+	public String getPositiontypeName() {
+		return positiontypeName;
+	}
 
-    public void setPositiontypename(String positiontypename) {
-        this.positiontypename = positiontypename == null ? null : positiontypename.trim();
-    }
+	public void setPositiontypeName(String positiontypeName) {
+		this.positiontypeName = positiontypeName;
+	}
+    
+    
+
 }

@@ -28,7 +28,7 @@ public class DevicetypePositionCheckitemOAuthController {
 		List<Positiontype> positionTypeList = new ArrayList<Positiontype>();
 		List<DevicetypePositionCheckitem> result = devicetypePositionCheckitemService.findByDeviceType(deviceTypeId);
 		result.forEach(item -> {
-			positionTypeList.add(new Positiontype(item.getPositiontypeId(),item.getPositiontypename()));
+			positionTypeList.add(new Positiontype(item.getPositiontypeId(),item.getPositiontypeName()));
 		});
 		response.setData(positionTypeList);
 		return response;
@@ -44,7 +44,7 @@ public class DevicetypePositionCheckitemOAuthController {
 		List<DevicetypePositionCheckitem> result = devicetypePositionCheckitemService.findByDeviceTypeAndPositionType(deviceTypeId, postionTypeIdInt)
 ;
 		result.forEach(item -> {
-			checkitemList.add(new CheckItem(item.getCheckitemId(),item.getCheckitemname()));
+			checkitemList.add(new CheckItem(item.getCheckitemId(),item.getCheckitemName()));
 		});
 		response.setData(checkitemList);
 		return response;
