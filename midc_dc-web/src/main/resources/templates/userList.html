@@ -15,7 +15,7 @@
     <div class="commonManager">
         <form id="form1" name="form1" method="post" action="">
             <div class="Manager_style add_user_info search_style">
-                <ul class="search_content clearfix" shiro:hasPermission="/user/list">
+                <ul class="search_content clearfix" >
                     <li><label class="lf">帐号</label>
                         <label>
                             <input name="account" ng-model="queryFilter.param.account" type="text"
@@ -41,13 +41,13 @@
                 </ul>
                 <ul class="search_content clearfix">
                     <button class="btn btn-primary addBtn" type="button" ng-click="updateUser(1)"
-                            id="Add_user_btn" shiro:hasPermission="/user/add">添加
+                            id="Add_user_btn" >添加
                     </button>
-                    <button type="button" class="btn btn-primary updateBtn" ng-click="updateUser(0)"  shiro:hasPermission="/user/edit">修改
+                    <button type="button" class="btn btn-primary updateBtn" ng-click="updateUser(0)"  >修改
                     </button>
-                    <button type="button" class="btn btn-primary deleteBtn" ng-click="deleteUser()"  shiro:hasPermission="/user/delete">删除</button>
-                    <button type="button" class="btn btn-primary resetBtn" ng-click="resetPwd()" shiro:hasPermission="/user/resetPwd">重置密码</button>
-                    <button type="button" class="btn btn-primary assignBtn" ng-click="asignRole()"  shiro:hasPermission="/user/addRoles" >角色分配</button>
+                    <button type="button" class="btn btn-primary deleteBtn" ng-click="deleteUser()"  >删除</button>
+                    <button type="button" class="btn btn-primary resetBtn" ng-click="resetPwd()" >重置密码</button>
+                    <button type="button" class="btn btn-primary assignBtn" ng-click="asignRole()"  >角色分配</button>
                     <button type="button" class="btn btn-primary updateBtn" ng-click="sign()"   >设置签名</button>
                 </ul>
                 <div id="Sign_user_style" style="display: none">

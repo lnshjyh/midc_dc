@@ -22,7 +22,7 @@
     <form id="form1" name="form1" method="post" action="">
         <div class="Role_Manager_style">
             <div class="Manager_style search_style">
-                <ul class="search_content clearfix" shiro:hasPermission="/role/list">
+                <ul class="search_content clearfix">
                     <li><label class="lf">角色名称</label>
                         <label>
                             <input name="name" ng-model="requestParam.param.name" type="text"
@@ -32,10 +32,10 @@
                     <button id="btn_search" ng-click="roleSearch = !roleSearch"  type="button" class="btn btn-primary">查询</button>
                 </ul>
                 <ul class="clearfix">
-                    <button type="button" class="btn btn-primary addBtn" ng-click="updateRole(1)"  shiro:hasPermission="/role/add" >添加</button>
-                    <button type="button" class="btn btn-success updateBtn" ng-click="updateRole(0)"  shiro:hasPermission="/role/edit" >编辑</button>
-                    <button type="button" class="btn btn-danger deleteBtn" ht-del="{url:'/role/delete',checkboxName:'subRoleChkbox'}"  shiro:hasPermission="/role/delete">删除</button>
-                    <button type="button" class="btn btn-info assignBtn" ng-click="assignPerission()" shiro:hasPermission="/roleRes/save">权限分配</button>
+                    <button type="button" class="btn btn-primary addBtn" ng-click="updateRole(1)"  >添加</button>
+                    <button type="button" class="btn btn-success updateBtn" ng-click="updateRole(0)"  >编辑</button>
+                    <button type="button" class="btn btn-danger deleteBtn" ht-del="{url:'/role/delete',checkboxName:'subRoleChkbox'}"  >删除</button>
+                    <button type="button" class="btn btn-info assignBtn" ng-click="assignPerission()" >权限分配</button>
                 </ul>
                 <div id="Assigned_Roles_style" style="display: none">
                     <div id="tree"></div>
