@@ -2,11 +2,13 @@
 roleApp.controller('roleCtrl', ['$rootScope', '$scope','baseService','roleService','roleResService',function ($rootScope,$scope,baseService,roleService,roleResService) {
 	$scope.requestParam = {};
 	var layerIndex;
+	var globleF;
 	//添加或者修改角色
 	$scope.updateRole = function(sign){
 		var titleName = "添加角色";
 		$scope.role = {};
 		$scope.id = 'add';
+		globleF = sign;
 		if(!sign){
 			// 编辑
 			titleName = "编辑角色";
@@ -37,7 +39,18 @@ roleApp.controller('roleCtrl', ['$rootScope', '$scope','baseService','roleServic
 	
 	$scope.$on("afterSaveEvent",function(event,data){
 		if(!data.r){
+//			layer.alert('保存成功', {
+//				title : '提示框',
+//				icon : 1,
+//			},function(){
+				layer.close(layerIndex);
+				window.location.reload();
+//			});
+		}
+		else{
 			layer.close(layerIndex);
+//			window.location.reload();
+			$scope.updateRole(globleF);
 		}
 	});
 	

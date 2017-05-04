@@ -16,7 +16,7 @@
         <form id="form1" name="form1" method="post" action="">
             <div class="Manager_style add_user_info search_style">
                 <ul class="search_content clearfix" >
-                    <li><label class="lf">帐号</label>
+                    <li><label class="lf">用户名</label>
                         <label>
                             <input name="account" ng-model="queryFilter.param.account" type="text"
                                    class="text_add"/>
@@ -59,34 +59,35 @@
                 <div id="Add_user_style" style="display: none">
                     <div class="addCommon clearfix">
                         <ul class="clearfix">
-                            <li>
+                            <li id="usernameLi">
                                 <label class="label_name">用户名</label>
                                 <label for="name"></label>
-                                <input name="account" ng-model="user.account" type="text"  id="name"/>
+                                <input name="account" ng-model="user.account" type="text"  id="name" maxlength='30' />
                                 <i style="color: #F60;">*</i>
                             </li>
-                            <li>
+                            <li id="passwordLi">
                                 <label class="label_name">密码</label>
                                 <label for="password"></label>
-                                <input name="password" ng-model="user.password" type="password"
+                                <input name="password" ng-model="user.password" type="password"  maxlength='100' 
                                        id="password"/>
                                 <i style="color: #F60;">*</i>
                             </li>
                             <li>
                                 <label class="label_name">手机号</label>
                                 <label for="phone"></label>
-                                <input name="mobile" ng-model="user.mobile" type="text" id="phone"/>
+                                <input name="mobile" ng-model="user.mobile" type="text" id="phone" maxlength='11'/>
                             </li>
                             <li>
                                 <label class="label_name">邮箱</label>
                                 <label for="email"></label>
-                                <input name="email" ng-model="user.email" type="text" id="email"/>
+                                <input name="email" ng-model="user.email" type="text" id="email" maxlength='30'/>
                             </li>
                             <li>
                                 <label class="label_name">真实姓名</label>
                                 <label for="user_name"></label>
-                                <input name="trueName" ng-model="user.trueName" type="text"
+                                <input name="trueName" ng-model="user.trueName" type="text" maxlength='10'
                                        id="user_name"/>
+                                <i style="color: #F60;">*</i>
                             </li>
                             <li>
                                 <label class="label_name">状态</label>

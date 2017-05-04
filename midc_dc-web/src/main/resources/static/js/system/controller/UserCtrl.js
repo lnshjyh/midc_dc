@@ -12,7 +12,16 @@ userApp.controller('userCtrl', ['$rootScope', '$scope','userService',function ($
 			alertDialog("请选择一个");
 			return;
 		}
-		var titleName = selectArray && selectArray.length>0 ? '修改用户':'添加用户';
+		if( sign==0 ){
+			//隐藏用户名和密码
+			$("#usernameLi").hide();
+			$("#passwordLi").hide();
+		}
+		else{
+			$("#usernameLi").show();
+			$("#passwordLi").show();
+		}
+		var titleName = sign==0 ? '修改用户':'添加用户';
 		var userId = $(selectArray[0]).val();
 		if(userId && sign==0){
 			userService.detail(userId).then(function(response){
@@ -42,10 +51,6 @@ userApp.controller('userCtrl', ['$rootScope', '$scope','userService',function ($
 					alertDialog("密码不能为空");
 					return;
 				}
-				if ($("#phone").val() == "") {
-					alertDialog("手机号码不能为空");
-					return;
-				}
 				if ($("#select_status").val() == "") {
 					alertDialog("用户状态能为空");
 					return;
@@ -65,7 +70,7 @@ userApp.controller('userCtrl', ['$rootScope', '$scope','userService',function ($
 					}
 					var isLockStr = user.isLock;
 					user.isLock = parseInt(isLockStr);
-					if(!userId){
+					if(sign == 1){
 						userService.addUser(user).then(function(response){
 							layer.alert(response.msg, {
 								title : '提示框',
@@ -107,7 +112,7 @@ userApp.controller('userCtrl', ['$rootScope', '$scope','userService',function ($
 		if(userIds.lenght==0){
 			return;
 		}
-		layer.confirm('是否重置密码，重置后原密码将失效？', {
+		layer.confirm('是否重置为初始密码123456，重置后原密码将失效？', {
 			btn : [ '重置', '取消' ]
 		}, function() {
 			userService.resetPwd(userIds).then(function(response){
