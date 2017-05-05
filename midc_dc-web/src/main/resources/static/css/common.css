@@ -175,6 +175,10 @@ div.navbar{
     text-align: right;
 }
 
+.text_add{
+	width: 100px;
+}
+
 .commonManager .addCommon li .radio {
     float: left;
     width: 90px;

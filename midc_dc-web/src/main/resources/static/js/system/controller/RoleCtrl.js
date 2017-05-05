@@ -9,9 +9,11 @@ roleApp.controller('roleCtrl', ['$rootScope', '$scope','baseService','roleServic
 		$scope.role = {};
 		$scope.id = 'add';
 		globleF = sign;
+		$("#key").removeAttr("disabled");
 		if(!sign){
 			// 编辑
 			titleName = "编辑角色";
+			$("#key").attr("disabled","disabled");
 			var roleIdArr =  $.getChkValueArr("subRoleChkbox");
 			if(roleIdArr && roleIdArr.length==1){
 				baseService.post(_ctx+"/role/detail",roleIdArr[0]).then(function(response){

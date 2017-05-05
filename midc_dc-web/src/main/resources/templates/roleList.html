@@ -81,15 +81,19 @@
                                     <label class="label_name">标识</label>
                                     <label>
                                         <input name="key" type="text" ng-model="role.roleId" value=""
-                                               class="text_add" ht-validate="{required:true}" />
+                                               class="text_add" ht-validate="{required:true}" maxlength='32' id="key"/>
+                                         <i style="color: #F60;">*</i>
                                     </label>
+                                    
                                 </li>
                                 <li>
                                     <label class="label_name">名称</label>
                                     <label>
                                         <input name="name" ng-model="role.name" type="text" value=""
-                                               class="text_add" ht-validate="{required:true}" />
+                                               class="text_add" ht-validate="{required:true}" maxlength='32'/>
+                                        <i style="color: #F60;">*</i>
                                     </label>
+                                    
                                 </li>
                             </ul>
                         </div>
