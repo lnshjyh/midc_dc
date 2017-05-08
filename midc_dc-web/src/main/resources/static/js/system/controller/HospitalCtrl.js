@@ -11,9 +11,9 @@ hospitalApp.controller('hospitalCtrl', ['$rootScope', '$scope','hospitalService'
 			alertDialog("请选择一个");
 			return;
 		}
-		var titleName = selectArray && selectArray.length>0 ? '修改医疗机构':'添加医疗机构';
+		var titleName = sign == 0 ? '修改医疗机构':'添加医疗机构';
 		var hospId = $(selectArray[0]).val();
-		if(hospId){
+		if(sign == 0 && hospId){
 			hospitalService.detail(hospId).then(function(response){
 				console.debug('para',response);
 				var isAvailable = response.data.isAvailable;
@@ -30,7 +30,7 @@ hospitalApp.controller('hospitalCtrl', ['$rootScope', '$scope','hospitalService'
 			title : titleName,
 			maxmin : true,
 			shadeClose : true, //点击遮罩关闭层
-			area : [ '576px', '468px' ],
+			area : [ '600px', '468px' ],
 			content : $('#Add_hospital_style'),
 			btn : [ '保存', '取消' ],
 			yes : function(index, layero) {
@@ -53,7 +53,7 @@ hospitalApp.controller('hospitalCtrl', ['$rootScope', '$scope','hospitalService'
 					}
 					var isAvailableStr = hospital.isAvailable;
 					hospital.isAvailableStr = parseInt(isAvailableStr);
-					if(!hospId){
+					if(sign == 1){
 						hospitalService.addHospital(hospital).then(function(response){
 							layer.alert(response.msg, {
 								title : '提示框',
