@@ -133,6 +133,15 @@ public class CommonUtils {
 	   } 
 	   return true; 
 	}
+    
+    public static String generateNumFive(){
+		int n=0;
+		n=(int)(Math.random()*100000);
+		while(n<10000){
+			n=(int)(Math.random()*100000);
+		}
+		return n+"";
+	}
     /*public static void main(String[] args)
     {
     	long begin = System.currentTimeMillis();

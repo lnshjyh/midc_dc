@@ -48,12 +48,14 @@ public class HospitalService {
     	checkNotNull(hospital, "医疗机构不能为空");
         checkArgument(!Strings.isNullOrEmpty(hospital.getHospName()), "医疗机构名不能为空");
         checkArgument(!Strings.isNullOrEmpty(hospital.getClientId()), "ClientId不能为空");
+        Hospital hosp = hospitalDao.findUnique("getByClientId", hospital.getClientId());
+        checkArgument(hosp == null, "已存在该客户端标识");
         hospital.setClientSecret(CommonUtils.generateId());
         hospital.setCreateTime(new Date());
         hospital.setUpdateTime(new Date());
         hospital.setIsAvailable("1");
         hospital.setIsConnected("0");
-        hospital.setHospId(CommonUtils.generateId());
+        hospital.setHospId(CommonUtils.generateNumFive());
 
         hospitalDao.save(hospital);
     }

@@ -3,7 +3,7 @@ hospitalApp.controller('hospitalCtrl', ['$rootScope', '$scope','hospitalService'
 	$('#multiselect').multiselect({});
 	//搜索参数
 	$scope.queryFilter = {};
-	$scope.isAvailableMap = [{isAvailable:0, name: "不可用"}, {isAvailable: 1, name: "可用"}];
+	$scope.isAvailableMap = [{isAvailable: 1, name: "可用"},{isAvailable:0, name: "不可用"}];
 	//添加医疗机构,1为添加，0为修改
 	$scope.updateHospital = function(sign){
 		var selectArray = $("#Hospital_list tbody input:checked");
@@ -22,7 +22,7 @@ hospitalApp.controller('hospitalCtrl', ['$rootScope', '$scope','hospitalService'
 			});
 		}else{
 			$scope.hospital = {
-					isAvailable :'0'
+					isAvailable :'1'
 			};
 		}
 		layer.open({

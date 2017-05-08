@@ -49,14 +49,14 @@
                                 <label for="address"></label>
                                 <input name="address" ng-model="hospital.address" type="text"
                                        id="address"/>
-                                <i style="color: #F60;">*</i>
                             </li>
                             <li>
-                                <label class="label_name">客户端标识</label>
+                                <label class="label_name">clientId</label>
                                 <label for="client_id"></label>
                                 <input name="clientId" ng-model="hospital.clientId" type="text" id="clientId"/>
+                                <i style="color: #F60;">*</i>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <label class="label_name">经度</label>
                                 <label for="longitude"></label>
                                 <input name="longitude" ng-model="hospital.longitude" type="text" id="longitude"/>
@@ -66,7 +66,7 @@
                                 <label for="latitude"></label>
                                 <input name="latitude" ng-model="hospital.latitude" type="text"
                                        id="latitude"/>
-                            </li>
+                            </li> -->
                             <li>
                                 <label class="label_name">状态</label>
                                 <label>
@@ -97,11 +97,13 @@
                             <span class="lbl" style="cursor:pointer;"></span>
                         </th>
                         <th>医院名称</th>
+                        <th>医院ID</th>
                         <th>地址</th>
                         <th>状态</th>
                         <th>客户端标识</th>
-                        <th>经度</th>
-                        <th>纬度</th>
+                        <th>客户端密钥</th>
+                        <!-- <th>经度</th>
+                        <th>纬度</th> -->
                         <th>创建时间</th>
                     </tr>
                     </thead>
@@ -112,11 +114,13 @@
                             <span class="lbl" style="cursor:pointer;"></span>
                         </td>
                         <td ng-bind="model.hospName"></td>
+                        <td ng-bind="model.hospId"></td>
                         <td ng-bind="model.address"></td>
                         <td ng-bind="model.isAvailable == 0?'停用':'启用'"></td>
                         <td ng-bind="model.clientId"></td>
-                        <td ng-bind="model.longitude"></td>
-                        <td ng-bind="model.latitude"></td>
+                        <td ng-bind="model.clientSecret"></td>
+                       <!--  <td ng-bind="model.longitude"></td>
+                        <td ng-bind="model.latitude"></td> -->
                         <td ng-bind="model.createTime | date:'yyyy-MM-dd'"></td>
                     </tr>
                     </tbody>
