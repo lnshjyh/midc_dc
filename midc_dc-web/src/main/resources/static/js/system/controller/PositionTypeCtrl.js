@@ -11,9 +11,9 @@ positionTypeApp.controller('positionTypeCtrl', ['$rootScope', '$scope','position
 			alertDialog("请选择一个");
 			return;
 		}
-		var titleName = selectArray && selectArray.length>0 ? '修改部位类型':'添加部位类型';
+		var titleName = sign==0 ? '修改部位类型':'添加部位类型';
 		var positiontypeId = $(selectArray[0]).val();
-		if(positiontypeId){
+		if( sign==0){
 			positionTypeService.detail(positiontypeId).then(function(response){
 				var isAvailable = response.data.isAvailable;
 				$scope.positionType = response.data;
@@ -21,7 +21,7 @@ positionTypeApp.controller('positionTypeCtrl', ['$rootScope', '$scope','position
 			});
 		}else{
 			$scope.positionType = {
-					isAvailable :'0'
+					isAvailable :'1'
 			};
 		}
 		layer.open({

@@ -11,9 +11,9 @@ checkitemApp.controller('checkitemCtrl', ['$rootScope', '$scope','checkitemServi
 			alertDialog("请选择一个");
 			return;
 		}
-		var titleName = selectArray && selectArray.length>0 ? '修改检查项':'添加检查项';
+		var titleName = sign==0 ? '修改检查项':'添加检查项';
 		var checkitemId = $(selectArray[0]).val();
-		if(checkitemId){
+		if(sign==0){
 			checkitemService.detail(checkitemId).then(function(response){
 				var isAvailable = response.data.isAvailable;
 				$scope.checkitem = response.data;
@@ -21,7 +21,7 @@ checkitemApp.controller('checkitemCtrl', ['$rootScope', '$scope','checkitemServi
 			});
 		}else{
 			$scope.checkitem = {
-					isAvailable :'0'
+					isAvailable :'1'
 			};
 		}
 		layer.open({

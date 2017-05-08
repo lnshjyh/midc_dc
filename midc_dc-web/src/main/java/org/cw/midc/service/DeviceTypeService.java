@@ -48,6 +48,7 @@ public class DeviceTypeService {
         deviceType.setIsAvailable("1");
     	User user = (User)UserContextUtil.getAttribute("currentUser");
     	deviceType.setOperId(user.getUserId());
+    	deviceType.setDeviceTypeId(CommonUtils.generateNumFive());
 
     	deviceTypeDao.save(deviceType);
     }

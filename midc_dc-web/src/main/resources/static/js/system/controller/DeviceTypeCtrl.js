@@ -11,9 +11,9 @@ deviceTypeApp.controller('deviceTypeCtrl', ['$rootScope', '$scope','deviceTypeSe
 			alertDialog("请选择一个");
 			return;
 		}
-		var titleName = selectArray && selectArray.length>0 ? '修改设备类型':'添加设备类型';
+		var titleName = sign==0 ? '修改设备类型':'添加设备类型';
 		var deviceTypeId = $(selectArray[0]).val();
-		if(deviceTypeId){
+		if(sign==0){
 			deviceTypeService.detail(deviceTypeId).then(function(response){
 				var isAvailable = response.data.isAvailable;
 				$scope.deviceType = response.data;
@@ -21,7 +21,7 @@ deviceTypeApp.controller('deviceTypeCtrl', ['$rootScope', '$scope','deviceTypeSe
 			});
 		}else{
 			$scope.deviceType = {
-					isAvailable :'0'
+					isAvailable :'1'
 			};
 		}
 		layer.open({
@@ -94,7 +94,7 @@ deviceTypeApp.controller('deviceTypeCtrl', ['$rootScope', '$scope','deviceTypeSe
 		layer.confirm('是否删除设备类型？', {
 			btn : [ '确定', '取消' ]
 		}, function() {
-			deviceTypelService.deleteDeviceType(deviceTypeIds).then(function(resp){
+			deviceTypeService.deleteDeviceType(deviceTypeIds).then(function(resp){
 				layer.msg(resp.msg, {
 					time : 1000,
 					icon : 1
