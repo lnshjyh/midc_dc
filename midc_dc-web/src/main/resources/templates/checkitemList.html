@@ -41,7 +41,7 @@
                             <li>
                                 <label class="label_name">检查项名称</label>
                                 <label for="checkitem_name"></label>
-                                <input name="checkitemName" ng-model="checkitem.checkitemName" type="text"  id="checkitemName"/>
+                                <input name="checkitemName" ng-model="checkitem.checkitemName" type="text"  id="checkitemName"  maxlength='64' />
                                 <i style="color: #F60;">*</i>
                             </li>
                             <li>
@@ -73,6 +73,7 @@
                             <input name="checkitemCheckBox_All" id="checkitemCheckBox_All" type="checkbox" ng-click="selectAll($event)" class="ace"/>
                             <span class="lbl" style="cursor:pointer;"></span>
                         </th>
+                        <th>检查项ID</th>
                         <th>检查项名称</th>
                         <th>状态</th>
                         <th>创建时间</th>
@@ -84,6 +85,7 @@
                             <input name="subCheckitemChkBox_{{$index}}" value="{{model.checkitemId}}" type="checkbox" class="ace subCheckitemChkbox"/>
                             <span class="lbl" style="cursor:pointer;"></span>
                         </td>
+                        <td ng-bind="model.checkitemId"></td>
                         <td ng-bind="model.checkitemName"></td>
                         <td ng-bind="model.isAvailable == 0?'停用':'启用'"></td>
                         <td ng-bind="model.createTime | date:'yyyy-MM-dd'"></td>

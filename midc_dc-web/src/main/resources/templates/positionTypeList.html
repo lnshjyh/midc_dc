@@ -41,7 +41,7 @@
                             <li>
                                 <label class="label_name">部位名称</label>
                                 <label for="positiontype_name"></label>
-                                <input name="positiontypeName" ng-model="positionType.positiontypeName" type="text"  id="hospName"/>
+                                <input name="positiontypeName" ng-model="positionType.positiontypeName" type="text"  id="positiontypeName"  maxlength='64'/>
                                 <i style="color: #F60;">*</i>
                             </li>
                             <li>
@@ -73,6 +73,7 @@
                             <input name="posCheckBox_All" id="posCheckBox_All" type="checkbox" ng-click="selectAll($event)" class="ace"/>
                             <span class="lbl" style="cursor:pointer;"></span>
                         </th>
+                        <th>部位ID</th>
                         <th>部位名称</th>
                         <th>状态</th>
                         <th>创建时间</th>
@@ -84,6 +85,7 @@
                             <input name="subPosChkBox_{{$index}}" value="{{model.positiontypeId}}" type="checkbox" class="ace subPosChkbox"/>
                             <span class="lbl" style="cursor:pointer;"></span>
                         </td>
+                        <td ng-bind="model.positiontypeId"></td>
                         <td ng-bind="model.positiontypeName"></td>
                         <td ng-bind="model.isAvailable == 0?'停用':'启用'"></td>
                         <td ng-bind="model.createTime | date:'yyyy-MM-dd'"></td>
