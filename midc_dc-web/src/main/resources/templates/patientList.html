@@ -11,6 +11,7 @@
     <script th:src="@{/assets/select-mutiple/js/prettify.min.js}"></script>
     <title>患者管理</title>
 </head>
+
 <body ng-controller="patientCtrl">
 <div class="page-content">
     <div class="commonManager">
@@ -87,13 +88,13 @@
                      
                      <li><label class="lf">日期 从:</label>
                         <label>
-                            <input type="text" ng-model="queryFilter.param.startTime"  th:readonly="true" class="date eg-date"/>
+                            <input id = "startTime" type="text" ng-model="queryFilter.param.startTime"  th:readonly="true" class="date eg-date"/>
                             <span class="date-icon"><i class="icon-calendar"></i></span>
                         </label>
                     </li>
                     <li><label class="lf">日期 到:</label>
                         <label>
-                            <input type="text" ng-model="queryFilter.param.endTime"  th:readonly="true" class="date eg-date"/>
+                            <input id="endTime" type="text" ng-model="queryFilter.param.endTime"  th:readonly="true" class="date eg-date"/>
                             <span class="date-icon"><i class="icon-calendar"></i></span>
                         </label>
                     </li>

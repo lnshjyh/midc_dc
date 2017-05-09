@@ -5,6 +5,31 @@ patientApp.controller('patientCtrl', ['$rootScope', '$scope','patientService',fu
 	$scope.queryFilter = {};
 	$scope.sexMap = [{code:"F", name: "女"}, {code:"M", name: "男"}];
 	
+	$('#startTime').datetimepicker({  
+	    language: 'zh-CN',//显示中文
+	    format: 'yyyy-mm-dd',//显示格式
+	    minView: "month",//设置只显示到月份
+	    initialDate: new Date(),//初始化当前日期
+	    autoclose: true,//选中自动关闭
+	    todayBtn: true//显示今日按钮
+	}).on('changeDate',function(e){  
+	    var startTime = e.date;  
+	    $('#endTime').datetimepicker('setStartDate',startTime);  
+	});  
+	//结束时间：  
+	$('#endTime').datetimepicker({  
+		language: 'zh-CN',//显示中文
+		format: 'yyyy-mm-dd',//显示格式
+		minView: "month",//设置只显示到月份
+		initialDate: new Date(),//初始化当前日期
+		autoclose: true,//选中自动关闭
+		todayBtn: true//显示今日按钮
+	}).on('changeDate',function(e){  
+	    var endTime = e.date;  
+	    $('#startTime').datetimepicker('setEndDate',endTime);  
+	});
+	
+	
 	patientService.devicetypes().then(function(response){
 		if(response){
 			$scope.dList = response;
