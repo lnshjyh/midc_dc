@@ -59,6 +59,11 @@ public class DevicetypePositionCheckitemService {
     @Transactional
     public void add(DevicetypePositionCheckitem devicetypePositionCheckitem) {
     	checkNotNull(devicetypePositionCheckitem, "不能为空");
+    	checkNotNull(devicetypePositionCheckitem.getCheckitemId(), "检查项ID不能为空");
+    	checkNotNull(devicetypePositionCheckitem.getDeviceTypeId(), "设备ID不能为空");
+    	checkNotNull(devicetypePositionCheckitem.getPositiontypeId(), "部位ID不能为空");
+    	DevicetypePositionCheckitem data = devicetypePositionCheckitemDao.findUnique("getByDeviceIdAndPositionChkId", devicetypePositionCheckitem);
+    	checkArgument(data == null, "已存在数据");
     	devicetypePositionCheckitem.setCreateTime(new Date());
     	devicetypePositionCheckitem.setUpdateTime(new Date());
     	User user = (User)UserContextUtil.getAttribute("currentUser");

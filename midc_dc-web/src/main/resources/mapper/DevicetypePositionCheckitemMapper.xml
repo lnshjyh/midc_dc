@@ -104,5 +104,12 @@
 	    from devicetype_position_checkitem
 	    where device_type_id = #{deviceTypeId,jdbcType=VARCHAR} and positiontype_id = #{positiontypeId,jdbcType=VARCHAR}
   	</select>
+  	
+  	<select id="getByDeviceIdAndPositionChkId" resultMap="BaseResultMap" parameterType="java.util.Map" >
+	    select 
+	    <include refid="Base_Column_List" />
+	    from devicetype_position_checkitem
+	    where device_type_id = #{deviceTypeId,jdbcType=VARCHAR} and positiontype_id = #{positiontypeId,jdbcType=VARCHAR} and checkitem_id = #{checkitemId,jdbcType=VARCHAR}
+  	</select>
   
 </mapper>
