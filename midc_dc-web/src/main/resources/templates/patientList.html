@@ -211,13 +211,12 @@
                             <input name="patientCheckBox_All" id="patientCheckBox_All" type="checkbox" ng-click="selectAll($event)" class="ace"/>
                             <span class="lbl" style="cursor:pointer;"></span>
                         </th>
+                        <th>状态</th>
                         <th>患者姓名</th>
-                        <th>医疗机构</th>
-                        <th>病人ID</th>
-                      	 <th>性别</th>
+                        <th>性别</th>
                       	<th> 年龄</th>
+                      	<th>设备类型</th>
                       	<th>检查部位及检查方法</th>
-                    	 <th>检查唯一ID</th>
                         <th>传输状态</th>
                         <th>检查日期</th>
                     </tr>
@@ -228,13 +227,12 @@
                             <input name="subPatientChkBox_{{$index}}" value="{{model.checkitemId}}" type="checkbox" class="ace subPatientChkbox"/>
                             <span class="lbl" style="cursor:pointer;"></span>
                         </td>
+                        <td ng-bind="model.rptStatus"></td>
                         <td ng-bind="model.patientName"></td>
-                        <td ng-bind="model.hospName"></td>
-                        <td ng-bind="model.patientId"></td>
                         <td ng-bind="model.patientSex"></td>
                         <td ng-bind="model.age"></td>
+                        <td ng-bind="model.deviceType"></td>
                         <td ng-bind="model.positionChk"></td>
-                        <td ng-bind="model.studyinfoId"></td>
                         <td ng-bind="model.transStatus"></td>
                         <td ng-bind="model.createTime | date:'yyyy-MM-dd'"></td>
                     </tr>
