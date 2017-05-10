@@ -12,6 +12,10 @@ patientApp.service('patientService', ['$http', '$q', 'baseService',
                 devicetypes: function(json) {
                     var url = _ctx + '/patlist/devicetypes';
                     return baseService.get(url);
+                },
+                allhospital:function(){
+                	var url = _ctx + '/patlist/allhospital';
+                    return baseService.get(url);
                 }
             	
             }

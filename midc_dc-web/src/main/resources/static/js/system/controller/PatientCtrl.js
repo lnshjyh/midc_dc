@@ -37,6 +37,12 @@ patientApp.controller('patientCtrl', ['$rootScope', '$scope','patientService',fu
 		}
 	});
 	
+	patientService.allhospital().then(function(response){
+		if(response){
+			$scope.hList = response;
+		}
+	});
+	
 	$scope.getByDevice = function(){
 		var deviceId = $scope.queryFilter.param.deviceTypeId;
 		var para={

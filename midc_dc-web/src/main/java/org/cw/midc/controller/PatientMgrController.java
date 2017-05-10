@@ -12,6 +12,7 @@ import org.cw.midc.entity.DeviceType;
 import org.cw.midc.entity.DevicetypePositionCheckitem;
 import org.cw.midc.page.Page;
 import org.cw.midc.service.DevicetypePositionCheckitemService;
+import org.cw.midc.service.HospitalService;
 import org.cw.midc.service.ris.StudyInfoService;
 import org.cw.midc.util.CommonUtils;
 import org.springframework.stereotype.Controller;
@@ -29,6 +30,9 @@ public class PatientMgrController {
     private StudyInfoService studyInfoService;
     
     @Resource
+    private HospitalService hospitalService;
+    
+    @Resource
     private DevicetypePositionCheckitemService devicetypePositionCheckitemService;
     
     @GetMapping("listPage")
@@ -44,6 +48,13 @@ public class PatientMgrController {
         List list = studyInfoService.queryList(queryFilter);
         Page page = queryFilter.getPage();
         return new Response(list,page);
+    }
+	
+	@ResponseBody
+	@GetMapping("allhospital")
+    public Response allhospital() {
+        List list = hospitalService.getAllHospitals();
+        return new Response(list);
     }
 	
 	@ResponseBody

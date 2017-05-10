@@ -32,11 +32,14 @@
                                    class="text_add"/>
                         </label>
                     </li>
-                    <li><label class="lf">医疗机构ID</label>
-                        <label>
-                            <input name="hospitalId" ng-model="queryFilter.param.hospitalId"
-                                   type="text"
-                                   class="text_add"/>
+                    <li><label class="lf">医疗机构</label>
+                        <label>    
+                              <select name="hospitalId" size="1" ng-model="queryFilter.param.hospitalId" 
+                                     >
+                                     <option value="">--请选择--</option>
+                                 <option ng-repeat="map in hList"
+                                         value="{{map.hospId}}" ng-bind="map.hospName"></option>
+                             </select>
                         </label>
                     </li>
                     <li>
@@ -229,7 +232,7 @@
                         </td>
                         <td ng-bind="model.rptStatus"></td>
                         <td ng-bind="model.patientName"></td>
-                        <td ng-bind="model.patientSex"></td>
+                        <td ng-bind="model.patientSex == 'F'?'女':'男'"></td>
                         <td ng-bind="model.age"></td>
                         <td ng-bind="model.deviceType"></td>
                         <td ng-bind="model.positionChk"></td>
