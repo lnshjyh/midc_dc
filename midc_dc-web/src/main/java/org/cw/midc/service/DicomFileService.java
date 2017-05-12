@@ -12,6 +12,7 @@ import org.cw.midc.dao.HospitalDao;
 import org.cw.midc.dao.MediaInfoDao;
 import org.cw.midc.entity.FileInfo;
 import org.cw.midc.entity.MediaInfo;
+import org.cw.midc.entity.StorageInfo;
 import org.cw.midc.entity.Hospital;
 import org.cw.midc.util.CommonUtils;
 import org.rribbit.Listener;
@@ -107,10 +108,12 @@ public class DicomFileService {
 	
 	public File getFile(String fileId)
 	{
-		String storageBasePath = storageService.getCurrentBaseStoragePath();
+//		String storageBasePath = storageService.getCurrentBaseStoragePath();
 		FileInfo fileInfo = fileInfoDao.findUnique("selectByPrimaryKey", fileId);
-		MediaInfo mediaInfo = mediaInfoDao.findUnique("selectByPrimaryKey", fileInfo.getMediaId());
-		String fileAbsolutePathStr = storageBasePath + mediaInfo.getPath() + fileInfo.getFilePath();
+//		MediaInfo mediaInfo = mediaInfoDao.findUnique("selectByPrimaryKey", fileInfo.getMediaId());
+		MediaInfo mediaInfo = storageService.getMediaInfo(fileInfo.getMediaId());
+		StorageInfo storageInfo = storageService.getStorageInfoById(mediaInfo.getStorageId());
+		String fileAbsolutePathStr = storageInfo.getPath() + mediaInfo.getPath() + fileInfo.getFilePath();
 		File file = new File(fileAbsolutePathStr);
 		return file;
 	}

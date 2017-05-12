@@ -11,12 +11,14 @@ import org.cw.midc.dao.StudyDao;
 import org.cw.midc.dao.StudyInfoDao;
 import org.cw.midc.entity.FileInfo;
 import org.cw.midc.entity.Instance;
+import org.cw.midc.entity.MediaInfo;
 import org.cw.midc.entity.RisPacsRel;
 import org.cw.midc.entity.Series;
+import org.cw.midc.entity.StorageInfo;
 import org.cw.midc.entity.Study;
+import org.cw.midc.entity.StudyInfo;
 import org.cw.midc.exception.DicomFileDuplicatedException;
 import org.cw.midc.exception.RisInfoNotFoundException;
-import org.cw.midc.entity.StudyInfo;
 //import org.cw.midc.repository.ris.StudyInfoRepository;
 import org.cw.midc.service.factory.PacsFactory;
 import org.cw.midc.util.CommonUtils;
@@ -31,6 +33,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import net.lingala.zip4j.exception.ZipException;
 
@@ -60,9 +63,6 @@ public class LoadDicomFileService {
 	
 	@Autowired
 	private RisPacsRelDao risPacsRelDao;
-	
-//	@Autowired
-//	private StudyInfoRepository studyInfoRepository;
 	
 	@Autowired
 	private StudyInfoDao studyInfoDao;
@@ -97,7 +97,6 @@ public class LoadDicomFileService {
 	public void loadDicomFile2DB(FileInfo fileInfo) throws ZipException, IOException, RisInfoNotFoundException, DicomFileDuplicatedException
 	{
 		String newCloudStudyInfoId = fileInfo.getHospitalId() + fileInfo.getStudyInfoId();
-//		StudyInfo studyInfo = studyInfoRepository.findOne(newCloudStudyInfoId);
 		StudyInfo studyInfo = studyInfoDao.findUnique("getById", newCloudStudyInfoId);
 		if(studyInfo == null)
 		{
@@ -105,9 +104,9 @@ public class LoadDicomFileService {
 			throw new RisInfoNotFoundException(newCloudStudyInfoId);
 		}
 		
-		String basePath = storageService.getCurrentBaseStoragePath();
-		String mediaPath = storageService.getMediaPath(fileInfo.getMediaId());
-		String src = basePath + mediaPath + fileInfo.getFilePath();
+		MediaInfo mediaInfo = storageService.getMediaInfo(fileInfo.getMediaId());
+		StorageInfo storageInfo = storageService.getStorageInfoById(mediaInfo.getStorageId());
+		String src = storageInfo.getPath() + mediaInfo.getPath() + fileInfo.getFilePath();
 		File tempFile = null;
 		try {
 			tempFile = fileService.unzipOneFile(src);
@@ -153,6 +152,7 @@ public class LoadDicomFileService {
 	 * @param dicom
 	 * @throws DicomFileDuplicatedException 
 	 */
+	@Transactional(rollbackFor=Exception.class)
 	public void loadDicomObj2DB(FileInfo fileInfo, DicomObject dicom, StudyInfo studyInfo) throws DicomFileDuplicatedException
 	{
 		String studyInstanceUId = dicom.getString(Tag.StudyInstanceUID);
@@ -185,6 +185,9 @@ public class LoadDicomFileService {
 			//创建instance
 			instance = pacsFactory.createInstanceFrom(dicom, fileInfo, instanceUID, seriesUID);
 			instanceDao.save(instance);
+			
+			//图象数+1
+			studyDao.update("increaseInstanceCount", studyUID);
 		}
 		else
 		{
@@ -198,6 +201,9 @@ public class LoadDicomFileService {
 				//创建instance
 				instance = pacsFactory.createInstanceFrom(dicom, fileInfo, instanceUID, seriesUID);
 				instanceDao.save(instance);
+				
+				//图象数+1
+				studyDao.update("increaseInstanceCount", studyUID);
 			}
 			else
 			{
@@ -207,6 +213,9 @@ public class LoadDicomFileService {
 					//仅创建instance
 					instance = pacsFactory.createInstanceFrom(dicom, fileInfo, instanceUID, seriesUID);
 					instanceDao.save(instance);
+					
+					//图象数+1
+					studyDao.update("increaseInstanceCount", studyUID);
 				}
 				else
 				{

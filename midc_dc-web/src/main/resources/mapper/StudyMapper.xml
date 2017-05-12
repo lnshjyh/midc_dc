@@ -50,6 +50,10 @@
       #{studyIuid,jdbcType=VARCHAR}, #{studyTime,jdbcType=TIMESTAMP}, #{userId,jdbcType=VARCHAR}
       )
   </insert>
+  
+  <update id="increaseInstanceCount" parameterType="java.lang.String">
+        update study set inst_cnt = inst_cnt + 1 where study_uid = #{studyUid}
+  </update>
 
  
 </mapper>
