@@ -234,6 +234,7 @@ DROP TABLE IF EXISTS `media_info`;
 
 CREATE TABLE `media_info` (
   `media_id` varchar(128) NOT NULL,
+  `storage_id` varchar(128) NOT NULL,
   `create_time` datetime DEFAULT NULL,
   `media_name` varchar(128) DEFAULT NULL,
   `path` varchar(128) DEFAULT NULL,

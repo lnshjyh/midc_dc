@@ -6,6 +6,8 @@ import org.cw.midc.BaseEntity;
 
 public class MediaInfo extends BaseEntity{
     private String mediaId;
+    
+    private String storageId;
 
     private Date createTime;
 
@@ -22,9 +24,10 @@ public class MediaInfo extends BaseEntity{
 		
 	}
 	
-	public MediaInfo(String mediaId, String mediaName, String path)
+	public MediaInfo(String mediaId, String storageId, String mediaName, String path)
 	{
 		this.mediaId = mediaId;
+		this.storageId = storageId;
 		this.mediaName = mediaName;
 		this.path = path;
 		this.status = "1";
@@ -79,4 +82,14 @@ public class MediaInfo extends BaseEntity{
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
+
+	public String getStorageId() {
+		return storageId;
+	}
+
+	public void setStorageId(String storageId) {
+		this.storageId = storageId;
+	}
+    
+    
 }

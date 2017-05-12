@@ -3,10 +3,11 @@
 <mapper namespace="org.cw.midc.entity.MediaInfo" >
   <resultMap id="BaseResultMap" type="org.cw.midc.entity.MediaInfo" >
     <id column="media_id" property="mediaId" jdbcType="VARCHAR" />
+    <id column="storage_id" property="storageId" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="media_name" property="mediaName" jdbcType="VARCHAR" />
     <result column="path" property="path" jdbcType="VARCHAR" />
-    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />    
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>
 
@@ -27,10 +28,10 @@
     where media_id = #{mediaId,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="org.cw.midc.entity.MediaInfo" >
-    insert into media_info (media_id, create_time, media_name, 
+    insert into media_info (media_id, storage_id, create_time, media_name, 
       path, status, update_time
       )
-    values (#{mediaId,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{mediaName,jdbcType=VARCHAR}, 
+    values (#{mediaId,jdbcType=VARCHAR}, #{storageId,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{mediaName,jdbcType=VARCHAR}, 
       #{path,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}
       )
   </insert>

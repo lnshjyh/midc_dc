@@ -11,8 +11,10 @@ import org.cw.midc.dao.StudyDao;
 import org.cw.midc.dao.StudyInfoDao;
 import org.cw.midc.entity.FileInfo;
 import org.cw.midc.entity.Instance;
+import org.cw.midc.entity.MediaInfo;
 import org.cw.midc.entity.RisPacsRel;
 import org.cw.midc.entity.Series;
+import org.cw.midc.entity.StorageInfo;
 import org.cw.midc.entity.Study;
 import org.cw.midc.exception.DicomFileDuplicatedException;
 import org.cw.midc.exception.RisInfoNotFoundException;
@@ -105,9 +107,11 @@ public class LoadDicomFileService {
 			throw new RisInfoNotFoundException(newCloudStudyInfoId);
 		}
 		
-		String basePath = storageService.getCurrentBaseStoragePath();
-		String mediaPath = storageService.getMediaPath(fileInfo.getMediaId());
-		String src = basePath + mediaPath + fileInfo.getFilePath();
+		MediaInfo mediaInfo = storageService.getMediaInfo(fileInfo.getMediaId());
+		StorageInfo storageInfo = storageService.getStorageInfoById(mediaInfo.getStorageId());
+//		String basePath = storageService.getCurrentBaseStoragePath();
+//		String mediaPath = storageService.getMediaPath(fileInfo.getMediaId());
+		String src = storageInfo.getPath() + mediaInfo.getPath() + fileInfo.getFilePath();
 		File tempFile = null;
 		try {
 			tempFile = fileService.unzipOneFile(src);

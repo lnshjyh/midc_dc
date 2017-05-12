@@ -45,6 +45,17 @@ public class StorageService
 		return storageInfo.getPath();
 	}
 	
+	public StorageInfo getStorageInfoById(String storageId)
+	{
+//		StorageInfo storageInfo = storageRepository.findByStatus("1");
+		StorageInfo storageInfo = storageInfoDao.findUnique("selectByPrimaryKey", storageId);
+		if(storageInfo == null)
+		{
+			log.error("No storageInfo effective!");
+		}
+		return storageInfo;
+	}
+	
 	public MediaInfo getCurrentMedia()
 	{
 		String mediaName = new SimpleDateFormat("YYYYMMDD").format(new Date());
@@ -52,6 +63,11 @@ public class StorageService
 		MediaInfo mediaInfo = mediaInfoDao.findUnique("selectByName", mediaName);
 		if(mediaInfo == null)
 		{
+			StorageInfo storageInfo = storageInfoDao.findUnique("selectByStatus", "1");
+			if(storageInfo == null)
+			{
+				log.error("No storageInfo effective!");
+			}
 			String mediaRelativePath = "/" + mediaName;
 			//创建目录
 			File mediaDir = new File(getCurrentBaseStoragePath() + mediaRelativePath);
@@ -63,8 +79,7 @@ public class StorageService
 			
 			//创建数据
 			String mediaId = CommonUtils.generateId();
-			MediaInfo mediaInfoNew = new MediaInfo(mediaId, mediaName, mediaRelativePath);
-//			mediaRepository.save(mediaInfoNew);
+			MediaInfo mediaInfoNew = new MediaInfo(mediaId, storageInfo.getStorageId(), mediaName, mediaRelativePath);
 			mediaInfoDao.save(mediaInfoNew);
 			
 			//返回mediainfo
@@ -79,5 +94,12 @@ public class StorageService
 //		MediaInfo mi = mediaRepository.findOne(mediaId);
 		MediaInfo mi = mediaInfoDao.findUnique("selectByPrimaryKey", mediaId);
 		return mi.getPath();
+	}
+	
+	public MediaInfo getMediaInfo(String mediaId)
+	{
+//		MediaInfo mi = mediaRepository.findOne(mediaId);
+		MediaInfo mediaInfo = mediaInfoDao.findUnique("selectByPrimaryKey", mediaId);
+		return mediaInfo;
 	}
 }
