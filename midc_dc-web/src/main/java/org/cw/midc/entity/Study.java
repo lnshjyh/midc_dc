@@ -11,7 +11,7 @@ public class Study extends BaseEntity{
 
     private Date createTime;
 
-    private Integer instCnt;
+    private Integer instCnt = 0;
 
     private String modality;
 
@@ -44,6 +44,7 @@ public class Study extends BaseEntity{
 	public Study()
 	{
 		this.createTime = new Date();
+		this.instCnt = 0;
 		this.status = "1";
 	}
 
