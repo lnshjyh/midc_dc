@@ -54,7 +54,7 @@ public class StorageController {
     
     @ResponseBody
     @PostMapping("delete")
-    public Response delete(@RequestBody List<Integer> storageIds) {
+    public Response delete(@RequestBody List<String> storageIds) {
         checkArgument((storageIds != null && storageIds.size() > 0), "存储ID不能为空");
         storageService.delete(storageIds);
         return new Response("删除成功");

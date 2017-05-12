@@ -65,7 +65,7 @@
         </where>
     </select>
     
-    <update id="updateUnUseful" parameterType="org.cw.midc.model.StorageInfo">
+    <update id="updateUnUseful" parameterType="org.cw.midc.entity.StorageInfo">
     update storage_info
     set 
       status = '0',

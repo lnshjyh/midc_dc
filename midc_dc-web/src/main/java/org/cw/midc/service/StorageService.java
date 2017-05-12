@@ -119,16 +119,18 @@ public class StorageService
     	storageInfo.setCreateTime(new Date());
     	storageInfo.setUpdateTime(new Date());
     	storageInfo.setStatus("1");
+    	storageInfo.setStorageId(CommonUtils.generateNumFive());
     	User user = (User)UserContextUtil.getAttribute("currentUser");
     	storageInfo.setCreateBy(user.getUserId());
+    	storageInfoDao.update("updateUnUseful", null);
 
     	storageInfoDao.save(storageInfo);
     }
 
 
-    public void delete(List<Integer> ids) {
+    public void delete(List<String> ids) {
     	checkArgument((ids != null && ids.size() > 0), "编号不能为空");
-        for (Integer id : ids) {
+        for (String id : ids) {
         	storageInfoDao.delete("deleteById", id);
         }
     }
