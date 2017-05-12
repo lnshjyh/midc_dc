@@ -19,8 +19,6 @@ public class StudyInfoService {
 	@Resource
     private StudyInfoDao studyInfoDao;
 	
-//	@Resource
-//    private StudyInfoOperateDao studyInfoOperateDao;
 	
 
     public List getList(HashMap<String,Object> param) {
@@ -48,13 +46,13 @@ public class StudyInfoService {
     	
     	List<String> studyids = null;
     	if(paraMap != null){
-    		String checkitemIdPk = (String)paraMap.get("checkItem");
-        	String positionIdPk = (String)paraMap.get("position");
+    		String checkitemIdPk = (String)paraMap.get("checkitemId");
+        	String positionIdPk = (String)paraMap.get("positiontypeId");
         	
         	if(StringUtils.isNotBlank(checkitemIdPk) || StringUtils.isNotBlank(positionIdPk)){
         		paraMap.put("checkitemIdPk", checkitemIdPk);
         		paraMap.put("positionIdPk", positionIdPk);
-        		studyids = studyInfoDao.findColumn("getStudyInfoIdList", String.class, param);
+        		studyids = studyInfoDao.findColumn("getStudyInfoIdList", String.class, paraMap);
         	}
         	if(studyids != null && !studyids.isEmpty()){
         		paraMap.put("studyids", studyids);
