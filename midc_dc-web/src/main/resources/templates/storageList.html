@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html ng-app="storageApp" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" th:href="@{/assets/select-mutiple/css/select-multiple.css}"/>
+    <header th:replace="importCommon"></header>
+    <script th:src="@{/js/system/controller/StorageCtrl.js}"></script>
+    <script th:src="@{/js/system/service/StorageService.js}"></script>
+    <script th:src="@{/assets/select-mutiple/js/multiselect.min.js}"></script>
+    <script th:src="@{/assets/select-mutiple/js/prettify.min.js}"></script>
+    <title>存储管理</title>
+</head>
+<body ng-controller="storageCtrl">
+<div class="page-content">
+    <div class="commonManager">
+        <form id="form1" name="form1" method="post" action="">
+            <div class="Manager_style add_checkitem_info search_style">
+                <ul class="search_content clearfix" >
+                    <li><label class="lf">名称</label>
+                        <label>
+                            <input name="name" ng-model="queryFilter.param.name"
+                                   type="text"
+                                   class="text_add"/>
+                        </label>
+                    </li>
+                    <button id="btn_search" ng-click="storageSearch = !storageSearch" type="button"
+                            class="btn btn-primary queryBtn">查询
+                    </button>
+                </ul>
+                <ul class="search_content clearfix">
+                    <button class="btn btn-primary addBtn" type="button" ng-click="updateCheckitem(1)"
+                            id="Add_checkitem_btn" >添加
+                    </button>
+                    <button type="button" class="btn btn-primary deleteBtn" ng-click="deleteCheckitem()"  >删除</button>
+                </ul>
+                <div id="Add_checkitem_style" style="display: none">
+                    <div class="addCommon clearfix">
+                        <ul class="clearfix">
+                            <li>
+                                <label class="label_name">名称</label>
+                                <label for="name"></label>
+                                <input name="name" ng-model="storageInfo.name" type="text"  id="name"  maxlength='64' />
+                                <i style="color: #F60;">*</i>
+                            </li>
+                            <li>
+                                <label class="label_name">路径</label>
+                                <label for="path"></label>
+                                <input name="path" ng-model="storageInfo.path" type="text"  id="path"  maxlength='64' />
+                                <i style="color: #F60;">*</i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+        </form>
+        <div class="Manager_style">
+            <div class="Checkitem_list">
+                <table id="Checkitem_list" cellpadding="0" cellspacing="0"
+                       class="table table-striped table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>
+                            <input name="storageCheckBox_All" id="storageCheckBox_All" type="checkbox" ng-click="selectAll($event)" class="ace"/>
+                            <span class="lbl" style="cursor:pointer;"></span>
+                        </th>
+                        <th>存储ID</th>
+                        <th>名称</th>
+                        <th>路径</th>
+                        <th>状态</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="model in data">
+                        <td>
+                            <input name="subStorageChkBox_{{$index}}" value="{{model.storageId}}" type="checkbox" class="ace subStorageChkBox"/>
+                            <span class="lbl" style="cursor:pointer;"></span>
+                        </td>
+                        <td ng-bind="model.storageId"></td>
+                        <td ng-bind="model.name"></td>
+                        <td ng-bind="model.path"></td>
+                        <td ng-bind="model.status == 0?'停用':'启用'"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="hupan_more eg-page"  url="/storage/list" request-page-params="queryFilter"
+                 click-search="storageSearch" return-page-rows="data"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

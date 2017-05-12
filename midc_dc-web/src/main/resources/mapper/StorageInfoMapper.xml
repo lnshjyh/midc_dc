@@ -9,6 +9,10 @@
     <result column="status" property="status" jdbcType="VARCHAR" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>
+  
+  <sql id="Base_Column_List">
+    storage_id, create_time, name, path, status, update_time
+  </sql>
 
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select * 
@@ -30,5 +34,42 @@
       #{path,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}
       )
   </insert>
+  
+  <delete id="deleteById" parameterType="java.lang.String">
+    delete from storage_info
+    where storage_id = #{storageId,jdbcType=VARCHAR}
+  </delete>
+  
+  <select id="getList" resultMap="BaseResultMap" parameterType="java.util.Map">
+        select  <include refid="Base_Column_List" />
+         from storage_info 
+        <where>
+        	1=1
+        	<if test="@Ognl@isNotEmpty(name)">
+                and name like '%${name}%' 
+            </if>
+        </where>
+        <if test="@Ognl@isNotEmpty(page)">
+            limit #{page.firstIndex}, #{page.pageSize}
+        </if>
+    </select>
+    
+    <select id="getCount" parameterType="java.util.Map" resultType="java.lang.Integer">
+        select  count(0)
+         from storage_info a 
+        <where>
+        	1=1
+        	 <if test="@Ognl@isNotEmpty(name)">
+                and name like '%${name}%' 
+            </if>
+        </where>
+    </select>
+    
+    <update id="updateUnUseful" parameterType="org.cw.midc.model.StorageInfo">
+    update storage_info
+    set 
+      status = '0',
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+  </update>
 
 </mapper>
