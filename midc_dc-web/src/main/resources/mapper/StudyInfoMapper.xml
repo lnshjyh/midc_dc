@@ -194,6 +194,51 @@
         </where>
     </select>
     
+    <select id="getReportById" parameterType="java.lang.String" resultType="java.util.Map">
+        select a.studyinfo_id as studyinfoId,
+        	CASE
+		WHEN a.age_unit = 'Y' THEN
+			CONCAT(a.age, '岁')
+		WHEN a.age_unit = 'M' THEN
+			CONCAT(a.age, '月')
+		WHEN a.age_unit = 'D' THEN
+			CONCAT(a.age, '天')
+		END AS age,
+        a.device_type as deviceType ,
+        a.pre_diagnose as  preDiagnose,
+        a.abs_history as  absHistory,a.study_desc as studyDesc,a.create_time as createTime  ,a.clinical_manifest as clinicalManifest
+        ,a.study_demand as studyDemand,a.position_checkitem as positionChk,
+		CASE
+		WHEN a.rpt_status = '0' THEN
+			'未写'
+		WHEN a.rpt_status = '1' THEN
+			'初诊'
+		WHEN a.rpt_status = '2' THEN
+			'审核完毕'
+		END AS rptStatus,
+        CASE
+		WHEN a.trans_status = '1' THEN
+			'基层到中心'
+		WHEN a.trans_status = '2' THEN
+			'中心到基层'
+		END AS transStatus,
+        a.status as status,a.is_available as isAvailable,a.apply_doc_name as applyDocName
+        ,a.apply_dep_name as applyDepName,a.apply_time as applyTime,a.hosp_id as hospitalId,a.rpt_id as rptId,a.pat_id as patientId,b.pat_name as patientName,b.birthday as birthday,b.sex as patientSex
+        ,b.patient_type as patientType,c.hosp_name as hospName,
+        d.diagnosis as diagnosis,
+        d.descritpion as descritpion,
+        d.advice as advice,
+        d.d_doc_id as d_doc_id,
+        d.j_doc_id as j_doc_id,
+        d.s_doc_id as s_doc_id 
+         from study_info a ,patient b ,hospital c,report d
+        where 1=1
+        	and a.pat_id = b.pat_id
+        	and a.hosp_id = c.hosp_id 
+        	and a.rpt_id = d.rpt_id
+        	and studyinfo_id = #{studyinfoId,jdbcType=VARCHAR}
+    </select>
+    
     <select id="getById" parameterType="java.lang.String" resultMap="BaseResultMap">
         select * from study_info where studyinfo_id = #{studyinfoId,jdbcType=VARCHAR}
     </select>

@@ -82,5 +82,10 @@ public class StudyInfoService {
     	}
     	return studyInfoDao.getCount(param);
     }
+    
+    public Map getReport(String studyinfoId) {
+        List list = studyInfoDao.find("getReportById", studyinfoId);
+        return list == null?null:(Map)list.get(0);
+    }
 
 }

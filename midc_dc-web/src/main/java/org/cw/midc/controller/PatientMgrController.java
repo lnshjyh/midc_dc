@@ -17,6 +17,7 @@ import org.cw.midc.service.ris.StudyInfoService;
 import org.cw.midc.util.CommonUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -55,6 +56,13 @@ public class PatientMgrController {
     public Response allhospital() {
         List list = hospitalService.getAllHospitals();
         return new Response(list);
+    }
+	
+	@ResponseBody
+	@GetMapping("/report/{studyinfoId}")
+    public Response report(@PathVariable("studyinfoId") String studyinfoId) {
+        Map map = studyInfoService.getReport(studyinfoId);
+        return new Response(map);
     }
 	
 	@ResponseBody
