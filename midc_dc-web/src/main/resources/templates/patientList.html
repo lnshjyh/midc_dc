@@ -45,11 +45,11 @@
                     <li>
                          <label class="lf">性别</label>
                          <label>
-                             <select name="sex" size="1" ng-model="queryFilter.param.sex"
+                             <select name="sex" size="1" ng-model="queryFilter.param.patientSex"
                                      >
                                      <option value="">--请选择--</option>
                                  <option ng-repeat="map in sexMap"
-                                         ng-selected="map.code == queryFilter.param.sex"
+                                         ng-selected="map.code == queryFilter.param.patientSex"
                                          value="{{map.code}}" ng-bind="map.name"></option>
                              </select>
                          </label>
@@ -58,7 +58,7 @@
                      <li>
                          <label class="lf">设备类型</label>
                          <label>
-                             <select name="deviceType" size="1" ng-model="queryFilter.param.deviceTypeId" ng-change="getByDevice()"
+                             <select name="deviceType" size="1" ng-model="queryFilter.param.deviceType" ng-change="getByDevice()"
                                      >
                                      <option value="">--请选择--</option>
                                  <option ng-repeat="map in dList"
