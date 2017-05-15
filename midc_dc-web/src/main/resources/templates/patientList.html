@@ -125,18 +125,18 @@
 				      <label class="lui-form-label">姓名：</label>
 					  
 				      <div class="lui-input-inline">
-						<label style="text-align:left;display:block;padding-top:9px;padding-right:15px;padding-bottom:9px;padding-left:15px;">张三</label>
+						<label style="text-align:left;display:block;padding-top:9px;padding-right:15px;padding-bottom:9px;padding-left:15px;">{{reportData.patientName}}</label>
 				      </div>
 				    </div>
 				    <div class="lui-inline">
 				      <label class="lui-form-label">年龄：</label>
 				      <div class="lui-input-inline">
-						<label style="text-align:left;display:block;padding-top:9px;padding-right:5px;padding-bottom:9px;padding-left:5px;">32岁</label>
+						<label style="text-align:left;display:block;padding-top:9px;padding-right:5px;padding-bottom:9px;padding-left:5px;">{{reportData.age}}</label>
 				      </div>
 				    </div>
 					<div class="lui-inline">
 				      <label class="lui-form-label">性别：</label>
-						<label style="text-align:left;display:block;padding-top:9px;padding-right:5px;padding-bottom:9px;padding-left:5px;">女</label>
+						<label style="text-align:left;display:block;padding-top:9px;padding-right:5px;padding-bottom:9px;padding-left:5px;">{{reportData.patientSex}}</label>
 				    </div>
 				  </div>
 				  
@@ -144,39 +144,39 @@
 				    <div class="lui-inline">
 				      <label class="lui-form-label">检查号：</label>	  
 				      <div class="lui-input-inline">
-						<label style="text-align:left;display:block;padding-top:9px;padding-right:15px;padding-bottom:9px;padding-left:15px;">123</label>
+						<label style="text-align:left;display:block;padding-top:9px;padding-right:15px;padding-bottom:9px;padding-left:15px;">{{reportData.studyinfoId}}</label>
 				      </div>
 				    </div>
 				    <div class="lui-inline">
 				      <label class="lui-form-label">设备类型：</label>
 				      <div class="lui-input-inline">
-						<label style="text-align:left;display:block;padding-top:9px;padding-right:5px;padding-bottom:9px;padding-left:5px;">CT</label>
+						<label style="text-align:left;display:block;padding-top:9px;padding-right:5px;padding-bottom:9px;padding-left:5px;">{{reportData.deviceType}}</label>
 				      </div>
 				    </div>
 					<div class="lui-inline">
 				      <label class="lui-form-label">检查时间：</label>
-						<label style="text-align:left;display:block;padding-top:9px;padding-right:5px;padding-bottom:9px;padding-left:5px;">2017-04-19</label>
+						<label style="text-align:left;display:block;padding-top:9px;padding-right:5px;padding-bottom:9px;padding-left:5px;" ng-bind="reportData.createTime | date:'yyyy-MM-dd'"></label>
 				    </div>
 				  </div>
 				  
 					<fieldset class="lui-elem-field">
 					  <legend>描述：</legend>
 					  <div class="lui-field-box">
-					    你可以在这里放任何内容
+					    {{reportData.descritpion}}
 					  </div>
 					</fieldset>
 					
 					<fieldset class="lui-elem-field">
 					  <legend>诊断：</legend>
 					  <div class="lui-field-box">
-					    你可以在这里放任何内容
+					    {{reportData.diagnosis}}
 					  </div>
 					</fieldset>
 					
 					<fieldset class="lui-elem-field">
 					  <legend>建议：</legend>
 					  <div class="lui-field-box">
-					    你可以在这里放任何内容
+					    {{reportData.advice}}
 					  </div>
 					</fieldset>
 				
@@ -184,8 +184,8 @@
 						<div class="lui-inline">
 								<label class="lui-form-label">报告医生：</label>
 								<div style=" float: left;width:190px;margin-right:10px">
-									<label style="text-align:left;display:block;padding-top:9px;padding-right:5px;padding-bottom:9px;padding-left:5px;">王医生 </label> 
-									<img id="user_sign_image" th:src="'/user/sign/'+${userid}" height="30" width="100" style="text-align:left;"></img>
+									<label style="text-align:left;display:block;padding-top:9px;padding-right:5px;padding-bottom:9px;padding-left:5px;">{{reportData.dDocId}} </label> 
+									<img id="user_sign_image" src="/user/sign/{{reportData.dDocId}}" height="30" width="100" style="text-align:left;"></img>
 								</div>
 								<!-- <div class="lui-input-inline">
 									<img id="user_sign_image" th:src="'/user/sign/'+${userid}" height="30" width="100" style="text-align:left;"></img>
@@ -194,7 +194,7 @@
 						<div class="lui-inline">
 					      <label class="lui-form-label">报告日期：</label>
 							<div class="lui-input-inline">
-							<label style="text-align:left;display:block;padding-top:9px;padding-right:15px;padding-bottom:9px;padding-left:15px;">2017-04-19</label>
+							<label style="text-align:left;display:block;padding-top:9px;padding-right:15px;padding-bottom:9px;padding-left:15px;" ng-bind="reportData.rptTime | date:'yyyy-MM-dd'"></label>
 							</div>
 						</div>
 					</div>
@@ -227,7 +227,7 @@
                     <tbody>
                     <tr ng-repeat="model in data">
                         <td>
-                            <input name="subPatientChkBox_{{$index}}" value="{{model.checkitemId}}" type="checkbox" class="ace subPatientChkbox"/>
+                            <input name="subPatientChkBox_{{$index}}" value="{{model.studyinfoId}}" type="checkbox" class="ace subPatientChkbox"/>
                             <span class="lbl" style="cursor:pointer;"></span>
                         </td>
                         <td ng-bind="model.rptStatus"></td>

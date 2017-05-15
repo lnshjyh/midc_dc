@@ -43,6 +43,8 @@ patientApp.controller('patientCtrl', ['$rootScope', '$scope','patientService',fu
 		}
 	});
 	
+	
+	
 	$scope.getByDevice = function(){
 		var deviceId = $scope.queryFilter.param.deviceType;
 		var para={
@@ -77,6 +79,17 @@ patientApp.controller('patientCtrl', ['$rootScope', '$scope','patientService',fu
 			return;
 		}
 		var studyinfoId = $(selectArray[0]).val();
+		
+		patientService.report(studyinfoId).then(function(response){
+			if(response){
+				$scope.reportData = response;
+			}
+			else{
+				alertDialog("报告未完成");
+				return;
+			}
+		});
+		
 		layer.open({
 			type : 1,
 			title : '查看影像学报告',

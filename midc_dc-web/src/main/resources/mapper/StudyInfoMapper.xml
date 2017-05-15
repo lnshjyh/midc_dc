@@ -223,20 +223,25 @@
 			'中心到基层'
 		END AS transStatus,
         a.status as status,a.is_available as isAvailable,a.apply_doc_name as applyDocName
-        ,a.apply_dep_name as applyDepName,a.apply_time as applyTime,a.hosp_id as hospitalId,a.rpt_id as rptId,a.pat_id as patientId,b.pat_name as patientName,b.birthday as birthday,b.sex as patientSex
-        ,b.patient_type as patientType,c.hosp_name as hospName,
+        ,a.apply_dep_name as applyDepName,a.apply_time as applyTime,a.hosp_id as hospitalId,a.rpt_id as rptId,a.pat_id as patientId,b.pat_name as patientName,b.birthday as birthday,
+         CASE
+		WHEN b.sex = 'F' THEN '女'
+		WHEN b.sex = 'M' THEN '男'
+		END as patientSex,
+        b.patient_type as patientType,c.hosp_name as hospName,
         d.diagnosis as diagnosis,
         d.descritpion as descritpion,
         d.advice as advice,
-        d.d_doc_id as d_doc_id,
-        d.j_doc_id as j_doc_id,
-        d.s_doc_id as s_doc_id 
+        d.d_doc_id as dDocId,
+        d.j_doc_id as jDocId,
+        d.s_doc_id as sDocId ,
+        d.create_time as rptTime
          from study_info a ,patient b ,hospital c,report d
         where 1=1
         	and a.pat_id = b.pat_id
         	and a.hosp_id = c.hosp_id 
         	and a.rpt_id = d.rpt_id
-        	and studyinfo_id = #{studyinfoId,jdbcType=VARCHAR}
+        	and a.studyinfo_id = #{studyinfoId,jdbcType=VARCHAR}
     </select>
     
     <select id="getById" parameterType="java.lang.String" resultMap="BaseResultMap">

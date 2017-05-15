@@ -16,6 +16,10 @@ patientApp.service('patientService', ['$http', '$q', 'baseService',
                 allhospital:function(){
                 	var url = _ctx + '/patlist/allhospital';
                     return baseService.get(url);
+                },
+                report:function(studyinfoid){
+                	var url = _ctx + '/patlist/report/' + studyinfoid;
+                    return baseService.get(url);
                 }
             	
             }
