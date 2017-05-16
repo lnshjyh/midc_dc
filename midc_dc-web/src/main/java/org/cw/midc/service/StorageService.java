@@ -116,6 +116,9 @@ public class StorageService
     	checkNotNull(storageInfo, "不能为空");
     	checkArgument(!Strings.isNullOrEmpty(storageInfo.getPath()), "路径不能为空");
     	checkArgument(!Strings.isNullOrEmpty(storageInfo.getName()), "名称不能为空");
+    	String path = storageInfo.getPath();
+    	File pobj = new File(path);
+    	checkArgument(pobj.isDirectory() && pobj.exists(), "路径不存在");
     	storageInfo.setCreateTime(new Date());
     	storageInfo.setUpdateTime(new Date());
     	storageInfo.setStatus("1");
