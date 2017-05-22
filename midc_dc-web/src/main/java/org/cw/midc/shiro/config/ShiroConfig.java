@@ -31,7 +31,7 @@ import org.cw.midc.shiro.filter.Oauth2Filter;
 import org.cw.midc.shiro.filter.ResourceCheckFilter;
 import org.cw.midc.shiro.permission.UrlPermissionResolver;
 
-import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
+//import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 
 
 @Configuration
@@ -162,10 +162,10 @@ public class ShiroConfig{
     	return new UrlPermissionResolver();
     }
     
-    @Bean
+   /* @Bean
     public ShiroDialect shiroDialect(){
     	return new ShiroDialect();
-    }
+    }*/
     
    /* //若返回会导致注解事务失效
     @Bean

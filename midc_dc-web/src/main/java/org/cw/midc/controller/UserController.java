@@ -10,7 +10,7 @@ import org.cw.midc.ParamFilter;
 import org.cw.midc.aop.annotaion.WebLogger;
 import org.cw.midc.entity.User;
 import org.cw.midc.service.UserService;
-import org.cw.midc.util.DrawImage;
+//import org.cw.midc.util.DrawImage;
 import org.cw.midc.util.FileService;
 import org.cw.midc.util.UserContextUtil;
 import org.springframework.http.MediaType;

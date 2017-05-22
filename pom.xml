@@ -90,10 +90,10 @@
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.version}</version>
             </dependency>
-            <dependency>
+            <!-- <dependency>
                 <groupId>com.github.theborakompanioni</groupId>
                 <artifactId>thymeleaf-extras-shiro</artifactId>
-            </dependency>
+            </dependency> -->
             <dependency>
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis</artifactId>
