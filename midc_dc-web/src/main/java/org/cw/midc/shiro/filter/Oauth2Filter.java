@@ -1,8 +1,8 @@
 package org.cw.midc.shiro.filter;
 
 import org.cw.midc.Response;
-import org.cw.midc.dao.oauth.OauthAccessJdbc;
 import org.cw.midc.entity.oauth.OauthAccessToken;
+import org.cw.midc.service.AccessTokenService;
 import org.cw.midc.util.ServletUtil;
 import org.apache.oltu.oauth2.common.OAuth;
 import org.apache.shiro.subject.Subject;
@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
@@ -23,18 +24,16 @@ public class Oauth2Filter extends AccessControlFilter {
 
 	private Logger logger = LoggerFactory.getLogger(Oauth2Filter.class);
 	
-	private OauthAccessJdbc oauthAccessJdbc;
+	@Resource
+	private AccessTokenService accessTokenService;
 
-	public void setOauthAccessJdbc(OauthAccessJdbc oauthAccessJdbc) {
-		this.oauthAccessJdbc = oauthAccessJdbc;
-	}
 
 	@Override
 	protected boolean isAccessAllowed(ServletRequest request,
 			ServletResponse response, Object mappedValue) throws Exception {
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		String accessToken = httpRequest.getParameter("access_token");
-		OauthAccessToken tokenObj = oauthAccessJdbc.get(accessToken);
+		OauthAccessToken tokenObj = accessTokenService.getAccessTokenBytoken(accessToken);
 		if(tokenObj == null){
 			return false;
 		}

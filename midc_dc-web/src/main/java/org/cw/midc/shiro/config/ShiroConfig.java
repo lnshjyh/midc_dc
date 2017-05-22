@@ -23,7 +23,6 @@ import org.springframework.web.filter.DelegatingFilterProxy;
 
 import com.google.common.collect.Maps;
 
-import org.cw.midc.dao.oauth.OauthAccessJdbc;
 import org.cw.midc.shiro.DBSessionManageDao;
 import org.cw.midc.shiro.UserRealm;
 import org.cw.midc.shiro.filter.FormLoginFilter;
@@ -37,13 +36,6 @@ import org.cw.midc.shiro.permission.UrlPermissionResolver;
 @Configuration
 public class ShiroConfig{
 	
-	@Resource
-	private JdbcTemplate jdbcTemplate;
-	
-	@Bean
-	public OauthAccessJdbc oauthAccessJdbc(){
-		return new OauthAccessJdbc(jdbcTemplate);
-	}
 
     @Bean
     public FilterRegistrationBean filterRegistrationBean() {
@@ -78,7 +70,6 @@ public class ShiroConfig{
         filters.put("formLoginFilter", formLoginFilter);
         
         Oauth2Filter oauth2Filter = new Oauth2Filter();
-        oauth2Filter.setOauthAccessJdbc(oauthAccessJdbc());
         
         filters.put("resourceCheckFilter", resourceCheckFilter);
         filters.put("oauth2Filter", oauth2Filter);
