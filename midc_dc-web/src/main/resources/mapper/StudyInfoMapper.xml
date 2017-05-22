@@ -230,7 +230,7 @@
 		END as patientSex,
         b.patient_type as patientType,c.hosp_name as hospName,
         d.diagnosis as diagnosis,
-        d.descritpion as descritpion,
+        d.description as description,
         d.advice as advice,
         d.d_doc_id as dDocId,
         d.j_doc_id as jDocId,
