@@ -240,30 +240,18 @@
 
 	
     <build>
-    <pluginManagement>
         <plugins>
-            
-            <!-- <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven-compiler.version}</version>
-                <configuration>
-                    <source>${jdk.version}</source>
-                    <target>${jdk.version}</target>
-                    <encoding>UTF-8</encoding>
-                </configuration>
-            </plugin> -->
             
             <plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<executions>
+				<!-- <executions>
                     <execution>
                         <goals>
                             <goal>repackage</goal>
                         </goals>
                     </execution>
-                </executions>
+                </executions> -->
 				<!-- <configuration>  
                     <fork>true</fork>  
                 </configuration> 
@@ -287,7 +275,6 @@
            </plugin>
 
         </plugins>
-        </pluginManagement>
         
          <resources>
 			    <resource>
