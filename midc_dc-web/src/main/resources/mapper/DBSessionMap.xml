@@ -4,18 +4,18 @@
 <mapper namespace="org.cw.midc.entity.DBSession">
     <resultMap type="org.cw.midc.entity.DBSession" id="DBSession">
         <result column="sessionid" property="sessionid"/>
-        <result column="session" property="session" jdbcType="BLOB"/>
+        <result column="sessiondata" property="sessiondata" jdbcType="BLOB"/>
     </resultMap>
 
     <insert id="add" parameterType="org.cw.midc.entity.DBSession">
         insert into sys_session
-        (sessionid,session)
-        values(#{sessionid}, #{session, jdbcType=BLOB})
+        (sessionid,sessiondata)
+        values(#{sessionid}, #{sessiondata, jdbcType=BLOB})
     </insert>
 
     <update id="update" parameterType="org.cw.midc.entity.DBSession">
         update sys_session set
-        session=#{session, jdbcType=BLOB}
+        sessiondata=#{sessiondata, jdbcType=BLOB}
         where sessionid = #{sessionid}
     </update>
 

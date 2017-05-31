@@ -41,7 +41,7 @@ public class DBSessionManageDao extends AbstractSessionDAO {
         String id = session.getId().toString();  
         DBSession dbs = new DBSession(); 
         dbs.setSessionid(id);
-        dbs.setSession(SerializeUtils.serialize(session));
+        dbs.setSessiondata(SerializeUtils.serialize(session));
         dbSessionDao.update(dbs);
         session.setTimeout(1800000);    
 
@@ -64,7 +64,7 @@ public class DBSessionManageDao extends AbstractSessionDAO {
 		Iterator<DBSession> it = list.iterator();
 		while(it.hasNext()) {
 			DBSession dbs = (DBSession)it.next();
-			Session session = (Session)SerializeUtils.deserialize(dbs.getSession());
+			Session session = (Session)SerializeUtils.deserialize(dbs.getSessiondata());
 			sessions.add(session);
 		}
 		return sessions;
@@ -77,7 +77,7 @@ public class DBSessionManageDao extends AbstractSessionDAO {
 		String id = sessionId.toString();  
         DBSession dbs = new DBSession(); 
         dbs.setSessionid(id);
-        dbs.setSession(SerializeUtils.serialize(session));
+        dbs.setSessiondata(SerializeUtils.serialize(session));
         dbSessionDao.save("add",dbs);
 		return session.getId();
 	}
@@ -88,7 +88,7 @@ public class DBSessionManageDao extends AbstractSessionDAO {
 		if(dbs == null){
 			return null;
 		}
-		Session session = (Session)SerializeUtils.deserialize(dbs.getSession());
+		Session session = (Session)SerializeUtils.deserialize(dbs.getSessiondata());
 		return session;
 	}
 

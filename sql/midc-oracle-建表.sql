@@ -561,7 +561,7 @@ COMMENT ON COLUMN "SYS_ROLE_MENU"."REMARK" IS
 /*==============================================================*/
 CREATE TABLE "SYS_SESSION"  (
    "SESSIONID"          VARCHAR2(100)                   NOT NULL,
-   "SESSION"            BLOB
+   "SESSIONDATA"            BLOB
 )
 /
 
