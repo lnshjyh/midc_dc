@@ -23,9 +23,9 @@
                 and name like '%${name}%'
             </if>
         </where>
-        <if test="@Ognl@isNotEmpty(page)">
+       <!--  <if test="@Ognl@isNotEmpty(page)">
             limit #{page.firstIndex}, #{page.pageSize}
-        </if>
+        </if> -->
     </select>
 
     <select id="getRoleIdAndName" resultType="Map">

@@ -1,5 +1,6 @@
 package org.cw.midc.dao;
 
+import com.github.pagehelper.PageHelper;
 import com.google.common.base.Strings;
 
 import org.cw.midc.BaseEntity;
@@ -149,7 +150,10 @@ public abstract class BaseDao<T extends BaseEntity> implements GenericDao<T> {
             filters.put("page", page);
             int count = this.getCount(filters);
             page.setResultCount(count);
+            //pagehelper
+            PageHelper.startPage(page.getFirstIndex(), page.getPageSize()); 
         }
+        
         return this.sqlSessionTemplate.selectList(statement, filters.size() == 0 ? param : filters);
     }
 

@@ -158,7 +158,30 @@
 	      <scope>system</scope>
 	      <systemPath>${project.basedir}/lib/dcm4che2-2.0.27.jar</systemPath>
 	    </dependency>
+	    
+	    <dependency>
+	      <groupId>com.oracle</groupId>
+			<artifactId>com.oracle.ojdbc14</artifactId>
+			<version>10.2</version>
+	      <scope>system</scope>
+	      <systemPath>${project.basedir}/lib/com.oracle.ojdbc14-10.2.jar</systemPath>
+	    </dependency>
 		
+		<dependency>
+	      <groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper</artifactId>
+			<version>4.1.1</version>
+	      <scope>system</scope>
+	      <systemPath>${project.basedir}/lib/pagehelper-4.1.1.jar</systemPath>
+	    </dependency>
+	    
+	    <dependency>
+	      <groupId>com.github.jsqlparser</groupId>
+			<artifactId>jsqlparser</artifactId>
+			<version>0.9.4</version>
+	      <scope>system</scope>
+	      <systemPath>${project.basedir}/lib/jsqlparser-0.9.4.jar</systemPath>
+	    </dependency>
 
 		<dependency>
 			<groupId>org.rribbit</groupId>

@@ -76,9 +76,9 @@
                 and mobile like '%${mobile}%'
             </if>
         </where>
-        <if test="@Ognl@isNotEmpty(page)">
+       <!--  <if test="@Ognl@isNotEmpty(page)">
             limit #{page.firstIndex}, #{page.pageSize}
-        </if>
+        </if> -->
     </select>
 
     <select id="getUserDetail" parameterType="java.lang.String" resultType="Map">

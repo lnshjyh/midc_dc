@@ -62,9 +62,9 @@
                 and checkitem_name like '%${checkitemName}%' 
             </if>
         </where>
-        <if test="@Ognl@isNotEmpty(page)">
+        <!-- <if test="@Ognl@isNotEmpty(page)">
             limit #{page.firstIndex}, #{page.pageSize}
-        </if>
+        </if> -->
     </select>
     
     <select id="getCount" parameterType="java.util.Map" resultType="java.lang.Integer">

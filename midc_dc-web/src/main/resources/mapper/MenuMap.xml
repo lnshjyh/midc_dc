@@ -50,9 +50,9 @@
                 and r1.name like '%${name}%'
             </if>
         </where>
-        <if test="@Ognl@isNotEmpty(page)">
+       <!--  <if test="@Ognl@isNotEmpty(page)">
             limit #{page.firstIndex}, #{page.lastIndex}
-        </if>
+        </if> -->
     </select>
 
     <select id="getMenuIdAndName" parameterType="java.lang.String" resultType="Map">
