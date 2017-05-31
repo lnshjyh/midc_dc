@@ -575,7 +575,7 @@ CREATE TABLE "SYS_USER"  (
    "TRUE_NAME"          VARCHAR2(10)                   DEFAULT NULL,
    "PASSWORD"           VARCHAR2(100)                   NOT NULL,
    "BIRTH"              DATE                           DEFAULT NULL,
-   "SEX"                SMALLINT                       DEFAULT NULL,
+   "SEX"                VARCHAR2(30)                       DEFAULT NULL,
    "EMAIL"              VARCHAR2(30)                   DEFAULT NULL,
    "MOBILE"             CHAR(11)                       DEFAULT NULL,
    "ERROR_COUNT"        INTEGER                        DEFAULT 0 NOT NULL,
@@ -729,13 +729,13 @@ CREATE TABLE "SYS_WEB_LOG"  (
    "METHOD_ARGS"        VARCHAR2(255)                  DEFAULT NULL,
    "OPERATE_TIME"       DATE                            NOT NULL,
    "OPERATE_IP"         VARCHAR2(64)                    NOT NULL,
-   "STATUS"             VARCHAR2(4)                    DEFAULT NULL,
+   "STATUS"             VARCHAR2(32)                    DEFAULT NULL,
    "IS_DELETE"          INTEGER                         NOT NULL,
    "CREATE_TIME"        DATE                            NOT NULL,
    "CREATE_BY"          VARCHAR2(64)                   DEFAULT NULL,
    "UPDATE_TIME"        DATE                            NOT NULL,
    "UPDATE_BY"          VARCHAR2(64)                   DEFAULT NULL,
-   "REMARK"             VARCHAR2(255)                  DEFAULT NULL,
+   "REMARK"             VARCHAR2(1024)                  DEFAULT NULL,
    CONSTRAINT PK_SYS_WEB_LOG PRIMARY KEY ("ID")
 )
 /

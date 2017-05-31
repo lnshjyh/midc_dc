@@ -160,15 +160,15 @@
                             <input name="subUserChkBox_{{$index}}" value="{{model.userId}}" type="checkbox" class="ace subUserChkbox"/>
                             <span class="lbl" style="cursor:pointer;"></span>
                         </td>
-                        <td ng-bind="model.account"></td>
-                        <td ng-bind="model.trueName"></td>
-                        <td ng-bind="model.isLock?'停用':'启用'"></td>
-                        <td ng-bind="model.mobile"></td>
-                        <td ng-bind="model.createTime | date:'yyyy-MM-dd'"></td>
-                        <td ng-bind="model.updateTime | date:'yyyy-MM-dd'"></td>
-                        <td ng-bind="model.loginTime | date:'yyyy-MM-dd'"></td>
-                        <td ng-bind="model.loginIp | date:'yyyy-MM-dd'"></td>
-                        <td ng-bind="model.remark"></td>
+                        <td ng-bind="model.ACCOUNT"></td>
+                        <td ng-bind="model.TRUENAME"></td>
+                        <td ng-bind="model.ISLOCK?'停用':'启用'"></td>
+                        <td ng-bind="model.MOBILE"></td>
+                        <td ng-bind="model.CREATETIME | date:'yyyy-MM-dd'"></td>
+                        <td ng-bind="model.UPDATETIME | date:'yyyy-MM-dd'"></td>
+                        <td ng-bind="model.LOGINTIME | date:'yyyy-MM-dd'"></td>
+                        <td ng-bind="model.LOGINIP | date:'yyyy-MM-dd'"></td>
+                        <td ng-bind="model.REMARK"></td>
                     </tr>
                     </tbody>
                 </table>

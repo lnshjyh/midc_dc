@@ -25,8 +25,8 @@
     <insert id="insert" parameterType="org.cw.midc.entity.User">
         insert into sys_user
         (user_id,account,true_name,password,sex,email,mobile,error_count,is_lock,login_time,login_ip,is_delete,create_by,create_time,update_by,update_time,remark)
-        values(#{userId}, #{account}, #{trueName}, #{password}, #{sex}, #{email},
-        #{mobile},#{errorCount},#{isLock},#{loginTime},#{loginIp},#{isDelete},#{createBy},#{createTime},#{updateBy},#{updateTime},#{remark})
+        values(#{userId,jdbcType=VARCHAR}, #{account,jdbcType=VARCHAR}, #{trueName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR},
+        #{mobile,jdbcType=VARCHAR},#{errorCount,jdbcType=VARCHAR},#{isLock,jdbcType=VARCHAR},sysdate,#{loginIp,jdbcType=VARCHAR},#{isDelete,jdbcType=VARCHAR},#{createBy,jdbcType=VARCHAR},sysdate,#{updateBy,jdbcType=VARCHAR},sysdate,#{remark,jdbcType=VARCHAR})
     </insert>
 
     <update id="updateUser" parameterType="java.util.Map">

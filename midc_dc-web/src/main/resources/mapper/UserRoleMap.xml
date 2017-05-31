@@ -16,7 +16,7 @@
     <insert id="insert" parameterType="org.cw.midc.entity.UserRole">
         insert into sys_user_role(user_id ,role_id
         ,is_delete,create_by,create_time,update_by,update_time,remark)
-        values(#{userId},#{roleId},#{isDelete},#{createBy},#{createTime},#{updateBy},#{updateTime},#{remark})
+        values(#{userId,jdbcType=VARCHAR},#{roleId,jdbcType=VARCHAR},0,#{createBy,jdbcType=VARCHAR},sysdate,#{updateBy,jdbcType=VARCHAR},sysdate,#{remark,jdbcType=VARCHAR})
     </insert>
 
     <select id="getListByUserId" resultMap="UserRole" parameterType="java.lang.String">

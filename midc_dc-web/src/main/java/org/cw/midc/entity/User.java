@@ -19,7 +19,7 @@ public class User extends BaseEntity implements Serializable {
     
     private Date birth;
     
-    private Integer sex;
+    private String sex;
     
     private String email;
     
@@ -128,11 +128,12 @@ public class User extends BaseEntity implements Serializable {
 		this.birth = birth;
 	}
 
-	public Integer getSex( ) {
+
+	public String getSex() {
 		return sex;
 	}
 
-	public void setSex( Integer sex ) {
+	public void setSex(String sex) {
 		this.sex = sex;
 	}
 

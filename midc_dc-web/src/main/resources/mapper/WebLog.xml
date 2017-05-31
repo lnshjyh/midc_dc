@@ -22,7 +22,7 @@
     <insert id="insert" parameterType="org.cw.midc.entity.WebLog">
         insert into sys_web_log
         (web_log_id,login_account,method,method_desc,method_args,operate_time,operate_ip,status,is_delete,create_by,create_time,update_by,update_time,remark)
-        values(#{webLogId}, #{loginAccount},#{method},#{methodDesc},#{methodArgs}, #{operateTime}, #{operateIp},#{status},#{isDelete},#{createBy},#{createTime},#{updateBy},#{updateTime},#{remark})
+        values(#{webLogId,jdbcType=VARCHAR}, #{loginAccount,jdbcType=VARCHAR},#{method,jdbcType=VARCHAR},#{methodDesc,jdbcType=VARCHAR},#{methodArgs,jdbcType=VARCHAR}, sysdate, #{operateIp,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR},0,#{createBy,jdbcType=VARCHAR},sysdate,#{updateBy,jdbcType=VARCHAR},sysdate,#{remark,jdbcType=VARCHAR})
     </insert>
 
     <select id="getList" parameterType="java.util.Map" resultMap="WebLog">
@@ -39,9 +39,9 @@
             </if>
         </where>
         order by create_time desc
-        <if test="@Ognl@isNotEmpty(page)">
+        <!-- <if test="@Ognl@isNotEmpty(page)">
             limit #{page.firstIndex}, #{page.pageSize}
-        </if>
+        </if> -->
     </select>
 
     <select id="getCount"  parameterType="java.util.Map" resultType="java.lang.Integer">
@@ -63,10 +63,10 @@
         update sys_web_log
         <set>
             <if test="@Ognl@isNotEmpty(remark)">
-                remark = #{remark},
+                remark = #{remark,jdbcType=VARCHAR},
             </if>
             <if test="@Ognl@isNotEmpty(status)">
-                status = #{status}
+                status = #{status,jdbcType=VARCHAR}
             </if>
         </set>
         where web_log_id = #{webLogId}
