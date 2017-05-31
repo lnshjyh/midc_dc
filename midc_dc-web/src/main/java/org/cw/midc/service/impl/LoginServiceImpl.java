@@ -24,7 +24,8 @@ public class LoginServiceImpl implements LoginService {
     @Override
     public User doLogin(String account, String clientIp) {
         checkArgument(!Strings.isNullOrEmpty(account),"帐号不能为空");
-        String accountToUse = account.toUpperCase();
+//        String accountToUse = account.toUpperCase();
+        String accountToUse = account;
         User user = userDao.findUnique("getByAccount", accountToUse);
         if(user==null){
             //帐号不存在

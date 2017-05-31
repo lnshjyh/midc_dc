@@ -390,7 +390,7 @@ CREATE TABLE "SYS_LOGIN_LOG"  (
    "LOGIN_ACCOUNT"      VARCHAR2(30)                    NOT NULL,
    "LOGIN_TIME"         DATE                            NOT NULL,
    "LOGIN_IP"           VARCHAR2(255)                   NOT NULL,
-   "STATUS"             VARCHAR2(10)                    NOT NULL,
+   "STATUS"             VARCHAR2(32)                    NOT NULL,
    "IS_DELETE"          INTEGER                         NOT NULL,
    "CREATE_TIME"        DATE                            NOT NULL,
    "CREATE_BY"          VARCHAR2(255)                  DEFAULT NULL,

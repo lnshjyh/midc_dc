@@ -19,7 +19,7 @@
     <insert id="insert" parameterType="org.cw.midc.entity.LoginLog">
         insert into sys_login_log
         (login_log_id,login_account,login_time,login_ip,status,is_delete,create_by,create_time,update_by,update_time,remark)
-        values(#{loginLogId}, #{loginAccount}, #{loginTime}, #{loginIp},#{status},#{isDelete},#{createBy},#{createTime},#{updateBy},#{updateTime},#{remark})
+        values(#{loginLogId,jdbcType=VARCHAR}, #{loginAccount,jdbcType=VARCHAR}, sysdate, #{loginIp,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR},#{isDelete,jdbcType=INTEGER},#{createBy,jdbcType=VARCHAR},sysdate,#{updateBy,jdbcType=VARCHAR},sysdate,#{remark,jdbcType=VARCHAR})
     </insert>
 
     <select id="getList" parameterType="java.util.Map" resultMap="LoginLog">
