@@ -27,6 +27,71 @@
     <result column="rpt_id" property="rptId" jdbcType="VARCHAR" />
     <result column="device_type" property="deviceType" jdbcType="VARCHAR" />
   </resultMap>
+  
+  <resultMap id="StudyInfoMap" type="java.util.HashMap" >
+    <id column="studyinfoId" property="studyinfoId" jdbcType="VARCHAR" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="deviceType" property="deviceType" jdbcType="VARCHAR" />
+    <result column="preDiagnose" property="preDiagnose" jdbcType="VARCHAR" />
+    <result column="absHistory" property="absHistory" jdbcType="VARCHAR" />
+    <result column="studyDesc" property="studyDesc" jdbcType="VARCHAR" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="clinicalManifest" property="clinicalManifest" jdbcType="VARCHAR" />
+    <result column="studyDemand" property="studyDemand" jdbcType="VARCHAR" />
+    <result column="positionChk" property="positionChk" jdbcType="VARCHAR" />
+    <result column="rptStatus" property="rptStatus" jdbcType="VARCHAR" />
+    <result column="transStatus" property="transStatus" jdbcType="VARCHAR" />
+     <result column="status" property="status" jdbcType="VARCHAR" />
+     <result column="isAvailable" property="isAvailable" jdbcType="VARCHAR" />
+     <result column="applyDocName" property="applyDocName" jdbcType="VARCHAR" />
+     <result column="applyDepName" property="applyDepName" jdbcType="VARCHAR" />
+     <result column="applyTime" property="applyTime" jdbcType="TIMESTAMP" />
+     <result column="hospitalId" property="hospitalId" jdbcType="VARCHAR" />
+    <result column="rptId" property="rptId" jdbcType="VARCHAR" />
+    <result column="patientId" property="patientId" jdbcType="VARCHAR" />
+    <result column="patientName" property="patientName" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
+    <result column="patientSex" property="patientSex" jdbcType="VARCHAR" />
+    <result column="patientType" property="patientType" jdbcType="VARCHAR" />
+    <result column="hospName" property="hospName" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <resultMap id="ReportMap" type="java.util.HashMap" >
+    <id column="studyinfoId" property="studyinfoId" jdbcType="VARCHAR" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="deviceType" property="deviceType" jdbcType="VARCHAR" />
+    <result column="preDiagnose" property="preDiagnose" jdbcType="VARCHAR" />
+    <result column="absHistory" property="absHistory" jdbcType="VARCHAR" />
+    <result column="studyDesc" property="studyDesc" jdbcType="VARCHAR" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="clinicalManifest" property="clinicalManifest" jdbcType="VARCHAR" />
+    <result column="studyDemand" property="studyDemand" jdbcType="VARCHAR" />
+    <result column="positionChk" property="positionChk" jdbcType="VARCHAR" />
+    <result column="rptStatus" property="rptStatus" jdbcType="VARCHAR" />
+    <result column="transStatus" property="transStatus" jdbcType="VARCHAR" />
+     <result column="status" property="status" jdbcType="VARCHAR" />
+     <result column="isAvailable" property="isAvailable" jdbcType="VARCHAR" />
+     <result column="applyDocName" property="applyDocName" jdbcType="VARCHAR" />
+     <result column="applyDepName" property="applyDepName" jdbcType="VARCHAR" />
+     <result column="applyTime" property="applyTime" jdbcType="TIMESTAMP" />
+     <result column="hospitalId" property="hospitalId" jdbcType="VARCHAR" />
+    <result column="rptId" property="rptId" jdbcType="VARCHAR" />
+    <result column="patientId" property="patientId" jdbcType="VARCHAR" />
+    <result column="patientName" property="patientName" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
+    <result column="patientSex" property="patientSex" jdbcType="VARCHAR" />
+    <result column="patientType" property="patientType" jdbcType="VARCHAR" />
+    <result column="hospName" property="hospName" jdbcType="VARCHAR" />
+    <result column="diagnosis" property="diagnosis" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="advice" property="advice" jdbcType="VARCHAR" />
+    <result column="dDocId" property="dDocId" jdbcType="VARCHAR" />
+    <result column="jDocId" property="jDocId" jdbcType="VARCHAR" />
+    <result column="sDocId" property="sDocId" jdbcType="VARCHAR" />
+  </resultMap>
+  
   <sql id="Base_Column_List" >
     studyinfo_id, abs_history, age, age_unit, apply_dep_name, apply_doc_name, apply_time, 
     clinical_manifest, create_time, hosp_id, is_available, org_studyinfo_id, photo_maker_id, 
@@ -77,7 +142,7 @@
       where studyinfo_id = #{studyinfoId,jdbcType=VARCHAR}
   </update>
   
-  <select id="getList" resultType="Map" parameterType="java.util.Map">
+  <select id="getList" resultMap="StudyInfoMap" parameterType="java.util.Map">
         select a.studyinfo_id as studyinfoId,
         	CASE
 		WHEN a.age_unit = 'Y' THEN
@@ -194,7 +259,7 @@
         </where>
     </select>
     
-    <select id="getReportById" parameterType="java.lang.String" resultType="java.util.Map">
+    <select id="getReportById" parameterType="java.lang.String" resultMap="ReportMap">
         select a.studyinfo_id as studyinfoId,
         	CASE
 		WHEN a.age_unit = 'Y' THEN
