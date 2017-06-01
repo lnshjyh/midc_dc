@@ -28,6 +28,12 @@ public class Oauth2Filter extends AccessControlFilter {
 	private AccessTokenService accessTokenService;
 
 
+	public Oauth2Filter(AccessTokenService accessTokenService) {
+		super();
+		this.accessTokenService = accessTokenService;
+	}
+
+
 	@Override
 	protected boolean isAccessAllowed(ServletRequest request,
 			ServletResponse response, Object mappedValue) throws Exception {

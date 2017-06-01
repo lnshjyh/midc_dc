@@ -23,6 +23,8 @@ import org.springframework.web.filter.DelegatingFilterProxy;
 
 import com.google.common.collect.Maps;
 
+import org.cw.midc.dao.oauth.OauthAccessTokenDao;
+import org.cw.midc.service.AccessTokenService;
 import org.cw.midc.shiro.DBSessionManageDao;
 import org.cw.midc.shiro.UserRealm;
 import org.cw.midc.shiro.filter.FormLoginFilter;
@@ -54,6 +56,11 @@ public class ShiroConfig{
         return daap;
     } 
     
+    @Bean
+	public AccessTokenService accessTokenService(){
+		return new AccessTokenService(new OauthAccessTokenDao());
+	}
+    
     @Bean("shiroFilter")
     public ShiroFilterFactoryBean shiroFilter() {
         ShiroFilterFactoryBean bean = new ShiroFilterFactoryBean();
@@ -69,7 +76,7 @@ public class ShiroConfig{
         FormLoginFilter formLoginFilter = new FormLoginFilter();
         filters.put("formLoginFilter", formLoginFilter);
         
-        Oauth2Filter oauth2Filter = new Oauth2Filter();
+        Oauth2Filter oauth2Filter = new Oauth2Filter(accessTokenService());
         
         filters.put("resourceCheckFilter", resourceCheckFilter);
         filters.put("oauth2Filter", oauth2Filter);
