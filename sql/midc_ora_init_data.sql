@@ -1,10 +1,10 @@
 -- ----------------------------
 -- Records of sys_dict
 -- ----------------------------
-INSERT INTO sys_dict (id,parent_id,code,name,seq,type,is_catagory,is_delete,create_time,create_by,update_time,update_by,remark)VALUES ('17', '#', 'dict', '数据字典', '0', null, 'Y', '0', sysdate, null, sysdate, null, '');
-INSERT INTO sys_dict (id,parent_id,code,name,seq,type,is_catagory,is_delete,create_time,create_by,update_time,update_by,remark)VALUES ('27', '17', 'sex', '性别', '0', null, 'Y', '0', sysdate, null, sysdate, null, null);
-INSERT INTO sys_dict (id,parent_id,code,name,seq,type,is_catagory,is_delete,create_time,create_by,update_time,update_by,remark)VALUES ('28', '27', 'M', '男性', '0', null, 'N', '0', sysdate, null, sysdate, null, null);
-INSERT INTO sys_dict (id,parent_id,code,name,seq,type,is_catagory,is_delete,create_time,create_by,update_time,update_by,remark)VALUES ('29', '27', 'F', '女性', '0', null, 'N', '0', sysdate, null, sysdate, null, null);
+INSERT INTO sys_dict (id,parent_id,code,name,seq,type,is_catagory,is_delete,create_time,create_by,update_time,update_by,remark)VALUES (1, '#', 'dict', '数据字典', '0', null, 'Y', '0', sysdate, null, sysdate, null, '');
+INSERT INTO sys_dict (id,parent_id,code,name,seq,type,is_catagory,is_delete,create_time,create_by,update_time,update_by,remark)VALUES (2, '1', 'sex', '性别', '0', null, 'Y', '0', sysdate, null, sysdate, null, null);
+INSERT INTO sys_dict (id,parent_id,code,name,seq,type,is_catagory,is_delete,create_time,create_by,update_time,update_by,remark)VALUES (3, '2', 'M', '男性', '0', null, 'N', '0', sysdate, null, sysdate, null, null);
+INSERT INTO sys_dict (id,parent_id,code,name,seq,type,is_catagory,is_delete,create_time,create_by,update_time,update_by,remark)VALUES (4, '2', 'F', '女性', '0', null, 'N', '0', sysdate, null, sysdate, null, null);
 
 -- ----------------------------
 -- Records of sys_menu
