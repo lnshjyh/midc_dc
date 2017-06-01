@@ -16,7 +16,7 @@
 		   insert into oauth_access_token (create_time, access_token, token_expired_seconds, 
 	      client_id, token_type, refresh_token_expired_seconds, 
 	      refresh_token)
-	    values (now(), #{accessToken,jdbcType=VARCHAR}, #{tokenExpiredSeconds,jdbcType=INTEGER}, 
+	    values (sysdate, #{accessToken,jdbcType=VARCHAR}, #{tokenExpiredSeconds,jdbcType=INTEGER}, 
 	      #{clientId,jdbcType=VARCHAR}, #{tokenType,jdbcType=VARCHAR}, #{refreshTokenExpiredSeconds,jdbcType=INTEGER}, 
 	      #{refreshToken,jdbcType=VARCHAR})
     </insert>
