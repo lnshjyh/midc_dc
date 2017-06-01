@@ -6,6 +6,11 @@
         <result column="role_id" property="roleId"/>
         <result column="name" property="name"/>
     </resultMap>
+    
+    <resultMap type="java.util.HashMap" id="RoleMap">
+        <result column="roleId" property="roleId"/>
+        <result column="name" property="name"/>
+    </resultMap>
 
     <insert id="addRole">
         insert into
@@ -28,11 +33,11 @@
         </if> -->
     </select>
 
-    <select id="getRoleIdAndName" resultType="Map">
+    <select id="getRoleIdAndName" resultMap="RoleMap">
         select role_id as roleId ,name from sys_role 
     </select>
 
-    <select id="getRoleDetail" resultType="Map">
+    <select id="getRoleDetail" resultMap="RoleMap">
         select role_id as roleId ,name from sys_role where role_id = #{roleId}
     </select>
 
