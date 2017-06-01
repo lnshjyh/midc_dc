@@ -83,9 +83,12 @@ public class UserServiceImpl  implements UserService {
         checkNotNull(user, "用户不能为空");
         checkArgument(!Strings.isNullOrEmpty(user.getAccount()), "帐号名不能为空");
         checkArgument(!Strings.isNullOrEmpty(user.getPassword()), "密码不能为空");
-        checkArgument(!Strings.isNullOrEmpty(user.getMobile()), "手机号码不能为空");
+//        checkArgument(!Strings.isNullOrEmpty(user.getMobile()), "手机号码不能为空");
         checkNotNull(user.getIsLock(), "帐号名不能为空");
-        checkArgument(RegexUtil.isMobile(user.getMobile()), "手机号码格式不正确");
+        if (!Strings.isNullOrEmpty(user.getMobile())) {
+        	checkArgument(RegexUtil.isMobile(user.getMobile()), "手机号码格式不正确");
+        }
+        
         if (!Strings.isNullOrEmpty(user.getEmail())) {
             checkArgument(RegexUtil.isEmail(user.getEmail()), "邮箱格式不正确");
         }
