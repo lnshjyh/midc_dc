@@ -39,6 +39,9 @@ import org.cw.midc.shiro.permission.UrlPermissionResolver;
 public class ShiroConfig{
 	
 
+	@Resource
+	private AccessTokenService accessTokenService;
+	
     @Bean
     public FilterRegistrationBean filterRegistrationBean() {
         FilterRegistrationBean filterRegistration = new FilterRegistrationBean();
@@ -56,10 +59,7 @@ public class ShiroConfig{
         return daap;
     } 
     
-    @Bean
-	public AccessTokenService accessTokenService(){
-		return new AccessTokenService(new OauthAccessTokenDao());
-	}
+
     
     @Bean("shiroFilter")
     public ShiroFilterFactoryBean shiroFilter() {
@@ -76,7 +76,7 @@ public class ShiroConfig{
         FormLoginFilter formLoginFilter = new FormLoginFilter();
         filters.put("formLoginFilter", formLoginFilter);
         
-        Oauth2Filter oauth2Filter = new Oauth2Filter(accessTokenService());
+        Oauth2Filter oauth2Filter = new Oauth2Filter(accessTokenService);
         
         filters.put("resourceCheckFilter", resourceCheckFilter);
         filters.put("oauth2Filter", oauth2Filter);
