@@ -19,6 +19,22 @@
         <result column="update_time" property="updateTime"/>
         <result column="remark" property="remark"/>
     </resultMap>
+    
+    <resultMap type="java.util.HashMap" id="AllMenuTree">
+        <result column="id" property="id"/>
+        <result column="parent" property="parent"/>
+        <result column="text" property="text"/>
+        <result column="icon" property="icon"/>
+        <result column="type" property="type"/>
+    </resultMap>
+    
+    <resultMap type="java.util.HashMap" id="MenuTree">
+        <result column="menuId" property="menuId"/>
+        <result column="parentId" property="parentId"/>
+        <result column="name" property="name"/>
+        <result column="icon" property="icon"/>
+        <result column="selectedId" property="selectedId"/>
+    </resultMap>
 
     <insert id="add" parameterType="org.cw.midc.entity.Menu">
         insert into sys_menu
@@ -90,7 +106,7 @@
         select * from sys_menu where is_delete = 0 and parent_id=#{menuId}
     </select>
 
-    <select id="getMenuTree" parameterType="java.lang.String" resultType="Map">
+    <select id="getMenuTree" parameterType="java.lang.String" resultMap="MenuTree">
         select DISTINCT(t1.menu_id) as menuId,t1.parent_id as parentId ,t1.name ,t1.icon,t3.menu_id as
         selectedId
         from sys_menu t1 left join sys_menu t2 on t1.parent_id = t2.menu_id
@@ -98,7 +114,7 @@
         and t3.role_id= #{roleId}
     </select>
     
-    <select id="getAllMenuTree" parameterType="java.lang.String" resultType="Map">
+    <select id="getAllMenuTree" parameterType="java.lang.String" resultMap="AllMenuTree">
         select DISTINCT(t1.menu_id) as id,t1.parent_id as parent ,t1.name as text ,t1.icon,
         case when t1.type='1' then 'file' when t1.type='0' then 'default' END 'type'
         from sys_menu t1 left join sys_menu t2 on t1.parent_id = t2.menu_id
