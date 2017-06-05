@@ -53,10 +53,14 @@ public class StudyInfoService {
         		paraMap.put("checkitemIdPk", checkitemIdPk);
         		paraMap.put("positionIdPk", positionIdPk);
         		studyids = studyInfoDao.findColumn("getStudyInfoIdList", String.class, paraMap);
+        		if(studyids != null && !studyids.isEmpty()){
+            		paraMap.put("studyids", studyids);
+            	}
+            	else{
+            		return null;
+            	}
         	}
-        	if(studyids != null && !studyids.isEmpty()){
-        		paraMap.put("studyids", studyids);
-        	}
+        	
     	}
     	
     	
