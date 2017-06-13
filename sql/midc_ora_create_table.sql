@@ -311,6 +311,7 @@ CREATE TABLE "STUDY_INFO"  (
    "APPLY_DEP_NAME"     VARCHAR2(64)                   DEFAULT NULL,
    "APPLY_DOC_NAME"     VARCHAR2(64)                   DEFAULT NULL,
    "APPLY_TIME"         DATE                           DEFAULT NULL,
+   "STUDY_TIME"         DATE                           DEFAULT NULL,
    "CLINICAL_MANIFEST"  VARCHAR2(3600)                 DEFAULT NULL,
    "CREATE_TIME"        DATE                           DEFAULT NULL,
    "HOSP_ID"            VARCHAR2(128)                  DEFAULT NULL,
