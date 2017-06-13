@@ -174,7 +174,7 @@
 			'中心到基层'
 		END AS transStatus,
         a.status as status,a.is_available as isAvailable,a.apply_doc_name as applyDocName
-        ,a.apply_dep_name as applyDepName,a.apply_time as applyTime,a.hosp_id as hospitalId,a.rpt_id as rptId,a.pat_id as patientId,b.pat_name as patientName,b.birthday as birthday,b.sex as patientSex
+        ,a.apply_dep_name as applyDepName,a.apply_time as applyTime, a.study_time as studyTime, a.hosp_id as hospitalId,a.rpt_id as rptId,a.pat_id as patientId,b.pat_name as patientName,b.birthday as birthday,b.sex as patientSex
         ,b.patient_type as patientType,c.hosp_name as hospName
          from study_info a ,patient b ,hospital c
         <where>
