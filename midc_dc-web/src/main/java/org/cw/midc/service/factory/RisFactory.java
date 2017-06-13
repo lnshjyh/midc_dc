@@ -15,6 +15,7 @@ import org.cw.midc.entity.Positiontype;
 import org.cw.midc.entity.StudyCheckPos;
 import org.cw.midc.entity.StudyInfo;
 import org.cw.midc.util.CommonUtils;
+import org.cw.midc.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,9 +44,9 @@ public class RisFactory {
 		studyInfo.setStudyDemand(risInfoDto.getStudyDemand());
 		studyInfo.setApplyDocName(risInfoDto.getApplyDoctorName());
 		studyInfo.setApplyDepName(risInfoDto.getApplyDepartmentName());
-		studyInfo.setApplyTime(risInfoDto.getApplyTime());
+		studyInfo.setApplyTime(DateUtils.strToDateLong(risInfoDto.getApplyTime()));
 		studyInfo.setTransStatus("1");
-		studyInfo.setStudyTime(risInfoDto.getStudyTime());
+		studyInfo.setStudyTime(DateUtils.strToDateLong(risInfoDto.getStudyTime()));
 		Patient patient = createPatientFromDTO(risInfoDto);
 		studyInfo.setPatId(patient.getPatId());
 		studyInfo.setPatient(patient);

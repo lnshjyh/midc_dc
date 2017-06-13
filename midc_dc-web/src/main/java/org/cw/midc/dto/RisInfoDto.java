@@ -47,8 +47,8 @@ public class RisInfoDto implements Serializable{
 	private String isAvailable;
 	private String photoMakeId;
 	
-	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	private Date studyTime;
+	//@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm:ss")
+	private String studyTime;
 	
 	//申请单信息
 	private String prediagnose;
@@ -58,8 +58,8 @@ public class RisInfoDto implements Serializable{
 	private String studyDemand;
 	private String applyDoctorName;
 	private String applyDepartmentName;	
-	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	private Date applyTime;
+	//@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private String applyTime;
 	
 	//position and checktitem
 	private List<PositionCheck> positionChecks;
@@ -198,12 +198,7 @@ public class RisInfoDto implements Serializable{
 	public void setPhotoMakeId(String photoMakeId) {
 		this.photoMakeId = photoMakeId;
 	}
-	public Date getStudyTime() {
-		return studyTime;
-	}
-	public void setStudyTime(Date studyTime) {
-		this.studyTime = studyTime;
-	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
@@ -240,17 +235,24 @@ public class RisInfoDto implements Serializable{
 	public void setApplyDepartmentName(String applyDepartmentName) {
 		this.applyDepartmentName = applyDepartmentName;
 	}
-	public Date getApplyTime() {
-		return applyTime;
-	}
-	public void setApplyTime(Date applyTime) {
-		this.applyTime = applyTime;
-	}
+
 	public String getStudyInfoId() {
 		return studyInfoId;
 	}
 	public void setStudyInfoId(String studyInfoId) {
 		this.studyInfoId = studyInfoId;
+	}
+	public String getStudyTime() {
+		return studyTime;
+	}
+	public void setStudyTime(String studyTime) {
+		this.studyTime = studyTime;
+	}
+	public String getApplyTime() {
+		return applyTime;
+	}
+	public void setApplyTime(String applyTime) {
+		this.applyTime = applyTime;
 	}
 
 	

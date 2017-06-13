@@ -9,6 +9,7 @@
     <result column="apply_dep_name" property="applyDepName" jdbcType="VARCHAR" />
     <result column="apply_doc_name" property="applyDocName" jdbcType="VARCHAR" />
     <result column="apply_time" property="applyTime" jdbcType="TIMESTAMP" />
+    <result column="study_time" property="studyTime" jdbcType="TIMESTAMP" />
     <result column="clinical_manifest" property="clinicalManifest" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="hosp_id" property="hospId" jdbcType="VARCHAR" />
@@ -47,6 +48,7 @@
      <result column="applyDocName" property="applyDocName" jdbcType="VARCHAR" />
      <result column="applyDepName" property="applyDepName" jdbcType="VARCHAR" />
      <result column="applyTime" property="applyTime" jdbcType="TIMESTAMP" />
+     <result column="studyTime" property="studyTime" jdbcType="TIMESTAMP" />
      <result column="hospitalId" property="hospitalId" jdbcType="VARCHAR" />
     <result column="rptId" property="rptId" jdbcType="VARCHAR" />
     <result column="patientId" property="patientId" jdbcType="VARCHAR" />
@@ -76,6 +78,7 @@
      <result column="applyDocName" property="applyDocName" jdbcType="VARCHAR" />
      <result column="applyDepName" property="applyDepName" jdbcType="VARCHAR" />
      <result column="applyTime" property="applyTime" jdbcType="TIMESTAMP" />
+     <result column="studyTime" property="studyTime" jdbcType="TIMESTAMP" />
      <result column="hospitalId" property="hospitalId" jdbcType="VARCHAR" />
     <result column="rptId" property="rptId" jdbcType="VARCHAR" />
     <result column="patientId" property="patientId" jdbcType="VARCHAR" />
@@ -93,7 +96,7 @@
   </resultMap>
   
   <sql id="Base_Column_List" >
-    studyinfo_id, abs_history, age, age_unit, apply_dep_name, apply_doc_name, apply_time, 
+    studyinfo_id, abs_history, age, age_unit, apply_dep_name, apply_doc_name, apply_time, study_time 
     clinical_manifest, create_time, hosp_id, is_available, org_studyinfo_id, photo_maker_id, 
     position_checkitem, pre_diagnose, rpt_status, status, study_demand, study_desc, trans_status, 
     update_time, pat_id, rpt_id, device_type
@@ -111,7 +114,7 @@
   <insert id="insert" parameterType="org.cw.midc.entity.StudyInfo" >
     insert into study_info (studyinfo_id, abs_history, age, 
       age_unit, apply_dep_name, apply_doc_name, 
-      apply_time, clinical_manifest, create_time, 
+      apply_time, study_time, clinical_manifest, create_time, 
       hosp_id, is_available, org_studyinfo_id, 
       photo_maker_id, position_checkitem, pre_diagnose, 
       rpt_status, status, study_demand, 
@@ -120,7 +123,7 @@
       )
     values (#{studyinfoId,jdbcType=VARCHAR}, #{absHistory,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, 
       #{ageUnit,jdbcType=VARCHAR}, #{applyDepName,jdbcType=VARCHAR}, #{applyDocName,jdbcType=VARCHAR}, 
-      #{applyTime,jdbcType=TIMESTAMP}, #{clinicalManifest,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{applyTime,jdbcType=TIMESTAMP}, #{studyTime,jdbcType=TIMESTAMP}, #{clinicalManifest,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
       #{hospId,jdbcType=VARCHAR}, #{isAvailable,jdbcType=VARCHAR}, #{orgStudyinfoId,jdbcType=VARCHAR}, 
       #{photoMakerId,jdbcType=VARCHAR}, #{positionCheckitem,jdbcType=VARCHAR}, #{preDiagnose,jdbcType=VARCHAR}, 
       #{rptStatus,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{studyDemand,jdbcType=VARCHAR}, 
@@ -195,10 +198,10 @@
                 and a.device_type = #{deviceType}
             </if>
             <if test="@Ognl@isNotEmpty(startTime)">
-                <![CDATA[  and a.update_time >= TO_DATE(#{startTime},'yyyy-mm-dd')]]>
+                <![CDATA[  and a.study_time >= TO_DATE(#{startTime},'yyyy-mm-dd')]]>
             </if>
             <if test="@Ognl@isNotEmpty(endTime)">
-                <![CDATA[  and a.update_time <= TO_DATE(#{endTime},'yyyy-mm-dd')]]>
+                <![CDATA[  and a.study_time <= TO_DATE(#{endTime},'yyyy-mm-dd')]]>
             </if>
             <if test="@Ognl@isNotEmpty(studyids)">
              	and a.studyinfo_id in 
@@ -337,10 +340,10 @@
             </if>
             
             <if test="@Ognl@isNotEmpty(startTime)">
-                <![CDATA[  and a.update_time >= TO_DATE(#{startTime},'yyyy-mm-dd')]]>
+                <![CDATA[  and a.study_time >= TO_DATE(#{startTime},'yyyy-mm-dd')]]>
             </if>
             <if test="@Ognl@isNotEmpty(endTime)">
-                <![CDATA[  and a.update_time <= TO_DATE(#{endTime},'yyyy-mm-dd')]]>
+                <![CDATA[  and a.study_time <= TO_DATE(#{endTime},'yyyy-mm-dd')]]>
             </if>
             
              <if test="@Ognl@isNotEmpty(studyids)">
