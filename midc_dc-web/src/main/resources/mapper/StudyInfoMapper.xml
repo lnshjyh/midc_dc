@@ -195,10 +195,10 @@
                 and a.device_type = #{deviceType}
             </if>
             <if test="@Ognl@isNotEmpty(startTime)">
-                <![CDATA[  and DATE_FORMAT(a.update_time, '%Y-%m-%d') >= #{startTime}]]>
+                <![CDATA[  and a.update_time >= TO_DATE(#{startTime},'yyyy-mm-dd')]]>
             </if>
             <if test="@Ognl@isNotEmpty(endTime)">
-                <![CDATA[  and DATE_FORMAT(a.update_time, '%Y-%m-%d') <= #{endTime}]]>
+                <![CDATA[  and a.update_time <= TO_DATE(#{endTime},'yyyy-mm-dd')]]>
             </if>
             <if test="@Ognl@isNotEmpty(studyids)">
              	and a.studyinfo_id in 
@@ -337,10 +337,10 @@
             </if>
             
             <if test="@Ognl@isNotEmpty(startTime)">
-                <![CDATA[  and DATE_FORMAT(a.update_time, '%Y-%m-%d') >= #{startTime}]]>
+                <![CDATA[  and a.update_time >= TO_DATE(#{startTime},'yyyy-mm-dd')]]>
             </if>
             <if test="@Ognl@isNotEmpty(endTime)">
-                <![CDATA[  and DATE_FORMAT(a.update_time, '%Y-%m-%d') <= #{endTime}]]>
+                <![CDATA[  and a.update_time <= TO_DATE(#{endTime},'yyyy-mm-dd')]]>
             </if>
             
              <if test="@Ognl@isNotEmpty(studyids)">
