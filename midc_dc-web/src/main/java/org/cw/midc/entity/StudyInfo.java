@@ -56,6 +56,8 @@ public class StudyInfo extends BaseEntity{
     
     private Patient patient;
     
+    private Date studyTime;
+    
     private List<StudyCheckPos> studyCheckPoses;
     
 	public StudyInfo()
@@ -297,6 +299,14 @@ public class StudyInfo extends BaseEntity{
 
 	public void setStudyCheckPoses(List<StudyCheckPos> studyCheckPoses) {
 		this.studyCheckPoses = studyCheckPoses;
+	}
+
+	public Date getStudyTime() {
+		return studyTime;
+	}
+
+	public void setStudyTime(Date studyTime) {
+		this.studyTime = studyTime;
 	}
 
 
