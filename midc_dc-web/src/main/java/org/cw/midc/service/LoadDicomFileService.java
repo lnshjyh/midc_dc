@@ -80,9 +80,10 @@ public class LoadDicomFileService {
 		}
 		catch(Exception e)
 		{
-			fileInfo.setFailedReason(StringUtils.substring(e.getMessage(), 0, 255));
+			fileInfo.setFailedReason(StringUtils.substring(e.getMessage(), 0, 128));
 			eventBus.send("parseFileFailed", fileInfo);
 			log.error("File:{} parse failed, cause: {}", fileInfo.getFileId(), e.getMessage());
+			throw e;
 		}
 	}
 
@@ -158,9 +159,9 @@ public class LoadDicomFileService {
 		String studyInstanceUId = dicom.getString(Tag.StudyInstanceUID);
 		String seriesInstanceUId = dicom.getString(Tag.SeriesInstanceUID);
 		String sopInstanceUId = dicom.getString(Tag.SOPInstanceUID);
-		String studyUID = CommonUtils.MD5(fileInfo.getHospitalId() + studyInstanceUId);
-		String seriesUID = CommonUtils.MD5(fileInfo.getHospitalId() + seriesInstanceUId);
-		String instanceUID = CommonUtils.MD5(fileInfo.getHospitalId() + sopInstanceUId);
+		String studyUID = CommonUtils.MD5(fileInfo.getStudyInfoId() + studyInstanceUId);
+		String seriesUID = CommonUtils.MD5(fileInfo.getStudyInfoId() + seriesInstanceUId);
+		String instanceUID = CommonUtils.MD5(fileInfo.getStudyInfoId() + sopInstanceUId);
 		Study study = studyDao.findUnique("selectByPrimaryKey", studyUID);
 		Series series = null;
 		Instance instance = null;

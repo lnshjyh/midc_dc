@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.transaction.Transactional;
 
+import org.apache.commons.lang.StringUtils;
 import org.cw.midc.dao.FileInfoDao;
 import org.cw.midc.dao.HospitalDao;
 import org.cw.midc.dao.MediaInfoDao;
@@ -153,8 +154,9 @@ public class DicomFileService {
 	public void onParseFileFailed(FileInfo fileInfo)
 	{
         Map<String, String> paramMap = Maps.newHashMap();
+        String failedReason = StringUtils.substring(fileInfo.getFailedReason(), 0, 128);
         paramMap.put("status", "2");
-        paramMap.put("failedReason", fileInfo.getFailedReason());
+        paramMap.put("failedReason", failedReason);
         paramMap.put("fileId", fileInfo.getFileId());
         fileInfoDao.update("updateStatusById", paramMap);
 	}
