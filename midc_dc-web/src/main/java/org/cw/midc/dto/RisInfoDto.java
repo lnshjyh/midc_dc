@@ -26,6 +26,7 @@ public class RisInfoDto implements Serializable{
 	//patient information
 	private String patientName;
 	private String patientSpellName;
+	private String patientId;
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date birthday;
@@ -253,6 +254,12 @@ public class RisInfoDto implements Serializable{
 	}
 	public void setApplyTime(String applyTime) {
 		this.applyTime = applyTime;
+	}
+	public String getPatientId() {
+		return patientId;
+	}
+	public void setPatientId(String patientId) {
+		this.patientId = patientId;
 	}
 
 	

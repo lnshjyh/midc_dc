@@ -112,7 +112,7 @@ public class RisFactory {
 				risInfoDto.getAddress(), 
 				risInfoDto.getPatientCardId(), 
 				"");
-		
+		patient.setOrgPatientId(risInfoDto.getPatientId());
 		return patient;
 	}
 

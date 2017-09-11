@@ -53,6 +53,7 @@
     <result column="rptId" property="rptId" jdbcType="VARCHAR" />
     <result column="patientId" property="patientId" jdbcType="VARCHAR" />
     <result column="patientName" property="patientName" jdbcType="VARCHAR" />
+    <result column="orgPatientId" property="orgPatientId" jdbcType="VARCHAR" />
     <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
     <result column="patientSex" property="patientSex" jdbcType="VARCHAR" />
     <result column="patientType" property="patientType" jdbcType="VARCHAR" />
@@ -174,7 +175,9 @@
 			'中心到基层'
 		END AS transStatus,
         a.status as status,a.is_available as isAvailable,a.apply_doc_name as applyDocName
-        ,a.apply_dep_name as applyDepName,a.apply_time as applyTime, a.study_time as studyTime, a.hosp_id as hospitalId,a.rpt_id as rptId,a.pat_id as patientId,b.pat_name as patientName,b.birthday as birthday,b.sex as patientSex
+        ,a.apply_dep_name as applyDepName,a.apply_time as applyTime, a.study_time as studyTime
+        ,a.hosp_id as hospitalId,a.rpt_id as rptId,a.pat_id as patientId,b.pat_name as patientName
+        ,b.org_pat_id as orgPatientId, b.birthday as birthday,b.sex as patientSex
         ,b.patient_type as patientType,c.hosp_name as hospName
          from study_info a ,patient b ,hospital c
         <where>
@@ -191,6 +194,11 @@
             <if test="@Ognl@isNotEmpty(patientId)">
                 and b.pat_id = #{patientId}
             </if>
+            
+            <if test="@Ognl@isNotEmpty(orgPatientId)">
+                and b.org_pat_id = #{orgPatientId}
+            </if>
+            
             <if test="@Ognl@isNotEmpty(patientSex)">
                 and b.sex = #{patientSex}
             </if>
@@ -332,6 +340,11 @@
             <if test="@Ognl@isNotEmpty(patientId)">
                 and b.pat_id = #{patientId}
             </if>
+            
+            <if test="@Ognl@isNotEmpty(orgPatientId)">
+                and b.org_pat_id = #{orgPatientId}
+            </if>
+            
             <if test="@Ognl@isNotEmpty(patientSex)">
                 and b.sex = #{patientSex}
             </if>

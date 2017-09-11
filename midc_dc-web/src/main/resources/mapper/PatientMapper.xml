@@ -24,12 +24,12 @@
   </select>
  
   <insert id="insert" parameterType="org.cw.midc.entity.Patient" >
-    insert into patient (pat_id, address, birthday, 
+    insert into patient (pat_id, org_pat_id, address, birthday, 
       create_time, id_number, nationality, 
       oper_id, pat_card_id, pat_name, 
       pat_spell_name, patient_type, phone_number, 
       sex, update_time)
-    values (#{patId,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{birthday,jdbcType=TIMESTAMP}, 
+    values (#{patId,jdbcType=VARCHAR}, #{orgPatientId,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{birthday,jdbcType=TIMESTAMP}, 
       #{createTime,jdbcType=TIMESTAMP}, #{idNumber,jdbcType=VARCHAR}, #{nationality,jdbcType=VARCHAR}, 
       #{operId,jdbcType=VARCHAR}, #{patCardId,jdbcType=VARCHAR}, #{patName,jdbcType=VARCHAR}, 
       #{patSpellName,jdbcType=VARCHAR}, #{patientType,jdbcType=VARCHAR}, #{phoneNumber,jdbcType=VARCHAR}, 

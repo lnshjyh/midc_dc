@@ -6,6 +6,8 @@ import org.cw.midc.BaseEntity;
 
 public class Patient extends BaseEntity{
     private String patId;
+    
+    private String orgPatientId;
 
     private String address;
 
@@ -178,4 +180,14 @@ public class Patient extends BaseEntity{
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
+
+	public String getOrgPatientId() {
+		return orgPatientId;
+	}
+
+	public void setOrgPatientId(String orgPatientId) {
+		this.orgPatientId = orgPatientId;
+	}
+    
+    
 }
