@@ -170,6 +170,7 @@ CREATE TABLE "OAUTH_ACCESS_TOKEN"  (
 /*==============================================================*/
 CREATE TABLE "PATIENT"  (
    "PAT_ID"             VARCHAR2(64)                    NOT NULL,
+   "ORG_PAT_ID"         VARCHAR2(64)                   DEFAULT NULL,
    "ADDRESS"            VARCHAR2(512)                  DEFAULT NULL,
    "BIRTHDAY"           DATE                           DEFAULT NULL,
    "CREATE_TIME"        DATE                           DEFAULT NULL,
