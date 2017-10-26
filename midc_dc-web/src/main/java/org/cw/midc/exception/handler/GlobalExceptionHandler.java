@@ -1,5 +1,7 @@
 package org.cw.midc.exception.handler;
 
+import java.lang.reflect.UndeclaredThrowableException;
+
 import org.cw.midc.Response;
 
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
@@ -13,11 +15,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @ControllerAdvice()
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(RuntimeException.class)
+    @ExceptionHandler(Exception.class)
     @ResponseBody
-    public Response exceptionHandler(RuntimeException e) {
+    public Response exceptionHandler(Exception e) {
         Response resp = new Response();
         resp.setCode(1);
+        if(e instanceof UndeclaredThrowableException)
+        {
+        	e = (Exception)((UndeclaredThrowableException) e).getUndeclaredThrowable();
+        }
         String errorMsg = e.getMessage();
         if(errorMsg.indexOf(":")>-1){
             errorMsg = errorMsg.split(":")[1];

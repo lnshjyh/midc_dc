@@ -2,6 +2,8 @@ package org.cw.midc.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 
 import org.apache.commons.lang.StringUtils;
 import org.cw.midc.dao.InstanceDao;
@@ -32,6 +34,7 @@ import org.rribbit.RequestResponseBus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -39,47 +42,42 @@ import net.lingala.zip4j.exception.ZipException;
 
 @Service
 public class LoadDicomFileService {
-	
-	
+
 	private static final Logger log = LoggerFactory.getLogger(LoadDicomFileService.class);
-	
+
 	@Autowired
 	private PacsFactory pacsFactory;
-	
+
 	@Autowired
 	private FileService fileService;
-	
+
 	@Autowired
-	private StorageService storageService;	
-	
+	private StorageService storageService;
+
 	@Autowired
 	private StudyDao studyDao;
-	
+
 	@Autowired
 	private SeriesDao seriesDao;
-	
+
 	@Autowired
 	private InstanceDao instanceDao;
-	
+
 	@Autowired
 	private RisPacsRelDao risPacsRelDao;
-	
+
 	@Autowired
 	private StudyInfoDao studyInfoDao;
-	
+
 	@Autowired
 	private RequestResponseBus eventBus;
-	
+
 	@Listener(hint = "dicomFileUploaded")
-	public void loadDicomFile(FileInfo fileInfo) throws Exception
-	{
-		try
-		{
+	public void loadDicomFile(FileInfo fileInfo) throws Exception {
+		try {
 			loadDicomFile2DB(fileInfo);
 			eventBus.send("parseFileSucceeded", fileInfo);
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			fileInfo.setFailedReason(StringUtils.substring(e.getMessage(), 0, 128));
 			eventBus.send("parseFileFailed", fileInfo);
 			log.error("File:{} parse failed, cause: {}", fileInfo.getFileId(), e.getMessage());
@@ -89,22 +87,22 @@ public class LoadDicomFileService {
 
 	/**
 	 * 解析单个Dicom文件到DB
+	 * 
 	 * @param fileInfo
 	 * @throws ZipException
 	 * @throws IOException
-	 * @throws RisInfoNotFoundException 
-	 * @throws DicomFileDuplicatedException 
+	 * @throws RisInfoNotFoundException
+	 * @throws DicomFileDuplicatedException
 	 */
-	public void loadDicomFile2DB(FileInfo fileInfo) throws ZipException, IOException, RisInfoNotFoundException, DicomFileDuplicatedException
-	{
+	public void loadDicomFile2DB(FileInfo fileInfo)
+			throws ZipException, IOException, RisInfoNotFoundException, DicomFileDuplicatedException {
 		String newCloudStudyInfoId = fileInfo.getHospitalId() + fileInfo.getStudyInfoId();
 		StudyInfo studyInfo = studyInfoDao.findUnique("getById", newCloudStudyInfoId);
-		if(studyInfo == null)
-		{
+		if (studyInfo == null) {
 			log.error("Ris Information not found for {}", newCloudStudyInfoId);
 			throw new RisInfoNotFoundException(newCloudStudyInfoId);
 		}
-		
+
 		MediaInfo mediaInfo = storageService.getMediaInfo(fileInfo.getMediaId());
 		StorageInfo storageInfo = storageService.getStorageInfoById(mediaInfo.getStorageId());
 		String src = storageInfo.getPath() + mediaInfo.getPath() + fileInfo.getFilePath();
@@ -113,7 +111,8 @@ public class LoadDicomFileService {
 			tempFile = fileService.unzipOneFile(src);
 		} catch (ZipException e1) {
 			e1.printStackTrace();
-			log.error("File:{} unzip failed!, cause: {}", fileInfo.getFileId(), e1.getMessage());;
+			log.error("File:{} unzip failed!, cause: {}", fileInfo.getFileId(), e1.getMessage());
+			;
 			throw e1;
 		}
 		DicomObject dicom = new BasicDicomObject();
@@ -122,40 +121,39 @@ public class LoadDicomFileService {
 			dis = new DicomInputStream(tempFile);
 			dicom = dis.readDicomObject();
 			log.debug("Parse dicom file successfully.");
-			
-			//加载Dicom对象信息到DB
+
+			// 加载Dicom对象信息到DB
 			loadDicomObj2DB(fileInfo, dicom, studyInfo);
 		} catch (IOException e) {
 			e.printStackTrace();
-			log.error("File:{} dicom file parse failed, cause: {}",fileInfo.getFileId(), e.getMessage());
+			log.error("File:{} dicom file parse failed, cause: {}", fileInfo.getFileId(), e.getMessage());
 			throw e;
 		} catch (DicomFileDuplicatedException de) {
 			throw de;
-		}
-		finally {
-			if(dis != null)
-			{
+		} finally {
+			if (dis != null) {
 				try {
 					dis.close();
 				} catch (IOException e) {
 					e.printStackTrace();
-					log.error("File:{} close dicom stream failed, cause: {}",fileInfo.getFileId(), e.getMessage());
+					log.error("File:{} close dicom stream failed, cause: {}", fileInfo.getFileId(), e.getMessage());
 					throw e;
-				}				
+				}
 			}
 			tempFile.delete();
-		}		
+		}
 	}
-	
+
 	/**
 	 * 将Dicom对象加载到study, series, instance三级表中
+	 * 
 	 * @param fileInfo
 	 * @param dicom
-	 * @throws DicomFileDuplicatedException 
+	 * @throws DicomFileDuplicatedException
 	 */
-	@Transactional(rollbackFor=Exception.class)
-	public void loadDicomObj2DB(FileInfo fileInfo, DicomObject dicom, StudyInfo studyInfo) throws DicomFileDuplicatedException
-	{
+	@Transactional(rollbackFor = Exception.class)
+	public void loadDicomObj2DB2(FileInfo fileInfo, DicomObject dicom, StudyInfo studyInfo)
+			throws DicomFileDuplicatedException {
 		String studyInstanceUId = dicom.getString(Tag.StudyInstanceUID);
 		String seriesInstanceUId = dicom.getString(Tag.SeriesInstanceUID);
 		String sopInstanceUId = dicom.getString(Tag.SOPInstanceUID);
@@ -165,66 +163,120 @@ public class LoadDicomFileService {
 		Study study = studyDao.findUnique("selectByPrimaryKey", studyUID);
 		Series series = null;
 		Instance instance = null;
-		if(study == null)//如果study不存在
+		if (study == null)// 如果study不存在
 		{
-			//创建study
+			// 创建study
 			study = pacsFactory.createStudyFrom(dicom, fileInfo, studyUID);
-			
-			//存储Study
+
+			// 存储Study
 			studyDao.save(study);
 
-			//存储Ris和pacs关联关系表
+			// 存储Ris和pacs关联关系表
 			RisPacsRel rel = new RisPacsRel(studyInfo.getStudyinfoId(), studyUID);
 			risPacsRelDao.save(rel);
-			
 
-			
-			//创建series
+			// 创建series
 			series = pacsFactory.createSeriesFrom(dicom, fileInfo, seriesUID, studyUID);
 			seriesDao.save(series);
-			
-			//创建instance
+
+			// 创建instance
 			instance = pacsFactory.createInstanceFrom(dicom, fileInfo, instanceUID, seriesUID);
 			instanceDao.save(instance);
-			
-			//图象数+1
+
+			// 图象数+1
 			studyDao.update("increaseInstanceCount", studyUID);
-		}
-		else
-		{
+		} else {
 			series = seriesDao.findUnique("selectByPrimaryKey", seriesUID);
-			if(series == null)//序列不存在
+			if (series == null)// 序列不存在
 			{
-				//创建序列
+				// 创建序列
 				series = pacsFactory.createSeriesFrom(dicom, fileInfo, seriesUID, studyUID);
 				seriesDao.save(series);
-				
-				//创建instance
+
+				// 创建instance
 				instance = pacsFactory.createInstanceFrom(dicom, fileInfo, instanceUID, seriesUID);
 				instanceDao.save(instance);
-				
-				//图象数+1
+
+				// 图象数+1
 				studyDao.update("increaseInstanceCount", studyUID);
-			}
-			else
-			{
+			} else {
 				instance = instanceDao.findUnique("selectByPrimaryKey", seriesUID);
-				if(instance == null)
-				{
-					//仅创建instance
+				if (instance == null) {
+					// 仅创建instance
 					instance = pacsFactory.createInstanceFrom(dicom, fileInfo, instanceUID, seriesUID);
 					instanceDao.save(instance);
-					
-					//图象数+1
+
+					// 图象数+1
 					studyDao.update("increaseInstanceCount", studyUID);
-				}
-				else
-				{
+				} else {
 					log.error("File:{} exist, ignore it", fileInfo.getFileId());
 					throw new DicomFileDuplicatedException();
 				}
 			}
 		}
 	}
-	
+
+	/**
+	 * 将Dicom对象加载到study, series, instance三级表中
+	 * 
+	 * @param fileInfo
+	 * @param dicom
+	 * @throws DicomFileDuplicatedException
+	 */
+	@Transactional(rollbackFor = Exception.class)
+	public void loadDicomObj2DB(FileInfo fileInfo, DicomObject dicom, StudyInfo studyInfo)
+			throws DicomFileDuplicatedException {
+		String studyInstanceUId = dicom.getString(Tag.StudyInstanceUID);
+		String seriesInstanceUId = dicom.getString(Tag.SeriesInstanceUID);
+		String sopInstanceUId = dicom.getString(Tag.SOPInstanceUID);
+		String studyUID = CommonUtils.MD5(fileInfo.getStudyInfoId() + studyInstanceUId);
+		String seriesUID = CommonUtils.MD5(fileInfo.getStudyInfoId() + seriesInstanceUId);
+		String instanceUID = CommonUtils.MD5(fileInfo.getStudyInfoId() + sopInstanceUId);
+		Study study = null;
+		Series series = null;
+		Instance instance = null;
+
+		//创建study
+		try
+		{			
+			study = pacsFactory.createStudyFrom(dicom, fileInfo, studyUID);
+			studyDao.save(study);
+			
+			//创建Ris和pacs关联关系表
+			RisPacsRel rel = new RisPacsRel(studyInfo.getStudyinfoId(), studyUID);
+			risPacsRelDao.save(rel);
+		}
+		catch(DuplicateKeyException es)
+		{
+			log.debug("Study:{} already exist.", studyInstanceUId);
+		}
+
+		//创建series
+        try
+        {
+        	
+        	series = pacsFactory.createSeriesFrom(dicom, fileInfo, seriesUID, studyUID);
+        	seriesDao.save(series);
+        }
+		catch(DuplicateKeyException es)
+		{
+			log.debug("Series:{} already exist.", seriesInstanceUId);
+		}
+
+		//创建instance
+        try
+        {
+        	instance = pacsFactory.createInstanceFrom(dicom, fileInfo, instanceUID, seriesUID);
+        	instanceDao.save(instance);
+        	
+        	//图象数+1
+    		studyDao.update("increaseInstanceCount", studyUID);
+        }
+		catch(DuplicateKeyException es)
+		{
+			log.error("Instance:{} already exist.", sopInstanceUId);
+			log.error("File:{} exist, ignore it", fileInfo.getFileId());
+			throw new DicomFileDuplicatedException();
+		}
+	}
 }
